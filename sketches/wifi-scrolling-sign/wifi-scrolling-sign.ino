@@ -1,0 +1,129 @@
+/*
+  Wi-Fi Scrolling Sign — Parts Lab
+  Board: ESP32 DevKit
+  No extra library: the code talks to the MAX7219 chips directly (LedControl only works on AVR boards).
+  Wiring through a 4-channel level shifter (LV = 3V3, HV = 5V from VIN, GNDs together):
+          GPIO 23 -> DIN, GPIO 18 -> CLK, GPIO 5 -> CS ; matrix VCC -> VIN (5V), GND -> GND
+  Open http://partslab-sign.local (or the IP from the Serial Monitor at 115200).
+*/
+#include <WiFi.h>
+#include <WebServer.h>
+#include <ESPmDNS.h>
+
+const char* WIFI_SSID = "YOUR_WIFI_NAME";         // CHANGE ME (2.4 GHz network)
+const char* WIFI_PASSWORD = "YOUR_WIFI_PASSWORD"; // CHANGE ME
+const int DEVICES = 4, INTENSITY = 2, SPEED_MS = 45;
+const bool REVERSE_DEVICES = true, ROTATE = false, FLIP = false;   // fix orientation if needed
+
+const int DIN = 23, CLK = 18, CS = 5;
+byte frame[4][8];                    // one byte per row, per matrix
+WebServer server(80);
+String message = "  HELLO  ";
+int offset = 0;
+
+// 5x7 font for ASCII 32 (space) .. 90 (Z); bit 0 = top row
+const uint8_t FONT[][5] = {
+  {0x00,0x00,0x00,0x00,0x00},{0x00,0x00,0x5F,0x00,0x00},{0x00,0x07,0x00,0x07,0x00},{0x14,0x7F,0x14,0x7F,0x14},
+  {0x24,0x2A,0x7F,0x2A,0x12},{0x23,0x13,0x08,0x64,0x62},{0x36,0x49,0x55,0x22,0x50},{0x00,0x05,0x03,0x00,0x00},
+  {0x00,0x1C,0x22,0x41,0x00},{0x00,0x41,0x22,0x1C,0x00},{0x08,0x2A,0x1C,0x2A,0x08},{0x08,0x08,0x3E,0x08,0x08},
+  {0x00,0x50,0x30,0x00,0x00},{0x08,0x08,0x08,0x08,0x08},{0x00,0x60,0x60,0x00,0x00},{0x20,0x10,0x08,0x04,0x02},
+  {0x3E,0x51,0x49,0x45,0x3E},{0x00,0x42,0x7F,0x40,0x00},{0x42,0x61,0x51,0x49,0x46},{0x21,0x41,0x45,0x4B,0x31},
+  {0x18,0x14,0x12,0x7F,0x10},{0x27,0x45,0x45,0x45,0x39},{0x3C,0x4A,0x49,0x49,0x30},{0x01,0x71,0x09,0x05,0x03},
+  {0x36,0x49,0x49,0x49,0x36},{0x06,0x49,0x49,0x29,0x1E},{0x00,0x36,0x36,0x00,0x00},{0x00,0x56,0x36,0x00,0x00},
+  {0x00,0x08,0x14,0x22,0x41},{0x14,0x14,0x14,0x14,0x14},{0x41,0x22,0x14,0x08,0x00},{0x02,0x01,0x51,0x09,0x06},
+  {0x32,0x49,0x79,0x41,0x3E},{0x7E,0x11,0x11,0x11,0x7E},{0x7F,0x49,0x49,0x49,0x36},{0x3E,0x41,0x41,0x41,0x22},
+  {0x7F,0x41,0x41,0x22,0x1C},{0x7F,0x49,0x49,0x49,0x41},{0x7F,0x09,0x09,0x01,0x01},{0x3E,0x41,0x41,0x51,0x32},
+  {0x7F,0x08,0x08,0x08,0x7F},{0x00,0x41,0x7F,0x41,0x00},{0x20,0x40,0x41,0x3F,0x01},{0x7F,0x08,0x14,0x22,0x41},
+  {0x7F,0x40,0x40,0x40,0x40},{0x7F,0x02,0x04,0x02,0x7F},{0x7F,0x04,0x08,0x10,0x7F},{0x3E,0x41,0x41,0x41,0x3E},
+  {0x7F,0x09,0x09,0x09,0x06},{0x3E,0x41,0x51,0x21,0x5E},{0x7F,0x09,0x19,0x29,0x46},{0x46,0x49,0x49,0x49,0x31},
+  {0x01,0x01,0x7F,0x01,0x01},{0x3F,0x40,0x40,0x40,0x3F},{0x1F,0x20,0x40,0x20,0x1F},{0x7F,0x20,0x18,0x20,0x7F},
+  {0x63,0x14,0x08,0x14,0x63},{0x07,0x08,0x70,0x08,0x07},{0x61,0x51,0x49,0x45,0x43}
+};
+
+const char PAGE[] = R"HTML(<!doctype html><html><head>
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>Lab Sign</title>
+<style>body{font-family:system-ui,sans-serif;background:#0b0e18;color:#e8f1ff;text-align:center;padding:24px}
+input{font-size:20px;width:90%;padding:14px;border-radius:12px;border:0}button{font-size:20px;padding:14px 28px;margin-top:14px;border-radius:14px;border:0;background:#ff4fa3;color:#fff}</style></head>
+<body><h2>&#127873; Lab Sign</h2><form action="/set"><input name="m" maxlength="60" placeholder="Your message"><br><button>Send</button></form></body></html>)HTML";
+
+// Send the same register to every matrix in the chain (the first byte sent ends up in the last matrix)
+void sendAll(byte reg, const byte data[]) {
+  digitalWrite(CS, LOW);
+  for (int d = DEVICES - 1; d >= 0; d--) {
+    shiftOut(DIN, CLK, MSBFIRST, reg);
+    shiftOut(DIN, CLK, MSBFIRST, data[d]);
+  }
+  digitalWrite(CS, HIGH);
+}
+
+void sendSetting(byte reg, byte value) {
+  byte data[DEVICES];
+  for (int d = 0; d < DEVICES; d++) data[d] = value;
+  sendAll(reg, data);
+}
+
+void flush() {
+  for (int row = 0; row < 8; row++) {
+    byte data[DEVICES];
+    for (int d = 0; d < DEVICES; d++) data[d] = frame[d][row];
+    sendAll(row + 1, data);          // registers 1..8 hold the 8 rows
+  }
+}
+
+byte messageColumn(int index) {
+  int c = message[index / 6];
+  int col = index % 6;
+  if (c >= 'a' && c <= 'z') c -= 32;
+  if (c < 32 || c > 90 || col == 5) return 0;
+  return FONT[c - 32][col];
+}
+
+void drawColumn(int x, byte bits) {   // bits: bit 0 = top pixel
+  int dev = x / 8, col = x % 8;
+  if (REVERSE_DEVICES) dev = DEVICES - 1 - dev;
+  if (FLIP) col = 7 - col;
+  if (ROTATE) { frame[dev][col] = bits; return; }
+  for (int row = 0; row < 8; row++) {
+    if (bits & (1 << row)) frame[dev][row] |= (0x80 >> col);
+    else frame[dev][row] &= ~(0x80 >> col);
+  }
+}
+
+void setup() {
+  Serial.begin(115200);
+  pinMode(DIN, OUTPUT);
+  pinMode(CLK, OUTPUT);
+  pinMode(CS, OUTPUT);
+  digitalWrite(CS, HIGH);
+  sendSetting(0x0F, 0);           // display test off
+  sendSetting(0x09, 0);           // no digit decoding (raw pixels)
+  sendSetting(0x0B, 7);           // scan all 8 rows
+  sendSetting(0x0A, INTENSITY);   // brightness 0..15
+  sendSetting(0x0C, 1);           // wake up
+  flush();
+  WiFi.mode(WIFI_STA);
+  WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
+  Serial.print("Connecting");
+  while (WiFi.status() != WL_CONNECTED) { delay(500); Serial.print("."); }
+  Serial.print("\nOpen http://");
+  Serial.println(WiFi.localIP());
+  MDNS.begin("partslab-sign");
+  server.on("/", []() { server.send(200, "text/html", String(PAGE)); });
+  server.on("/set", []() {
+    String m = server.arg("m");
+    if (m.length() > 0) { message = "  " + m + "  "; offset = 0; Serial.println("New message: " + m); }
+    server.send(200, "text/html", String(PAGE));
+  });
+  server.begin();
+}
+
+void loop() {
+  server.handleClient();
+  static unsigned long last = 0;
+  if (millis() - last < (unsigned long)SPEED_MS) return;
+  last = millis();
+  int total = message.length() * 6;
+  for (int x = 0; x < DEVICES * 8; x++) drawColumn(x, messageColumn((offset + x) % total));
+  flush();
+  offset = (offset + 1) % total;
+}

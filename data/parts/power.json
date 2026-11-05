@@ -1,0 +1,649 @@
+[
+  {
+    "id": "battery-9v",
+    "name": "9V Battery + Snap Connector",
+    "category": "power",
+    "icon": "battery-9v",
+    "desc": "A quick way to run a small Arduino project without USB (connect to VIN or the barrel jack). It drains fast, so it's not for motors or LED strips.",
+    "voltage": "9V",
+    "interfaces": [
+      "Power"
+    ],
+    "tags": [
+      "battery",
+      "portable",
+      "9v"
+    ],
+    "price": [
+      8,
+      20
+    ]
+  },
+  {
+    "id": "battery-aa-4",
+    "name": "4×AA Battery Holder (with switch)",
+    "category": "power",
+    "icon": "battery-aa",
+    "desc": "Holds four AA batteries for about 6V (or 4.8V with rechargeables). A good separate supply for servos and small motors.",
+    "voltage": "~6V (alkaline) · ~4.8V (NiMH)",
+    "interfaces": [
+      "Power"
+    ],
+    "tags": [
+      "battery",
+      "portable",
+      "aa",
+      "motor power"
+    ],
+    "price": [
+      4,
+      12
+    ],
+    "note": "Don't feed 6V into a board's 5V pin. Use VIN/barrel (7V+ recommended) or a regulator."
+  },
+  {
+    "id": "usb-adapter-5v",
+    "name": "5V 2A USB Wall Adapter",
+    "category": "power",
+    "icon": "plug",
+    "desc": "A phone charger that powers your project through its USB cable once it no longer needs a PC.",
+    "voltage": "5V 2A out · 220–240V wall",
+    "interfaces": [
+      "Power"
+    ],
+    "tags": [
+      "usb",
+      "charger",
+      "wall",
+      "5v"
+    ],
+    "price": [
+      15,
+      40
+    ]
+  },
+  {
+    "id": "adapter-12v",
+    "name": "12V 2A DC Adapter (barrel jack)",
+    "category": "power",
+    "icon": "plug",
+    "desc": "A wall adapter with a 5.5×2.1mm barrel plug. It powers Uno/Mega boards through their jack, plus 12V lights and motor drivers.",
+    "voltage": "12V 2A out · 220–240V wall",
+    "interfaces": [
+      "Power"
+    ],
+    "tags": [
+      "adapter",
+      "12v",
+      "barrel",
+      "wall"
+    ],
+    "price": [
+      15,
+      35
+    ],
+    "note": "The Uno's regulator gets hot at 12V when powering extras. Fine for the board alone, but use a buck converter for bigger loads."
+  },
+  {
+    "id": "buck-lm2596",
+    "name": "LM2596 Buck Converter (step-down)",
+    "category": "power",
+    "icon": "regulator",
+    "desc": "Turns a higher voltage (like 12V) into a lower one (like 5V) efficiently. Set the output with its screw before connecting anything.",
+    "voltage": "In 4.5–40V · out 1.25–37V adjustable · ~2A",
+    "vcc": [
+      4.5,
+      40
+    ],
+    "interfaces": [
+      "Power"
+    ],
+    "tags": [
+      "regulator",
+      "buck",
+      "step-down",
+      "5v"
+    ],
+    "price": [
+      5,
+      15
+    ],
+    "note": "Measure and set the output with a multimeter BEFORE connecting your board. Out of the box it can be set to anything."
+  },
+  {
+    "id": "mb102",
+    "name": "MB102 Breadboard Power Supply",
+    "category": "power",
+    "icon": "regulator",
+    "desc": "Clips onto a breadboard and feeds its power rails 5V or 3.3V (a jumper picks which for each side) from a 6.5–12V adapter.",
+    "voltage": "In 6.5–12V · out 5V / 3.3V · ~700mA",
+    "vcc": [
+      6.5,
+      12
+    ],
+    "interfaces": [
+      "Power"
+    ],
+    "tags": [
+      "breadboard",
+      "power",
+      "3.3v",
+      "5v"
+    ],
+    "price": [
+      5,
+      15
+    ],
+    "note": "Check the jumper on each side before powering 3.3V-only parts."
+  },
+  {
+    "id": "tp4056",
+    "name": "TP4056 Li-ion Charger (USB-C, protected)",
+    "category": "power",
+    "icon": "charger",
+    "desc": "Safely charges a single 3.7V lithium battery (18650 or LiPo) from USB. Pick the version with protection (6 pads, OUT+/OUT−).",
+    "voltage": "In 5V USB · battery 3.7V (4.2V full)",
+    "interfaces": [
+      "Power"
+    ],
+    "tags": [
+      "lithium",
+      "charger",
+      "18650",
+      "lipo",
+      "portable"
+    ],
+    "price": [
+      3,
+      10
+    ],
+    "note": "Lithium cells can catch fire if shorted, punctured or wired backwards. Double-check polarity and never leave them charging unattended."
+  },
+  {
+    "id": "relay-5v",
+    "name": "5V Relay Module (1-channel)",
+    "category": "power",
+    "icon": "relay",
+    "desc": "An electric switch your board can flip to turn a separate circuit on or off, like a 12V lamp or pump. It clicks!",
+    "voltage": "5V coil · switches up to 10A",
+    "vcc": [
+      5,
+      5
+    ],
+    "interfaces": [
+      "Digital"
+    ],
+    "tags": [
+      "relay",
+      "switch",
+      "12v",
+      "click"
+    ],
+    "price": [
+      5,
+      15
+    ],
+    "note": "Beginner rule: use it only for low-voltage DC loads (12V or less). Never wire it to 220V mains. Many modules are active-LOW (LOW = ON).",
+    "warn": {
+      "3.3": "Many 5V relay modules don't switch reliably from a 3.3V pin. Look for one marked \"3.3V/5V trigger\" or drive the input through a transistor."
+    }
+  },
+  {
+    "id": "power-bank",
+    "name": "USB Power Bank",
+    "category": "power",
+    "icon": "battery-pack",
+    "desc": "Your phone's power bank can run most projects for hours through the USB cable. The easiest portable power there is.",
+    "voltage": "5V USB",
+    "interfaces": [
+      "Power"
+    ],
+    "tags": [
+      "portable",
+      "usb",
+      "battery",
+      "5v"
+    ],
+    "price": [
+      30,
+      80
+    ],
+    "note": "Some power banks switch off when a project draws very little current."
+  },
+  {
+    "id": "cell-18650",
+    "name": "18650 Li-ion Cell (3.7V)",
+    "category": "power",
+    "icon": "cell",
+    "desc": "A rechargeable lithium cell (like a big AA) holding 2000–3000mAh. The heart of portable projects.",
+    "voltage": "3.7V nominal (4.2V full, ~3.0V empty)",
+    "interfaces": [
+      "Power"
+    ],
+    "tags": [
+      "battery",
+      "lithium",
+      "18650",
+      "rechargeable",
+      "portable"
+    ],
+    "price": [
+      15,
+      35
+    ],
+    "note": "Lithium cells can catch fire if shorted, punctured, over-charged or reversed. Use protected cells from trusted sellers, charge with a TP4056 and never leave them charging unattended."
+  },
+  {
+    "id": "holder-18650-1",
+    "name": "18650 Battery Holder (1 cell)",
+    "category": "power",
+    "icon": "battery-aa",
+    "desc": "Holds one 18650 cell with wires for your project.",
+    "voltage": "3.7V (one cell)",
+    "interfaces": [
+      "Power"
+    ],
+    "tags": [
+      "battery",
+      "holder",
+      "18650"
+    ],
+    "price": [
+      3,
+      8
+    ],
+    "note": "Check the polarity marks every time you insert a cell."
+  },
+  {
+    "id": "holder-18650-2",
+    "name": "18650 Battery Holder (2 in series)",
+    "category": "power",
+    "icon": "battery-aa",
+    "desc": "Holds two 18650 cells in series for about 7.4V (8.4V full). Great power for robot cars.",
+    "voltage": "~7.4V (8.4V full)",
+    "interfaces": [
+      "Power"
+    ],
+    "tags": [
+      "battery",
+      "holder",
+      "18650",
+      "robot"
+    ],
+    "price": [
+      4,
+      10
+    ],
+    "note": "Charge each cell with a proper charger. This holder doesn't protect the cells."
+  },
+  {
+    "id": "lipo-1000",
+    "name": "LiPo Battery 3.7V 1000mAh (with protection)",
+    "category": "power",
+    "icon": "battery-pack",
+    "desc": "A thin, light rechargeable battery for wearables and small gadgets.",
+    "voltage": "3.7V nominal (4.2V full)",
+    "interfaces": [
+      "Power"
+    ],
+    "tags": [
+      "battery",
+      "lipo",
+      "lithium",
+      "wearable"
+    ],
+    "price": [
+      20,
+      45
+    ],
+    "note": "Don't bend, puncture or short it. Charge with a TP4056 or a board with a LiPo charger. Check the JST connector polarity before plugging in!"
+  },
+  {
+    "id": "mt3608",
+    "name": "MT3608 Boost Converter (step-up)",
+    "category": "power",
+    "icon": "regulator",
+    "desc": "Raises a low voltage (like a 3.7V battery) to a higher one (like 5V or 12V). Set the output with its screw first.",
+    "voltage": "In 2–24V · out up to 28V · ~1A",
+    "interfaces": [
+      "Power"
+    ],
+    "tags": [
+      "boost",
+      "step-up",
+      "regulator",
+      "battery"
+    ],
+    "price": [
+      3,
+      10
+    ],
+    "vcc": [
+      2,
+      24
+    ],
+    "note": "Measure and set the output with a multimeter BEFORE connecting your project."
+  },
+  {
+    "id": "usb-boost-5v",
+    "name": "5V USB Boost Module (1–5V in)",
+    "category": "power",
+    "icon": "regulator",
+    "desc": "Turns 1–2 AA batteries or a lithium cell into USB 5V to run a board.",
+    "voltage": "In ~1–5V · out 5V USB",
+    "interfaces": [
+      "Power"
+    ],
+    "tags": [
+      "boost",
+      "usb",
+      "battery",
+      "5v"
+    ],
+    "price": [
+      3,
+      8
+    ],
+    "note": "Small boost modules give only a few hundred mA from 1–2 AA cells."
+  },
+  {
+    "id": "ams1117-module",
+    "name": "AMS1117 3.3V Regulator Module",
+    "category": "power",
+    "icon": "regulator",
+    "desc": "Turns 5V into a clean 3.3V (up to ~800mA) for ESP-01s, radios and 3.3V sensors.",
+    "voltage": "In 4.5–7V · out 3.3V",
+    "interfaces": [
+      "Power"
+    ],
+    "tags": [
+      "regulator",
+      "3.3v",
+      "power"
+    ],
+    "price": [
+      2,
+      6
+    ],
+    "vcc": [
+      4.5,
+      7
+    ]
+  },
+  {
+    "id": "lm7805",
+    "name": "LM7805 5V Linear Regulator",
+    "category": "power",
+    "icon": "mosfet",
+    "desc": "The classic 3-pin regulator: feed it 7–35V, get a steady 5V (up to 1A).",
+    "voltage": "In 7–35V · out 5V",
+    "interfaces": [
+      "Power"
+    ],
+    "tags": [
+      "regulator",
+      "5v",
+      "power"
+    ],
+    "price": [
+      1,
+      4
+    ],
+    "vcc": [
+      7,
+      35
+    ],
+    "note": "Needs a 0.33µF capacitor on the input and 0.1µF on the output. It gets hot when the voltage drop is large: add a heatsink."
+  },
+  {
+    "id": "mp1584",
+    "name": "MP1584 Mini Buck Converter",
+    "category": "power",
+    "icon": "regulator",
+    "desc": "A tiny, efficient step-down module: 12V in, 5V out for your board.",
+    "voltage": "In 4.5–28V · out 0.8–20V · ~2A",
+    "interfaces": [
+      "Power"
+    ],
+    "tags": [
+      "buck",
+      "step-down",
+      "regulator",
+      "small"
+    ],
+    "price": [
+      3,
+      8
+    ],
+    "vcc": [
+      4.5,
+      28
+    ],
+    "note": "Set the output voltage with a multimeter before connecting anything."
+  },
+  {
+    "id": "barrel-jack-breakout",
+    "name": "DC Barrel Jack Breakout (5.5x2.1mm)",
+    "category": "power",
+    "icon": "barrel",
+    "desc": "A socket for wall adapters with screw terminals, so you can feed adapter power to a breadboard.",
+    "voltage": "Passes through the adapter's voltage",
+    "interfaces": [
+      "Power"
+    ],
+    "tags": [
+      "power",
+      "barrel",
+      "adapter",
+      "connector"
+    ],
+    "price": [
+      2,
+      6
+    ],
+    "note": "Centre pin is usually +. Check with a multimeter."
+  },
+  {
+    "id": "usbc-breakout",
+    "name": "USB-C Power Breakout (5V)",
+    "category": "power",
+    "icon": "usbc",
+    "desc": "Get 5V from any USB-C charger into your breadboard or project.",
+    "voltage": "5V",
+    "interfaces": [
+      "Power"
+    ],
+    "tags": [
+      "usb-c",
+      "power",
+      "5v",
+      "connector"
+    ],
+    "price": [
+      3,
+      8
+    ],
+    "note": "Pick one with two 5.1kΩ CC resistors, otherwise USB-C-to-C chargers won't give power."
+  },
+  {
+    "id": "adapter-5v-4a",
+    "name": "5V 4A DC Adapter (barrel jack)",
+    "category": "power",
+    "icon": "plug",
+    "desc": "A strong 5V supply for LED strips and matrices.",
+    "voltage": "5V 4A out · 220–240V wall",
+    "interfaces": [
+      "Power"
+    ],
+    "tags": [
+      "adapter",
+      "5v",
+      "led strip",
+      "wall"
+    ],
+    "price": [
+      25,
+      50
+    ]
+  },
+  {
+    "id": "adapter-9v",
+    "name": "9V 1A DC Adapter (barrel jack)",
+    "category": "power",
+    "icon": "plug",
+    "desc": "The ideal adapter for an Uno or Mega's barrel jack (the onboard regulator stays cooler than at 12V).",
+    "voltage": "9V 1A out · 220–240V wall",
+    "interfaces": [
+      "Power"
+    ],
+    "tags": [
+      "adapter",
+      "9v",
+      "arduino",
+      "wall"
+    ],
+    "price": [
+      15,
+      30
+    ]
+  },
+  {
+    "id": "relay-2ch",
+    "name": "5V Relay Module (2-channel)",
+    "category": "power",
+    "icon": "relay",
+    "desc": "Two relays on one board, to switch two low-voltage circuits independently.",
+    "voltage": "5V coils · switches up to 10A",
+    "interfaces": [
+      "Digital"
+    ],
+    "tags": [
+      "relay",
+      "switch",
+      "12v"
+    ],
+    "price": [
+      8,
+      20
+    ],
+    "vcc": [
+      5,
+      5
+    ],
+    "note": "Beginner rule: low-voltage DC loads only, never mains. Usually active-LOW. JD-VCC jumper: leave it on unless you know why to remove it.",
+    "warn": {
+      "3.3": "Many 5V relay modules don't switch reliably from 3.3V pins. Use a 3.3V-trigger relay or a transistor."
+    }
+  },
+  {
+    "id": "mosfet-module-d4184",
+    "name": "D4184 MOSFET Switch Module",
+    "category": "power",
+    "icon": "mosfet",
+    "desc": "A ready-made MOSFET switch board with screw terminals for LED strips, pumps and fans.",
+    "voltage": "Up to 40V DC · logic-level gate",
+    "interfaces": [
+      "PWM"
+    ],
+    "tags": [
+      "mosfet",
+      "switch",
+      "led strip",
+      "pump"
+    ],
+    "price": [
+      4,
+      10
+    ],
+    "note": "For motors/pumps, still add a flyback diode (1N4007) across the load.",
+    "warn": {
+      "3.3": "From a 3.3V pin the D4184 is only partly on: fine for loads up to ~2A, but it heats up with bigger loads."
+    }
+  },
+  {
+    "id": "solar-6v",
+    "name": "Solar Panel 6V 1W",
+    "category": "power",
+    "icon": "solar",
+    "desc": "A small panel that makes up to ~170mA in full sun, enough to charge a battery for outdoor sensors.",
+    "voltage": "6V (open circuit up to ~7V)",
+    "interfaces": [
+      "Power"
+    ],
+    "tags": [
+      "solar",
+      "sun",
+      "outdoor",
+      "charging"
+    ],
+    "price": [
+      12,
+      30
+    ],
+    "note": "Use it to charge a battery through a charger module, not to power a board directly."
+  },
+  {
+    "id": "cr2032-holder",
+    "name": "CR2032 Coin Cell Holder",
+    "category": "power",
+    "icon": "battery-9v",
+    "desc": "Holds a 3V coin cell for tiny LED gifts and RTC backups.",
+    "voltage": "3V",
+    "interfaces": [
+      "Power"
+    ],
+    "tags": [
+      "battery",
+      "coin cell",
+      "3v"
+    ],
+    "price": [
+      1,
+      4
+    ],
+    "note": "A coin cell can light an LED but can't power a board for long. Keep cells away from small children."
+  },
+  {
+    "id": "rocker-switch",
+    "name": "Rocker Switch (DC, panel mount)",
+    "category": "power",
+    "icon": "toggle",
+    "desc": "An on/off switch for the outside of your project box.",
+    "voltage": "Low-voltage DC (check the rating)",
+    "interfaces": [
+      "Power"
+    ],
+    "tags": [
+      "switch",
+      "power",
+      "panel"
+    ],
+    "price": [
+      2,
+      8
+    ],
+    "note": "Beginner rule: use it only on low-voltage DC (e.g. battery or 12V adapter side), never on mains wiring."
+  },
+  {
+    "id": "inline-fuse",
+    "name": "Inline Fuse Holder + Blade Fuses",
+    "category": "power",
+    "icon": "fuse",
+    "desc": "Protects battery and 12V projects: if something shorts, the fuse blows instead of wires melting.",
+    "voltage": "Low-voltage DC (fuses 1–5A)",
+    "interfaces": [
+      "Power"
+    ],
+    "tags": [
+      "fuse",
+      "safety",
+      "12v",
+      "battery"
+    ],
+    "price": [
+      5,
+      15
+    ],
+    "note": "Pick a fuse rating just above your project's normal current."
+  }
+]

@@ -1,0 +1,738 @@
+[
+  {
+    "id": "arduino-uno",
+    "name": "Arduino Uno R3",
+    "category": "boards",
+    "icon": "board-uno",
+    "desc": "The classic beginner board: plug it into USB, upload code, and control LEDs, sensors and more. Most tutorials on the internet use it.",
+    "voltage": "5V logic · USB 5V or 7–12V barrel jack",
+    "logic": 5,
+    "fqbn": "arduino:avr:uno",
+    "interfaces": [
+      "Digital",
+      "PWM",
+      "Analog",
+      "I2C",
+      "SPI",
+      "UART"
+    ],
+    "tags": [
+      "arduino",
+      "atmega328p",
+      "beginner",
+      "uno"
+    ],
+    "price": [
+      20,
+      60
+    ],
+    "note": "Cheap clones use a CH340 USB chip. If your PC doesn't see the board, install the free CH340 driver."
+  },
+  {
+    "id": "arduino-nano",
+    "name": "Arduino Nano (ATmega328P)",
+    "category": "boards",
+    "icon": "board-nano",
+    "desc": "A tiny Uno that fits right on a breadboard. Same chip and same pin numbers as the Uno, just smaller.",
+    "voltage": "5V logic · USB 5V or 7–12V on VIN",
+    "logic": 5,
+    "fqbn": "arduino:avr:nano",
+    "interfaces": [
+      "Digital",
+      "PWM",
+      "Analog",
+      "I2C",
+      "SPI",
+      "UART"
+    ],
+    "tags": [
+      "arduino",
+      "atmega328p",
+      "breadboard",
+      "small"
+    ],
+    "price": [
+      12,
+      40
+    ],
+    "note": "If uploading fails on a clone, choose Processor: \"ATmega328P (Old Bootloader)\" in the Arduino IDE."
+  },
+  {
+    "id": "arduino-mega",
+    "name": "Arduino Mega 2560",
+    "category": "boards",
+    "icon": "board-mega",
+    "desc": "The big brother of the Uno with 54 digital pins and 16 analog inputs. Great when a project needs lots of buttons, LEDs or sensors at once.",
+    "voltage": "5V logic · USB 5V or 7–12V barrel jack",
+    "logic": 5,
+    "fqbn": "arduino:avr:mega",
+    "interfaces": [
+      "Digital",
+      "PWM",
+      "Analog",
+      "I2C",
+      "SPI",
+      "UART"
+    ],
+    "tags": [
+      "arduino",
+      "atmega2560",
+      "many pins"
+    ],
+    "price": [
+      40,
+      110
+    ]
+  },
+  {
+    "id": "arduino-leonardo",
+    "name": "Arduino Leonardo",
+    "category": "boards",
+    "icon": "board-uno",
+    "desc": "Looks like an Uno, but its chip can pretend to be a USB keyboard, mouse or game controller. Perfect for macro pads and custom gaming controls.",
+    "voltage": "5V logic · USB 5V or 7–12V barrel jack",
+    "logic": 5,
+    "fqbn": "arduino:avr:leonardo",
+    "interfaces": [
+      "Digital",
+      "PWM",
+      "Analog",
+      "I2C",
+      "SPI",
+      "UART",
+      "USB HID"
+    ],
+    "tags": [
+      "arduino",
+      "atmega32u4",
+      "keyboard",
+      "hid",
+      "gaming"
+    ],
+    "price": [
+      25,
+      70
+    ]
+  },
+  {
+    "id": "esp32-devkit",
+    "name": "ESP32 DevKit V1 (WROOM-32)",
+    "category": "boards",
+    "icon": "board-esp32",
+    "desc": "A powerful board with built-in Wi-Fi and Bluetooth, so your projects can talk to your phone or the internet. Fast enough for games and small web servers.",
+    "voltage": "3.3V logic · powered by USB 5V",
+    "logic": 3.3,
+    "fqbn": "esp32:esp32:esp32",
+    "interfaces": [
+      "Digital",
+      "PWM",
+      "Analog",
+      "I2C",
+      "SPI",
+      "UART",
+      "I2S",
+      "Wi-Fi",
+      "Bluetooth",
+      "BLE"
+    ],
+    "tags": [
+      "esp32",
+      "wifi",
+      "bluetooth",
+      "iot"
+    ],
+    "price": [
+      18,
+      45
+    ],
+    "note": "Its pins are 3.3V and not 5V-tolerant. GPIO 34–39 are input-only."
+  },
+  {
+    "id": "esp32-c3-supermini",
+    "name": "ESP32-C3 SuperMini",
+    "category": "boards",
+    "icon": "board-mini",
+    "desc": "A thumb-sized Wi-Fi + Bluetooth LE board with USB-C. Great for tiny gadgets, wearables and gifts.",
+    "voltage": "3.3V logic · powered by USB-C 5V",
+    "logic": 3.3,
+    "fqbn": "esp32:esp32:esp32c3:CDCOnBoot=cdc",
+    "interfaces": [
+      "Digital",
+      "PWM",
+      "Analog",
+      "I2C",
+      "SPI",
+      "UART",
+      "Wi-Fi",
+      "BLE"
+    ],
+    "tags": [
+      "esp32",
+      "c3",
+      "wifi",
+      "ble",
+      "tiny"
+    ],
+    "price": [
+      10,
+      30
+    ],
+    "note": "In the Arduino IDE, set \"USB CDC On Boot: Enabled\" or Serial Monitor prints nothing. Pins are 3.3V only."
+  },
+  {
+    "id": "esp32-s3-devkit",
+    "name": "ESP32-S3 DevKitC-1",
+    "category": "boards",
+    "icon": "board-esp32",
+    "desc": "The newer, faster ESP32 with Wi-Fi, Bluetooth LE and native USB. Good for screens, sound and small AI experiments.",
+    "voltage": "3.3V logic · powered by USB-C 5V",
+    "logic": 3.3,
+    "fqbn": "esp32:esp32:esp32s3",
+    "interfaces": [
+      "Digital",
+      "PWM",
+      "Analog",
+      "I2C",
+      "SPI",
+      "UART",
+      "I2S",
+      "Wi-Fi",
+      "BLE",
+      "USB HID"
+    ],
+    "tags": [
+      "esp32",
+      "s3",
+      "wifi",
+      "ble",
+      "usb"
+    ],
+    "price": [
+      30,
+      70
+    ],
+    "note": "Has a built-in RGB LED, but its pin depends on the board version (often GPIO 48 or 38). Pins are 3.3V only."
+  },
+  {
+    "id": "esp32-cam",
+    "name": "ESP32-CAM (AI-Thinker)",
+    "category": "boards",
+    "icon": "board-cam",
+    "desc": "An ESP32 with a small camera and a microSD slot. Stream video to your phone over Wi-Fi or snap photos.",
+    "voltage": "3.3V logic · needs a solid 5V supply",
+    "logic": 3.3,
+    "fqbn": "esp32:esp32:esp32cam",
+    "interfaces": [
+      "Digital",
+      "Wi-Fi",
+      "Bluetooth",
+      "Camera",
+      "microSD"
+    ],
+    "tags": [
+      "esp32",
+      "camera",
+      "wifi",
+      "video"
+    ],
+    "price": [
+      25,
+      55
+    ],
+    "note": "Has no USB port: buy it with the ESP32-CAM-MB programmer board. Weak power causes \"brownout\" resets, so use a good 5V 1A+ supply."
+  },
+  {
+    "id": "pico",
+    "name": "Raspberry Pi Pico",
+    "category": "boards",
+    "icon": "board-pico",
+    "desc": "A cheap, fast board from Raspberry Pi with 26 pins. Easy to program in Arduino or MicroPython.",
+    "voltage": "3.3V logic · powered by USB 5V",
+    "logic": 3.3,
+    "fqbn": "rp2040:rp2040:rpipico",
+    "interfaces": [
+      "Digital",
+      "PWM",
+      "Analog",
+      "I2C",
+      "SPI",
+      "UART",
+      "I2S",
+      "USB HID"
+    ],
+    "tags": [
+      "raspberry pi",
+      "rp2040",
+      "pico"
+    ],
+    "price": [
+      15,
+      35
+    ],
+    "note": "Its pins are 3.3V and not 5V-tolerant."
+  },
+  {
+    "id": "pico-w",
+    "name": "Raspberry Pi Pico W",
+    "category": "boards",
+    "icon": "board-pico",
+    "desc": "The Pico with built-in Wi-Fi and Bluetooth added. Same pins, so your project can go online too.",
+    "voltage": "3.3V logic · powered by USB 5V",
+    "logic": 3.3,
+    "fqbn": "rp2040:rp2040:rpipicow",
+    "interfaces": [
+      "Digital",
+      "PWM",
+      "Analog",
+      "I2C",
+      "SPI",
+      "UART",
+      "I2S",
+      "Wi-Fi",
+      "BLE"
+    ],
+    "tags": [
+      "raspberry pi",
+      "rp2040",
+      "pico",
+      "wifi"
+    ],
+    "price": [
+      25,
+      45
+    ],
+    "note": "Its pins are 3.3V and not 5V-tolerant. The onboard LED is controlled through the Wi-Fi chip (use LED_BUILTIN)."
+  },
+  {
+    "id": "uno-r4-minima",
+    "name": "Arduino Uno R4 Minima",
+    "category": "boards",
+    "icon": "board-uno",
+    "desc": "The newest Uno: same shape and pin layout as the classic, but with a much faster 32-bit chip and USB-C. Most Uno projects run on it unchanged.",
+    "voltage": "5V logic · USB-C 5V or 6–24V jack",
+    "interfaces": [
+      "Digital",
+      "PWM",
+      "Analog",
+      "I2C",
+      "SPI",
+      "UART",
+      "USB HID"
+    ],
+    "tags": [
+      "arduino",
+      "uno",
+      "r4",
+      "usb-c"
+    ],
+    "price": [
+      70,
+      130
+    ],
+    "logic": 5,
+    "fqbn": "arduino:renesas_uno:minima",
+    "note": "A few old libraries that talk directly to the classic Uno's chip don't work on the R4."
+  },
+  {
+    "id": "uno-r4-wifi",
+    "name": "Arduino Uno R4 WiFi",
+    "category": "boards",
+    "icon": "board-uno",
+    "desc": "An Uno R4 with Wi-Fi and Bluetooth LE built in, plus a 12x8 red LED matrix on the board for icons and scrolling text.",
+    "voltage": "5V logic · USB-C 5V or 6–24V jack",
+    "interfaces": [
+      "Digital",
+      "PWM",
+      "Analog",
+      "I2C",
+      "SPI",
+      "UART",
+      "Wi-Fi",
+      "BLE"
+    ],
+    "tags": [
+      "arduino",
+      "uno",
+      "r4",
+      "wifi",
+      "ble",
+      "matrix"
+    ],
+    "price": [
+      110,
+      190
+    ],
+    "logic": 5,
+    "fqbn": "arduino:renesas_uno:unor4wifi"
+  },
+  {
+    "id": "nano-every",
+    "name": "Arduino Nano Every",
+    "category": "boards",
+    "icon": "board-nano",
+    "desc": "An updated Nano with a newer chip (ATmega4809) and more memory, at the same small size.",
+    "voltage": "5V logic · USB 5V or 7–21V on VIN",
+    "interfaces": [
+      "Digital",
+      "PWM",
+      "Analog",
+      "I2C",
+      "SPI",
+      "UART"
+    ],
+    "tags": [
+      "arduino",
+      "nano",
+      "every"
+    ],
+    "price": [
+      55,
+      90
+    ],
+    "logic": 5,
+    "fqbn": "arduino:megaavr:nona4809"
+  },
+  {
+    "id": "pro-mini-5v",
+    "name": "Arduino Pro Mini (5V, 16 MHz)",
+    "category": "boards",
+    "icon": "board-mini",
+    "desc": "A tiny, cheap Arduino without a USB port, perfect for building into finished gadgets.",
+    "voltage": "5V logic · 5V on VCC or 6–12V on RAW",
+    "interfaces": [
+      "Digital",
+      "PWM",
+      "Analog",
+      "I2C",
+      "SPI",
+      "UART"
+    ],
+    "tags": [
+      "arduino",
+      "mini",
+      "small",
+      "permanent"
+    ],
+    "price": [
+      10,
+      25
+    ],
+    "logic": 5,
+    "fqbn": "arduino:avr:pro:cpu=16MHzatmega328",
+    "variantGroup": "pro-mini",
+    "variantNote": "5V / 16 MHz version: use 5V parts.",
+    "note": "Has no USB: program it with a USB-to-TTL serial adapter (CH340/FTDI) set to 5V."
+  },
+  {
+    "id": "pro-mini-3v3",
+    "name": "Arduino Pro Mini (3.3V, 8 MHz)",
+    "category": "boards",
+    "icon": "board-mini",
+    "desc": "The 3.3V version of the Pro Mini: slower, but it talks directly to 3.3V sensors and sips battery power.",
+    "voltage": "3.3V logic · 3.3V on VCC or 3.35–12V on RAW",
+    "interfaces": [
+      "Digital",
+      "PWM",
+      "Analog",
+      "I2C",
+      "SPI",
+      "UART"
+    ],
+    "tags": [
+      "arduino",
+      "mini",
+      "small",
+      "low power",
+      "battery"
+    ],
+    "price": [
+      10,
+      25
+    ],
+    "logic": 3.3,
+    "fqbn": "arduino:avr:pro:cpu=8MHzatmega328",
+    "variantGroup": "pro-mini",
+    "variantNote": "3.3V / 8 MHz version: pick the 8 MHz option when uploading.",
+    "note": "Program it with a USB-to-TTL adapter switched to 3.3V."
+  },
+  {
+    "id": "pro-micro",
+    "name": "Pro Micro (ATmega32U4, 5V)",
+    "category": "boards",
+    "icon": "board-mini",
+    "desc": "A thumb-sized Leonardo: it can act as a USB keyboard, mouse or game controller. Great for macro pads.",
+    "voltage": "5V logic · USB 5V",
+    "interfaces": [
+      "Digital",
+      "PWM",
+      "Analog",
+      "I2C",
+      "SPI",
+      "UART",
+      "USB HID"
+    ],
+    "tags": [
+      "leonardo",
+      "32u4",
+      "keyboard",
+      "hid",
+      "gaming",
+      "small"
+    ],
+    "price": [
+      20,
+      45
+    ],
+    "logic": 5,
+    "fqbn": "arduino:avr:leonardo",
+    "note": "Choose \"Arduino Leonardo\" in the IDE. Pin numbers follow the labels printed on the board."
+  },
+  {
+    "id": "esp8266-nodemcu",
+    "name": "NodeMCU ESP8266 (v3)",
+    "category": "boards",
+    "icon": "board-esp32",
+    "desc": "The classic cheap Wi-Fi board that started the IoT craze. Wi-Fi only (no Bluetooth) and one analog input.",
+    "voltage": "3.3V logic · powered by USB 5V",
+    "interfaces": [
+      "Digital",
+      "PWM",
+      "Analog",
+      "I2C",
+      "SPI",
+      "UART",
+      "Wi-Fi"
+    ],
+    "tags": [
+      "esp8266",
+      "wifi",
+      "iot",
+      "nodemcu"
+    ],
+    "price": [
+      15,
+      35
+    ],
+    "logic": 3.3,
+    "fqbn": "esp8266:esp8266:nodemcuv2",
+    "note": "Board labels D1, D2… are not the GPIO numbers (D1 = GPIO 5, D2 = GPIO 4). Pins are 3.3V only."
+  },
+  {
+    "id": "wemos-d1-mini",
+    "name": "Wemos D1 mini (ESP8266)",
+    "category": "boards",
+    "icon": "board-mini",
+    "desc": "A small, popular ESP8266 Wi-Fi board with stackable add-on shields.",
+    "voltage": "3.3V logic · powered by USB 5V",
+    "interfaces": [
+      "Digital",
+      "PWM",
+      "Analog",
+      "I2C",
+      "SPI",
+      "UART",
+      "Wi-Fi"
+    ],
+    "tags": [
+      "esp8266",
+      "wifi",
+      "iot",
+      "small"
+    ],
+    "price": [
+      12,
+      30
+    ],
+    "logic": 3.3,
+    "fqbn": "esp8266:esp8266:d1_mini",
+    "note": "Pins are 3.3V only. The A0 pin accepts 0–3.2V on this board."
+  },
+  {
+    "id": "xiao-esp32c3",
+    "name": "Seeed XIAO ESP32-C3",
+    "category": "boards",
+    "icon": "board-mini",
+    "desc": "A postage-stamp-sized Wi-Fi + Bluetooth LE board with USB-C and a built-in battery charger.",
+    "voltage": "3.3V logic · USB-C 5V or 3.7V battery",
+    "interfaces": [
+      "Digital",
+      "PWM",
+      "Analog",
+      "I2C",
+      "SPI",
+      "UART",
+      "Wi-Fi",
+      "BLE"
+    ],
+    "tags": [
+      "esp32",
+      "xiao",
+      "tiny",
+      "battery",
+      "wearable"
+    ],
+    "price": [
+      25,
+      45
+    ],
+    "logic": 3.3,
+    "fqbn": "esp32:esp32:XIAO_ESP32C3",
+    "note": "Its pads on the back can charge a 3.7V LiPo battery."
+  },
+  {
+    "id": "xiao-esp32s3",
+    "name": "Seeed XIAO ESP32-S3",
+    "category": "boards",
+    "icon": "board-mini",
+    "desc": "A tiny but powerful ESP32-S3 with Wi-Fi, BLE, native USB and a battery charger. Ideal for wearables.",
+    "voltage": "3.3V logic · USB-C 5V or 3.7V battery",
+    "interfaces": [
+      "Digital",
+      "PWM",
+      "Analog",
+      "I2C",
+      "SPI",
+      "UART",
+      "I2S",
+      "Wi-Fi",
+      "BLE",
+      "USB HID"
+    ],
+    "tags": [
+      "esp32",
+      "xiao",
+      "tiny",
+      "battery",
+      "usb"
+    ],
+    "price": [
+      35,
+      60
+    ],
+    "logic": 3.3,
+    "fqbn": "esp32:esp32:XIAO_ESP32S3"
+  },
+  {
+    "id": "esp32-c6-devkit",
+    "name": "ESP32-C6 DevKitC-1",
+    "category": "boards",
+    "icon": "board-esp32",
+    "desc": "An ESP32 with Wi-Fi 6, Bluetooth LE and Zigbee/Thread radios for future smart-home gadgets.",
+    "voltage": "3.3V logic · powered by USB-C 5V",
+    "interfaces": [
+      "Digital",
+      "PWM",
+      "Analog",
+      "I2C",
+      "SPI",
+      "UART",
+      "Wi-Fi",
+      "BLE"
+    ],
+    "tags": [
+      "esp32",
+      "c6",
+      "wifi6",
+      "zigbee",
+      "thread"
+    ],
+    "price": [
+      30,
+      60
+    ],
+    "logic": 3.3,
+    "fqbn": "esp32:esp32:esp32c6"
+  },
+  {
+    "id": "pico-2",
+    "name": "Raspberry Pi Pico 2",
+    "category": "boards",
+    "icon": "board-pico",
+    "desc": "The faster second-generation Pico (RP2350 chip) with more memory, same pins and size.",
+    "voltage": "3.3V logic · powered by USB 5V",
+    "interfaces": [
+      "Digital",
+      "PWM",
+      "Analog",
+      "I2C",
+      "SPI",
+      "UART",
+      "I2S",
+      "USB HID"
+    ],
+    "tags": [
+      "raspberry pi",
+      "pico",
+      "rp2350"
+    ],
+    "price": [
+      20,
+      40
+    ],
+    "logic": 3.3,
+    "fqbn": "rp2040:rp2040:rpipico2",
+    "note": "Pins are 3.3V only."
+  },
+  {
+    "id": "pico-2-w",
+    "name": "Raspberry Pi Pico 2 W",
+    "category": "boards",
+    "icon": "board-pico",
+    "desc": "Pico 2 with Wi-Fi and Bluetooth added.",
+    "voltage": "3.3V logic · powered by USB 5V",
+    "interfaces": [
+      "Digital",
+      "PWM",
+      "Analog",
+      "I2C",
+      "SPI",
+      "UART",
+      "Wi-Fi",
+      "BLE"
+    ],
+    "tags": [
+      "raspberry pi",
+      "pico",
+      "rp2350",
+      "wifi"
+    ],
+    "price": [
+      28,
+      50
+    ],
+    "logic": 3.3,
+    "fqbn": "rp2040:rp2040:rpipico2w",
+    "note": "Pins are 3.3V only."
+  },
+  {
+    "id": "lolin-s2-mini",
+    "name": "LOLIN S2 Mini (ESP32-S2)",
+    "category": "boards",
+    "icon": "board-mini",
+    "desc": "A cheap, small Wi-Fi board with native USB (it can be a keyboard). No Bluetooth.",
+    "voltage": "3.3V logic · powered by USB-C 5V",
+    "interfaces": [
+      "Digital",
+      "PWM",
+      "Analog",
+      "I2C",
+      "SPI",
+      "UART",
+      "Wi-Fi",
+      "USB HID"
+    ],
+    "tags": [
+      "esp32",
+      "s2",
+      "wifi",
+      "usb",
+      "small"
+    ],
+    "price": [
+      15,
+      35
+    ],
+    "logic": 3.3,
+    "fqbn": "esp32:esp32:lolin_s2_mini"
+  }
+]

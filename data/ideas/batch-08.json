@@ -1,0 +1,1097 @@
+[
+  {
+    "id": "esp8266-climate-page",
+    "title": "ESP8266 Climate Web Page",
+    "pitch": "A cheap ESP8266 board serves a live temperature and humidity page to your phone, using the accurate AHT20 sensor.",
+    "emoji": "🌡️",
+    "difficulty": 1,
+    "time": 25,
+    "vibes": [
+      "useful"
+    ],
+    "boards": [
+      "esp8266-nodemcu",
+      "wemos-d1-mini"
+    ],
+    "requires": [
+      "aht20"
+    ],
+    "optional": [],
+    "basics": [
+      "breadboard",
+      "jumper-wires",
+      "usb-cable"
+    ],
+    "libs": [
+      "Adafruit AHTX0"
+    ],
+    "guide": {
+      "about": "The ESP8266 joins your Wi-Fi and runs a small web server; the AHT20 talks I2C on pins D2 (data) and D1 (clock). Open the page in Safari for live readings.",
+      "parts": [
+        [
+          "aht20",
+          1,
+          ""
+        ],
+        [
+          "breadboard",
+          1,
+          ""
+        ],
+        [
+          "jumper-wires",
+          4,
+          ""
+        ],
+        [
+          "usb-cable",
+          1,
+          ""
+        ]
+      ],
+      "wiring": [
+        [
+          "AHT20 VCC (VIN)",
+          "3V3",
+          ""
+        ],
+        [
+          "AHT20 GND",
+          "GND",
+          ""
+        ],
+        [
+          "AHT20 SDA",
+          "D2 (GPIO 4)",
+          ""
+        ],
+        [
+          "AHT20 SCL",
+          "D1 (GPIO 5)",
+          ""
+        ]
+      ],
+      "steps": [
+        "In the Arduino IDE add the ESP8266 board URL (File → Preferences): https://arduino.esp8266.com/stable/package_esp8266com_index.json, then install \"esp8266\" in Boards Manager.",
+        "Install the Adafruit AHTX0 library.",
+        "Wire the AHT20: VCC 3V3, GND, SDA → D2, SCL → D1.",
+        "Type your Wi-Fi name and password into the code (2.4 GHz only).",
+        "Choose NodeMCU 1.0 or LOLIN(WEMOS) D1 mini, upload, and open the Serial Monitor at 115200 for the IP address.",
+        "On your phone open http://partslab-air.local or the IP address."
+      ],
+      "test": "The page shows big temperature and humidity numbers that refresh every 3 seconds.",
+      "safety": [
+        "Your Wi-Fi password is stored in the code."
+      ],
+      "next": [
+        "Add a min/max of the day.",
+        "Log readings to a Google Sheet (needs a free Google Apps Script)."
+      ]
+    }
+  },
+  {
+    "id": "gps-speedometer",
+    "title": "GPS Speedometer",
+    "pitch": "Shows your speed, number of satellites and the exact time on an OLED: for bike rides, walks or car trips.",
+    "emoji": "🛰️",
+    "difficulty": 2,
+    "time": 40,
+    "vibes": [
+      "useful",
+      "fun"
+    ],
+    "boards": [
+      "esp32-devkit"
+    ],
+    "requires": [
+      "gps-neo6m",
+      "oled-128x64"
+    ],
+    "optional": [
+      "power-bank"
+    ],
+    "basics": [
+      "breadboard",
+      "jumper-wires",
+      "usb-cable"
+    ],
+    "libs": [
+      "TinyGPSPlus",
+      "Adafruit SSD1306",
+      "Adafruit GFX Library"
+    ],
+    "guide": {
+      "about": "The GPS module sends text sentences (NMEA) over serial once per second; the TinyGPSPlus library turns them into speed, position and UTC time.",
+      "parts": [
+        [
+          "gps-neo6m",
+          1,
+          "with its antenna"
+        ],
+        [
+          "oled-128x64",
+          1,
+          ""
+        ],
+        [
+          "power-bank",
+          1,
+          "to take it outside"
+        ],
+        [
+          "breadboard",
+          1,
+          ""
+        ],
+        [
+          "jumper-wires",
+          8,
+          ""
+        ],
+        [
+          "usb-cable",
+          1,
+          ""
+        ]
+      ],
+      "wiring": [
+        [
+          "GPS VCC",
+          "VIN (5V)",
+          "the module has its own 3.3V regulator"
+        ],
+        [
+          "GPS GND",
+          "GND",
+          ""
+        ],
+        [
+          "GPS TX",
+          "GPIO 16 (RX2)",
+          "its signals are 3.3V: perfect for the ESP32"
+        ],
+        [
+          "GPS RX",
+          "GPIO 17 (TX2)",
+          ""
+        ],
+        [
+          "OLED VCC / GND",
+          "3V3 / GND",
+          ""
+        ],
+        [
+          "OLED SDA / SCL",
+          "GPIO 21 / GPIO 22",
+          ""
+        ]
+      ],
+      "steps": [
+        "Install TinyGPSPlus, Adafruit SSD1306 and Adafruit GFX Library.",
+        "Wire the GPS (TX → GPIO 16, RX → GPIO 17) and the OLED (GPIO 21/22).",
+        "Upload and open the Serial Monitor at 115200.",
+        "Go outside (or by a window) with a power bank. The first fix can take a few minutes; the module's LED blinks once it has one."
+      ],
+      "test": "The OLED shows speed in km/h, satellites in view and the UTC time + 3 h (Saudi time).",
+      "safety": [
+        "Never look at the screen while riding or driving. Glance only when stopped."
+      ],
+      "next": [
+        "Log your route to an SD card and view it on a map.",
+        "Add a trip distance counter."
+      ]
+    }
+  },
+  {
+    "id": "heart-rate-monitor",
+    "title": "Heart Rate Monitor (fun)",
+    "pitch": "Rest your fingertip on the sensor and watch your heartbeat and BPM appear with a pulsing heart. Not a medical device!",
+    "emoji": "❤️",
+    "difficulty": 2,
+    "time": 35,
+    "vibes": [
+      "fun",
+      "useful"
+    ],
+    "boards": [
+      "esp32-devkit"
+    ],
+    "requires": [
+      "max30102",
+      "oled-128x64"
+    ],
+    "optional": [],
+    "basics": [
+      "breadboard",
+      "jumper-wires",
+      "usb-cable"
+    ],
+    "libs": [
+      "SparkFun MAX3010x Pulse and Proximity Sensor Library",
+      "Adafruit SSD1306",
+      "Adafruit GFX Library"
+    ],
+    "guide": {
+      "about": "The MAX30102 shines infrared light through your finger; each heartbeat changes how much comes back. A beat-detection algorithm averages the last few beats into BPM.",
+      "parts": [
+        [
+          "max30102",
+          1,
+          ""
+        ],
+        [
+          "oled-128x64",
+          1,
+          ""
+        ],
+        [
+          "breadboard",
+          1,
+          ""
+        ],
+        [
+          "jumper-wires",
+          8,
+          ""
+        ],
+        [
+          "usb-cable",
+          1,
+          ""
+        ]
+      ],
+      "wiring": [
+        [
+          "MAX30102 VIN",
+          "3V3",
+          ""
+        ],
+        [
+          "MAX30102 GND",
+          "GND",
+          ""
+        ],
+        [
+          "MAX30102 SDA / SCL",
+          "GPIO 21 / GPIO 22",
+          ""
+        ],
+        [
+          "OLED VCC / GND",
+          "3V3 / GND",
+          ""
+        ],
+        [
+          "OLED SDA / SCL",
+          "GPIO 21 / GPIO 22",
+          "shared I2C bus"
+        ]
+      ],
+      "steps": [
+        "Install the SparkFun MAX3010x library, Adafruit SSD1306 and Adafruit GFX Library.",
+        "Wire both modules to 3V3, GND, GPIO 21 (SDA) and GPIO 22 (SCL).",
+        "Upload and open the Serial Monitor at 115200.",
+        "Rest your fingertip lightly on the sensor and keep still for 10 seconds."
+      ],
+      "test": "With a finger on the sensor the heart icon pulses and the BPM settles after ~10 beats. Without a finger it says \"Place finger\".",
+      "safety": [
+        "This is a learning project, NOT a medical device. Never use it for health decisions."
+      ],
+      "next": [
+        "Plot the pulse wave on the OLED.",
+        "Send the BPM to your phone over Wi-Fi."
+      ]
+    }
+  },
+  {
+    "id": "anime-robot-eye",
+    "title": "Anime Robot Eye",
+    "pitch": "A big sparkly anime eye on a round screen: it looks around, blinks and sometimes gets surprised. Perfect for cosplay and robots!",
+    "emoji": "👁️",
+    "difficulty": 2,
+    "time": 35,
+    "vibes": [
+      "gaming",
+      "fun",
+      "gift"
+    ],
+    "boards": [
+      "esp32-devkit"
+    ],
+    "requires": [
+      "gc9a01-round"
+    ],
+    "optional": [],
+    "basics": [
+      "breadboard",
+      "jumper-wires",
+      "usb-cable"
+    ],
+    "libs": [
+      "Adafruit GC9A01A",
+      "Adafruit GFX Library"
+    ],
+    "guide": {
+      "about": "The whole eye is drawn into an off-screen image (a \"canvas\") and then sent to the display in one go, so it moves without flicker. Iris position, blinking and pupil size are all simple numbers you can change.",
+      "parts": [
+        [
+          "gc9a01-round",
+          1,
+          "1.28\" round TFT"
+        ],
+        [
+          "breadboard",
+          1,
+          ""
+        ],
+        [
+          "jumper-wires",
+          8,
+          ""
+        ],
+        [
+          "usb-cable",
+          1,
+          ""
+        ]
+      ],
+      "wiring": [
+        [
+          "Display VCC",
+          "3V3",
+          ""
+        ],
+        [
+          "Display GND",
+          "GND",
+          ""
+        ],
+        [
+          "Display SCL (SCK)",
+          "GPIO 18",
+          ""
+        ],
+        [
+          "Display SDA (MOSI)",
+          "GPIO 23",
+          ""
+        ],
+        [
+          "Display CS",
+          "GPIO 5",
+          ""
+        ],
+        [
+          "Display DC",
+          "GPIO 16",
+          ""
+        ],
+        [
+          "Display RST",
+          "GPIO 17",
+          ""
+        ],
+        [
+          "Display BL (backlight, if present)",
+          "3V3",
+          ""
+        ]
+      ],
+      "steps": [
+        "Install Adafruit GC9A01A and Adafruit GFX Library.",
+        "Wire the display as in the table (the SDA/SCL labels on these round screens actually mean SPI MOSI/SCK).",
+        "Upload.",
+        "Change IRIS_COLOR in the code to give your eye its own color."
+      ],
+      "test": "A large eye with a colorful iris and two shiny highlights glances around every second or two, blinks now and then, and occasionally opens wide in surprise.",
+      "safety": [],
+      "next": [
+        "Use two screens for a pair of eyes.",
+        "Make the eye follow motion with a PIR or distance sensor."
+      ]
+    }
+  },
+  {
+    "id": "pixel-art-frame",
+    "title": "Pixel Art Frame",
+    "pitch": "A tiny color picture frame that cycles through original pixel-art scenes: night sky, sakura tree, sunset and a slime friend.",
+    "emoji": "🖼️",
+    "difficulty": 2,
+    "time": 30,
+    "vibes": [
+      "gift",
+      "gaming"
+    ],
+    "boards": [
+      "esp32-devkit"
+    ],
+    "requires": [
+      "tft-st7735"
+    ],
+    "optional": [],
+    "basics": [
+      "breadboard",
+      "jumper-wires",
+      "usb-cable"
+    ],
+    "libs": [
+      "Adafruit ST7735 and ST7789 Library",
+      "Adafruit GFX Library"
+    ],
+    "guide": {
+      "about": "Each scene is drawn from code: big 8x8-pixel blocks, circles and triangles. The ESP32 runs at 3.3V just like the ST7735, so no level shifting is needed.",
+      "parts": [
+        [
+          "tft-st7735",
+          1,
+          "1.8\" 128x160"
+        ],
+        [
+          "breadboard",
+          1,
+          ""
+        ],
+        [
+          "jumper-wires",
+          8,
+          ""
+        ],
+        [
+          "usb-cable",
+          1,
+          "or a USB charger to display it"
+        ]
+      ],
+      "wiring": [
+        [
+          "TFT VCC",
+          "3V3",
+          ""
+        ],
+        [
+          "TFT GND",
+          "GND",
+          ""
+        ],
+        [
+          "TFT SCK (CLK)",
+          "GPIO 18",
+          ""
+        ],
+        [
+          "TFT SDA (MOSI)",
+          "GPIO 23",
+          ""
+        ],
+        [
+          "TFT CS",
+          "GPIO 5",
+          ""
+        ],
+        [
+          "TFT A0 / DC",
+          "GPIO 16",
+          ""
+        ],
+        [
+          "TFT RESET",
+          "GPIO 17",
+          ""
+        ],
+        [
+          "TFT LED (backlight)",
+          "3V3",
+          ""
+        ]
+      ],
+      "steps": [
+        "Install Adafruit ST7735 and ST7789 Library and Adafruit GFX Library.",
+        "Wire the screen as in the table.",
+        "Upload. If colors look wrong or there's a noisy border, change INITR_BLACKTAB to INITR_GREENTAB or INITR_REDTAB (the tab color on the screen's protective film)."
+      ],
+      "test": "A new scene appears every 6 seconds with twinkling details (stars, falling petals).",
+      "safety": [],
+      "next": [
+        "Draw your own scene in a new function.",
+        "Put it in a small frame as a gift."
+      ]
+    }
+  },
+  {
+    "id": "chiptune-box",
+    "title": "Chiptune Music Box",
+    "pitch": "Retro 8-bit game-style music through a real speaker using the ESP32's digital I2S audio. Original tunes included!",
+    "emoji": "🎮",
+    "difficulty": 2,
+    "time": 30,
+    "vibes": [
+      "gaming",
+      "fun"
+    ],
+    "boards": [
+      "esp32-devkit"
+    ],
+    "requires": [
+      "max98357a",
+      [
+        "speaker-8ohm",
+        "speaker-4ohm-3w"
+      ]
+    ],
+    "optional": [
+      "button-6mm"
+    ],
+    "basics": [
+      "breadboard",
+      "jumper-wires",
+      "usb-cable"
+    ],
+    "libs": [],
+    "guide": {
+      "about": "The ESP32 calculates a square wave sample by sample (the classic 8-bit sound) and streams it to the MAX98357A amplifier over I2S. The melodies are original compositions.",
+      "parts": [
+        [
+          "max98357a",
+          1,
+          ""
+        ],
+        [
+          "speaker-8ohm",
+          1,
+          "or a 4Ω 3W speaker"
+        ],
+        [
+          "button-6mm",
+          1,
+          "optional: next song"
+        ],
+        [
+          "breadboard",
+          1,
+          ""
+        ],
+        [
+          "jumper-wires",
+          8,
+          ""
+        ],
+        [
+          "usb-cable",
+          1,
+          ""
+        ]
+      ],
+      "wiring": [
+        [
+          "MAX98357A VIN",
+          "VIN (5V)",
+          "louder at 5V"
+        ],
+        [
+          "MAX98357A GND",
+          "GND",
+          ""
+        ],
+        [
+          "MAX98357A BCLK",
+          "GPIO 26",
+          ""
+        ],
+        [
+          "MAX98357A LRC (WS)",
+          "GPIO 25",
+          ""
+        ],
+        [
+          "MAX98357A DIN",
+          "GPIO 22",
+          ""
+        ],
+        [
+          "MAX98357A + / −",
+          "Speaker wires",
+          "never connect the speaker to GND"
+        ],
+        [
+          "Next-song button (optional)",
+          "GPIO 4",
+          "other leg to GND"
+        ]
+      ],
+      "steps": [
+        "Wire the amp: VIN to VIN, GND, BCLK 26, LRC 25, DIN 22.",
+        "Connect the speaker to the amp's + and − terminals.",
+        "Upload. Start with VOLUME low in the code.",
+        "Press the button for the next song."
+      ],
+      "test": "An upbeat 8-bit tune plays and loops. The Serial Monitor (115200) shows the song name.",
+      "safety": [
+        "Start with low VOLUME: sudden loud sound can hurt your ears and small speakers."
+      ],
+      "next": [
+        "Add a second voice for harmony.",
+        "Trigger sound effects with buttons, like a game."
+      ]
+    }
+  },
+  {
+    "id": "pico-voice-box",
+    "title": "Pico Voice Line Box",
+    "pitch": "Press one of three buttons to play your own recorded voice lines or sound effects from an SD card, powered by a Pico.",
+    "emoji": "🗨️",
+    "difficulty": 2,
+    "time": 35,
+    "vibes": [
+      "gaming",
+      "fun",
+      "gift"
+    ],
+    "boards": [
+      "pico",
+      "pico-w",
+      "pico-2",
+      "pico-2-w"
+    ],
+    "requires": [
+      "dfplayer-mini",
+      [
+        "speaker-8ohm",
+        "speaker-4ohm-3w"
+      ],
+      [
+        "button-6mm",
+        "arcade-button"
+      ]
+    ],
+    "optional": [],
+    "basics": [
+      "breadboard",
+      "jumper-wires",
+      "usb-cable"
+    ],
+    "libs": [
+      "DFRobotDFPlayerMini"
+    ],
+    "guide": {
+      "about": "The Pico's hardware serial port (Serial1 on GP0/GP1) sends play commands to the DFPlayer Mini. Both use 3.3V signals, so no resistor or divider is needed.",
+      "parts": [
+        [
+          "dfplayer-mini",
+          1,
+          "plus a microSD card (≤32GB, FAT32)"
+        ],
+        [
+          "speaker-8ohm",
+          1,
+          ""
+        ],
+        [
+          "button-6mm",
+          3,
+          ""
+        ],
+        [
+          "breadboard",
+          1,
+          ""
+        ],
+        [
+          "jumper-wires",
+          12,
+          ""
+        ],
+        [
+          "usb-cable",
+          1,
+          ""
+        ]
+      ],
+      "wiring": [
+        [
+          "DFPlayer VCC",
+          "VBUS (pin 40, 5V from USB)",
+          "louder than 3.3V"
+        ],
+        [
+          "DFPlayer GND",
+          "GND (pin 38)",
+          ""
+        ],
+        [
+          "DFPlayer RX",
+          "GP0 (pin 1)",
+          "Pico TX"
+        ],
+        [
+          "DFPlayer TX",
+          "GP1 (pin 2)",
+          "Pico RX"
+        ],
+        [
+          "DFPlayer SPK_1 / SPK_2",
+          "Speaker wires",
+          "never connect the speaker to GND"
+        ],
+        [
+          "Buttons 1, 2, 3",
+          "GP13, GP14, GP15",
+          "other legs to GND"
+        ]
+      ],
+      "steps": [
+        "Record your lines (phone voice memo is fine), convert to MP3 and copy them to a folder named mp3 on the card as 0001.mp3, 0002.mp3, 0003.mp3.",
+        "Install the DFRobotDFPlayerMini library.",
+        "Wire the DFPlayer to VBUS, GND, GP0 and GP1, plus the speaker.",
+        "Wire the three buttons to GP13–GP15.",
+        "Upload (choose your Pico model) and press a button."
+      ],
+      "test": "Each button plays its own clip immediately. The Serial Monitor (115200) shows \"DFPlayer ready\".",
+      "safety": [
+        "Use clips you recorded or are allowed to use."
+      ],
+      "next": [
+        "Add a PIR so it greets people automatically.",
+        "Use the Pico W to trigger clips from your phone."
+      ]
+    }
+  },
+  {
+    "id": "ble-name-tag",
+    "title": "Bluetooth Name Tag",
+    "pitch": "Your ESP32 shows up on your iPhone's Bluetooth scanner with your own name, and you can send it messages back!",
+    "emoji": "🏷️",
+    "difficulty": 2,
+    "time": 20,
+    "vibes": [
+      "fun",
+      "useful"
+    ],
+    "boards": [
+      "esp32-devkit"
+    ],
+    "requires": [],
+    "optional": [],
+    "basics": [
+      "usb-cable"
+    ],
+    "libs": [],
+    "guide": {
+      "about": "Bluetooth Low Energy (BLE) works with iPhones. The ESP32 advertises a name and offers a \"characteristic\" (a little mailbox). Writing ON or OFF to it from your phone switches the board's blue LED.",
+      "parts": [
+        [
+          "usb-cable",
+          1,
+          ""
+        ]
+      ],
+      "wiring": [],
+      "steps": [
+        "On your iPhone install a free BLE app such as \"nRF Connect\" or \"LightBlue\".",
+        "Change DEVICE_NAME in the code to your name.",
+        "Upload and open the Serial Monitor at 115200.",
+        "In the app, scan: your name appears. Connect.",
+        "Find the characteristic, write the text ON (as UTF-8 text): the blue LED on the board lights up. Write OFF to switch it off."
+      ],
+      "test": "Messages you write appear in the Serial Monitor, and ON/OFF control the onboard LED (GPIO 2).",
+      "safety": [],
+      "next": [
+        "Send sensor readings to the phone with notifications.",
+        "Make a BLE remote for the robot car."
+      ]
+    }
+  },
+  {
+    "id": "wifi-scrolling-sign",
+    "title": "Wi-Fi Scrolling Sign",
+    "pitch": "Type a message on your phone and it scrolls across a 32x8 LED sign. Perfect for a desk or a bedroom door.",
+    "emoji": "🪧",
+    "difficulty": 2,
+    "time": 45,
+    "vibes": [
+      "fun",
+      "gift"
+    ],
+    "boards": [
+      "esp32-devkit"
+    ],
+    "requires": [
+      "max7219-4in1",
+      "level-shifter"
+    ],
+    "optional": [],
+    "basics": [
+      "breadboard",
+      "jumper-wires",
+      "usb-cable"
+    ],
+    "libs": [],
+    "guide": {
+      "about": "The ESP32 hosts a tiny web form. The MAX7219 is a 5V chip, so a level shifter translates the ESP32's 3.3V signals up to 5V for reliable operation. The code drives the MAX7219 chips directly, so no extra library is needed.",
+      "parts": [
+        [
+          "max7219-4in1",
+          1,
+          ""
+        ],
+        [
+          "level-shifter",
+          1,
+          "4-channel BSS138"
+        ],
+        [
+          "breadboard",
+          1,
+          ""
+        ],
+        [
+          "jumper-wires",
+          14,
+          ""
+        ],
+        [
+          "usb-cable",
+          1,
+          ""
+        ]
+      ],
+      "wiring": [
+        [
+          "Level shifter LV",
+          "3V3",
+          "low-voltage side"
+        ],
+        [
+          "Level shifter HV",
+          "VIN (5V)",
+          "high-voltage side"
+        ],
+        [
+          "Level shifter GND (both sides)",
+          "GND",
+          ""
+        ],
+        [
+          "GPIO 23",
+          "Level shifter LV1 → HV1 → Matrix DIN",
+          ""
+        ],
+        [
+          "GPIO 18",
+          "Level shifter LV2 → HV2 → Matrix CLK",
+          ""
+        ],
+        [
+          "GPIO 5",
+          "Level shifter LV3 → HV3 → Matrix CS",
+          ""
+        ],
+        [
+          "Matrix VCC / GND",
+          "VIN (5V) / GND",
+          ""
+        ]
+      ],
+      "steps": [
+        "Wire the level shifter: LV side to 3V3 and the ESP32 pins, HV side to 5V (VIN) and the matrix.",
+        "Type your Wi-Fi name and password into the code, then upload.",
+        "Open http://partslab-sign.local (or the IP from the Serial Monitor at 115200) on your phone.",
+        "Type a message and tap Send. If text is mirrored or jumbled, flip REVERSE_DEVICES, ROTATE or FLIP in the code."
+      ],
+      "test": "The sign scrolls \"HELLO\" at start, then whatever you send from the phone (A–Z, 0–9 and basic symbols).",
+      "safety": [
+        "Keep brightness (INTENSITY) low on USB power: 32x8 LEDs can draw ~1A.",
+        "Your Wi-Fi password is stored in the code."
+      ],
+      "next": [
+        "Show the time from the internet between messages.",
+        "Add a speed slider to the web page."
+      ]
+    }
+  },
+  {
+    "id": "plant-phone-alert",
+    "title": "Plant Calls Your Phone",
+    "pitch": "Your plant sends a push notification to your iPhone when it's thirsty, free via the ntfy app.",
+    "emoji": "📲",
+    "difficulty": 2,
+    "time": 35,
+    "vibes": [
+      "useful",
+      "gift"
+    ],
+    "boards": [
+      "esp32-devkit"
+    ],
+    "requires": [
+      "soil-capacitive"
+    ],
+    "optional": [],
+    "basics": [
+      "breadboard",
+      "jumper-wires",
+      "usb-cable"
+    ],
+    "libs": [],
+    "guide": {
+      "about": "The ESP32 reads the soil sensor every minute. When the soil gets dry it sends one notification through ntfy.sh, then waits 6 hours before reminding you again.",
+      "parts": [
+        [
+          "soil-capacitive",
+          1,
+          ""
+        ],
+        [
+          "breadboard",
+          1,
+          ""
+        ],
+        [
+          "jumper-wires",
+          3,
+          ""
+        ],
+        [
+          "usb-cable",
+          1,
+          "power from a USB charger near the plant"
+        ]
+      ],
+      "wiring": [
+        [
+          "Soil sensor VCC",
+          "3V3",
+          "the v1.2 sensor works from 3.3V"
+        ],
+        [
+          "Soil sensor GND",
+          "GND",
+          ""
+        ],
+        [
+          "Soil sensor AOUT",
+          "GPIO 34",
+          "an input-only analog pin"
+        ]
+      ],
+      "steps": [
+        "Install the free ntfy app on your iPhone and subscribe to a long secret topic name.",
+        "Put that topic plus your Wi-Fi name and password into the code.",
+        "Wire the sensor to 3V3, GND and GPIO 34.",
+        "Upload, open the Serial Monitor at 115200, and note the readings in dry air and in water. Put them into DRY_VALUE and WET_VALUE and upload again.",
+        "Push the sensor into the soil (keep the top electronics dry)."
+      ],
+      "test": "When moisture drops below 30%, your phone shows \"🌱 Your plant is thirsty (25%)\". Water it and the alert resets.",
+      "safety": [
+        "ntfy topics are public if guessed: use a long random name.",
+        "Keep the ESP32 and charger away from water."
+      ],
+      "next": [
+        "Add a pump to water automatically.",
+        "Add a light sensor to tell if the plant gets enough sun."
+      ]
+    }
+  },
+  {
+    "id": "xiao-pocket-weather",
+    "title": "XIAO Pocket Weather",
+    "pitch": "A tiny weather gadget smaller than a matchbox: temperature and humidity on a slim OLED, powered by a XIAO.",
+    "emoji": "🌤️",
+    "difficulty": 1,
+    "time": 25,
+    "vibes": [
+      "useful",
+      "gift"
+    ],
+    "boards": [
+      "xiao-esp32c3"
+    ],
+    "requires": [
+      "aht20",
+      "oled-128x32"
+    ],
+    "optional": [
+      "lipo-1000"
+    ],
+    "basics": [
+      "breadboard",
+      "jumper-wires",
+      "usb-cable"
+    ],
+    "libs": [
+      "Adafruit AHTX0",
+      "Adafruit SSD1306",
+      "Adafruit GFX Library"
+    ],
+    "guide": {
+      "about": "Both modules share the XIAO's I2C pins (D4 = data, D5 = clock). The XIAO can even charge a small LiPo battery from its back pads to make it portable.",
+      "parts": [
+        [
+          "aht20",
+          1,
+          ""
+        ],
+        [
+          "oled-128x32",
+          1,
+          ""
+        ],
+        [
+          "lipo-1000",
+          1,
+          "optional battery (check polarity!)"
+        ],
+        [
+          "breadboard",
+          1,
+          "a mini one"
+        ],
+        [
+          "jumper-wires",
+          8,
+          ""
+        ],
+        [
+          "usb-cable",
+          1,
+          "USB-C"
+        ]
+      ],
+      "wiring": [
+        [
+          "AHT20 VCC / GND",
+          "3V3 / GND",
+          ""
+        ],
+        [
+          "AHT20 SDA / SCL",
+          "D4 / D5",
+          ""
+        ],
+        [
+          "OLED VCC / GND",
+          "3V3 / GND",
+          ""
+        ],
+        [
+          "OLED SDA / SCL",
+          "D4 / D5",
+          "shared"
+        ]
+      ],
+      "steps": [
+        "Install Adafruit AHTX0, Adafruit SSD1306 and Adafruit GFX Library.",
+        "Wire both modules to 3V3, GND, D4 (SDA) and D5 (SCL).",
+        "Choose Tools → Board → XIAO_ESP32C3 and set USB CDC On Boot: Enabled.",
+        "Upload."
+      ],
+      "test": "The OLED shows the temperature and humidity in big text, updating every 2 seconds.",
+      "safety": [
+        "If you add a LiPo battery: check the + and − pads before soldering, never short it, and don't charge it unattended."
+      ],
+      "next": [
+        "Add Wi-Fi time and make it a pocket clock too.",
+        "Put it in a tiny 3D-printed case."
+      ]
+    }
+  }
+]

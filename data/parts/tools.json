@@ -1,0 +1,336 @@
+[
+  {
+    "id": "soldering-iron",
+    "name": "Soldering Iron Kit (adjustable)",
+    "category": "tools",
+    "icon": "iron",
+    "desc": "Melts solder to join wires and pins permanently. Needed for modules that ship with loose header pins.",
+    "voltage": "220–240V mains (60W)",
+    "interfaces": [],
+    "tags": [
+      "solder",
+      "tool",
+      "assembly"
+    ],
+    "price": [
+      30,
+      90
+    ],
+    "note": "The tip is about 350°C. Always use the stand, work in a ventilated room, and wash your hands after handling solder."
+  },
+  {
+    "id": "multimeter",
+    "name": "Digital Multimeter",
+    "category": "tools",
+    "icon": "multimeter",
+    "desc": "Measures voltage, resistance and continuity (beeps when two points are connected). Your best friend for finding wiring mistakes.",
+    "voltage": "Battery inside (usually 9V or 2×AAA)",
+    "interfaces": [],
+    "tags": [
+      "meter",
+      "tool",
+      "debug",
+      "measure"
+    ],
+    "price": [
+      25,
+      80
+    ],
+    "note": "Beginner rule: only measure low-voltage circuits (batteries, boards), never wall sockets."
+  },
+  {
+    "id": "wire-stripper",
+    "name": "Wire Stripper / Cutter",
+    "category": "tools",
+    "icon": "stripper",
+    "desc": "Cuts wire and removes its plastic coating cleanly without nicking the copper.",
+    "voltage": "No power",
+    "interfaces": [],
+    "tags": [
+      "wire",
+      "tool",
+      "cut"
+    ],
+    "price": [
+      10,
+      35
+    ]
+  },
+  {
+    "id": "hot-glue-gun",
+    "name": "Hot Glue Gun",
+    "category": "tools",
+    "icon": "glue",
+    "desc": "Sticks your project into its case and holds wires in place. The fastest way to make a build look finished.",
+    "voltage": "220–240V mains",
+    "interfaces": [],
+    "tags": [
+      "glue",
+      "tool",
+      "enclosure",
+      "craft"
+    ],
+    "price": [
+      15,
+      45
+    ],
+    "note": "The nozzle and fresh glue are hot enough to burn skin."
+  },
+  {
+    "id": "solder-wire",
+    "name": "Solder Wire (rosin core, 0.8mm)",
+    "category": "tools",
+    "icon": "iron",
+    "desc": "The metal \"glue\" for soldering. Rosin core cleans the joint as it melts.",
+    "voltage": "No power",
+    "interfaces": [],
+    "tags": [
+      "solder",
+      "wire"
+    ],
+    "price": [
+      10,
+      30
+    ],
+    "note": "Lead-free solder is safer; if you use leaded solder, wash your hands after."
+  },
+  {
+    "id": "flux",
+    "name": "Soldering Flux (pen or paste)",
+    "category": "tools",
+    "icon": "iron",
+    "desc": "Helps solder flow and stick, especially on old or tricky joints.",
+    "voltage": "No power",
+    "interfaces": [],
+    "tags": [
+      "flux",
+      "solder"
+    ],
+    "price": [
+      8,
+      20
+    ]
+  },
+  {
+    "id": "desolder-pump",
+    "name": "Desoldering Pump",
+    "category": "tools",
+    "icon": "screwdriver",
+    "desc": "A spring-loaded vacuum that sucks up melted solder to fix mistakes.",
+    "voltage": "No power",
+    "interfaces": [],
+    "tags": [
+      "desolder",
+      "repair",
+      "solder"
+    ],
+    "price": [
+      8,
+      20
+    ]
+  },
+  {
+    "id": "helping-hands",
+    "name": "Helping Hands with Magnifier",
+    "category": "tools",
+    "icon": "tweezers",
+    "desc": "Clips that hold parts and boards steady while you solder, plus a magnifying glass.",
+    "voltage": "No power",
+    "interfaces": [],
+    "tags": [
+      "solder",
+      "holder",
+      "magnifier"
+    ],
+    "price": [
+      15,
+      40
+    ]
+  },
+  {
+    "id": "tweezers",
+    "name": "Precision Tweezers (ESD-safe)",
+    "category": "tools",
+    "icon": "tweezers",
+    "desc": "For placing tiny parts and bending component legs.",
+    "voltage": "No power",
+    "interfaces": [],
+    "tags": [
+      "tweezers",
+      "smd",
+      "precision"
+    ],
+    "price": [
+      5,
+      15
+    ]
+  },
+  {
+    "id": "screwdriver-set",
+    "name": "Precision Screwdriver Set",
+    "category": "tools",
+    "icon": "screwdriver",
+    "desc": "Tiny screwdrivers for terminal blocks, potentiometers and cases.",
+    "voltage": "No power",
+    "interfaces": [],
+    "tags": [
+      "screwdriver",
+      "repair"
+    ],
+    "price": [
+      15,
+      45
+    ]
+  },
+  {
+    "id": "flush-cutters",
+    "name": "Flush Side Cutters",
+    "category": "tools",
+    "icon": "stripper",
+    "desc": "Snips component legs flush against the board after soldering.",
+    "voltage": "No power",
+    "interfaces": [],
+    "tags": [
+      "cutters",
+      "snips",
+      "solder"
+    ],
+    "price": [
+      8,
+      25
+    ],
+    "note": "Point the leg away from your face when cutting: they fly!"
+  },
+  {
+    "id": "needle-pliers",
+    "name": "Needle-Nose Pliers",
+    "category": "tools",
+    "icon": "pliers",
+    "desc": "For bending wires and holding small parts.",
+    "voltage": "No power",
+    "interfaces": [],
+    "tags": [
+      "pliers",
+      "bend",
+      "hold"
+    ],
+    "price": [
+      8,
+      25
+    ]
+  },
+  {
+    "id": "crimp-tool",
+    "name": "Dupont Crimping Tool + Connector Kit",
+    "category": "tools",
+    "icon": "pliers",
+    "desc": "Make your own custom-length jumper wires and connectors.",
+    "voltage": "No power",
+    "interfaces": [],
+    "tags": [
+      "crimp",
+      "dupont",
+      "connector",
+      "wires"
+    ],
+    "price": [
+      40,
+      90
+    ]
+  },
+  {
+    "id": "logic-analyzer",
+    "name": "USB Logic Analyzer (8-channel)",
+    "category": "tools",
+    "icon": "analyzer",
+    "desc": "Records digital signals so you can see what's happening on I2C, SPI and serial lines (with free PulseView software).",
+    "voltage": "USB powered · 5V-tolerant inputs",
+    "interfaces": [],
+    "tags": [
+      "debug",
+      "analyzer",
+      "signals",
+      "i2c"
+    ],
+    "price": [
+      25,
+      60
+    ],
+    "note": "Only for low-voltage logic signals."
+  },
+  {
+    "id": "usb-power-meter",
+    "name": "USB Power Meter (voltage & current)",
+    "category": "tools",
+    "icon": "multimeter",
+    "desc": "Plugs between charger and cable to show how much power your project draws.",
+    "voltage": "USB 4–30V",
+    "interfaces": [],
+    "tags": [
+      "usb",
+      "meter",
+      "power",
+      "debug"
+    ],
+    "price": [
+      15,
+      40
+    ]
+  },
+  {
+    "id": "safety-glasses",
+    "name": "Safety Glasses",
+    "category": "tools",
+    "icon": "glasses",
+    "desc": "Protects your eyes from flying leg clippings and solder splashes. Wear them!",
+    "voltage": "No power",
+    "interfaces": [],
+    "tags": [
+      "safety",
+      "eyes",
+      "protection"
+    ],
+    "price": [
+      8,
+      25
+    ]
+  },
+  {
+    "id": "bench-psu",
+    "name": "Adjustable Bench Power Supply (0–30V, 5A)",
+    "category": "tools",
+    "icon": "psu",
+    "desc": "A lab power supply with a current limit: the ultimate protection against magic smoke while testing.",
+    "voltage": "0–30V / 0–5A out · 220–240V wall",
+    "interfaces": [],
+    "tags": [
+      "power supply",
+      "lab",
+      "current limit",
+      "debug"
+    ],
+    "price": [
+      180,
+      350
+    ],
+    "note": "Set the current limit low (e.g. 100mA) when powering a new circuit for the first time."
+  },
+  {
+    "id": "silicone-mat",
+    "name": "Silicone Soldering Mat",
+    "category": "tools",
+    "icon": "perfboard",
+    "desc": "A heat-resistant mat with trays for screws: protects your desk while soldering.",
+    "voltage": "No power",
+    "interfaces": [],
+    "tags": [
+      "solder",
+      "mat",
+      "workspace"
+    ],
+    "price": [
+      20,
+      45
+    ]
+  }
+]

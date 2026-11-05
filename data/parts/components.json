@@ -1,0 +1,584 @@
+[
+  {
+    "id": "breadboard",
+    "name": "Breadboard (830 points)",
+    "category": "components",
+    "icon": "breadboard",
+    "basic": true,
+    "desc": "A board full of holes for building circuits without soldering. Parts and wires just push in.",
+    "voltage": "Low voltage only",
+    "interfaces": [],
+    "tags": [
+      "breadboard",
+      "prototype",
+      "basics"
+    ],
+    "price": [
+      8,
+      20
+    ]
+  },
+  {
+    "id": "jumper-wires",
+    "name": "Jumper Wires (M-M, M-F, F-F)",
+    "category": "components",
+    "icon": "jumper",
+    "basic": true,
+    "desc": "Pre-made wires with pins or sockets on the ends. Male-to-male for the breadboard, female ends for module pins.",
+    "voltage": "Low voltage only",
+    "interfaces": [],
+    "tags": [
+      "wires",
+      "dupont",
+      "basics"
+    ],
+    "price": [
+      8,
+      20
+    ]
+  },
+  {
+    "id": "resistor-kit",
+    "name": "Resistor Kit (220Ω–10kΩ)",
+    "category": "components",
+    "icon": "resistor",
+    "basic": true,
+    "desc": "An assortment of common resistors: 100Ω, 220Ω, 330Ω, 1kΩ, 2kΩ, 4.7kΩ and 10kΩ. They limit current for LEDs and make pull-ups and voltage dividers.",
+    "voltage": "1/4W each",
+    "interfaces": [],
+    "tags": [
+      "resistor",
+      "basics",
+      "led",
+      "pull-up",
+      "divider"
+    ],
+    "price": [
+      8,
+      25
+    ],
+    "note": "Read values with the color bands or, easier, a multimeter."
+  },
+  {
+    "id": "usb-cable",
+    "name": "USB Data Cable (for your board)",
+    "category": "components",
+    "icon": "usb",
+    "basic": true,
+    "desc": "Connects your board to the PC for uploading code and power. Match the plug: USB-B (Uno/Mega), Mini-B or USB-C (Nano), Micro-B or USB-C (ESP32/Pico).",
+    "voltage": "5V",
+    "interfaces": [],
+    "tags": [
+      "usb",
+      "cable",
+      "basics"
+    ],
+    "price": [
+      5,
+      20
+    ],
+    "note": "Classic trap: some cables are charge-only and carry no data. If the PC doesn't see your board, try another cable first."
+  },
+  {
+    "id": "cap-100nf",
+    "name": "Ceramic Capacitors 100nF (0.1µF)",
+    "category": "components",
+    "icon": "cap-ceramic",
+    "desc": "Tiny capacitors (marked \"104\") that smooth out electrical noise. Used for decoupling and to stop buttons from \"bouncing\".",
+    "voltage": "50V rated",
+    "interfaces": [],
+    "tags": [
+      "capacitor",
+      "decoupling",
+      "noise"
+    ],
+    "price": [
+      2,
+      8
+    ]
+  },
+  {
+    "id": "cap-electrolytic-kit",
+    "name": "Electrolytic Capacitor Kit (1µF–1000µF)",
+    "category": "components",
+    "icon": "cap-electrolytic",
+    "desc": "Can-shaped capacitors that store a bit of energy and steady the power supply. LED strips and radios love them.",
+    "voltage": "16–50V rated (check each)",
+    "interfaces": [],
+    "tags": [
+      "capacitor",
+      "power",
+      "smoothing"
+    ],
+    "price": [
+      8,
+      20
+    ],
+    "note": "Polarity matters: the stripe marks the − leg. Backwards or over-voltage, they can pop."
+  },
+  {
+    "id": "diode-1n4007",
+    "name": "1N4007 Diodes",
+    "category": "components",
+    "icon": "diode",
+    "desc": "One-way valves for electricity. Placed backwards across a motor or relay coil, it soaks up the voltage spike when it switches off (a \"flyback diode\").",
+    "voltage": "1000V · 1A",
+    "interfaces": [],
+    "tags": [
+      "diode",
+      "flyback",
+      "protection"
+    ],
+    "price": [
+      2,
+      6
+    ],
+    "note": "The silver stripe is the cathode (−) end. For a flyback diode, the stripe faces the + supply."
+  },
+  {
+    "id": "npn-2n2222",
+    "name": "NPN Transistors (PN2222A / 2N2222)",
+    "category": "components",
+    "icon": "transistor",
+    "desc": "A small electronic switch: a weak pin current turns on a bigger current (up to ~500mA). Use it for buzzers, small motors and relays.",
+    "voltage": "Up to 40V · ~500mA",
+    "interfaces": [],
+    "tags": [
+      "transistor",
+      "npn",
+      "switch"
+    ],
+    "price": [
+      2,
+      8
+    ],
+    "note": "The pin order DIFFERS between makers: PN2222A is often E-B-C and P2N2222A is C-B-E. Check the datasheet for the exact marking on yours."
+  },
+  {
+    "id": "mosfet-irlz44n",
+    "name": "IRLZ44N Logic-Level MOSFET",
+    "category": "components",
+    "icon": "mosfet",
+    "desc": "A heavy-duty electronic switch that lets a 5V pin control big loads like LED strips, pumps and motors (several amps).",
+    "voltage": "Up to 55V · fully on with a 5V gate",
+    "interfaces": [],
+    "tags": [
+      "mosfet",
+      "switch",
+      "power",
+      "motor"
+    ],
+    "price": [
+      4,
+      12
+    ],
+    "note": "Pins: Gate, Drain, Source (left to right, facing the label). Add a 10kΩ resistor from gate to GND.",
+    "warn": {
+      "3.3": "From a 3.3V pin the IRLZ44N only partly turns on: fine for loads under ~1A, but it can get hot with big motors."
+    }
+  },
+  {
+    "id": "level-shifter",
+    "name": "Logic Level Shifter (4-ch, BSS138)",
+    "category": "components",
+    "icon": "shifter",
+    "desc": "A tiny translator between 3.3V and 5V signals, so a 3.3V board (ESP32/Pico) can safely talk to 5V modules.",
+    "voltage": "LV side 1.8–3.3V · HV side 5V",
+    "interfaces": [
+      "I2C",
+      "Digital"
+    ],
+    "tags": [
+      "level shifter",
+      "3.3v",
+      "5v",
+      "i2c",
+      "safety"
+    ],
+    "price": [
+      3,
+      10
+    ],
+    "note": "Connect LV to 3.3V, HV to 5V, and both GNDs. Not fast enough for WS2812B strips (use a 74AHCT125 for those)."
+  },
+  {
+    "id": "diode-1n5819",
+    "name": "1N5819 Schottky Diodes",
+    "category": "components",
+    "icon": "diode",
+    "desc": "Fast diodes with a low voltage drop: better flyback diodes for PWM-driven motors, and reverse-polarity protection.",
+    "voltage": "40V · 1A",
+    "interfaces": [],
+    "tags": [
+      "diode",
+      "schottky",
+      "flyback",
+      "protection"
+    ],
+    "price": [
+      2,
+      6
+    ],
+    "note": "The stripe marks the cathode (−)."
+  },
+  {
+    "id": "diode-1n4148",
+    "name": "1N4148 Signal Diodes",
+    "category": "components",
+    "icon": "diode",
+    "desc": "Small, fast diodes for signals and logic tricks (not for motors).",
+    "voltage": "100V · 200mA",
+    "interfaces": [],
+    "tags": [
+      "diode",
+      "signal"
+    ],
+    "price": [
+      1,
+      4
+    ]
+  },
+  {
+    "id": "npn-bc547",
+    "name": "BC547 NPN Transistors",
+    "category": "components",
+    "icon": "transistor",
+    "desc": "Small switching transistors for loads up to ~100mA, like buzzers and small LEDs.",
+    "voltage": "Up to 45V · 100mA",
+    "interfaces": [],
+    "tags": [
+      "transistor",
+      "npn",
+      "switch"
+    ],
+    "price": [
+      1,
+      5
+    ],
+    "note": "Usual pin order (flat face toward you): C-B-E. Check the datasheet for your marking."
+  },
+  {
+    "id": "tip120",
+    "name": "TIP120 Darlington Transistor",
+    "category": "components",
+    "icon": "mosfet",
+    "desc": "A strong transistor (up to 5A) for motors and strips. It loses ~1.5–2V, so it runs warmer than a MOSFET.",
+    "voltage": "Up to 60V · 5A",
+    "interfaces": [],
+    "tags": [
+      "transistor",
+      "darlington",
+      "motor",
+      "switch"
+    ],
+    "price": [
+      3,
+      8
+    ],
+    "note": "Pins (label facing you): B-C-E. Still add a 1N4007 flyback diode across motors."
+  },
+  {
+    "id": "pc817",
+    "name": "PC817 Optocoupler",
+    "category": "components",
+    "icon": "ic",
+    "desc": "Passes a signal using light inside the chip, keeping two circuits electrically separate.",
+    "voltage": "LED side ~1.2V · output up to 35V",
+    "interfaces": [],
+    "tags": [
+      "optocoupler",
+      "isolation",
+      "safety"
+    ],
+    "price": [
+      1,
+      5
+    ],
+    "note": "Its LED side needs a series resistor (about 1kΩ)."
+  },
+  {
+    "id": "ne555",
+    "name": "NE555 Timer IC",
+    "category": "components",
+    "icon": "ic",
+    "desc": "The legendary timer chip: blinkers, tone generators and delays without any code.",
+    "voltage": "4.5–16V",
+    "interfaces": [],
+    "tags": [
+      "555",
+      "timer",
+      "ic",
+      "oscillator"
+    ],
+    "price": [
+      1,
+      4
+    ]
+  },
+  {
+    "id": "hc595",
+    "name": "74HC595 Shift Register",
+    "category": "components",
+    "icon": "ic",
+    "desc": "Turns 3 board pins into 8 outputs. Chain several to light dozens of LEDs.",
+    "voltage": "2–6V",
+    "interfaces": [
+      "SPI"
+    ],
+    "tags": [
+      "shift register",
+      "outputs",
+      "led",
+      "ic"
+    ],
+    "price": [
+      1,
+      5
+    ],
+    "note": "Each LED still needs its own resistor; keep the total current under ~70mA."
+  },
+  {
+    "id": "cd4051",
+    "name": "CD4051 Analog Multiplexer (8:1)",
+    "category": "components",
+    "icon": "ic",
+    "desc": "Lets one analog pin read 8 different sensors or knobs, one at a time.",
+    "voltage": "3–15V",
+    "interfaces": [],
+    "tags": [
+      "multiplexer",
+      "analog",
+      "inputs",
+      "ic"
+    ],
+    "price": [
+      2,
+      6
+    ]
+  },
+  {
+    "id": "lm358",
+    "name": "LM358 Dual Op-Amp",
+    "category": "components",
+    "icon": "ic",
+    "desc": "Amplifies small signals, such as a microphone or sensor, before your board reads them.",
+    "voltage": "3–32V",
+    "interfaces": [],
+    "tags": [
+      "op-amp",
+      "amplifier",
+      "analog",
+      "ic"
+    ],
+    "price": [
+      1,
+      4
+    ]
+  },
+  {
+    "id": "level-shifter-74ahct125",
+    "name": "74AHCT125 Level Shifter (for LED strips)",
+    "category": "components",
+    "icon": "shifter",
+    "desc": "A fast one-way 3.3V → 5V translator: the proper way to drive WS2812B LEDs from an ESP32 or Pico.",
+    "voltage": "5V supply · accepts 3.3V inputs",
+    "interfaces": [
+      "Digital"
+    ],
+    "tags": [
+      "level shifter",
+      "ws2812b",
+      "3.3v",
+      "5v"
+    ],
+    "price": [
+      3,
+      8
+    ],
+    "note": "Tie the OE (enable) pins of used channels to GND."
+  },
+  {
+    "id": "txs0108e",
+    "name": "TXS0108E 8-Channel Level Shifter",
+    "category": "components",
+    "icon": "shifter",
+    "desc": "Translates 8 signals between 3.3V and 5V automatically in both directions.",
+    "voltage": "VA 1.2–3.6V · VB 1.65–5.5V",
+    "interfaces": [
+      "Digital"
+    ],
+    "tags": [
+      "level shifter",
+      "3.3v",
+      "5v"
+    ],
+    "price": [
+      5,
+      12
+    ],
+    "note": "Not great for I2C with strong pull-ups: use the BSS138 type for I2C."
+  },
+  {
+    "id": "cap-ceramic-kit",
+    "name": "Ceramic Capacitor Kit (10pF–100nF)",
+    "category": "components",
+    "icon": "cap-ceramic",
+    "desc": "An assortment of small capacitors for filters, crystals and noise fixes.",
+    "voltage": "50V rated",
+    "interfaces": [],
+    "tags": [
+      "capacitor",
+      "kit",
+      "ceramic"
+    ],
+    "price": [
+      8,
+      20
+    ]
+  },
+  {
+    "id": "pin-headers-male",
+    "name": "Male Pin Headers (40-pin strips)",
+    "category": "components",
+    "icon": "header",
+    "desc": "Break-apart pin strips you solder onto modules so they plug into breadboards.",
+    "voltage": "Low voltage",
+    "interfaces": [],
+    "tags": [
+      "headers",
+      "pins",
+      "solder"
+    ],
+    "price": [
+      2,
+      8
+    ]
+  },
+  {
+    "id": "pin-headers-female",
+    "name": "Female Pin Headers (40-pin strips)",
+    "category": "components",
+    "icon": "header",
+    "desc": "Sockets for plugging modules into your own boards, so they can be swapped later.",
+    "voltage": "Low voltage",
+    "interfaces": [],
+    "tags": [
+      "headers",
+      "sockets",
+      "solder"
+    ],
+    "price": [
+      2,
+      8
+    ]
+  },
+  {
+    "id": "perfboard",
+    "name": "Perfboard / Protoboard (various sizes)",
+    "category": "components",
+    "icon": "perfboard",
+    "desc": "A board with a grid of holes to solder a permanent version of your breadboard circuit.",
+    "voltage": "Low voltage",
+    "interfaces": [],
+    "tags": [
+      "perfboard",
+      "solder",
+      "permanent",
+      "pcb"
+    ],
+    "price": [
+      5,
+      15
+    ]
+  },
+  {
+    "id": "heat-shrink",
+    "name": "Heat Shrink Tubing Kit",
+    "category": "components",
+    "icon": "jumper",
+    "desc": "Plastic sleeves that shrink with heat to insulate soldered wire joints neatly.",
+    "voltage": "Insulation",
+    "interfaces": [],
+    "tags": [
+      "insulation",
+      "wires",
+      "solder"
+    ],
+    "price": [
+      8,
+      20
+    ],
+    "note": "Shrink with a heat gun or carefully with the side of a soldering iron (not a lighter flame)."
+  },
+  {
+    "id": "screw-terminals",
+    "name": "Screw Terminal Blocks (PCB, 2/3-pin)",
+    "category": "components",
+    "icon": "terminal",
+    "desc": "Clamp wires with a screwdriver: great for power and motor connections on perfboards.",
+    "voltage": "Low voltage",
+    "interfaces": [],
+    "tags": [
+      "terminal",
+      "connector",
+      "wires"
+    ],
+    "price": [
+      3,
+      10
+    ]
+  },
+  {
+    "id": "breadboard-mini-170",
+    "name": "Mini Breadboard (170 points)",
+    "category": "components",
+    "icon": "breadboard",
+    "desc": "A tiny breadboard that sticks onto robots and boxes.",
+    "voltage": "Low voltage only",
+    "interfaces": [],
+    "tags": [
+      "breadboard",
+      "mini",
+      "prototype"
+    ],
+    "price": [
+      2,
+      6
+    ]
+  },
+  {
+    "id": "breadboard-400",
+    "name": "Half Breadboard (400 points)",
+    "category": "components",
+    "icon": "breadboard",
+    "desc": "A medium breadboard: enough room for most single-sensor projects.",
+    "voltage": "Low voltage only",
+    "interfaces": [],
+    "tags": [
+      "breadboard",
+      "prototype"
+    ],
+    "price": [
+      5,
+      12
+    ]
+  },
+  {
+    "id": "wire-kit-precut",
+    "name": "Pre-Cut Breadboard Wire Kit",
+    "category": "components",
+    "icon": "jumper",
+    "desc": "Flat, color-coded wires of exact lengths, for neat breadboard builds that are easy to debug.",
+    "voltage": "Low voltage",
+    "interfaces": [],
+    "tags": [
+      "wires",
+      "breadboard",
+      "tidy"
+    ],
+    "price": [
+      10,
+      25
+    ]
+  }
+]

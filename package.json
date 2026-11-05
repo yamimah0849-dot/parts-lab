@@ -1,0 +1,11 @@
+{
+  "name": "parts-lab",
+  "private": true,
+  "type": "module",
+  "description": "Parts Lab PWA. No build step: these scripts are developer checks only.",
+  "scripts": {
+    "validate": "node tools/validate.mjs",
+    "validate:boards": "node tools/validate.mjs --boards",
+    "serve": "python3 -m http.server 8080"
+  }
+}

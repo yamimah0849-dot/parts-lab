@@ -1,0 +1,575 @@
+[
+  {
+    "id": "led-red",
+    "name": "5mm LED (red)",
+    "category": "lighting",
+    "icon": "led",
+    "color": "#ff3b4e",
+    "desc": "The classic little light. Needs a resistor in series (220Ω on 5V boards, 100Ω on 3.3V boards) or it burns out.",
+    "voltage": "~2.0V forward · max 20mA",
+    "interfaces": [
+      "Digital",
+      "PWM"
+    ],
+    "tags": [
+      "led",
+      "light",
+      "red",
+      "indicator"
+    ],
+    "price": [
+      1,
+      5
+    ],
+    "note": "The long leg (+, anode) goes toward the pin, and the short leg (−, flat side) goes to GND."
+  },
+  {
+    "id": "led-yellow",
+    "name": "5mm LED (yellow)",
+    "category": "lighting",
+    "icon": "led",
+    "color": "#ffd23b",
+    "desc": "A yellow 5mm LED. Always pair it with a resistor (220Ω on 5V, 100Ω on 3.3V).",
+    "voltage": "~2.1V forward · max 20mA",
+    "interfaces": [
+      "Digital",
+      "PWM"
+    ],
+    "tags": [
+      "led",
+      "light",
+      "yellow",
+      "indicator"
+    ],
+    "price": [
+      1,
+      5
+    ],
+    "note": "The long leg (+) goes toward the pin and the short leg (−) to GND."
+  },
+  {
+    "id": "led-green",
+    "name": "5mm LED (green)",
+    "category": "lighting",
+    "icon": "led",
+    "color": "#3bff7a",
+    "desc": "A green 5mm LED. Always pair it with a resistor (220Ω on 5V, 100Ω on 3.3V).",
+    "voltage": "~2.2–3.2V forward (depends on shade) · max 20mA",
+    "interfaces": [
+      "Digital",
+      "PWM"
+    ],
+    "tags": [
+      "led",
+      "light",
+      "green",
+      "indicator"
+    ],
+    "price": [
+      1,
+      5
+    ],
+    "note": "The long leg (+) goes toward the pin and the short leg (−) to GND."
+  },
+  {
+    "id": "led-blue",
+    "name": "5mm LED (blue)",
+    "category": "lighting",
+    "icon": "led",
+    "color": "#3b8bff",
+    "desc": "A blue 5mm LED. It needs about 3V, so on 3.3V boards it glows a bit dimmer. Use 220Ω on 5V and 100Ω on 3.3V.",
+    "voltage": "~3.0–3.2V forward · max 20mA",
+    "interfaces": [
+      "Digital",
+      "PWM"
+    ],
+    "tags": [
+      "led",
+      "light",
+      "blue",
+      "indicator"
+    ],
+    "price": [
+      1,
+      5
+    ],
+    "note": "The long leg (+) goes toward the pin and the short leg (−) to GND."
+  },
+  {
+    "id": "led-white",
+    "name": "5mm LED (white)",
+    "category": "lighting",
+    "icon": "led",
+    "color": "#f2f6ff",
+    "desc": "A bright white 5mm LED for lamps and flashlights. It needs about 3V, so it is dimmer on 3.3V boards.",
+    "voltage": "~3.0–3.2V forward · max 20mA",
+    "interfaces": [
+      "Digital",
+      "PWM"
+    ],
+    "tags": [
+      "led",
+      "light",
+      "white",
+      "lamp"
+    ],
+    "price": [
+      1,
+      5
+    ],
+    "note": "The long leg (+) goes toward the pin and the short leg (−) to GND."
+  },
+  {
+    "id": "rgb-led-cc",
+    "name": "RGB LED (common cathode)",
+    "category": "lighting",
+    "icon": "rgb-led",
+    "desc": "Three LEDs (red, green, blue) in one, so you can mix any color. This version's shared long leg goes to GND.",
+    "voltage": "R ~2V · G/B ~3V · 20mA each",
+    "interfaces": [
+      "PWM"
+    ],
+    "tags": [
+      "rgb",
+      "color",
+      "led",
+      "mood"
+    ],
+    "variantGroup": "rgb-led",
+    "variantNote": "Common cathode: long leg to GND, and a HIGH pin turns a color ON. One resistor per color leg.",
+    "price": [
+      1,
+      5
+    ]
+  },
+  {
+    "id": "rgb-led-ca",
+    "name": "RGB LED (common anode)",
+    "category": "lighting",
+    "icon": "rgb-led",
+    "desc": "The same 3-in-1 color LED, but its shared long leg goes to + power, so the code is flipped (LOW = ON).",
+    "voltage": "R ~2V · G/B ~3V · 20mA each",
+    "interfaces": [
+      "PWM"
+    ],
+    "tags": [
+      "rgb",
+      "color",
+      "led",
+      "mood"
+    ],
+    "variantGroup": "rgb-led",
+    "variantNote": "Common anode: long leg to 5V/3.3V, and a LOW pin turns a color ON. One resistor per color leg.",
+    "price": [
+      1,
+      5
+    ]
+  },
+  {
+    "id": "ws2812b-strip",
+    "name": "WS2812B LED Strip (1m, 60 LEDs)",
+    "category": "lighting",
+    "icon": "strip",
+    "desc": "A strip of 60 color LEDs you can control one by one with a single data wire. Rainbows, room lighting and music visualizers.",
+    "voltage": "5V",
+    "vcc": [
+      4.5,
+      5.5
+    ],
+    "interfaces": [
+      "1-wire data"
+    ],
+    "tags": [
+      "neopixel",
+      "rgb",
+      "strip",
+      "addressable",
+      "room",
+      "rgb lighting"
+    ],
+    "variantGroup": "ws2812b",
+    "variantNote": "Strip: 60 LEDs per metre, can be cut between LEDs.",
+    "price": [
+      20,
+      50
+    ],
+    "power": "Full white can draw up to 3.6A per metre. Use a separate 5V supply (4A for 1m), add a 1000µF capacitor across power and a 330Ω resistor on the data line, and limit brightness in code.",
+    "warn": {
+      "3.3": "WS2812B data from 3.3V boards usually works for short runs, but a level shifter (74AHCT125) makes it reliable."
+    }
+  },
+  {
+    "id": "ws2812b-stick",
+    "name": "WS2812B 8-LED Stick",
+    "category": "lighting",
+    "icon": "stick",
+    "desc": "A short bar of 8 color LEDs, easy to plug into a breadboard. Great for level meters and status bars.",
+    "voltage": "5V",
+    "vcc": [
+      4.5,
+      5.5
+    ],
+    "interfaces": [
+      "1-wire data"
+    ],
+    "tags": [
+      "neopixel",
+      "rgb",
+      "addressable",
+      "meter"
+    ],
+    "variantGroup": "ws2812b",
+    "variantNote": "Stick: 8 LEDs in a row.",
+    "price": [
+      5,
+      15
+    ],
+    "power": "Up to ~480mA at full white. USB power is fine if you keep brightness moderate in code.",
+    "note": "Usually needs header pins soldered on."
+  },
+  {
+    "id": "ws2812b-ring",
+    "name": "WS2812B 16-LED Ring",
+    "category": "lighting",
+    "icon": "ring",
+    "desc": "16 color LEDs in a circle: perfect for clocks, loading spinners, compasses and glowing \"reactor cores\".",
+    "voltage": "5V",
+    "vcc": [
+      4.5,
+      5.5
+    ],
+    "interfaces": [
+      "1-wire data"
+    ],
+    "tags": [
+      "neopixel",
+      "rgb",
+      "ring",
+      "addressable",
+      "clock"
+    ],
+    "variantGroup": "ws2812b",
+    "variantNote": "Ring: 16 LEDs in a circle.",
+    "price": [
+      8,
+      25
+    ],
+    "power": "Up to ~960mA at full white. Keep brightness low when powered from USB, or use a separate 5V supply.",
+    "note": "Usually needs wires soldered on."
+  },
+  {
+    "id": "ws2812b-matrix-8x8",
+    "name": "WS2812B 8x8 RGB LED Matrix",
+    "category": "lighting",
+    "icon": "matrix-rgb",
+    "desc": "64 color LEDs in a square: pixel art, emoji faces and mini games in full color.",
+    "voltage": "5V",
+    "interfaces": [
+      "1-wire data"
+    ],
+    "tags": [
+      "neopixel",
+      "matrix",
+      "rgb",
+      "pixel art",
+      "addressable"
+    ],
+    "price": [
+      25,
+      55
+    ],
+    "vcc": [
+      4.5,
+      5.5
+    ],
+    "variantGroup": "ws2812b",
+    "variantNote": "8x8 grid: 64 LEDs.",
+    "power": "Full white can draw ~3.8A. Limit brightness in code (about 20%) on USB, or use a 5V 4A supply.",
+    "warn": {
+      "3.3": "WS2812B data from 3.3V boards usually works on short wires; a 74AHCT125 level shifter makes it reliable."
+    }
+  },
+  {
+    "id": "ws2812b-panel-16x16",
+    "name": "WS2812B 16x16 Flexible LED Panel",
+    "category": "lighting",
+    "icon": "matrix-rgb",
+    "desc": "256 color LEDs on a bendable panel: scrolling signs, animations and pixel games.",
+    "voltage": "5V",
+    "interfaces": [
+      "1-wire data"
+    ],
+    "tags": [
+      "neopixel",
+      "matrix",
+      "panel",
+      "rgb",
+      "addressable"
+    ],
+    "price": [
+      60,
+      120
+    ],
+    "vcc": [
+      4.5,
+      5.5
+    ],
+    "variantGroup": "ws2812b",
+    "variantNote": "16x16 grid: 256 LEDs, wired in a zig-zag (serpentine) pattern.",
+    "power": "At full white 256 LEDs can draw over 15A! Use a 5V 4A+ supply, keep brightness low in code and add a 1000µF capacitor.",
+    "warn": {
+      "3.3": "Use a 74AHCT125 level shifter on the data line with 3.3V boards."
+    }
+  },
+  {
+    "id": "ws2812b-strip-144",
+    "name": "WS2812B LED Strip (144 LEDs/m)",
+    "category": "lighting",
+    "icon": "strip",
+    "desc": "A super-dense strip for smooth light bars, lightsabers and visualizers.",
+    "voltage": "5V",
+    "interfaces": [
+      "1-wire data"
+    ],
+    "tags": [
+      "neopixel",
+      "strip",
+      "dense",
+      "addressable"
+    ],
+    "price": [
+      50,
+      100
+    ],
+    "vcc": [
+      4.5,
+      5.5
+    ],
+    "variantGroup": "ws2812b",
+    "variantNote": "High density: 144 LEDs per metre.",
+    "power": "Up to ~8.6A per metre at full white. Use a big 5V supply, inject power at both ends and limit brightness.",
+    "warn": {
+      "3.3": "Use a 74AHCT125 level shifter on the data line with 3.3V boards."
+    }
+  },
+  {
+    "id": "ws2812b-jewel",
+    "name": "WS2812B 7-LED Jewel",
+    "category": "lighting",
+    "icon": "ring",
+    "desc": "Seven color LEDs in a tiny flower shape: glowing eyes, buttons and jewelry.",
+    "voltage": "5V",
+    "interfaces": [
+      "1-wire data"
+    ],
+    "tags": [
+      "neopixel",
+      "jewel",
+      "small",
+      "addressable"
+    ],
+    "price": [
+      8,
+      20
+    ],
+    "vcc": [
+      4.5,
+      5.5
+    ],
+    "variantGroup": "ws2812b",
+    "variantNote": "Jewel: 7 LEDs in a hexagon."
+  },
+  {
+    "id": "ws2812b-single",
+    "name": "WS2812B Single LED (breakout)",
+    "category": "lighting",
+    "icon": "led",
+    "desc": "One addressable RGB LED on a tiny board: one data wire, any color.",
+    "voltage": "5V",
+    "interfaces": [
+      "1-wire data"
+    ],
+    "tags": [
+      "neopixel",
+      "single",
+      "rgb",
+      "addressable"
+    ],
+    "price": [
+      2,
+      6
+    ],
+    "vcc": [
+      4.5,
+      5.5
+    ],
+    "variantGroup": "ws2812b",
+    "variantNote": "Single LED on a breakout."
+  },
+  {
+    "id": "sk6812-rgbw-strip",
+    "name": "SK6812 RGBW LED Strip (60/m)",
+    "category": "lighting",
+    "icon": "strip",
+    "desc": "Like WS2812B but with an extra true-white LED in each pixel for nicer room lighting.",
+    "voltage": "5V",
+    "interfaces": [
+      "1-wire data"
+    ],
+    "tags": [
+      "neopixel",
+      "rgbw",
+      "strip",
+      "addressable"
+    ],
+    "price": [
+      35,
+      70
+    ],
+    "vcc": [
+      4.5,
+      5.5
+    ],
+    "note": "In code use NEO_GRBW instead of NEO_GRB.",
+    "power": "Up to ~4.8A per metre at full RGBW. Use a separate 5V supply and limit brightness."
+  },
+  {
+    "id": "led-strip-12v-white",
+    "name": "12V LED Strip (white, non-addressable)",
+    "category": "lighting",
+    "icon": "strip",
+    "desc": "A simple bright white strip: all LEDs on together. Great for shelves and under-desk lights.",
+    "voltage": "12V DC (~1A per metre)",
+    "interfaces": [
+      "Driver"
+    ],
+    "tags": [
+      "strip",
+      "12v",
+      "white",
+      "lighting"
+    ],
+    "price": [
+      15,
+      40
+    ],
+    "vcc": [
+      12,
+      12
+    ],
+    "power": "Needs a 12V supply. Dim or switch it with a logic-level MOSFET; connect the supply's GND to the board's GND."
+  },
+  {
+    "id": "led-ir-940",
+    "name": "IR LED 940nm (5mm, infrared)",
+    "category": "lighting",
+    "icon": "led",
+    "desc": "An invisible infrared LED: make your project send TV-remote codes. Your phone camera can see it glow.",
+    "voltage": "~1.2V forward · up to 50mA",
+    "interfaces": [
+      "PWM"
+    ],
+    "tags": [
+      "infrared",
+      "remote",
+      "ir",
+      "transmitter"
+    ],
+    "price": [
+      1,
+      5
+    ],
+    "note": "Use a 100Ω resistor for ~30mA, or a transistor for longer range."
+  },
+  {
+    "id": "led-1w-star",
+    "name": "1W High-Power LED (star PCB)",
+    "category": "lighting",
+    "icon": "led",
+    "desc": "A very bright LED on an aluminium heatsink star, for flashlights and lamps.",
+    "voltage": "~3.2V · 350mA",
+    "interfaces": [
+      "Driver"
+    ],
+    "tags": [
+      "led",
+      "high power",
+      "lamp",
+      "flashlight"
+    ],
+    "price": [
+      5,
+      15
+    ],
+    "power": "Never drive it from a pin: use a constant-current driver or a MOSFET with a suitable power resistor, and keep it on a heatsink."
+  },
+  {
+    "id": "cob-led-12v",
+    "name": "12V COB LED Panel",
+    "category": "lighting",
+    "icon": "led",
+    "desc": "A flat panel of tightly packed LEDs giving smooth, bright light.",
+    "voltage": "12V DC",
+    "interfaces": [
+      "Driver"
+    ],
+    "tags": [
+      "led",
+      "cob",
+      "12v",
+      "lamp"
+    ],
+    "price": [
+      10,
+      25
+    ],
+    "power": "Needs a 12V supply switched with a logic-level MOSFET. It gets warm: mount it on metal."
+  },
+  {
+    "id": "led-filament-3v",
+    "name": "LED Filament (3V, flexible)",
+    "category": "lighting",
+    "icon": "led",
+    "desc": "A bendable glowing thread that looks like a vintage bulb filament. Beautiful for gifts and signs.",
+    "voltage": "~3V · ~100mA",
+    "interfaces": [
+      "Driver"
+    ],
+    "tags": [
+      "filament",
+      "led",
+      "glow",
+      "gift"
+    ],
+    "price": [
+      3,
+      10
+    ],
+    "power": "Draws ~100mA: switch it with a transistor (2N2222 + 1kΩ) and use a series resistor (e.g. 22Ω at 5V)."
+  },
+  {
+    "id": "traffic-light-module",
+    "name": "Traffic Light LED Module (with resistors)",
+    "category": "lighting",
+    "icon": "led",
+    "desc": "Red, yellow and green LEDs on a little board with resistors already built in. Just 4 wires.",
+    "voltage": "3.3–5V",
+    "interfaces": [
+      "Digital"
+    ],
+    "tags": [
+      "traffic",
+      "led",
+      "module",
+      "beginner"
+    ],
+    "price": [
+      3,
+      8
+    ],
+    "vcc": [
+      3.3,
+      5
+    ]
+  }
+]

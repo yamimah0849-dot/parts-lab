@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="40%" r="75%">
+      <stop offset="0" stop-color="#1b2450"/><stop offset=".6" stop-color="#0a0e1f"/><stop offset="1" stop-color="#04050a"/>
+    </radialGradient>
+    <linearGradient id="liquid" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#b9fff1"/><stop offset=".35" stop-color="#36f1cd"/><stop offset="1" stop-color="#0b7d6e"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="10" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M32 0H0V32" fill="none" stroke="#36f1cd" stroke-opacity=".08" stroke-width="2"/>
+    </pattern>
+  </defs>
+  <rect width="512" height="512" fill="url(#bg)"/>
+  <rect width="512" height="512" fill="url(#grid)"/>
+  <!-- reactor ring -->
+  <circle cx="256" cy="270" r="190" fill="none" stroke="#36f1cd" stroke-opacity=".35" stroke-width="6" stroke-dasharray="14 12"/>
+  <path d="M256 80a190 190 0 0 1 164 95" fill="none" stroke="#ff4fa3" stroke-width="10" stroke-linecap="round" filter="url(#glow)"/>
+  <path d="M92 365a190 190 0 0 1-26-95" fill="none" stroke="#8b6cff" stroke-width="10" stroke-linecap="round" filter="url(#glow)"/>
+  <!-- circuit traces -->
+  <g stroke="#36f1cd" stroke-opacity=".5" stroke-width="6" fill="none" stroke-linecap="round">
+    <path d="M70 140h60l30 30"/><path d="M442 150h-50l-26 26"/><path d="M70 420h80l20-20"/><path d="M442 410h-70l-24-24"/>
+  </g>
+  <g fill="#36f1cd"><circle cx="70" cy="140" r="10"/><circle cx="442" cy="150" r="10"/><circle cx="70" cy="420" r="10"/><circle cx="442" cy="410" r="10"/></g>
+  <!-- flask -->
+  <g filter="url(#glow)">
+    <path d="M216 118h80v92l84 150a28 28 0 0 1-24 42H156a28 28 0 0 1-24-42l84-150z" fill="#0b1124" stroke="#e8f1ff" stroke-width="14" stroke-linejoin="round"/>
+    <path d="M168 300h176l36 64a20 20 0 0 1-17 30H149a20 20 0 0 1-17-30z" fill="url(#liquid)"/>
+    <path d="M200 118h112" stroke="#e8f1ff" stroke-width="16" stroke-linecap="round"/>
+  </g>
+  <g fill="#e9fffb">
+    <circle cx="220" cy="340" r="12"/><circle cx="270" cy="360" r="8"/><circle cx="300" cy="328" r="10"/><circle cx="246" cy="262" r="9" fill="#36f1cd"/><circle cx="268" cy="228" r="6" fill="#36f1cd"/>
+  </g>
+  <!-- sparkle -->
+  <path d="M384 70c6 32 24 50 56 56-32 6-50 24-56 56-6-32-24-50-56-56 32-6 50-24 56-56z" fill="#ffe14f" filter="url(#glow)"/>
+</svg>

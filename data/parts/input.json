@@ -1,0 +1,545 @@
+[
+  {
+    "id": "button-6mm",
+    "name": "Tactile Push Button (6×6mm)",
+    "category": "input",
+    "icon": "button",
+    "desc": "The tiny click button that fits on a breadboard. Read it with INPUT_PULLUP, so no resistor is needed.",
+    "voltage": "Works at your board's voltage",
+    "interfaces": [
+      "Digital"
+    ],
+    "tags": [
+      "button",
+      "click",
+      "switch",
+      "gaming"
+    ],
+    "price": [
+      1,
+      5
+    ],
+    "note": "It has 4 legs in 2 connected pairs. Put it across the breadboard's middle gap and use legs on opposite sides."
+  },
+  {
+    "id": "arcade-button",
+    "name": "Arcade Push Button (30mm)",
+    "category": "input",
+    "icon": "arcade",
+    "desc": "A big, satisfying arcade-style button with a microswitch. Makes any game controller or \"big red button\" feel real.",
+    "voltage": "Works at your board's voltage",
+    "interfaces": [
+      "Digital"
+    ],
+    "tags": [
+      "button",
+      "arcade",
+      "gaming",
+      "big"
+    ],
+    "price": [
+      4,
+      15
+    ],
+    "note": "Use the COM and NO terminals (crimp or solder wires). Some include an LED that needs its own power."
+  },
+  {
+    "id": "potentiometer-10k",
+    "name": "Potentiometer 10kΩ (knob)",
+    "category": "input",
+    "icon": "pot",
+    "desc": "A turnable knob that gives your board a value from 0 to max. Use it for volume, brightness, speed or game paddles.",
+    "voltage": "Connect to your board's voltage",
+    "interfaces": [
+      "Analog"
+    ],
+    "tags": [
+      "knob",
+      "dial",
+      "analog",
+      "control"
+    ],
+    "price": [
+      1,
+      5
+    ],
+    "note": "Outer legs go to GND and VCC (3.3V on 3.3V boards!), and the middle leg goes to an analog pin."
+  },
+  {
+    "id": "rotary-encoder",
+    "name": "Rotary Encoder with Button (KY-040)",
+    "category": "input",
+    "icon": "encoder",
+    "desc": "A knob that clicks around forever, with no start or end, and you can also push it. Perfect for menus and volume.",
+    "voltage": "3.3–5V",
+    "vcc": [
+      3.3,
+      5
+    ],
+    "interfaces": [
+      "Digital"
+    ],
+    "tags": [
+      "knob",
+      "menu",
+      "encoder",
+      "control"
+    ],
+    "price": [
+      3,
+      10
+    ]
+  },
+  {
+    "id": "joystick",
+    "name": "Analog Joystick (KY-023)",
+    "category": "input",
+    "icon": "joystick",
+    "desc": "A thumb stick like a game controller's, with X/Y directions plus a click button. Controls games, robots and cameras.",
+    "voltage": "3.3–5V",
+    "vcc": [
+      3.3,
+      5
+    ],
+    "interfaces": [
+      "Analog",
+      "Digital"
+    ],
+    "tags": [
+      "joystick",
+      "gaming",
+      "controller",
+      "thumbstick"
+    ],
+    "price": [
+      4,
+      12
+    ],
+    "note": "Power +5V from 3.3V on 3.3V boards. The button (SW) needs INPUT_PULLUP."
+  },
+  {
+    "id": "keypad-4x4",
+    "name": "4x4 Membrane Keypad",
+    "category": "input",
+    "icon": "keypad",
+    "desc": "A flat sticker keypad with 0–9, A–D, * and #. Use it for passwords, calculators and safes. It uses 8 pins.",
+    "voltage": "No power needed (switch matrix)",
+    "interfaces": [
+      "Digital"
+    ],
+    "tags": [
+      "keypad",
+      "password",
+      "numbers",
+      "lock"
+    ],
+    "price": [
+      3,
+      10
+    ]
+  },
+  {
+    "id": "touch-ttp223",
+    "name": "TTP223 Capacitive Touch Button",
+    "category": "input",
+    "icon": "touch",
+    "desc": "A touch-sensitive pad: tap it like a phone screen. It even works through thin plastic or paper.",
+    "voltage": "2–5.5V",
+    "vcc": [
+      2,
+      5.5
+    ],
+    "interfaces": [
+      "Digital"
+    ],
+    "tags": [
+      "touch",
+      "button",
+      "capacitive"
+    ],
+    "price": [
+      1,
+      5
+    ],
+    "note": "By default the output goes HIGH while touched."
+  },
+  {
+    "id": "slide-switch",
+    "name": "Slide Switch (SPDT)",
+    "category": "input",
+    "icon": "switch",
+    "desc": "A small on/off slide switch. Use it as a mode selector or a battery power switch.",
+    "voltage": "Low-voltage DC only",
+    "interfaces": [
+      "Digital"
+    ],
+    "tags": [
+      "switch",
+      "power",
+      "toggle",
+      "mode"
+    ],
+    "price": [
+      1,
+      4
+    ]
+  },
+  {
+    "id": "button-12mm",
+    "name": "Tactile Button 12mm (with colored cap)",
+    "category": "input",
+    "icon": "button",
+    "desc": "A bigger, comfier click button with a colored cap. Same wiring as the 6mm one.",
+    "voltage": "Works at your board's voltage",
+    "interfaces": [
+      "Digital"
+    ],
+    "tags": [
+      "button",
+      "click",
+      "gaming"
+    ],
+    "price": [
+      2,
+      8
+    ]
+  },
+  {
+    "id": "button-module",
+    "name": "Push Button Module (KY-004 style)",
+    "category": "input",
+    "icon": "button",
+    "desc": "A button on a small board with 3 pins (S, +, −) and a built-in resistor.",
+    "voltage": "3.3–5V",
+    "interfaces": [
+      "Digital"
+    ],
+    "tags": [
+      "button",
+      "module"
+    ],
+    "price": [
+      2,
+      6
+    ],
+    "vcc": [
+      3.3,
+      5
+    ],
+    "note": "Most modules output HIGH when pressed (pull-down on board). Check yours with the Serial Monitor."
+  },
+  {
+    "id": "metal-button-16mm",
+    "name": "Metal Push Button 16mm (with LED ring)",
+    "category": "input",
+    "icon": "arcade",
+    "desc": "A sturdy, satisfying metal button with a glowing ring. Perfect for big \"launch\" buttons.",
+    "voltage": "LED ring 3–6V or 12V (check the version)",
+    "interfaces": [
+      "Digital"
+    ],
+    "tags": [
+      "button",
+      "metal",
+      "led",
+      "launch"
+    ],
+    "price": [
+      10,
+      25
+    ],
+    "note": "The LED ring is a separate circuit. Check if yours is a 3–6V or 12V type."
+  },
+  {
+    "id": "toggle-switch",
+    "name": "Toggle Switch (SPST, low voltage)",
+    "category": "input",
+    "icon": "toggle",
+    "desc": "A flick switch with a satisfying click, for mode selection or a power switch.",
+    "voltage": "Low-voltage DC",
+    "interfaces": [
+      "Digital"
+    ],
+    "tags": [
+      "switch",
+      "toggle",
+      "power"
+    ],
+    "price": [
+      2,
+      8
+    ]
+  },
+  {
+    "id": "dip-switch-4",
+    "name": "4-Position DIP Switch",
+    "category": "input",
+    "icon": "switch",
+    "desc": "Four tiny slide switches in a row: set addresses or options at a glance.",
+    "voltage": "Works at your board's voltage",
+    "interfaces": [
+      "Digital"
+    ],
+    "tags": [
+      "switch",
+      "settings",
+      "binary"
+    ],
+    "price": [
+      2,
+      6
+    ]
+  },
+  {
+    "id": "keypad-3x4",
+    "name": "3x4 Membrane Keypad (phone style)",
+    "category": "input",
+    "icon": "keypad",
+    "desc": "A phone-style keypad: 0–9, * and #. Uses 7 pins.",
+    "voltage": "No power needed (switch matrix)",
+    "interfaces": [
+      "Digital"
+    ],
+    "tags": [
+      "keypad",
+      "numbers",
+      "password"
+    ],
+    "price": [
+      3,
+      10
+    ]
+  },
+  {
+    "id": "keypad-1x4",
+    "name": "1x4 Membrane Keypad",
+    "category": "input",
+    "icon": "keypad",
+    "desc": "Four sticker buttons on a strip, with one common wire.",
+    "voltage": "No power needed",
+    "interfaces": [
+      "Digital"
+    ],
+    "tags": [
+      "keypad",
+      "buttons",
+      "menu"
+    ],
+    "price": [
+      3,
+      8
+    ]
+  },
+  {
+    "id": "slide-pot",
+    "name": "Slide Potentiometer 10kΩ",
+    "category": "input",
+    "icon": "pot",
+    "desc": "A sliding knob like on a mixing desk: volume faders, game paddles, dimmers.",
+    "voltage": "Connect to your board's voltage",
+    "interfaces": [
+      "Analog"
+    ],
+    "tags": [
+      "slider",
+      "fader",
+      "analog",
+      "control"
+    ],
+    "price": [
+      5,
+      15
+    ],
+    "note": "Outer pins to GND and VCC (3.3V on 3.3V boards), wiper to an analog pin."
+  },
+  {
+    "id": "trimpot-10k",
+    "name": "Trimmer Potentiometer 10kΩ",
+    "category": "input",
+    "icon": "pot",
+    "desc": "A tiny screwdriver-adjusted knob for settings you set once, like LCD contrast or sensor thresholds.",
+    "voltage": "Connect to your board's voltage",
+    "interfaces": [
+      "Analog"
+    ],
+    "tags": [
+      "trimmer",
+      "calibration",
+      "contrast"
+    ],
+    "price": [
+      1,
+      4
+    ]
+  },
+  {
+    "id": "ttp229",
+    "name": "TTP229 16-Key Capacitive Touch Keypad",
+    "category": "input",
+    "icon": "keypad",
+    "desc": "A flat touch keypad with 16 pads: a piano, a calculator or a secret-code pad with no moving parts.",
+    "voltage": "2.4–5.5V",
+    "interfaces": [
+      "Digital"
+    ],
+    "tags": [
+      "touch",
+      "keypad",
+      "capacitive",
+      "piano"
+    ],
+    "price": [
+      8,
+      20
+    ],
+    "vcc": [
+      2.4,
+      5.5
+    ],
+    "note": "Out of the box it reads 8 keys; solder a jumper (TP2) to enable all 16."
+  },
+  {
+    "id": "mpr121",
+    "name": "MPR121 12-Channel Capacitive Touch (I2C)",
+    "category": "input",
+    "icon": "touch",
+    "desc": "Turn 12 things into touch buttons: foil, fruit, conductive paint. Great for music projects.",
+    "voltage": "3.3V on most boards (check yours)",
+    "interfaces": [
+      "I2C"
+    ],
+    "tags": [
+      "touch",
+      "capacitive",
+      "music",
+      "i2c"
+    ],
+    "price": [
+      12,
+      30
+    ],
+    "vcc": [
+      3.3,
+      3.3
+    ],
+    "warn": {
+      "5": "Most generic MPR121 boards are 3.3V only: power from 3.3V. With 5V boards, a level shifter on SDA/SCL is the safe choice."
+    }
+  },
+  {
+    "id": "limit-switch",
+    "name": "Limit Switch (microswitch with lever)",
+    "category": "input",
+    "icon": "switch",
+    "desc": "A lever switch that clicks when something touches it: robot bumpers and end stops.",
+    "voltage": "Low-voltage DC",
+    "interfaces": [
+      "Digital"
+    ],
+    "tags": [
+      "switch",
+      "bumper",
+      "endstop",
+      "robot"
+    ],
+    "price": [
+      2,
+      6
+    ],
+    "note": "Use COM and NO with INPUT_PULLUP."
+  },
+  {
+    "id": "ec11-encoder",
+    "name": "EC11 Rotary Encoder (bare, with push)",
+    "category": "input",
+    "icon": "encoder",
+    "desc": "The knob part used in KY-040 modules, for soldering into your own boards and cases.",
+    "voltage": "Works at your board's voltage",
+    "interfaces": [
+      "Digital"
+    ],
+    "tags": [
+      "knob",
+      "encoder",
+      "menu"
+    ],
+    "price": [
+      3,
+      8
+    ],
+    "note": "Needs pull-ups (INPUT_PULLUP) on A and B; middle pin to GND."
+  },
+  {
+    "id": "arcade-joystick",
+    "name": "Arcade Joystick (8-way, microswitches)",
+    "category": "input",
+    "icon": "arcade-stick",
+    "desc": "A real arcade stick with 4 microswitches. Build a fight stick or a retro game cabinet.",
+    "voltage": "Passive switches",
+    "interfaces": [
+      "Digital"
+    ],
+    "tags": [
+      "arcade",
+      "joystick",
+      "gaming",
+      "retro"
+    ],
+    "price": [
+      35,
+      70
+    ],
+    "note": "Each direction is a switch to GND: use 4 pins with INPUT_PULLUP."
+  },
+  {
+    "id": "keyswitch-mech",
+    "name": "Mechanical Keyboard Switch (Cherry MX style)",
+    "category": "input",
+    "icon": "keycap",
+    "desc": "The clicky switch from gaming keyboards. Add a keycap for the best-feeling macro buttons.",
+    "voltage": "Passive switch",
+    "interfaces": [
+      "Digital"
+    ],
+    "tags": [
+      "keyboard",
+      "switch",
+      "gaming",
+      "macro"
+    ],
+    "price": [
+      2,
+      6
+    ]
+  },
+  {
+    "id": "ps2-controller",
+    "name": "PS2-Style Wireless Controller + Receiver",
+    "category": "input",
+    "icon": "gamepad",
+    "desc": "A full gamepad (sticks, d-pad, 16 buttons) for driving robots and playing your own games.",
+    "voltage": "Receiver 3.3V",
+    "interfaces": [
+      "SPI"
+    ],
+    "tags": [
+      "controller",
+      "gamepad",
+      "wireless",
+      "robot",
+      "gaming"
+    ],
+    "price": [
+      35,
+      70
+    ],
+    "vcc": [
+      3.3,
+      3.3
+    ],
+    "note": "Uses the PS2X library (install from GitHub or Library Manager forks).",
+    "warn": {
+      "5": "Power the receiver from 3.3V. Its data lines often work with 5V boards, but a level shifter is the safe choice."
+    }
+  }
+]

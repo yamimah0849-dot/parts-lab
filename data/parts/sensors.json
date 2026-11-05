@@ -1,0 +1,1755 @@
+[
+  {
+    "id": "dht11-module",
+    "name": "DHT11 Temp & Humidity (3-pin module)",
+    "category": "sensors",
+    "icon": "dht",
+    "desc": "Measures temperature (0–50°C) and humidity. The 3-pin module version already has the resistor it needs built in.",
+    "voltage": "3.3–5V",
+    "vcc": [
+      3.3,
+      5.5
+    ],
+    "interfaces": [
+      "Digital"
+    ],
+    "tags": [
+      "temperature",
+      "humidity",
+      "weather",
+      "dht"
+    ],
+    "variantGroup": "dht11",
+    "variantNote": "3-pin module: plug and play, no extra resistor.",
+    "price": [
+      5,
+      15
+    ]
+  },
+  {
+    "id": "dht11-bare",
+    "name": "DHT11 Temp & Humidity (bare 4-pin)",
+    "category": "sensors",
+    "icon": "dht",
+    "desc": "The same DHT11 sensor without a board around it. It needs a 10kΩ resistor between VCC and DATA to work.",
+    "voltage": "3.3–5V",
+    "vcc": [
+      3.3,
+      5.5
+    ],
+    "interfaces": [
+      "Digital"
+    ],
+    "tags": [
+      "temperature",
+      "humidity",
+      "weather",
+      "dht"
+    ],
+    "variantGroup": "dht11",
+    "variantNote": "Bare 4-pin: needs a 10kΩ pull-up resistor; pin 3 is not connected.",
+    "price": [
+      3,
+      10
+    ]
+  },
+  {
+    "id": "dht22-module",
+    "name": "DHT22 / AM2302 Temp & Humidity",
+    "category": "sensors",
+    "icon": "dht",
+    "desc": "A more accurate version of the DHT11 (±0.5°C, full 0–100% humidity, works below zero). Slower: one reading every 2 seconds.",
+    "voltage": "3.3–5V",
+    "vcc": [
+      3.3,
+      5.5
+    ],
+    "interfaces": [
+      "Digital"
+    ],
+    "tags": [
+      "temperature",
+      "humidity",
+      "weather",
+      "dht"
+    ],
+    "price": [
+      12,
+      30
+    ]
+  },
+  {
+    "id": "ds18b20-probe",
+    "name": "DS18B20 Waterproof Temp Probe",
+    "category": "sensors",
+    "icon": "probe",
+    "desc": "A sealed metal temperature probe on a cable (-55 to 125°C). Dip it in water, soil or coffee. Several probes can share one data pin.",
+    "voltage": "3.0–5.5V",
+    "vcc": [
+      3.0,
+      5.5
+    ],
+    "interfaces": [
+      "1-Wire"
+    ],
+    "tags": [
+      "temperature",
+      "waterproof",
+      "probe",
+      "aquarium"
+    ],
+    "price": [
+      6,
+      20
+    ],
+    "note": "Needs a 4.7kΩ pull-up resistor between DATA and VCC."
+  },
+  {
+    "id": "hc-sr04",
+    "name": "HC-SR04 Ultrasonic Distance (5V)",
+    "category": "sensors",
+    "icon": "ultrasonic",
+    "desc": "Measures distance (2–400 cm) with sound pulses, like a bat. Great for parking sensors, robots and \"don't come closer\" alarms.",
+    "voltage": "5V only",
+    "vcc": [
+      5,
+      5
+    ],
+    "interfaces": [
+      "Digital"
+    ],
+    "tags": [
+      "distance",
+      "ultrasonic",
+      "robot",
+      "sonar"
+    ],
+    "variantGroup": "ultrasonic",
+    "variantNote": "Classic 5V version: its ECHO pin outputs 5V.",
+    "price": [
+      5,
+      15
+    ],
+    "warn": {
+      "3.3": "HC-SR04 ECHO sends 5V back. With a 3.3V board, add a voltage divider (1kΩ + 2kΩ) on ECHO, or use the 3.3V version (RCWL-1601)."
+    }
+  },
+  {
+    "id": "rcwl-1601",
+    "name": "Ultrasonic Distance 3.3V (RCWL-1601 / HC-SR04P)",
+    "category": "sensors",
+    "icon": "ultrasonic",
+    "desc": "Same job and same 4 pins as the HC-SR04, but it runs happily on 3.3V too. The safe choice for ESP32 and Pico.",
+    "voltage": "3.3–5V",
+    "vcc": [
+      3.0,
+      5.5
+    ],
+    "interfaces": [
+      "Digital"
+    ],
+    "tags": [
+      "distance",
+      "ultrasonic",
+      "robot",
+      "sonar"
+    ],
+    "variantGroup": "ultrasonic",
+    "variantNote": "3.3V-friendly version: power it from the same voltage as your board.",
+    "price": [
+      6,
+      18
+    ]
+  },
+  {
+    "id": "pir-hc-sr501",
+    "name": "HC-SR501 PIR Motion Sensor",
+    "category": "sensors",
+    "icon": "pir",
+    "desc": "Detects people and animals moving nearby (up to ~7 m) by sensing body heat. Two little knobs set sensitivity and how long it stays on.",
+    "voltage": "5V supply (4.5–20V) · 3.3V output",
+    "vcc": [
+      4.5,
+      20
+    ],
+    "interfaces": [
+      "Digital"
+    ],
+    "tags": [
+      "motion",
+      "pir",
+      "security",
+      "people"
+    ],
+    "price": [
+      5,
+      15
+    ],
+    "note": "Give it about 1 minute to settle after power-up. Its output is 3.3V, which is safe for every board."
+  },
+  {
+    "id": "ldr",
+    "name": "Photoresistor (LDR, bare)",
+    "category": "sensors",
+    "icon": "ldr",
+    "desc": "A tiny part whose resistance changes with light. Paired with a 10kΩ resistor it tells your board how bright or dark it is.",
+    "voltage": "Works at your board's voltage (passive)",
+    "interfaces": [
+      "Analog"
+    ],
+    "tags": [
+      "light",
+      "ldr",
+      "photoresistor",
+      "night"
+    ],
+    "variantGroup": "ldr",
+    "variantNote": "Bare part: you build the divider with a 10kΩ resistor.",
+    "price": [
+      1,
+      5
+    ]
+  },
+  {
+    "id": "ldr-module",
+    "name": "Light Sensor Module (LDR, AO/DO)",
+    "category": "sensors",
+    "icon": "ldr",
+    "desc": "A photoresistor on a small board with an analog output (AO) and an on/off output (DO) with a brightness knob. No extra resistor needed.",
+    "voltage": "3.3–5V",
+    "vcc": [
+      3.3,
+      5
+    ],
+    "interfaces": [
+      "Analog",
+      "Digital"
+    ],
+    "tags": [
+      "light",
+      "ldr",
+      "photoresistor",
+      "night"
+    ],
+    "variantGroup": "ldr",
+    "variantNote": "Module: 3 or 4 pins, resistor and comparator already on board.",
+    "price": [
+      3,
+      10
+    ]
+  },
+  {
+    "id": "soil-capacitive",
+    "name": "Capacitive Soil Moisture Sensor v1.2",
+    "category": "sensors",
+    "icon": "soil",
+    "desc": "Push it into a plant pot to know when the soil is dry. Unlike cheap fork sensors it doesn't rust away.",
+    "voltage": "3.3–5V",
+    "vcc": [
+      3.3,
+      5.5
+    ],
+    "interfaces": [
+      "Analog"
+    ],
+    "tags": [
+      "plant",
+      "soil",
+      "moisture",
+      "garden"
+    ],
+    "price": [
+      5,
+      15
+    ],
+    "note": "Lower reading = wetter soil. Keep the electronics at the top dry."
+  },
+  {
+    "id": "mpu6050",
+    "name": "MPU-6050 Accelerometer + Gyro (GY-521)",
+    "category": "sensors",
+    "icon": "imu",
+    "desc": "Senses tilt, shaking and rotation. Use it for motion controls, step counters or a self-balancing robot.",
+    "voltage": "3.3–5V (module)",
+    "vcc": [
+      3.3,
+      5
+    ],
+    "interfaces": [
+      "I2C"
+    ],
+    "tags": [
+      "motion",
+      "tilt",
+      "gyro",
+      "accelerometer",
+      "gaming"
+    ],
+    "price": [
+      8,
+      20
+    ]
+  },
+  {
+    "id": "bmp280",
+    "name": "BMP280 Pressure + Temperature (3.3V)",
+    "category": "sensors",
+    "icon": "baro",
+    "desc": "Measures air pressure and temperature, which is enough to estimate altitude or spot incoming weather changes.",
+    "voltage": "3.3V only",
+    "vcc": [
+      3.3,
+      3.3
+    ],
+    "interfaces": [
+      "I2C",
+      "SPI"
+    ],
+    "tags": [
+      "pressure",
+      "altitude",
+      "weather",
+      "temperature"
+    ],
+    "price": [
+      6,
+      18
+    ],
+    "warn": {
+      "5": "BMP280 is a 3.3V-only board: wire VCC to 3.3V, never 5V. With a 5V Arduino it usually works over I2C, but a level shifter is the safe choice."
+    }
+  },
+  {
+    "id": "bme280",
+    "name": "BME280 Temp + Humidity + Pressure (3.3V)",
+    "category": "sensors",
+    "icon": "baro",
+    "desc": "Like the BMP280 but also measures humidity. A mini weather station in one chip.",
+    "voltage": "3.3V only (6-pin purple board)",
+    "vcc": [
+      3.3,
+      3.3
+    ],
+    "interfaces": [
+      "I2C",
+      "SPI"
+    ],
+    "tags": [
+      "pressure",
+      "humidity",
+      "weather",
+      "temperature"
+    ],
+    "price": [
+      20,
+      45
+    ],
+    "note": "Many cheap \"BME280\" listings are really BMP280s (no humidity). The chip on a real BME280 is square; on a BMP280 it is rectangular.",
+    "warn": {
+      "5": "BME280 (purple 6-pin board) is 3.3V-only: wire VCC to 3.3V, never 5V. With a 5V Arduino, a level shifter is the safe choice."
+    },
+    "variantGroup": "bme280",
+    "variantNote": "Purple 6-pin 3.3V board: VCC must be 3.3V."
+  },
+  {
+    "id": "sound-ky038",
+    "name": "KY-038 Sound Sensor (mic module)",
+    "category": "sensors",
+    "icon": "mic",
+    "desc": "A microphone module that detects loud sounds like claps and knocks. Good for clap switches, not good enough for recording audio.",
+    "voltage": "3.3–5V",
+    "vcc": [
+      3.3,
+      5
+    ],
+    "interfaces": [
+      "Analog",
+      "Digital"
+    ],
+    "tags": [
+      "sound",
+      "clap",
+      "microphone",
+      "noise"
+    ],
+    "price": [
+      3,
+      10
+    ]
+  },
+  {
+    "id": "mq2",
+    "name": "MQ-2 Gas / Smoke Sensor",
+    "category": "sensors",
+    "icon": "gas",
+    "desc": "Smells smoke and flammable gases (LPG, propane). Fun for experiments, but it is NOT a certified safety alarm.",
+    "voltage": "5V (heater draws ~150mA)",
+    "vcc": [
+      5,
+      5
+    ],
+    "interfaces": [
+      "Analog",
+      "Digital"
+    ],
+    "tags": [
+      "gas",
+      "smoke",
+      "air",
+      "alarm"
+    ],
+    "price": [
+      6,
+      18
+    ],
+    "note": "It gets warm on purpose. Let it heat up for a few minutes before trusting readings.",
+    "warn": {
+      "3.3": "MQ-2 needs 5V power, and its analog output can reach 5V. Use a voltage divider (e.g. 10kΩ + 20kΩ) before a 3.3V board's analog pin."
+    }
+  },
+  {
+    "id": "tcrt5000",
+    "name": "TCRT5000 IR Line Sensor",
+    "category": "sensors",
+    "icon": "ir-eye",
+    "desc": "Shines invisible infrared light and checks what bounces back, so it can tell a black line from a white floor. The heart of line-following robots.",
+    "voltage": "3.3–5V",
+    "vcc": [
+      3.3,
+      5
+    ],
+    "interfaces": [
+      "Digital",
+      "Analog"
+    ],
+    "tags": [
+      "line",
+      "robot",
+      "infrared",
+      "reflect"
+    ],
+    "price": [
+      3,
+      10
+    ]
+  },
+  {
+    "id": "flame-sensor",
+    "name": "IR Flame Sensor Module",
+    "category": "sensors",
+    "icon": "flame",
+    "desc": "Spots the infrared glow of a flame (a lighter or candle) from up to ~1 m. For experiments only, not a real fire alarm.",
+    "voltage": "3.3–5V",
+    "vcc": [
+      3.3,
+      5
+    ],
+    "interfaces": [
+      "Digital",
+      "Analog"
+    ],
+    "tags": [
+      "fire",
+      "flame",
+      "infrared"
+    ],
+    "price": [
+      3,
+      10
+    ]
+  },
+  {
+    "id": "water-level",
+    "name": "Water Level Sensor (exposed traces)",
+    "category": "sensors",
+    "icon": "water",
+    "desc": "A strip with metal lines that reads higher the more of it is under water. Handy for rain detectors and tank-level warnings.",
+    "voltage": "3.3–5V",
+    "vcc": [
+      3.3,
+      5
+    ],
+    "interfaces": [
+      "Analog"
+    ],
+    "tags": [
+      "water",
+      "rain",
+      "level",
+      "leak"
+    ],
+    "price": [
+      2,
+      8
+    ],
+    "note": "The traces corrode if powered all the time. Power it from a board pin and switch it on only while reading."
+  },
+  {
+    "id": "max30102",
+    "name": "MAX30102 Heart Rate & SpO2 Sensor",
+    "category": "sensors",
+    "icon": "heart",
+    "desc": "Shines red and infrared light through your fingertip to estimate pulse and blood oxygen. A fun experiment, not a medical device.",
+    "voltage": "3.3–5V module",
+    "interfaces": [
+      "I2C"
+    ],
+    "tags": [
+      "heart",
+      "pulse",
+      "spo2",
+      "health"
+    ],
+    "price": [
+      12,
+      30
+    ],
+    "vcc": [
+      3.3,
+      5
+    ],
+    "note": "Not a medical device. Rest your finger gently: pressing hard ruins the reading.",
+    "warn": {
+      "5": "Many MAX30102 boards pull I2C up to 1.8V or 3.3V. They often work with 5V boards, but a 3.3V board (ESP32/Pico) is the safer match."
+    }
+  },
+  {
+    "id": "aht20",
+    "name": "AHT20 Temperature & Humidity (I2C)",
+    "category": "sensors",
+    "icon": "dht",
+    "desc": "A small, accurate and fast temperature/humidity sensor that talks I2C: a modern upgrade over the DHT11.",
+    "voltage": "2–5.5V",
+    "interfaces": [
+      "I2C"
+    ],
+    "tags": [
+      "temperature",
+      "humidity",
+      "weather",
+      "i2c"
+    ],
+    "price": [
+      8,
+      20
+    ],
+    "vcc": [
+      2,
+      5.5
+    ]
+  },
+  {
+    "id": "sht31",
+    "name": "SHT31 Temperature & Humidity (I2C)",
+    "category": "sensors",
+    "icon": "dht",
+    "desc": "A precise Swiss-made sensor (±0.3°C) for weather stations and incubators.",
+    "voltage": "2.4–5.5V",
+    "interfaces": [
+      "I2C"
+    ],
+    "tags": [
+      "temperature",
+      "humidity",
+      "precise",
+      "i2c"
+    ],
+    "price": [
+      20,
+      45
+    ],
+    "vcc": [
+      2.4,
+      5.5
+    ]
+  },
+  {
+    "id": "bh1750",
+    "name": "BH1750 Light Sensor (lux)",
+    "category": "sensors",
+    "icon": "ldr",
+    "desc": "Measures light in real lux units, like a photographer's light meter, over I2C.",
+    "voltage": "3–5V (GY-302 module)",
+    "interfaces": [
+      "I2C"
+    ],
+    "tags": [
+      "light",
+      "lux",
+      "i2c"
+    ],
+    "price": [
+      6,
+      15
+    ],
+    "vcc": [
+      3,
+      5
+    ]
+  },
+  {
+    "id": "veml7700",
+    "name": "VEML7700 Ambient Light Sensor",
+    "category": "sensors",
+    "icon": "ldr",
+    "desc": "A very sensitive lux sensor that works from moonlight to bright sun.",
+    "voltage": "3.3–5V on most breakouts (check yours)",
+    "interfaces": [
+      "I2C"
+    ],
+    "tags": [
+      "light",
+      "lux",
+      "i2c"
+    ],
+    "price": [
+      15,
+      35
+    ],
+    "vcc": [
+      3.3,
+      5
+    ]
+  },
+  {
+    "id": "tcs34725",
+    "name": "TCS34725 Color Sensor (RGB)",
+    "category": "sensors",
+    "icon": "module",
+    "desc": "Reads the color of objects in red/green/blue values, with its own white LED. Sort candies by color!",
+    "voltage": "3.3–5V module",
+    "interfaces": [
+      "I2C"
+    ],
+    "tags": [
+      "color",
+      "rgb",
+      "sorting",
+      "i2c"
+    ],
+    "price": [
+      15,
+      35
+    ],
+    "vcc": [
+      3.3,
+      5
+    ]
+  },
+  {
+    "id": "tcs3200",
+    "name": "TCS3200 Color Sensor (frequency output)",
+    "category": "sensors",
+    "icon": "module",
+    "desc": "An older color sensor that outputs a frequency for each color filter; needs 4 control pins.",
+    "voltage": "2.7–5.5V",
+    "interfaces": [
+      "Digital"
+    ],
+    "tags": [
+      "color",
+      "sorting"
+    ],
+    "price": [
+      12,
+      30
+    ],
+    "vcc": [
+      2.7,
+      5.5
+    ]
+  },
+  {
+    "id": "apds9960",
+    "name": "APDS-9960 Gesture & Proximity Sensor",
+    "category": "sensors",
+    "icon": "module",
+    "desc": "Detects hand swipes (up/down/left/right), proximity and color. Wave to control your gadget!",
+    "voltage": "3.3V only",
+    "interfaces": [
+      "I2C"
+    ],
+    "tags": [
+      "gesture",
+      "proximity",
+      "color",
+      "i2c"
+    ],
+    "price": [
+      10,
+      25
+    ],
+    "vcc": [
+      3.3,
+      3.3
+    ],
+    "warn": {
+      "5": "APDS-9960 boards are 3.3V only: power from 3.3V. Its I2C pins are 3.3V; a level shifter is the safe choice with 5V boards."
+    }
+  },
+  {
+    "id": "vl53l0x",
+    "name": "VL53L0X Laser Distance Sensor (ToF)",
+    "category": "sensors",
+    "icon": "module",
+    "desc": "Measures distance (up to ~1.2 m) with an invisible, eye-safe laser pulse. More precise and smaller than ultrasonic.",
+    "voltage": "2.6–5V module",
+    "interfaces": [
+      "I2C"
+    ],
+    "tags": [
+      "distance",
+      "laser",
+      "tof",
+      "i2c"
+    ],
+    "price": [
+      12,
+      30
+    ],
+    "vcc": [
+      2.6,
+      5
+    ],
+    "note": "Class 1 laser: eye-safe in normal use."
+  },
+  {
+    "id": "vl53l1x",
+    "name": "VL53L1X Laser Distance Sensor (up to 4 m)",
+    "category": "sensors",
+    "icon": "module",
+    "desc": "The long-range version of the VL53L0X, measuring up to about 4 m.",
+    "voltage": "3–5V module",
+    "interfaces": [
+      "I2C"
+    ],
+    "tags": [
+      "distance",
+      "laser",
+      "tof",
+      "i2c"
+    ],
+    "price": [
+      25,
+      55
+    ],
+    "vcc": [
+      3,
+      5
+    ]
+  },
+  {
+    "id": "tf-luna",
+    "name": "TF-Luna LiDAR (0.2–8 m)",
+    "category": "sensors",
+    "icon": "radar",
+    "desc": "A tiny LiDAR that measures up to 8 m, 100+ times a second. Great for robots and drones.",
+    "voltage": "5V supply · 3.3V signals",
+    "interfaces": [
+      "UART",
+      "I2C"
+    ],
+    "tags": [
+      "lidar",
+      "distance",
+      "robot"
+    ],
+    "price": [
+      70,
+      120
+    ],
+    "vcc": [
+      3.7,
+      5.2
+    ],
+    "warn": {
+      "5": "TF-Luna's serial pins are 3.3V. Put a voltage divider (1kΩ + 2kΩ) on its RX when connecting a 5V board's TX."
+    }
+  },
+  {
+    "id": "jsn-sr04t",
+    "name": "JSN-SR04T Waterproof Ultrasonic Sensor",
+    "category": "sensors",
+    "icon": "ultrasonic",
+    "desc": "An ultrasonic distance sensor with a sealed probe on a cable. Perfect for water tank levels (25–450 cm).",
+    "voltage": "5V",
+    "interfaces": [
+      "Digital"
+    ],
+    "tags": [
+      "distance",
+      "waterproof",
+      "tank",
+      "ultrasonic"
+    ],
+    "price": [
+      25,
+      50
+    ],
+    "vcc": [
+      5,
+      5
+    ],
+    "note": "It can't see closer than about 25 cm.",
+    "warn": {
+      "3.3": "The JSN-SR04T ECHO pin outputs 5V. Use a voltage divider (1kΩ + 2kΩ) into a 3.3V board."
+    }
+  },
+  {
+    "id": "adxl345",
+    "name": "ADXL345 Accelerometer (GY-291)",
+    "category": "sensors",
+    "icon": "imu",
+    "desc": "Senses tilt, taps and free-fall on 3 axes. Simpler than the MPU-6050 (no gyro).",
+    "voltage": "3.3–5V module",
+    "interfaces": [
+      "I2C",
+      "SPI"
+    ],
+    "tags": [
+      "motion",
+      "tilt",
+      "accelerometer",
+      "tap"
+    ],
+    "price": [
+      8,
+      20
+    ],
+    "vcc": [
+      3.3,
+      5
+    ]
+  },
+  {
+    "id": "qmc5883l",
+    "name": "QMC5883L Compass (GY-271)",
+    "category": "sensors",
+    "icon": "compass",
+    "desc": "A digital compass that senses Earth's magnetic field to find north.",
+    "voltage": "3–5V module",
+    "interfaces": [
+      "I2C"
+    ],
+    "tags": [
+      "compass",
+      "magnetometer",
+      "heading",
+      "navigation"
+    ],
+    "price": [
+      8,
+      20
+    ],
+    "vcc": [
+      3,
+      5
+    ],
+    "note": "Many GY-271 boards sold as \"HMC5883L\" really carry a QMC5883L, which needs a different library. Check the chip marking."
+  },
+  {
+    "id": "bmp180",
+    "name": "BMP180 Pressure Sensor (GY-68)",
+    "category": "sensors",
+    "icon": "baro",
+    "desc": "An older barometric pressure + temperature sensor. Its module has a regulator, so 5V is fine.",
+    "voltage": "3.3–5V module",
+    "interfaces": [
+      "I2C"
+    ],
+    "tags": [
+      "pressure",
+      "altitude",
+      "weather"
+    ],
+    "price": [
+      5,
+      15
+    ],
+    "vcc": [
+      3.3,
+      5
+    ]
+  },
+  {
+    "id": "bme280-5v",
+    "name": "BME280 (5V-ready 4-pin board)",
+    "category": "sensors",
+    "icon": "baro",
+    "desc": "A BME280 on a board with its own 3.3V regulator, so it can be powered from 5V. Same sensor, easier with an Uno.",
+    "voltage": "3.3–5V",
+    "interfaces": [
+      "I2C"
+    ],
+    "tags": [
+      "pressure",
+      "humidity",
+      "weather",
+      "temperature"
+    ],
+    "price": [
+      25,
+      50
+    ],
+    "vcc": [
+      3.3,
+      5
+    ],
+    "variantGroup": "bme280",
+    "variantNote": "4-pin board with a regulator: VCC can be 5V. I2C is pulled up to 3.3V, which works with most 5V boards."
+  },
+  {
+    "id": "bme680",
+    "name": "BME680 Gas, Temp, Humidity & Pressure",
+    "category": "sensors",
+    "icon": "gas",
+    "desc": "Four sensors in one: temperature, humidity, pressure and an air-quality (VOC gas) reading.",
+    "voltage": "3.3V (5V only on boards with a regulator; check yours)",
+    "interfaces": [
+      "I2C",
+      "SPI"
+    ],
+    "tags": [
+      "air quality",
+      "gas",
+      "weather",
+      "humidity"
+    ],
+    "price": [
+      35,
+      70
+    ],
+    "vcc": [
+      3.3,
+      5
+    ]
+  },
+  {
+    "id": "amg8833",
+    "name": "AMG8833 Thermal Camera (8x8)",
+    "category": "sensors",
+    "icon": "eye-round",
+    "desc": "A tiny 8x8-pixel thermal camera: see warm hands and hot cups as a heat map.",
+    "voltage": "3.3–5V module",
+    "interfaces": [
+      "I2C"
+    ],
+    "tags": [
+      "thermal",
+      "heat",
+      "camera",
+      "infrared"
+    ],
+    "price": [
+      130,
+      220
+    ],
+    "vcc": [
+      3.3,
+      5
+    ]
+  },
+  {
+    "id": "ds18b20-to92",
+    "name": "DS18B20 Temperature Sensor (TO-92 chip)",
+    "category": "sensors",
+    "icon": "transistor",
+    "desc": "The same digital DS18B20 thermometer as the probe, but as a small 3-leg chip for indoor use.",
+    "voltage": "3.0–5.5V",
+    "interfaces": [
+      "1-Wire"
+    ],
+    "tags": [
+      "temperature",
+      "1-wire"
+    ],
+    "price": [
+      3,
+      10
+    ],
+    "vcc": [
+      3,
+      5.5
+    ],
+    "note": "Looks like a transistor! Flat side facing you: GND, DATA, VDD. Needs a 4.7kΩ pull-up on DATA."
+  },
+  {
+    "id": "lm35",
+    "name": "LM35 Analog Temperature Sensor",
+    "category": "sensors",
+    "icon": "transistor",
+    "desc": "Outputs 10 mV per °C. Read it with analogRead() and a little math.",
+    "voltage": "4–30V (use 5V)",
+    "interfaces": [
+      "Analog"
+    ],
+    "tags": [
+      "temperature",
+      "analog"
+    ],
+    "price": [
+      4,
+      12
+    ],
+    "vcc": [
+      4,
+      30
+    ],
+    "note": "Flat side facing you: +VS, VOUT, GND. Swapping + and GND makes it very hot!"
+  },
+  {
+    "id": "tmp36",
+    "name": "TMP36 Analog Temperature Sensor",
+    "category": "sensors",
+    "icon": "transistor",
+    "desc": "A beginner-friendly analog thermometer: 10 mV per °C with a 500 mV offset, so it can read below zero.",
+    "voltage": "2.7–5.5V",
+    "interfaces": [
+      "Analog"
+    ],
+    "tags": [
+      "temperature",
+      "analog"
+    ],
+    "price": [
+      5,
+      15
+    ],
+    "vcc": [
+      2.7,
+      5.5
+    ],
+    "note": "Flat side facing you: +VS, VOUT, GND."
+  },
+  {
+    "id": "ntc-10k",
+    "name": "NTC Thermistor 10kΩ",
+    "category": "sensors",
+    "icon": "probe",
+    "desc": "A resistor that changes with temperature. With a 10kΩ resistor it becomes a cheap thermometer.",
+    "voltage": "Works at your board's voltage (passive)",
+    "interfaces": [
+      "Analog"
+    ],
+    "tags": [
+      "temperature",
+      "analog",
+      "thermistor"
+    ],
+    "price": [
+      1,
+      5
+    ]
+  },
+  {
+    "id": "max6675",
+    "name": "MAX6675 + K-Type Thermocouple",
+    "category": "sensors",
+    "icon": "thermo",
+    "desc": "Measures very high temperatures (0–1024°C) with a metal thermocouple probe: ovens, grills, soldering irons.",
+    "voltage": "3–5.5V",
+    "interfaces": [
+      "SPI"
+    ],
+    "tags": [
+      "temperature",
+      "high temperature",
+      "oven",
+      "bbq"
+    ],
+    "price": [
+      15,
+      35
+    ],
+    "vcc": [
+      3,
+      5.5
+    ],
+    "note": "Only the metal probe tip goes into the heat. Keep the module and wires away from hot surfaces."
+  },
+  {
+    "id": "mlx90614",
+    "name": "MLX90614 Infrared Thermometer (GY-906)",
+    "category": "sensors",
+    "icon": "uv",
+    "desc": "Measures an object's temperature without touching it, like a forehead thermometer.",
+    "voltage": "3.3V or 5V (depends on version; check yours)",
+    "interfaces": [
+      "I2C"
+    ],
+    "tags": [
+      "temperature",
+      "infrared",
+      "contactless"
+    ],
+    "price": [
+      40,
+      80
+    ],
+    "vcc": [
+      3.3,
+      5
+    ],
+    "note": "Chips marked BAA are 3V, AAA are 5V. Many GY-906 boards add a regulator for 5V. Check yours."
+  },
+  {
+    "id": "hx711",
+    "name": "HX711 Load Cell Amplifier",
+    "category": "sensors",
+    "icon": "module",
+    "desc": "Reads the tiny signal from a load cell so your board can weigh things in grams.",
+    "voltage": "2.7–5V",
+    "interfaces": [
+      "Digital"
+    ],
+    "tags": [
+      "weight",
+      "scale",
+      "load cell"
+    ],
+    "price": [
+      5,
+      15
+    ],
+    "vcc": [
+      2.7,
+      5
+    ]
+  },
+  {
+    "id": "load-cell-5kg",
+    "name": "Load Cell 5 kg (bar type)",
+    "category": "sensors",
+    "icon": "scale",
+    "desc": "A metal bar that bends a tiny amount under weight. Pair it with an HX711 to build a kitchen scale.",
+    "voltage": "Passive (powered through the HX711)",
+    "interfaces": [],
+    "tags": [
+      "weight",
+      "scale",
+      "load cell"
+    ],
+    "price": [
+      10,
+      25
+    ],
+    "note": "Wire colors: red E+, black E−, white A−, green A+ (check your seller's diagram)."
+  },
+  {
+    "id": "rain-fc37",
+    "name": "Rain Sensor (FC-37 plate + module)",
+    "category": "sensors",
+    "icon": "water",
+    "desc": "A plate that detects raindrops, with a module giving analog (how wet) and digital (rain yes/no) outputs.",
+    "voltage": "3.3–5V",
+    "interfaces": [
+      "Analog",
+      "Digital"
+    ],
+    "tags": [
+      "rain",
+      "water",
+      "weather"
+    ],
+    "price": [
+      4,
+      10
+    ],
+    "vcc": [
+      3.3,
+      5
+    ],
+    "note": "The plate corrodes if powered all the time. Power it from a pin only while reading."
+  },
+  {
+    "id": "soil-resistive",
+    "name": "Soil Moisture Sensor (resistive fork, FC-28)",
+    "category": "sensors",
+    "icon": "soil",
+    "desc": "The cheap fork-shaped soil sensor. Works, but its metal legs rust within weeks if always powered.",
+    "voltage": "3.3–5V",
+    "interfaces": [
+      "Analog",
+      "Digital"
+    ],
+    "tags": [
+      "plant",
+      "soil",
+      "moisture"
+    ],
+    "price": [
+      3,
+      8
+    ],
+    "vcc": [
+      3.3,
+      5
+    ],
+    "note": "Prefer the capacitive sensor for long-term use, or power this one only while measuring."
+  },
+  {
+    "id": "max4466",
+    "name": "MAX4466 Microphone Amplifier",
+    "category": "sensors",
+    "icon": "mic",
+    "desc": "A microphone with an adjustable amplifier, good enough to sample audio for VU meters and sound-reactive lights.",
+    "voltage": "2.4–5.5V",
+    "interfaces": [
+      "Analog"
+    ],
+    "tags": [
+      "sound",
+      "microphone",
+      "audio"
+    ],
+    "price": [
+      10,
+      25
+    ],
+    "vcc": [
+      2.4,
+      5.5
+    ]
+  },
+  {
+    "id": "max9814",
+    "name": "MAX9814 Microphone (auto gain)",
+    "category": "sensors",
+    "icon": "mic",
+    "desc": "A microphone that automatically adjusts its volume, keeping quiet and loud sounds readable.",
+    "voltage": "2.7–5.5V",
+    "interfaces": [
+      "Analog"
+    ],
+    "tags": [
+      "sound",
+      "microphone",
+      "audio",
+      "agc"
+    ],
+    "price": [
+      12,
+      30
+    ],
+    "vcc": [
+      2.7,
+      5.5
+    ]
+  },
+  {
+    "id": "inmp441",
+    "name": "INMP441 I2S Digital Microphone",
+    "category": "sensors",
+    "icon": "mic",
+    "desc": "A clean digital microphone for ESP32 and Pico: voice recording, speech experiments and spectrum displays.",
+    "voltage": "1.8–3.3V",
+    "interfaces": [
+      "I2S"
+    ],
+    "tags": [
+      "microphone",
+      "i2s",
+      "audio",
+      "voice"
+    ],
+    "price": [
+      12,
+      25
+    ],
+    "vcc": [
+      1.8,
+      3.3
+    ],
+    "warn": {
+      "5": "INMP441 needs I2S and 3.3V power, which the Uno/Nano/Mega/Leonardo don't have. Use an ESP32 or Pico."
+    }
+  },
+  {
+    "id": "hall-a3144",
+    "name": "A3144 Hall Effect Sensor (magnet switch)",
+    "category": "sensors",
+    "icon": "magnet",
+    "desc": "Switches when a magnet comes close. Count wheel turns or detect a closed lid.",
+    "voltage": "4.5–24V supply · open-collector output",
+    "interfaces": [
+      "Digital"
+    ],
+    "tags": [
+      "magnet",
+      "hall",
+      "rpm",
+      "switch"
+    ],
+    "price": [
+      2,
+      6
+    ],
+    "vcc": [
+      4.5,
+      24
+    ],
+    "note": "Needs a pull-up resistor (10kΩ) on its output, or use INPUT_PULLUP.",
+    "warn": {
+      "3.3": "A3144 needs at least 4.5V: power it from 5V, and pull its output up to 3.3V (or use INPUT_PULLUP), never to 5V."
+    }
+  },
+  {
+    "id": "door-sensor-mc38",
+    "name": "MC-38 Magnetic Door/Window Sensor",
+    "category": "sensors",
+    "icon": "magnet",
+    "desc": "Two plastic blocks: a magnet and a reed switch. When the door opens they separate and the circuit breaks.",
+    "voltage": "Passive switch",
+    "interfaces": [
+      "Digital"
+    ],
+    "tags": [
+      "door",
+      "window",
+      "security",
+      "magnet"
+    ],
+    "price": [
+      4,
+      12
+    ],
+    "note": "Wire it between a pin and GND and use INPUT_PULLUP."
+  },
+  {
+    "id": "tilt-sw520d",
+    "name": "SW-520D Tilt Switch (ball switch)",
+    "category": "sensors",
+    "icon": "switch",
+    "desc": "A tiny tube with a metal ball: it closes when upright and opens when tilted.",
+    "voltage": "Passive switch",
+    "interfaces": [
+      "Digital"
+    ],
+    "tags": [
+      "tilt",
+      "switch",
+      "orientation"
+    ],
+    "price": [
+      1,
+      4
+    ]
+  },
+  {
+    "id": "vibration-sw420",
+    "name": "SW-420 Vibration Sensor Module",
+    "category": "sensors",
+    "icon": "module",
+    "desc": "Detects shaking and knocks (with a sensitivity knob). Good for tamper alarms and knock locks.",
+    "voltage": "3.3–5V",
+    "interfaces": [
+      "Digital"
+    ],
+    "tags": [
+      "vibration",
+      "knock",
+      "shake",
+      "alarm"
+    ],
+    "price": [
+      3,
+      8
+    ],
+    "vcc": [
+      3.3,
+      5
+    ]
+  },
+  {
+    "id": "gps-neo6m",
+    "name": "NEO-6M GPS Module",
+    "category": "sensors",
+    "icon": "gps",
+    "desc": "Receives satellite signals to tell your project its location, speed and the exact time.",
+    "voltage": "3.3–5V module · 3.3V serial",
+    "interfaces": [
+      "UART"
+    ],
+    "tags": [
+      "gps",
+      "location",
+      "navigation",
+      "time"
+    ],
+    "price": [
+      25,
+      55
+    ],
+    "vcc": [
+      3.3,
+      5
+    ],
+    "note": "Needs a clear view of the sky. The first position fix can take a few minutes outdoors.",
+    "warn": {
+      "5": "The GPS module's RX pin is 3.3V. Put a voltage divider (1kΩ + 2kΩ) on it from a 5V board's TX."
+    }
+  },
+  {
+    "id": "mq135",
+    "name": "MQ-135 Air Quality Sensor",
+    "category": "sensors",
+    "icon": "gas",
+    "desc": "Reacts to gases like ammonia, smoke and CO2-like pollutants: a rough \"is the air stuffy?\" meter.",
+    "voltage": "5V (heater draws ~150mA)",
+    "interfaces": [
+      "Analog",
+      "Digital"
+    ],
+    "tags": [
+      "air quality",
+      "gas",
+      "pollution"
+    ],
+    "price": [
+      8,
+      20
+    ],
+    "vcc": [
+      5,
+      5
+    ],
+    "note": "It needs a long warm-up and gives relative (not exact) readings.",
+    "warn": {
+      "3.3": "MQ-135 needs 5V for its heater, and its analog output can reach 5V. Use a voltage divider into a 3.3V board."
+    }
+  },
+  {
+    "id": "mq7",
+    "name": "MQ-7 Carbon Monoxide Sensor (demo)",
+    "category": "sensors",
+    "icon": "gas",
+    "desc": "A CO-sensitive gas sensor for experiments. It is NOT a carbon monoxide alarm.",
+    "voltage": "5V heater (needs heater cycling)",
+    "interfaces": [
+      "Analog",
+      "Digital"
+    ],
+    "tags": [
+      "gas",
+      "co",
+      "carbon monoxide"
+    ],
+    "price": [
+      8,
+      20
+    ],
+    "vcc": [
+      5,
+      5
+    ],
+    "note": "Accurate CO measurement needs special heater cycling. Never use it as a safety alarm.",
+    "warn": {
+      "3.3": "MQ-7 needs 5V for its heater and its output can reach 5V. Use a voltage divider into a 3.3V board."
+    }
+  },
+  {
+    "id": "uv-guva",
+    "name": "GUVA-S12SD UV Light Sensor",
+    "category": "sensors",
+    "icon": "uv",
+    "desc": "Measures ultraviolet light from the sun: build a UV index meter for sunny days.",
+    "voltage": "2.5–5V",
+    "interfaces": [
+      "Analog"
+    ],
+    "tags": [
+      "uv",
+      "sun",
+      "light"
+    ],
+    "price": [
+      8,
+      20
+    ],
+    "vcc": [
+      2.5,
+      5
+    ]
+  },
+  {
+    "id": "acs712",
+    "name": "ACS712 Current Sensor (5A)",
+    "category": "sensors",
+    "icon": "module",
+    "desc": "Measures how much current flows through a wire, so you can see how hungry a motor or LED strip is.",
+    "voltage": "5V",
+    "interfaces": [
+      "Analog"
+    ],
+    "tags": [
+      "current",
+      "power",
+      "measure"
+    ],
+    "price": [
+      8,
+      18
+    ],
+    "vcc": [
+      5,
+      5
+    ],
+    "note": "Beginner rule: low-voltage DC only (12V and below), never mains.",
+    "warn": {
+      "3.3": "ACS712 needs 5V and its output centers at 2.5V and can reach 5V. Use a voltage divider into a 3.3V board."
+    }
+  },
+  {
+    "id": "ina219",
+    "name": "INA219 Current & Voltage Sensor (I2C)",
+    "category": "sensors",
+    "icon": "module",
+    "desc": "Precisely measures voltage (up to 26V) and current (up to 3.2A) over I2C: a digital power meter.",
+    "voltage": "3–5.5V",
+    "interfaces": [
+      "I2C"
+    ],
+    "tags": [
+      "current",
+      "voltage",
+      "power",
+      "battery"
+    ],
+    "price": [
+      10,
+      25
+    ],
+    "vcc": [
+      3,
+      5.5
+    ],
+    "note": "Low-voltage DC only."
+  },
+  {
+    "id": "voltage-sensor-25v",
+    "name": "Voltage Sensor Module (0–25V)",
+    "category": "sensors",
+    "icon": "module",
+    "desc": "A simple resistor divider board that lets your board measure up to 25V, like a battery's voltage.",
+    "voltage": "Passive divider (5:1)",
+    "interfaces": [
+      "Analog"
+    ],
+    "tags": [
+      "voltage",
+      "battery",
+      "measure"
+    ],
+    "price": [
+      3,
+      8
+    ],
+    "note": "DC only. Never connect it to mains.",
+    "warn": {
+      "3.3": "On a 3.3V board the module can only measure up to about 16.5V, because its output is 1/5 of the input."
+    }
+  },
+  {
+    "id": "ir-obstacle",
+    "name": "IR Obstacle Sensor (FC-51)",
+    "category": "sensors",
+    "icon": "ir-eye",
+    "desc": "Detects objects 2–30 cm in front of it with infrared light. A cheap robot whisker.",
+    "voltage": "3.3–5V",
+    "interfaces": [
+      "Digital"
+    ],
+    "tags": [
+      "obstacle",
+      "infrared",
+      "robot",
+      "proximity"
+    ],
+    "price": [
+      3,
+      8
+    ],
+    "vcc": [
+      3.3,
+      5
+    ],
+    "note": "Its output goes LOW when something is in front. Sunlight can confuse it."
+  },
+  {
+    "id": "pir-am312",
+    "name": "AM312 Mini PIR Sensor",
+    "category": "sensors",
+    "icon": "pir",
+    "desc": "A tiny motion sensor that runs on 3.3V or 5V. Easy to hide inside small gadgets.",
+    "voltage": "2.7–12V · 3.3V output",
+    "interfaces": [
+      "Digital"
+    ],
+    "tags": [
+      "motion",
+      "pir",
+      "small",
+      "security"
+    ],
+    "price": [
+      6,
+      15
+    ],
+    "vcc": [
+      2.7,
+      12
+    ]
+  },
+  {
+    "id": "radar-rcwl0516",
+    "name": "RCWL-0516 Microwave Radar Motion Sensor",
+    "category": "sensors",
+    "icon": "radar",
+    "desc": "Senses movement with microwaves, even through plastic cases and thin walls.",
+    "voltage": "4–28V supply · 3.3V output",
+    "interfaces": [
+      "Digital"
+    ],
+    "tags": [
+      "motion",
+      "radar",
+      "microwave",
+      "security"
+    ],
+    "price": [
+      5,
+      12
+    ],
+    "vcc": [
+      4,
+      28
+    ],
+    "warn": {
+      "3.3": "RCWL-0516 needs at least 4V: power it from 5V (VIN). Its output is 3.3V, which is safe for your board."
+    }
+  },
+  {
+    "id": "pulse-sensor",
+    "name": "Pulse Sensor (analog, green LED)",
+    "category": "sensors",
+    "icon": "heart",
+    "desc": "A clip-on finger or earlobe pulse sensor that outputs your heartbeat as an analog wave.",
+    "voltage": "3–5V",
+    "interfaces": [
+      "Analog"
+    ],
+    "tags": [
+      "heart",
+      "pulse",
+      "health"
+    ],
+    "price": [
+      8,
+      20
+    ],
+    "vcc": [
+      3,
+      5
+    ],
+    "note": "Fun experiment, not a medical device."
+  },
+  {
+    "id": "flex-sensor",
+    "name": "Flex Sensor 2.2\" (bend sensor)",
+    "category": "sensors",
+    "icon": "flex",
+    "desc": "A strip whose resistance rises as it bends. Put it on a glove finger to control a robot hand!",
+    "voltage": "Passive (use a divider)",
+    "interfaces": [
+      "Analog"
+    ],
+    "tags": [
+      "bend",
+      "glove",
+      "robot",
+      "analog"
+    ],
+    "price": [
+      25,
+      50
+    ],
+    "note": "Use it with a 10kΩ–47kΩ resistor as a voltage divider."
+  },
+  {
+    "id": "fsr402",
+    "name": "Force Sensor FSR402 (pressure pad)",
+    "category": "sensors",
+    "icon": "fsr",
+    "desc": "A pad whose resistance drops when pressed. Detect squeezes, steps or a cat on the sofa.",
+    "voltage": "Passive (use a 10kΩ divider)",
+    "interfaces": [
+      "Analog"
+    ],
+    "tags": [
+      "force",
+      "pressure",
+      "touch",
+      "analog"
+    ],
+    "price": [
+      10,
+      25
+    ]
+  },
+  {
+    "id": "water-flow",
+    "name": "Water Flow Sensor (YF-S201)",
+    "category": "sensors",
+    "icon": "flow",
+    "desc": "Counts how much water flows through a pipe using a spinning wheel and pulses.",
+    "voltage": "5–18V",
+    "interfaces": [
+      "Digital"
+    ],
+    "tags": [
+      "water",
+      "flow",
+      "pipe",
+      "pulses"
+    ],
+    "price": [
+      15,
+      35
+    ],
+    "vcc": [
+      5,
+      18
+    ],
+    "warn": {
+      "3.3": "The YF-S201 sends 5V pulses when powered from 5V. Use a voltage divider into a 3.3V board."
+    }
+  },
+  {
+    "id": "dust-gp2y1014",
+    "name": "Dust Sensor (Sharp GP2Y1014AU)",
+    "category": "sensors",
+    "icon": "gas",
+    "desc": "Measures dust and smoke particles in the air with an infrared LED inside.",
+    "voltage": "5V",
+    "interfaces": [
+      "Analog"
+    ],
+    "tags": [
+      "dust",
+      "air quality",
+      "pm2.5"
+    ],
+    "price": [
+      25,
+      50
+    ],
+    "vcc": [
+      4.5,
+      5.5
+    ],
+    "note": "Its LED pin needs a 150Ω resistor and a 220µF capacitor (see its datasheet circuit).",
+    "warn": {
+      "3.3": "The dust sensor needs 5V and its analog output can reach about 3.7V. Use a voltage divider into a 3.3V board."
+    }
+  }
+]

@@ -1,0 +1,36 @@
+# Arduino libraries used by the project sketches (names as in the Arduino Library Manager).
+# Installed by tools/compile-all.mjs --install and by the GitHub Action.
+LiquidCrystal
+LiquidCrystal I2C
+Adafruit SSD1306
+Adafruit GFX Library
+U8g2
+DHT sensor library
+Adafruit Unified Sensor
+OneWire
+DallasTemperature
+Servo
+ESP32Servo
+Stepper
+TM1637
+LedControl
+Adafruit NeoPixel
+Keypad
+MFRC522
+IRremote
+RTClib
+Adafruit BMP280 Library
+Adafruit BME280 Library
+Adafruit MPU6050
+DFRobotDFPlayerMini
+RF24
+rc-switch
+Adafruit ST7735 and ST7789 Library
+SD
+Keyboard
+Mouse
+TinyGPSPlus
+SparkFun MAX3010x Pulse and Proximity Sensor Library
+Adafruit GC9A01A
+Adafruit PWM Servo Driver Library
+Adafruit AHTX0

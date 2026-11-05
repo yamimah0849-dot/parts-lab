@@ -1,0 +1,654 @@
+{
+ "results": {
+  "sos-beacon": {
+   "arduino-mega": "ok",
+   "arduino-leonardo": "ok",
+   "arduino-nano": "ok",
+   "arduino-uno": "ok",
+   "nano-every": "ok",
+   "uno-r4-wifi": "ok",
+   "uno-r4-minima": "ok"
+  },
+  "traffic-light": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok",
+   "arduino-mega": "ok",
+   "arduino-leonardo": "ok",
+   "nano-every": "ok",
+   "uno-r4-minima": "ok",
+   "uno-r4-wifi": "ok"
+  },
+  "click-lamp": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok",
+   "arduino-mega": "ok",
+   "arduino-leonardo": "ok",
+   "nano-every": "ok",
+   "uno-r4-minima": "ok",
+   "uno-r4-wifi": "ok"
+  },
+  "reaction-duel": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok",
+   "arduino-mega": "ok",
+   "arduino-leonardo": "ok",
+   "nano-every": "ok",
+   "uno-r4-minima": "ok",
+   "uno-r4-wifi": "ok"
+  },
+  "auto-night-light": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok",
+   "arduino-mega": "ok",
+   "arduino-leonardo": "ok",
+   "nano-every": "ok",
+   "uno-r4-minima": "ok",
+   "uno-r4-wifi": "ok"
+  },
+  "fridge-door-alarm": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok",
+   "arduino-mega": "ok",
+   "arduino-leonardo": "ok",
+   "nano-every": "ok",
+   "uno-r4-minima": "ok",
+   "uno-r4-wifi": "ok"
+  },
+  "pocket-jukebox": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok",
+   "arduino-leonardo": "ok",
+   "arduino-mega": "ok",
+   "nano-every": "ok",
+   "uno-r4-minima": "ok",
+   "uno-r4-wifi": "ok"
+  },
+  "electronic-dice": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok",
+   "arduino-mega": "ok",
+   "arduino-leonardo": "ok",
+   "nano-every": "ok",
+   "uno-r4-wifi": "ok",
+   "uno-r4-minima": "ok"
+  },
+  "knob-dimmer": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok",
+   "arduino-mega": "ok",
+   "arduino-leonardo": "ok",
+   "nano-every": "ok",
+   "uno-r4-minima": "ok",
+   "uno-r4-wifi": "ok"
+  },
+  "mood-lamp": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok",
+   "arduino-mega": "ok",
+   "arduino-leonardo": "ok",
+   "uno-r4-minima": "ok",
+   "uno-r4-wifi": "ok"
+  },
+  "rainbow-fade-lamp": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok",
+   "arduino-mega": "ok",
+   "arduino-leonardo": "ok",
+   "uno-r4-minima": "ok",
+   "uno-r4-wifi": "ok"
+  },
+  "morse-messenger": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok",
+   "arduino-mega": "ok",
+   "arduino-leonardo": "ok",
+   "nano-every": "ok",
+   "uno-r4-minima": "ok",
+   "uno-r4-wifi": "ok"
+  },
+  "lcd-climate-display": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok",
+   "nano-every": "ok",
+   "uno-r4-minima": "ok",
+   "uno-r4-wifi": "ok"
+  },
+  "oled-weather-station": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok",
+   "nano-every": "ok",
+   "uno-r4-minima": "ok",
+   "uno-r4-wifi": "ok"
+  },
+  "parking-assistant": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok",
+   "arduino-mega": "ok",
+   "arduino-leonardo": "ok",
+   "nano-every": "ok",
+   "uno-r4-minima": "ok",
+   "uno-r4-wifi": "ok"
+  },
+  "ultrasonic-tape-measure": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok",
+   "arduino-mega": "ok",
+   "arduino-leonardo": "ok",
+   "nano-every": "ok",
+   "uno-r4-minima": "ok",
+   "uno-r4-wifi": "ok"
+  },
+  "intruder-alarm": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok",
+   "arduino-mega": "ok",
+   "arduino-leonardo": "ok",
+   "nano-every": "ok",
+   "uno-r4-minima": "ok",
+   "uno-r4-wifi": "ok"
+  },
+  "thirsty-plant": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok",
+   "arduino-mega": "ok",
+   "arduino-leonardo": "ok",
+   "nano-every": "ok",
+   "uno-r4-minima": "ok",
+   "uno-r4-wifi": "ok"
+  },
+  "clap-lamp": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok",
+   "arduino-mega": "ok",
+   "arduino-leonardo": "ok",
+   "nano-every": "ok",
+   "uno-r4-minima": "ok",
+   "uno-r4-wifi": "ok"
+  },
+  "smoke-sniffer": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok",
+   "arduino-mega": "ok",
+   "arduino-leonardo": "ok",
+   "nano-every": "ok",
+   "uno-r4-minima": "ok",
+   "uno-r4-wifi": "ok"
+  },
+  "tilt-ball-collector": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok"
+  },
+  "speedrun-stopwatch": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok",
+   "arduino-mega": "ok",
+   "arduino-leonardo": "ok",
+   "nano-every": "ok",
+   "uno-r4-minima": "ok",
+   "uno-r4-wifi": "ok"
+  },
+  "rtc-desk-clock": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok",
+   "nano-every": "ok",
+   "uno-r4-minima": "ok",
+   "uno-r4-wifi": "ok"
+  },
+  "secret-code-safe": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok",
+   "arduino-mega": "ok",
+   "arduino-leonardo": "ok",
+   "nano-every": "ok",
+   "uno-r4-minima": "ok",
+   "uno-r4-wifi": "ok"
+  },
+  "servo-gauge": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok",
+   "arduino-mega": "ok",
+   "arduino-leonardo": "ok",
+   "nano-every": "ok",
+   "uno-r4-minima": "ok",
+   "uno-r4-wifi": "ok"
+  },
+  "photo-turntable": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok",
+   "arduino-mega": "ok",
+   "arduino-leonardo": "ok",
+   "nano-every": "ok",
+   "uno-r4-minima": "ok",
+   "uno-r4-wifi": "ok"
+  },
+  "wifi-radar": {
+   "esp32-c3-supermini": "ok",
+   "esp32-devkit": "ok",
+   "esp32-s3-devkit": "ok"
+  },
+  "motion-phone-alert": {
+   "esp32-devkit": "ok"
+  },
+  "phone-lamp-wifi": {
+   "esp32-devkit": "ok"
+  },
+  "wifi-climate-page": {
+   "esp32-devkit": "ok"
+  },
+  "rfid-magic-door": {
+   "esp32-devkit": "ok"
+  },
+  "internet-clock": {
+   "esp32-devkit": "ok"
+  },
+  "touch-piano": {
+   "esp32-devkit": "ok"
+  },
+  "pocket-altimeter": {
+   "esp32-devkit": "ok"
+  },
+  "pico-chip-thermometer": {
+   "pico": "ok",
+   "pico-w": "ok",
+   "pico-2": "ok",
+   "pico-2-w": "ok"
+  },
+  "wifi-mood-ring": {
+   "esp32-devkit": "ok"
+  },
+  "pico-tap-jumper": {
+   "pico": "ok",
+   "pico-w": "ok",
+   "pico-2": "ok",
+   "pico-2-w": "ok"
+  },
+  "pico-w-web-remote": {
+   "pico-w": "ok",
+   "pico-2-w": "ok"
+  },
+  "dancing-robot-car": {
+   "arduino-uno": "ok",
+   "arduino-mega": "ok",
+   "arduino-nano": "ok",
+   "arduino-leonardo": "ok"
+  },
+  "obstacle-robot": {
+   "arduino-nano": "ok",
+   "arduino-uno": "ok",
+   "arduino-mega": "ok",
+   "arduino-leonardo": "ok"
+  },
+  "line-follower": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok",
+   "arduino-mega": "ok",
+   "arduino-leonardo": "ok"
+  },
+  "knob-desk-fan": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok",
+   "arduino-mega": "ok",
+   "arduino-leonardo": "ok"
+  },
+  "auto-plant-waterer": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok",
+   "arduino-mega": "ok",
+   "arduino-leonardo": "ok"
+  },
+  "haptic-metronome": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok",
+   "arduino-mega": "ok",
+   "arduino-leonardo": "ok"
+  },
+  "leonardo-macro-pad": {
+   "arduino-leonardo": "ok"
+  },
+  "joystick-mouse": {
+   "arduino-leonardo": "ok"
+  },
+  "c3-touch-glow": {
+   "esp32-c3-supermini": "ok"
+  },
+  "s3-rainbow-status": {
+   "esp32-s3-devkit": "ok"
+  },
+  "c3-wifi-signal-meter": {
+   "esp32-c3-supermini": "ok"
+  },
+  "color-memory-challenge": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok",
+   "arduino-mega": "ok",
+   "arduino-leonardo": "ok",
+   "uno-r4-wifi": "ok",
+   "uno-r4-minima": "ok",
+   "nano-every": "ok"
+  },
+  "s3-macro-keyboard": {
+   "esp32-s3-devkit": "ok"
+  },
+  "whack-a-led": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok",
+   "arduino-mega": "ok",
+   "arduino-leonardo": "ok",
+   "uno-r4-minima": "ok",
+   "nano-every": "ok",
+   "uno-r4-wifi": "ok"
+  },
+  "esp32cam-stream": {
+   "esp32-cam": "ok"
+  },
+  "kaomoji-badge": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok",
+   "arduino-mega": "ok",
+   "arduino-leonardo": "ok",
+   "nano-every": "ok",
+   "uno-r4-minima": "ok",
+   "uno-r4-wifi": "ok"
+  },
+  "matrix-snake": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok",
+   "arduino-mega": "ok",
+   "arduino-leonardo": "ok",
+   "nano-every": "ok",
+   "uno-r4-minima": "ok",
+   "uno-r4-wifi": "ok"
+  },
+  "pocket-lab-pet": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok"
+  },
+  "space-dodge": {
+   "arduino-nano": "ok",
+   "arduino-uno": "ok"
+  },
+  "desert-runner-lcd": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok",
+   "nano-every": "ok",
+   "uno-r4-minima": "ok",
+   "uno-r4-wifi": "ok"
+  },
+  "fortune-oracle": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok"
+  },
+  "pomodoro-timer": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok",
+   "nano-every": "ok",
+   "uno-r4-minima": "ok",
+   "uno-r4-wifi": "ok"
+  },
+  "pocket-calculator": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok",
+   "nano-every": "ok",
+   "uno-r4-minima": "ok",
+   "uno-r4-wifi": "ok"
+  },
+  "android-bt-lamp": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok",
+   "arduino-mega": "ok",
+   "arduino-leonardo": "ok"
+  },
+  "tv-remote-lamp": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok"
+  },
+  "wireless-joystick-link": {
+   "arduino-uno": "ok"
+  },
+  "sd-weather-logger": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok"
+  },
+  "tea-thermometer": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok",
+   "arduino-mega": "ok",
+   "arduino-leonardo": "ok",
+   "nano-every": "ok",
+   "uno-r4-minima": "ok",
+   "uno-r4-wifi": "ok"
+  },
+  "anime-sound-board": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok",
+   "arduino-mega": "ok",
+   "arduino-leonardo": "ok",
+   "nano-every": "ok",
+   "uno-r4-minima": "ok",
+   "uno-r4-wifi": "ok"
+  },
+  "neon-ring-clock": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok",
+   "nano-every": "ok",
+   "uno-r4-minima": "ok",
+   "uno-r4-wifi": "ok"
+  },
+  "leak-alarm": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok",
+   "arduino-mega": "ok",
+   "arduino-leonardo": "ok",
+   "nano-every": "ok",
+   "uno-r4-minima": "ok",
+   "uno-r4-wifi": "ok"
+  },
+  "wireless-doorbell": {
+   "arduino-nano": "ok",
+   "arduino-uno": "ok"
+  },
+  "flame-spotter": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok",
+   "arduino-mega": "ok",
+   "arduino-leonardo": "ok",
+   "nano-every": "ok",
+   "uno-r4-minima": "ok",
+   "uno-r4-wifi": "ok"
+  },
+  "event-countdown": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok",
+   "nano-every": "ok",
+   "uno-r4-minima": "ok",
+   "uno-r4-wifi": "ok"
+  },
+  "party-sound-meter": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok",
+   "arduino-mega": "ok",
+   "arduino-leonardo": "ok",
+   "nano-every": "ok",
+   "uno-r4-minima": "ok",
+   "uno-r4-wifi": "ok"
+  },
+  "score-keeper": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok",
+   "arduino-mega": "ok",
+   "arduino-leonardo": "ok",
+   "nano-every": "ok"
+  },
+  "light-harp": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok",
+   "arduino-mega": "ok",
+   "arduino-leonardo": "ok",
+   "nano-every": "ok",
+   "uno-r4-wifi": "ok",
+   "uno-r4-minima": "ok"
+  },
+  "ultrasonic-theremin": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok",
+   "arduino-mega": "ok",
+   "arduino-leonardo": "ok",
+   "nano-every": "ok",
+   "uno-r4-minima": "ok",
+   "uno-r4-wifi": "ok"
+  },
+  "binary-counter": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok",
+   "arduino-mega": "ok",
+   "arduino-leonardo": "ok",
+   "nano-every": "ok",
+   "uno-r4-minima": "ok",
+   "uno-r4-wifi": "ok"
+  },
+  "kitchen-scale": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok"
+  },
+  "ir-remote-copier": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok"
+  },
+  "plug-traffic-light": {
+   "arduino-uno": "ok",
+   "arduino-mega": "ok",
+   "arduino-nano": "ok",
+   "arduino-leonardo": "ok",
+   "nano-every": "ok",
+   "uno-r4-wifi": "ok",
+   "uno-r4-minima": "ok"
+  },
+  "shield-egg-timer": {
+   "arduino-uno": "ok",
+   "arduino-mega": "ok",
+   "uno-r4-minima": "ok",
+   "uno-r4-wifi": "ok"
+  },
+  "scrolling-name-sign": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok",
+   "arduino-mega": "ok",
+   "arduino-leonardo": "ok",
+   "nano-every": "ok",
+   "uno-r4-minima": "ok",
+   "uno-r4-wifi": "ok"
+  },
+  "rgb-emoji-matrix": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok",
+   "arduino-mega": "ok",
+   "arduino-leonardo": "ok",
+   "nano-every": "ok",
+   "uno-r4-minima": "ok",
+   "uno-r4-wifi": "ok"
+  },
+  "shelf-light-dimmer": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok",
+   "arduino-mega": "ok",
+   "arduino-leonardo": "ok",
+   "nano-every": "ok",
+   "uno-r4-minima": "ok",
+   "uno-r4-wifi": "ok"
+  },
+  "smart-cooling-fan": {
+   "arduino-uno": "ok",
+   "arduino-mega": "ok",
+   "uno-r4-minima": "ok",
+   "uno-r4-wifi": "ok"
+  },
+  "drum-bot": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok",
+   "arduino-mega": "ok",
+   "arduino-leonardo": "ok",
+   "nano-every": "ok",
+   "uno-r4-minima": "ok",
+   "uno-r4-wifi": "ok"
+  },
+  "stepper-spinner": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok",
+   "arduino-mega": "ok",
+   "arduino-leonardo": "ok",
+   "nano-every": "ok",
+   "uno-r4-minima": "ok",
+   "uno-r4-wifi": "ok"
+  },
+  "door-open-chime": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok",
+   "arduino-mega": "ok",
+   "arduino-leonardo": "ok",
+   "nano-every": "ok",
+   "uno-r4-minima": "ok",
+   "uno-r4-wifi": "ok"
+  },
+  "bike-tamper-alarm": {
+   "arduino-uno": "ok",
+   "arduino-mega": "ok",
+   "arduino-nano": "ok",
+   "arduino-leonardo": "ok",
+   "nano-every": "ok"
+  },
+  "servo-robot-arm": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok"
+  },
+  "r4-matrix-faces": {
+   "uno-r4-wifi": "ok"
+  },
+  "esp8266-climate-page": {
+   "esp8266-nodemcu": "ok",
+   "wemos-d1-mini": "ok"
+  },
+  "gps-speedometer": {
+   "esp32-devkit": "ok"
+  },
+  "anime-robot-eye": {
+   "esp32-devkit": "ok"
+  },
+  "pixel-art-frame": {
+   "esp32-devkit": "ok"
+  },
+  "heart-rate-monitor": {
+   "esp32-devkit": "ok"
+  },
+  "chiptune-box": {
+   "esp32-devkit": "ok"
+  },
+  "pico-voice-box": {
+   "pico-w": "ok",
+   "pico": "ok",
+   "pico-2": "ok",
+   "pico-2-w": "ok"
+  },
+  "wifi-scrolling-sign": {
+   "esp32-devkit": "ok"
+  },
+  "ble-name-tag": {
+   "esp32-devkit": "ok"
+  },
+  "plant-phone-alert": {
+   "esp32-devkit": "ok"
+  },
+  "xiao-pocket-weather": {
+   "xiao-esp32c3": "ok"
+  }
+ },
+ "generated": "2026-11-05T07:32:15.693Z",
+ "arduinoCli": "1.5.2-rc.1",
+ "cores": {
+  "arduino:avr": "1.8.8",
+  "arduino:megaavr": "1.8.8",
+  "arduino:renesas_uno": "1.6.0",
+  "esp32:esp32": "3.3.12",
+  "esp8266:esp8266": "3.1.2",
+  "rp2040:rp2040": "6.3.2"
+ }
+}

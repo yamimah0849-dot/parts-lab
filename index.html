@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Parts Lab</title>
+  <meta name="description" content="Pick electronics parts, get project ideas, build them. A mad-scientist lab in your pocket.">
+  <meta name="theme-color" content="#06070c">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Parts Lab">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="assets/icons/icon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/icons/icon-192.png" type="image/png" sizes="192x192">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+  <link rel="preload" href="assets/fonts/orbitron-latin-900-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/share-tech-mono-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="bg" aria-hidden="true"><div class="grid"></div></div>
+  <div class="vignette" aria-hidden="true"></div>
+  <div class="scanlines" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <button class="icon-btn back-btn" id="back-btn" aria-label="Back to home" hidden></button>
+    <a class="brand" href="#/" aria-label="Parts Lab home"><span class="brand-name">PARTS LAB<small>パーツ・ラボ</small></span></a>
+    <span class="spacer"></span>
+    <button class="icon-btn" id="sound-btn" aria-label="Sound effects on/off"></button>
+    <button class="icon-btn" id="settings-btn" aria-label="Settings"></button>
+  </header>
+
+  <main id="view"></main>
+  <div id="tray-root"></div>
+  <div id="sheet-root"></div>
+  <div id="toast-root" aria-live="polite"></div>
+
+  <div id="boot"><div class="boot-term" id="boot-term"></div><div class="boot-skip">TAP TO SKIP</div></div>
+
+  <noscript><p style="padding:20px;color:#fff">Parts Lab needs JavaScript turned on.</p></noscript>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

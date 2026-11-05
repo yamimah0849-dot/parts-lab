@@ -1,0 +1,649 @@
+[
+  {
+    "id": "hc-05",
+    "name": "HC-05 Bluetooth Serial Module",
+    "category": "comms",
+    "icon": "bluetooth",
+    "desc": "Gives an Arduino a wireless serial link to an Android phone or a PC. Classic Bluetooth only.",
+    "voltage": "VCC 3.6–6V · 3.3V logic",
+    "vcc": [
+      3.6,
+      6
+    ],
+    "interfaces": [
+      "UART"
+    ],
+    "tags": [
+      "bluetooth",
+      "wireless",
+      "phone",
+      "android"
+    ],
+    "price": [
+      15,
+      35
+    ],
+    "note": "Does NOT work with iPhones: iOS apps can't use classic Bluetooth serial. For iPhone, use an ESP32's Bluetooth LE or Wi-Fi.",
+    "warn": {
+      "5": "HC-05 RX is 3.3V. Put a voltage divider (1kΩ + 2kΩ) between the Arduino's TX and the HC-05's RX."
+    }
+  },
+  {
+    "id": "nrf24l01",
+    "name": "nRF24L01+ 2.4GHz Radio",
+    "category": "comms",
+    "icon": "radio",
+    "desc": "Cheap radio modules that let two boards talk wirelessly (up to ~100 m in the open). Great for remote controls.",
+    "voltage": "3.3V power only · 5V-tolerant pins",
+    "vcc": [
+      1.9,
+      3.6
+    ],
+    "interfaces": [
+      "SPI"
+    ],
+    "tags": [
+      "radio",
+      "wireless",
+      "remote",
+      "2.4ghz"
+    ],
+    "price": [
+      5,
+      15
+    ],
+    "note": "Solder a 10µF capacitor across VCC and GND right on the module, or it drops out randomly.",
+    "warn": {
+      "5": "nRF24L01 must be powered from 3.3V. 5V destroys it. Its data pins are fine with 5V signals."
+    }
+  },
+  {
+    "id": "ir-kit",
+    "name": "IR Receiver (VS1838B) + Remote",
+    "category": "comms",
+    "icon": "ir-remote",
+    "desc": "A small infrared receiver plus a credit-card remote. Control your project from the couch, or read your TV remote's buttons.",
+    "voltage": "2.7–5.5V",
+    "vcc": [
+      2.7,
+      5.5
+    ],
+    "interfaces": [
+      "Digital"
+    ],
+    "tags": [
+      "infrared",
+      "remote",
+      "control",
+      "tv"
+    ],
+    "price": [
+      5,
+      15
+    ],
+    "note": "Bare receivers differ in pin order. Check the datasheet or module labels (OUT, GND, VCC)."
+  },
+  {
+    "id": "rfid-rc522",
+    "name": "RC522 RFID Reader + Card & Tag",
+    "category": "comms",
+    "icon": "rfid",
+    "desc": "Reads the ID of tap cards and key tags (13.56MHz). Make a card-activated door, attendance logger or magic-wand game.",
+    "voltage": "3.3V power · 3.3V logic",
+    "vcc": [
+      3.3,
+      3.3
+    ],
+    "interfaces": [
+      "SPI"
+    ],
+    "tags": [
+      "rfid",
+      "nfc",
+      "card",
+      "access",
+      "lock"
+    ],
+    "price": [
+      10,
+      25
+    ],
+    "note": "Usually needs header pins soldered on.",
+    "warn": {
+      "5": "RC522 must be powered from 3.3V. Its pins are 3.3V. Many tutorials wire an Uno directly, but a level shifter is the safe choice."
+    }
+  },
+  {
+    "id": "rf-433",
+    "name": "433MHz RF Transmitter + Receiver Pair",
+    "category": "comms",
+    "icon": "radio",
+    "desc": "A very cheap one-way radio link for sending simple codes between boards, like a wireless doorbell.",
+    "voltage": "TX 3–12V · RX 5V",
+    "vcc": [
+      3,
+      12
+    ],
+    "interfaces": [
+      "Digital"
+    ],
+    "tags": [
+      "radio",
+      "433mhz",
+      "wireless",
+      "doorbell"
+    ],
+    "price": [
+      4,
+      12
+    ],
+    "note": "Range improves a lot with a 17 cm wire antenna soldered to each module.",
+    "warn": {
+      "3.3": "The 433MHz receiver runs on 5V and outputs 5V. Use a voltage divider (1kΩ + 2kΩ) into a 3.3V board."
+    }
+  },
+  {
+    "id": "sd-module",
+    "name": "microSD Card Module (SPI)",
+    "category": "comms",
+    "icon": "sd",
+    "desc": "Lets your board save data to a microSD card, like sensor logs your PC can open in Excel.",
+    "voltage": "5V (onboard 3.3V regulator + level shifter)",
+    "vcc": [
+      4.5,
+      5.5
+    ],
+    "interfaces": [
+      "SPI"
+    ],
+    "tags": [
+      "sd",
+      "storage",
+      "logging",
+      "data"
+    ],
+    "price": [
+      4,
+      12
+    ],
+    "note": "Power this common blue module from 5V, even with ESP32/Pico. Format the card as FAT32."
+  },
+  {
+    "id": "ds3231",
+    "name": "DS3231 Real-Time Clock (ZS-042)",
+    "category": "comms",
+    "icon": "rtc",
+    "desc": "A very accurate clock with a coin battery, so your project knows the date and time even after power-off.",
+    "voltage": "3.3–5V",
+    "vcc": [
+      3.3,
+      5.5
+    ],
+    "interfaces": [
+      "I2C"
+    ],
+    "tags": [
+      "clock",
+      "time",
+      "rtc",
+      "alarm"
+    ],
+    "price": [
+      8,
+      22
+    ],
+    "note": "This board tries to charge its coin cell. With a regular CR2032 (not rechargeable), remove the charging diode or resistor, or use an LIR2032."
+  },
+  {
+    "id": "hc-06",
+    "name": "HC-06 Bluetooth Serial Module (slave)",
+    "category": "comms",
+    "icon": "bluetooth",
+    "desc": "A simpler version of the HC-05 that can only accept connections. Android/PC only.",
+    "voltage": "VCC 3.6–6V · 3.3V logic",
+    "interfaces": [
+      "UART"
+    ],
+    "tags": [
+      "bluetooth",
+      "wireless",
+      "android"
+    ],
+    "price": [
+      12,
+      30
+    ],
+    "vcc": [
+      3.6,
+      6
+    ],
+    "note": "Doesn't work with iPhones (classic Bluetooth serial).",
+    "warn": {
+      "5": "HC-06 RX is 3.3V. Put a voltage divider (1kΩ + 2kΩ) between the board's TX and the HC-06 RX."
+    }
+  },
+  {
+    "id": "hm-10",
+    "name": "HM-10 Bluetooth LE Module",
+    "category": "comms",
+    "icon": "bluetooth",
+    "desc": "A Bluetooth Low Energy serial module that DOES work with iPhones (using a BLE terminal app).",
+    "voltage": "VCC 3.6–6V (module) · 3.3V logic",
+    "interfaces": [
+      "UART"
+    ],
+    "tags": [
+      "bluetooth",
+      "ble",
+      "iphone",
+      "wireless"
+    ],
+    "price": [
+      20,
+      40
+    ],
+    "vcc": [
+      3.6,
+      6
+    ],
+    "note": "Many cheap \"HM-10\" boards are clones (CC41-A) with different commands. Look for the CC2541 chip.",
+    "warn": {
+      "5": "HM-10 RX is 3.3V. Put a voltage divider (1kΩ + 2kΩ) on its RX from a 5V board."
+    }
+  },
+  {
+    "id": "esp-01",
+    "name": "ESP-01 Wi-Fi Module (ESP8266)",
+    "category": "comms",
+    "icon": "radio",
+    "desc": "A tiny ESP8266 Wi-Fi module that can add Wi-Fi to an Arduino or run code by itself.",
+    "voltage": "3.3V only (peaks ~300mA)",
+    "interfaces": [
+      "UART"
+    ],
+    "tags": [
+      "wifi",
+      "esp8266",
+      "module"
+    ],
+    "price": [
+      8,
+      20
+    ],
+    "vcc": [
+      3.0,
+      3.6
+    ],
+    "note": "Programming needs a USB adapter. An Uno's 3.3V pin is too weak to power it: use a 3.3V regulator module.",
+    "warn": {
+      "5": "ESP-01 is 3.3V only: 5V on VCC or its pins can destroy it. Use a 3.3V regulator and a divider on its RX."
+    }
+  },
+  {
+    "id": "lora-ra02",
+    "name": "LoRa Module SX1278 (Ra-02, 433MHz)",
+    "category": "comms",
+    "icon": "radio",
+    "desc": "Long-range radio: small messages over kilometres in open areas. Great for remote sensors.",
+    "voltage": "3.3V only",
+    "interfaces": [
+      "SPI"
+    ],
+    "tags": [
+      "lora",
+      "long range",
+      "radio",
+      "433mhz"
+    ],
+    "price": [
+      25,
+      50
+    ],
+    "vcc": [
+      3.3,
+      3.3
+    ],
+    "note": "Always connect the antenna before powering it. Check local radio rules for your frequency.",
+    "warn": {
+      "5": "The SX1278 is 3.3V only, including its pins. Use a 3.3V board (ESP32/Pico) or a level shifter."
+    }
+  },
+  {
+    "id": "nrf24-pa-lna",
+    "name": "nRF24L01+ PA/LNA (long range, antenna)",
+    "category": "comms",
+    "icon": "radio",
+    "desc": "The nRF24 with an amplifier and antenna: up to ~1 km in open air.",
+    "voltage": "3.3V power only · 5V-tolerant pins",
+    "interfaces": [
+      "SPI"
+    ],
+    "tags": [
+      "radio",
+      "wireless",
+      "long range",
+      "2.4ghz"
+    ],
+    "price": [
+      15,
+      30
+    ],
+    "vcc": [
+      1.9,
+      3.6
+    ],
+    "note": "Draws more current than the basic module: use the nRF24 adapter board or a 3.3V regulator, plus a 10µF capacitor.",
+    "warn": {
+      "5": "Power it from 3.3V only (5V destroys it). The adapter board makes this easy."
+    }
+  },
+  {
+    "id": "nrf24-adapter",
+    "name": "nRF24L01 Adapter Board (5V → 3.3V)",
+    "category": "comms",
+    "icon": "regulator",
+    "desc": "A socket board with its own 3.3V regulator and capacitors: power your nRF24 from 5V safely and stably.",
+    "voltage": "5V in",
+    "interfaces": [
+      "SPI"
+    ],
+    "tags": [
+      "radio",
+      "adapter",
+      "regulator",
+      "nrf24"
+    ],
+    "price": [
+      4,
+      10
+    ],
+    "vcc": [
+      4.8,
+      12
+    ]
+  },
+  {
+    "id": "rdm6300",
+    "name": "RDM6300 125kHz RFID Reader",
+    "category": "comms",
+    "icon": "rfid",
+    "desc": "Reads the older 125kHz key fobs and cards (EM4100) and sends their ID over serial.",
+    "voltage": "5V",
+    "interfaces": [
+      "UART"
+    ],
+    "tags": [
+      "rfid",
+      "125khz",
+      "card",
+      "access"
+    ],
+    "price": [
+      12,
+      25
+    ],
+    "vcc": [
+      5,
+      5
+    ],
+    "warn": {
+      "3.3": "The RDM6300 runs on 5V and its TX outputs 5V. Use a voltage divider (1kΩ + 2kΩ) into a 3.3V board."
+    }
+  },
+  {
+    "id": "pn532",
+    "name": "PN532 NFC/RFID Module (V3)",
+    "category": "comms",
+    "icon": "rfid",
+    "desc": "Reads and writes NFC tags and cards (13.56MHz). Supports I2C, SPI or UART via small switches.",
+    "voltage": "3.3–5V",
+    "interfaces": [
+      "I2C",
+      "SPI",
+      "UART"
+    ],
+    "tags": [
+      "nfc",
+      "rfid",
+      "card",
+      "tag"
+    ],
+    "price": [
+      25,
+      50
+    ],
+    "vcc": [
+      3.3,
+      5
+    ]
+  },
+  {
+    "id": "mcp2515",
+    "name": "MCP2515 CAN Bus Module",
+    "category": "comms",
+    "icon": "module",
+    "desc": "Talk to CAN bus networks, the system cars and machines use.",
+    "voltage": "5V",
+    "interfaces": [
+      "SPI"
+    ],
+    "tags": [
+      "can",
+      "car",
+      "bus",
+      "automotive"
+    ],
+    "price": [
+      12,
+      25
+    ],
+    "vcc": [
+      4.75,
+      5.25
+    ],
+    "note": "Don't connect to a real car's CAN bus unless you know exactly what you're doing.",
+    "warn": {
+      "3.3": "This module's transceiver needs 5V. With 3.3V boards, use a level shifter on SPI or a 3.3V CAN module."
+    }
+  },
+  {
+    "id": "max485",
+    "name": "MAX485 RS-485 Module",
+    "category": "comms",
+    "icon": "module",
+    "desc": "Sends serial data over long twisted-pair wires (hundreds of metres), as factories do.",
+    "voltage": "5V",
+    "interfaces": [
+      "UART"
+    ],
+    "tags": [
+      "rs485",
+      "long distance",
+      "wired",
+      "modbus"
+    ],
+    "price": [
+      4,
+      10
+    ],
+    "vcc": [
+      4.75,
+      5.25
+    ],
+    "warn": {
+      "3.3": "MAX485 runs on 5V and outputs 5V on RO. Use a divider into a 3.3V board, or a 3.3V transceiver (MAX3485)."
+    }
+  },
+  {
+    "id": "w5500",
+    "name": "W5500 Ethernet Module",
+    "category": "comms",
+    "icon": "module",
+    "desc": "Wired internet (RJ45) for your board: more reliable than Wi-Fi for always-on gadgets.",
+    "voltage": "3.3V (some boards include a 5V regulator)",
+    "interfaces": [
+      "SPI"
+    ],
+    "tags": [
+      "ethernet",
+      "internet",
+      "wired",
+      "network"
+    ],
+    "price": [
+      25,
+      50
+    ],
+    "vcc": [
+      3.3,
+      3.3
+    ],
+    "warn": {
+      "5": "W5500 logic is 3.3V (its pins are 5V-tolerant on most modules). Power it from 3.3V unless your board has a regulator."
+    }
+  },
+  {
+    "id": "usb-ttl-ch340",
+    "name": "USB-to-TTL Serial Adapter (CH340)",
+    "category": "comms",
+    "icon": "usb",
+    "desc": "Connects boards without USB (Pro Mini, ESP-01) to your PC for uploading and Serial Monitor.",
+    "voltage": "5V / 3.3V selectable",
+    "interfaces": [
+      "UART"
+    ],
+    "tags": [
+      "usb",
+      "serial",
+      "programmer",
+      "ftdi"
+    ],
+    "price": [
+      8,
+      20
+    ],
+    "note": "Set the jumper to match your board (3.3V or 5V) before connecting."
+  },
+  {
+    "id": "esp32-cam-mb",
+    "name": "ESP32-CAM-MB Programmer Board",
+    "category": "comms",
+    "icon": "usb",
+    "desc": "A small USB board the ESP32-CAM plugs into, for uploading code and power.",
+    "voltage": "USB 5V",
+    "interfaces": [
+      "UART"
+    ],
+    "tags": [
+      "esp32-cam",
+      "programmer",
+      "usb"
+    ],
+    "price": [
+      8,
+      20
+    ]
+  },
+  {
+    "id": "ds1307",
+    "name": "DS1307 Real-Time Clock (Tiny RTC)",
+    "category": "comms",
+    "icon": "rtc",
+    "desc": "A cheaper real-time clock with a coin cell. Less accurate than the DS3231 (it can drift seconds per day).",
+    "voltage": "5V",
+    "interfaces": [
+      "I2C"
+    ],
+    "tags": [
+      "clock",
+      "time",
+      "rtc"
+    ],
+    "price": [
+      5,
+      15
+    ],
+    "vcc": [
+      4.5,
+      5.5
+    ],
+    "warn": {
+      "3.3": "DS1307 boards need 5V and pull I2C up to 5V. Use a level shifter with 3.3V boards (or choose a DS3231)."
+    }
+  },
+  {
+    "id": "tca9548a",
+    "name": "TCA9548A I2C Multiplexer (8 channels)",
+    "category": "comms",
+    "icon": "module",
+    "desc": "Lets you connect several sensors that share the same I2C address, like two OLEDs.",
+    "voltage": "1.65–5.5V",
+    "interfaces": [
+      "I2C"
+    ],
+    "tags": [
+      "i2c",
+      "multiplexer",
+      "expander"
+    ],
+    "price": [
+      8,
+      20
+    ],
+    "vcc": [
+      1.65,
+      5.5
+    ]
+  },
+  {
+    "id": "at24c256",
+    "name": "AT24C256 EEPROM Module (32KB)",
+    "category": "comms",
+    "icon": "sd",
+    "desc": "Small memory chip that keeps data without power: save settings, scores and logs.",
+    "voltage": "2.7–5.5V",
+    "interfaces": [
+      "I2C"
+    ],
+    "tags": [
+      "memory",
+      "eeprom",
+      "storage",
+      "i2c"
+    ],
+    "price": [
+      4,
+      10
+    ],
+    "vcc": [
+      2.7,
+      5.5
+    ]
+  },
+  {
+    "id": "rxb6-433",
+    "name": "RXB6 433MHz Superheterodyne Receiver",
+    "category": "comms",
+    "icon": "radio",
+    "desc": "A much more sensitive 433MHz receiver than the basic one: longer range for doorbells and remotes.",
+    "voltage": "3.3–5.5V",
+    "interfaces": [
+      "Digital"
+    ],
+    "tags": [
+      "radio",
+      "433mhz",
+      "receiver",
+      "remote"
+    ],
+    "price": [
+      6,
+      15
+    ],
+    "vcc": [
+      3.3,
+      5.5
+    ],
+    "note": "Power it from the same voltage as your board, so its output matches your board's logic level."
+  }
+]
