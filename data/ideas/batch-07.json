@@ -4,20 +4,69 @@
     "title": "Plug-&-Play Traffic Light",
     "pitch": "The easiest first project: a traffic-light module with built-in resistors, just 4 wires and you're running.",
     "emoji": "🚥",
-    "difficulty": 1, "time": 10, "vibes": ["fun"],
-    "boards": ["arduino-uno", "arduino-nano", "arduino-mega", "arduino-leonardo", "uno-r4-minima", "uno-r4-wifi", "nano-every"],
-    "requires": ["traffic-light-module"],
+    "difficulty": 1,
+    "time": 10,
+    "vibes": [
+      "fun"
+    ],
+    "boards": [
+      "arduino-uno",
+      "arduino-nano",
+      "arduino-mega",
+      "arduino-leonardo",
+      "uno-r4-minima",
+      "uno-r4-wifi",
+      "nano-every"
+    ],
+    "requires": [
+      "traffic-light-module"
+    ],
     "optional": [],
-    "basics": ["jumper-wires", "usb-cable"],
+    "basics": [
+      "jumper-wires",
+      "usb-cable"
+    ],
     "libs": [],
     "guide": {
       "about": "This module already has a resistor for each LED, so there's nothing to calculate. Plug in 4 wires, upload, done. Perfect for your very first upload.",
-      "parts": [["traffic-light-module", 1, "the little board with red, yellow and green LEDs"], ["jumper-wires", 4, "female-to-male"], ["usb-cable", 1, ""]],
+      "parts": [
+        [
+          "traffic-light-module",
+          1,
+          "the little board with red, yellow and green LEDs"
+        ],
+        [
+          "jumper-wires",
+          4,
+          "female-to-male"
+        ],
+        [
+          "usb-cable",
+          1,
+          ""
+        ]
+      ],
       "wiring": [
-        ["Module R", "Pin 4", ""],
-        ["Module Y", "Pin 3", ""],
-        ["Module G", "Pin 2", ""],
-        ["Module GND", "GND", ""]
+        [
+          "Module R",
+          "Pin 4",
+          ""
+        ],
+        [
+          "Module Y",
+          "Pin 3",
+          ""
+        ],
+        [
+          "Module G",
+          "Pin 2",
+          ""
+        ],
+        [
+          "Module GND",
+          "GND",
+          ""
+        ]
       ],
       "steps": [
         "Connect the module's R, Y and G pins to board pins 4, 3 and 2.",
@@ -27,7 +76,10 @@
       ],
       "test": "Green 5 s → yellow 2 s → red 5 s → red+yellow 1 s → green again.",
       "safety": [],
-      "next": ["Add a button for a pedestrian crossing (see Mini Traffic Light).", "Build two and make a crossroads."]
+      "next": [
+        "Add a button for a pedestrian crossing (see Mini Traffic Light).",
+        "Build two and make a crossroads."
+      ]
     }
   },
   {
@@ -35,18 +87,65 @@
     "title": "Shield Egg Timer",
     "pitch": "An LCD Keypad Shield becomes a kitchen timer with menus: set minutes and seconds with the buttons, no wiring at all.",
     "emoji": "🥚",
-    "difficulty": 1, "time": 20, "vibes": ["useful", "gift"],
-    "boards": ["arduino-uno", "arduino-mega", "uno-r4-minima", "uno-r4-wifi"],
-    "requires": ["lcd-keypad-shield"],
-    "optional": ["buzzer-passive"],
-    "basics": ["usb-cable"],
-    "libs": ["LiquidCrystal"],
+    "difficulty": 1,
+    "time": 20,
+    "vibes": [
+      "useful",
+      "gift"
+    ],
+    "boards": [
+      "arduino-uno",
+      "arduino-mega",
+      "uno-r4-minima",
+      "uno-r4-wifi"
+    ],
+    "requires": [
+      "lcd-keypad-shield"
+    ],
+    "optional": [
+      "buzzer-passive"
+    ],
+    "basics": [
+      "usb-cable"
+    ],
+    "libs": [
+      "LiquidCrystal"
+    ],
     "guide": {
       "about": "The shield's 5 buttons all share one analog pin: each button makes a different voltage. You'll learn to tell them apart by their analogRead() value.",
-      "parts": [["lcd-keypad-shield", 1, "plugs straight onto the board"], ["buzzer-passive", 1, "optional alarm"], ["resistor-kit", 1, "one 220Ω, only for the buzzer"], ["usb-cable", 1, ""]],
+      "parts": [
+        [
+          "lcd-keypad-shield",
+          1,
+          "plugs straight onto the board"
+        ],
+        [
+          "buzzer-passive",
+          1,
+          "optional alarm"
+        ],
+        [
+          "resistor-kit",
+          1,
+          "one 220Ω, only for the buzzer"
+        ],
+        [
+          "usb-cable",
+          1,
+          ""
+        ]
+      ],
       "wiring": [
-        ["LCD Keypad Shield", "Plugs on top of the board", "pins line up automatically"],
-        ["Passive buzzer + (optional)", "Pin 3", "through 220Ω, under the shield or on its spare holes; − to GND"]
+        [
+          "LCD Keypad Shield",
+          "Plugs on top of the board",
+          "pins line up automatically"
+        ],
+        [
+          "Passive buzzer + (optional)",
+          "Pin 3",
+          "through 220Ω, under the shield or on its spare holes; − to GND"
+        ]
       ],
       "steps": [
         "Press the shield onto the board carefully so all pins go in.",
@@ -56,7 +155,10 @@
       ],
       "test": "Set 0:10 and press SELECT: it counts down and flashes TIME'S UP (with beeps if you added a buzzer). If buttons act strangely, the Serial Monitor (9600) shows their values: adjust the thresholds.",
       "safety": [],
-      "next": ["Add presets: soft egg, hard egg, tea.", "Remember the last time in EEPROM."]
+      "next": [
+        "Add presets: soft egg, hard egg, tea.",
+        "Remember the last time in EEPROM."
+      ]
     }
   },
   {
@@ -64,21 +166,78 @@
     "title": "Scrolling Name Sign",
     "pitch": "Your name (or any message) scrolls across a glowing 32x8 LED sign. Great for desks, doors and cosplay.",
     "emoji": "📛",
-    "difficulty": 2, "time": 30, "vibes": ["gift", "fun", "gaming"],
-    "boards": ["arduino-uno", "arduino-nano", "arduino-mega", "arduino-leonardo"],
-    "requires": ["max7219-4in1"],
+    "difficulty": 2,
+    "time": 30,
+    "vibes": [
+      "gift",
+      "fun",
+      "gaming"
+    ],
+    "boards": [
+      "arduino-uno",
+      "arduino-nano",
+      "arduino-mega",
+      "arduino-leonardo",
+      "uno-r4-minima",
+      "uno-r4-wifi",
+      "nano-every"
+    ],
+    "requires": [
+      "max7219-4in1"
+    ],
     "optional": [],
-    "basics": ["jumper-wires", "usb-cable"],
-    "libs": ["LedControl"],
+    "basics": [
+      "jumper-wires",
+      "usb-cable"
+    ],
+    "libs": [
+      "LedControl"
+    ],
     "guide": {
       "about": "The code has its own 5x7 pixel font. Each letter is 5 columns of bits, and the message slides one column at a time across four chained MAX7219 matrices.",
-      "parts": [["max7219-4in1", 1, "32x8 module"], ["jumper-wires", 5, "female-to-male"], ["usb-cable", 1, ""]],
+      "parts": [
+        [
+          "max7219-4in1",
+          1,
+          "32x8 module"
+        ],
+        [
+          "jumper-wires",
+          5,
+          "female-to-male"
+        ],
+        [
+          "usb-cable",
+          1,
+          ""
+        ]
+      ],
       "wiring": [
-        ["Matrix VCC", "5V", ""],
-        ["Matrix GND", "GND", ""],
-        ["Matrix DIN", "Pin 12", "the input end of the module"],
-        ["Matrix CS", "Pin 10", ""],
-        ["Matrix CLK", "Pin 11", ""]
+        [
+          "Matrix VCC",
+          "5V",
+          ""
+        ],
+        [
+          "Matrix GND",
+          "GND",
+          ""
+        ],
+        [
+          "Matrix DIN",
+          "Pin 12",
+          "the input end of the module"
+        ],
+        [
+          "Matrix CS",
+          "Pin 10",
+          ""
+        ],
+        [
+          "Matrix CLK",
+          "Pin 11",
+          ""
+        ]
       ],
       "steps": [
         "Install the LedControl library.",
@@ -88,8 +247,13 @@
         "4-in-1 modules come in different layouts. If the text is mirrored, upside down or jumbled, flip REVERSE_DEVICES, ROTATE or FLIP in the code one at a time until it reads correctly."
       ],
       "test": "The message scrolls smoothly from right to left and repeats.",
-      "safety": ["32x8 LEDs can draw almost 1A at full brightness: keep INTENSITY low on USB power."],
-      "next": ["Show the time with a DS3231.", "Change the message from your phone (see Wi-Fi Scrolling Sign)."]
+      "safety": [
+        "32x8 LEDs can draw almost 1A at full brightness: keep INTENSITY low on USB power."
+      ],
+      "next": [
+        "Show the time with a DS3231.",
+        "Change the message from your phone (see Wi-Fi Scrolling Sign)."
+      ]
     }
   },
   {
@@ -97,20 +261,94 @@
     "title": "RGB Emoji Matrix",
     "pitch": "Full-color pixel emoji on an 8x8 RGB LED panel: hearts, smileys, a slime, a ghost… press a button for the next one.",
     "emoji": "👾",
-    "difficulty": 1, "time": 25, "vibes": ["gaming", "gift", "fun"],
-    "boards": ["arduino-uno", "arduino-nano", "arduino-mega", "arduino-leonardo"],
-    "requires": ["ws2812b-matrix-8x8", ["button-6mm", "touch-ttp223"]],
+    "difficulty": 1,
+    "time": 25,
+    "vibes": [
+      "gaming",
+      "gift",
+      "fun"
+    ],
+    "boards": [
+      "arduino-uno",
+      "arduino-nano",
+      "arduino-mega",
+      "arduino-leonardo",
+      "uno-r4-minima",
+      "uno-r4-wifi",
+      "nano-every"
+    ],
+    "requires": [
+      "ws2812b-matrix-8x8",
+      [
+        "button-6mm",
+        "touch-ttp223"
+      ]
+    ],
     "optional": [],
-    "basics": ["breadboard", "jumper-wires", "resistor-kit", "usb-cable"],
-    "libs": ["Adafruit NeoPixel"],
+    "basics": [
+      "breadboard",
+      "jumper-wires",
+      "resistor-kit",
+      "usb-cable"
+    ],
+    "libs": [
+      "Adafruit NeoPixel"
+    ],
     "guide": {
       "about": "Each picture is 64 numbers, one color index per pixel. You'll learn how 2D pictures become a 1D list of LEDs, and how to keep brightness safe for USB power.",
-      "parts": [["ws2812b-matrix-8x8", 1, ""], ["button-6mm", 1, ""], ["resistor-kit", 1, "one 330Ω for the data line"], ["breadboard", 1, ""], ["jumper-wires", 5, ""], ["usb-cable", 1, ""]],
+      "parts": [
+        [
+          "ws2812b-matrix-8x8",
+          1,
+          ""
+        ],
+        [
+          "button-6mm",
+          1,
+          ""
+        ],
+        [
+          "resistor-kit",
+          1,
+          "one 330Ω for the data line"
+        ],
+        [
+          "breadboard",
+          1,
+          ""
+        ],
+        [
+          "jumper-wires",
+          5,
+          ""
+        ],
+        [
+          "usb-cable",
+          1,
+          ""
+        ]
+      ],
       "wiring": [
-        ["Matrix 5V", "5V", ""],
-        ["Matrix GND", "GND", ""],
-        ["Matrix DIN", "Pin 6", "through 330Ω"],
-        ["Button", "Pin 2", "other leg to GND"]
+        [
+          "Matrix 5V",
+          "5V",
+          ""
+        ],
+        [
+          "Matrix GND",
+          "GND",
+          ""
+        ],
+        [
+          "Matrix DIN",
+          "Pin 6",
+          "through 330Ω"
+        ],
+        [
+          "Button",
+          "Pin 2",
+          "other leg to GND"
+        ]
       ],
       "steps": [
         "Install Adafruit NeoPixel.",
@@ -119,8 +357,13 @@
         "If pictures look scrambled every other row, set SERPENTINE to true."
       ],
       "test": "A heart appears; each press shows the next emoji: smiley, slime, ghost, star, mushroom-free space invader-ish alien… original pixel art!",
-      "safety": ["64 RGB LEDs at full white can draw ~3.8A. Keep BRIGHTNESS low on USB, or use a 5V 4A supply."],
-      "next": ["Animate them with two frames each.", "Draw your own 8x8 art on graph paper."]
+      "safety": [
+        "64 RGB LEDs at full white can draw ~3.8A. Keep BRIGHTNESS low on USB, or use a 5V 4A supply."
+      ],
+      "next": [
+        "Animate them with two frames each.",
+        "Draw your own 8x8 art on graph paper."
+      ]
     }
   },
   {
@@ -128,23 +371,123 @@
     "title": "12V Shelf Light Dimmer",
     "pitch": "A smooth knob-controlled dimmer for a 12V white LED strip: perfect under a shelf or desk.",
     "emoji": "💡",
-    "difficulty": 2, "time": 40, "vibes": ["useful"],
-    "boards": ["arduino-uno", "arduino-nano", "arduino-mega", "arduino-leonardo", "uno-r4-minima", "uno-r4-wifi", "nano-every"],
-    "requires": ["led-strip-12v-white", "adapter-12v", ["mosfet-irlz44n", "mosfet-module-d4184"], "potentiometer-10k", "barrel-jack-breakout"],
+    "difficulty": 2,
+    "time": 40,
+    "vibes": [
+      "useful"
+    ],
+    "boards": [
+      "arduino-uno",
+      "arduino-nano",
+      "arduino-mega",
+      "arduino-leonardo",
+      "uno-r4-minima",
+      "uno-r4-wifi",
+      "nano-every"
+    ],
+    "requires": [
+      "led-strip-12v-white",
+      "adapter-12v",
+      [
+        "mosfet-irlz44n",
+        "mosfet-module-d4184"
+      ],
+      "potentiometer-10k",
+      "barrel-jack-breakout"
+    ],
     "optional": [],
-    "basics": ["breadboard", "jumper-wires", "resistor-kit", "usb-cable"],
+    "basics": [
+      "breadboard",
+      "jumper-wires",
+      "resistor-kit",
+      "usb-cable"
+    ],
     "libs": [],
     "guide": {
       "about": "The strip runs on 12V from a wall adapter; the board only controls the MOSFET's gate with PWM. LED strips are not motors, so no flyback diode is needed.",
-      "parts": [["led-strip-12v-white", 1, "up to 1 m"], ["adapter-12v", 1, ""], ["barrel-jack-breakout", 1, "to get 12V onto screw terminals"], ["mosfet-irlz44n", 1, "or a D4184 MOSFET module"], ["potentiometer-10k", 1, ""], ["resistor-kit", 1, "one 220Ω (gate) + one 10kΩ (gate pull-down)"], ["breadboard", 1, ""], ["jumper-wires", 8, ""], ["usb-cable", 1, "the board runs from USB"]],
+      "parts": [
+        [
+          "led-strip-12v-white",
+          1,
+          "up to 1 m"
+        ],
+        [
+          "adapter-12v",
+          1,
+          ""
+        ],
+        [
+          "barrel-jack-breakout",
+          1,
+          "to get 12V onto screw terminals"
+        ],
+        [
+          "mosfet-irlz44n",
+          1,
+          "or a D4184 MOSFET module"
+        ],
+        [
+          "potentiometer-10k",
+          1,
+          ""
+        ],
+        [
+          "resistor-kit",
+          1,
+          "one 220Ω (gate) + one 10kΩ (gate pull-down)"
+        ],
+        [
+          "breadboard",
+          1,
+          ""
+        ],
+        [
+          "jumper-wires",
+          8,
+          ""
+        ],
+        [
+          "usb-cable",
+          1,
+          "the board runs from USB"
+        ]
+      ],
       "wiring": [
-        ["12V adapter", "Barrel jack breakout", ""],
-        ["Breakout +12V", "LED strip +", ""],
-        ["LED strip −", "MOSFET Drain (middle pin)", ""],
-        ["MOSFET Source (right pin)", "Breakout GND and board GND", "common ground"],
-        ["MOSFET Gate (left pin)", "Pin 9", "through 220Ω, plus 10kΩ from Gate to GND"],
-        ["Potentiometer outer legs", "5V and GND", ""],
-        ["Potentiometer middle", "A0", ""]
+        [
+          "12V adapter",
+          "Barrel jack breakout",
+          ""
+        ],
+        [
+          "Breakout +12V",
+          "LED strip +",
+          ""
+        ],
+        [
+          "LED strip −",
+          "MOSFET Drain (middle pin)",
+          ""
+        ],
+        [
+          "MOSFET Source (right pin)",
+          "Breakout GND and board GND",
+          "common ground"
+        ],
+        [
+          "MOSFET Gate (left pin)",
+          "Pin 9",
+          "through 220Ω, plus 10kΩ from Gate to GND"
+        ],
+        [
+          "Potentiometer outer legs",
+          "5V and GND",
+          ""
+        ],
+        [
+          "Potentiometer middle",
+          "A0",
+          ""
+        ]
       ],
       "steps": [
         "Build the MOSFET switch on the breadboard (label facing you: Gate, Drain, Source).",
@@ -154,8 +497,14 @@
         "Plug in the 12V adapter last and turn the knob."
       ],
       "test": "The strip fades in at power-up, then follows the knob smoothly from off to full brightness.",
-      "safety": ["Double-check that 12V never touches the board's pins. Only the MOSFET connects the two circuits (via GND).", "Use wires thick enough for the strip's current (about 1A per metre)."],
-      "next": ["Add a PIR so it switches on when you approach.", "Use a light sensor for automatic night mode."]
+      "safety": [
+        "Double-check that 12V never touches the board's pins. Only the MOSFET connects the two circuits (via GND).",
+        "Use wires thick enough for the strip's current (about 1A per metre)."
+      ],
+      "next": [
+        "Add a PIR so it switches on when you approach.",
+        "Use a light sensor for automatic night mode."
+      ]
     }
   },
   {
@@ -163,23 +512,121 @@
     "title": "Smart Cooling Fan",
     "pitch": "A 12V PC fan that switches itself on when the room (or your gaming console's shelf) gets too warm.",
     "emoji": "🌬️",
-    "difficulty": 2, "time": 40, "vibes": ["useful", "gaming"],
-    "boards": ["arduino-uno", "arduino-mega", "uno-r4-minima", "uno-r4-wifi"],
-    "requires": ["fan-12v-80mm", "mosfet-irlz44n", "diode-1n4007", "dht11-module", "adapter-12v"],
+    "difficulty": 2,
+    "time": 40,
+    "vibes": [
+      "useful",
+      "gaming"
+    ],
+    "boards": [
+      "arduino-uno",
+      "arduino-mega",
+      "uno-r4-minima",
+      "uno-r4-wifi"
+    ],
+    "requires": [
+      "fan-12v-80mm",
+      "mosfet-irlz44n",
+      "diode-1n4007",
+      "dht11-module",
+      "adapter-12v"
+    ],
     "optional": [],
-    "basics": ["breadboard", "jumper-wires", "resistor-kit", "usb-cable"],
-    "libs": ["DHT sensor library", "Adafruit Unified Sensor"],
+    "basics": [
+      "breadboard",
+      "jumper-wires",
+      "resistor-kit",
+      "usb-cable"
+    ],
+    "libs": [
+      "DHT sensor library",
+      "Adafruit Unified Sensor"
+    ],
     "guide": {
       "about": "A thermostat with \"hysteresis\": on above 28°C, off below 26°C, so it doesn't flicker on and off. The 12V adapter powers the board through its jack, and the fan takes 12V from the VIN pin.",
-      "parts": [["fan-12v-80mm", 1, "2- or 3-wire PC fan (yellow wire unused)"], ["mosfet-irlz44n", 1, ""], ["diode-1n4007", 1, ""], ["dht11-module", 1, ""], ["adapter-12v", 1, "plugs into the board's barrel jack"], ["resistor-kit", 1, "one 220Ω + one 10kΩ"], ["breadboard", 1, ""], ["jumper-wires", 9, ""], ["usb-cable", 1, "for uploading"]],
+      "parts": [
+        [
+          "fan-12v-80mm",
+          1,
+          "2- or 3-wire PC fan (yellow wire unused)"
+        ],
+        [
+          "mosfet-irlz44n",
+          1,
+          ""
+        ],
+        [
+          "diode-1n4007",
+          1,
+          ""
+        ],
+        [
+          "dht11-module",
+          1,
+          ""
+        ],
+        [
+          "adapter-12v",
+          1,
+          "plugs into the board's barrel jack"
+        ],
+        [
+          "resistor-kit",
+          1,
+          "one 220Ω + one 10kΩ"
+        ],
+        [
+          "breadboard",
+          1,
+          ""
+        ],
+        [
+          "jumper-wires",
+          9,
+          ""
+        ],
+        [
+          "usb-cable",
+          1,
+          "for uploading"
+        ]
+      ],
       "wiring": [
-        ["12V adapter", "Board's barrel jack", "the board's VIN pin now carries ~12V"],
-        ["Fan red (+)", "VIN", ""],
-        ["Fan black (−)", "MOSFET Drain (middle)", ""],
-        ["1N4007 diode", "across the fan", "stripe toward VIN (+)"],
-        ["MOSFET Source (right)", "GND", ""],
-        ["MOSFET Gate (left)", "Pin 9", "through 220Ω, plus 10kΩ Gate → GND"],
-        ["DHT11 + / − / DATA", "5V / GND / Pin 2", ""]
+        [
+          "12V adapter",
+          "Board's barrel jack",
+          "the board's VIN pin now carries ~12V"
+        ],
+        [
+          "Fan red (+)",
+          "VIN",
+          ""
+        ],
+        [
+          "Fan black (−)",
+          "MOSFET Drain (middle)",
+          ""
+        ],
+        [
+          "1N4007 diode",
+          "across the fan",
+          "stripe toward VIN (+)"
+        ],
+        [
+          "MOSFET Source (right)",
+          "GND",
+          ""
+        ],
+        [
+          "MOSFET Gate (left)",
+          "Pin 9",
+          "through 220Ω, plus 10kΩ Gate → GND"
+        ],
+        [
+          "DHT11 + / − / DATA",
+          "5V / GND / Pin 2",
+          ""
+        ]
       ],
       "steps": [
         "Install DHT sensor library and Adafruit Unified Sensor.",
@@ -189,8 +636,14 @@
         "Warm the sensor with your hand (or a hair dryer from a distance) to test."
       ],
       "test": "Above 28°C the fan spins up; below 26°C it stops. The Serial Monitor (with USB connected) shows temperature and fan state.",
-      "safety": ["Never touch VIN to other pins: it carries 12V when the adapter is plugged in.", "Keep fingers out of the fan blades."],
-      "next": ["Show the temperature on a TM1637.", "Change ON_C/OFF_C for your console or 3D printer enclosure."]
+      "safety": [
+        "Never touch VIN to other pins: it carries 12V when the adapter is plugged in.",
+        "Keep fingers out of the fan blades."
+      ],
+      "next": [
+        "Show the temperature on a TM1637.",
+        "Change ON_C/OFF_C for your console or 3D printer enclosure."
+      ]
     }
   },
   {
@@ -198,23 +651,133 @@
     "title": "Desk Drum Bot",
     "pitch": "A 12V solenoid taps out drum rhythms on your desk, a cup or a box. Robot percussion!",
     "emoji": "🥁",
-    "difficulty": 2, "time": 40, "vibes": ["fun"],
-    "boards": ["arduino-uno", "arduino-nano", "arduino-mega", "arduino-leonardo", "uno-r4-minima", "uno-r4-wifi", "nano-every"],
-    "requires": ["solenoid-12v", "mosfet-irlz44n", "diode-1n4007", "adapter-12v", "barrel-jack-breakout"],
-    "optional": ["button-6mm", "potentiometer-10k"],
-    "basics": ["breadboard", "jumper-wires", "resistor-kit", "usb-cable"],
+    "difficulty": 2,
+    "time": 40,
+    "vibes": [
+      "fun"
+    ],
+    "boards": [
+      "arduino-uno",
+      "arduino-nano",
+      "arduino-mega",
+      "arduino-leonardo",
+      "uno-r4-minima",
+      "uno-r4-wifi",
+      "nano-every"
+    ],
+    "requires": [
+      "solenoid-12v",
+      "mosfet-irlz44n",
+      "diode-1n4007",
+      "adapter-12v",
+      "barrel-jack-breakout"
+    ],
+    "optional": [
+      "button-6mm",
+      "potentiometer-10k"
+    ],
+    "basics": [
+      "breadboard",
+      "jumper-wires",
+      "resistor-kit",
+      "usb-cable"
+    ],
     "libs": [],
     "guide": {
       "about": "A solenoid is an electromagnet that shoots a pin out. Short 30 ms pulses make clean taps without overheating it. Patterns are stored as strings like \"x..x..x.\".",
-      "parts": [["solenoid-12v", 1, ""], ["mosfet-irlz44n", 1, ""], ["diode-1n4007", 1, "essential flyback diode"], ["adapter-12v", 1, ""], ["barrel-jack-breakout", 1, ""], ["button-6mm", 1, "optional start/stop"], ["potentiometer-10k", 1, "optional tempo knob"], ["resistor-kit", 1, "one 220Ω + one 10kΩ"], ["breadboard", 1, ""], ["jumper-wires", 10, ""], ["usb-cable", 1, "the board runs from USB"]],
+      "parts": [
+        [
+          "solenoid-12v",
+          1,
+          ""
+        ],
+        [
+          "mosfet-irlz44n",
+          1,
+          ""
+        ],
+        [
+          "diode-1n4007",
+          1,
+          "essential flyback diode"
+        ],
+        [
+          "adapter-12v",
+          1,
+          ""
+        ],
+        [
+          "barrel-jack-breakout",
+          1,
+          ""
+        ],
+        [
+          "button-6mm",
+          1,
+          "optional start/stop"
+        ],
+        [
+          "potentiometer-10k",
+          1,
+          "optional tempo knob"
+        ],
+        [
+          "resistor-kit",
+          1,
+          "one 220Ω + one 10kΩ"
+        ],
+        [
+          "breadboard",
+          1,
+          ""
+        ],
+        [
+          "jumper-wires",
+          10,
+          ""
+        ],
+        [
+          "usb-cable",
+          1,
+          "the board runs from USB"
+        ]
+      ],
       "wiring": [
-        ["Breakout +12V", "Solenoid wire 1", ""],
-        ["Solenoid wire 2", "MOSFET Drain (middle)", ""],
-        ["1N4007 diode", "across the solenoid", "stripe toward +12V"],
-        ["MOSFET Source (right)", "Breakout GND and board GND", "common ground"],
-        ["MOSFET Gate (left)", "Pin 9", "through 220Ω, plus 10kΩ Gate → GND"],
-        ["Button (optional)", "Pin 2", "other leg to GND"],
-        ["Tempo pot (optional)", "A0", "outer legs to 5V and GND"]
+        [
+          "Breakout +12V",
+          "Solenoid wire 1",
+          ""
+        ],
+        [
+          "Solenoid wire 2",
+          "MOSFET Drain (middle)",
+          ""
+        ],
+        [
+          "1N4007 diode",
+          "across the solenoid",
+          "stripe toward +12V"
+        ],
+        [
+          "MOSFET Source (right)",
+          "Breakout GND and board GND",
+          "common ground"
+        ],
+        [
+          "MOSFET Gate (left)",
+          "Pin 9",
+          "through 220Ω, plus 10kΩ Gate → GND"
+        ],
+        [
+          "Button (optional)",
+          "Pin 2",
+          "other leg to GND"
+        ],
+        [
+          "Tempo pot (optional)",
+          "A0",
+          "outer legs to 5V and GND"
+        ]
       ],
       "steps": [
         "Build the MOSFET switch and wire the solenoid between +12V and the Drain.",
@@ -224,8 +787,14 @@
         "Point the solenoid's plunger at something fun to hit and press the button."
       ],
       "test": "It plays a rhythm pattern, switching to a new one every 8 bars. Turn the knob for faster or slower tempo.",
-      "safety": ["Short pulses only: the code limits each hit to 30 ms. A solenoid held on gets very hot.", "Keep fingers away from the plunger."],
-      "next": ["Add a second solenoid for a two-drum kit.", "Trigger hits from a MIDI keyboard or your PC."]
+      "safety": [
+        "Short pulses only: the code limits each hit to 30 ms. A solenoid held on gets very hot.",
+        "Keep fingers away from the plunger."
+      ],
+      "next": [
+        "Add a second solenoid for a two-drum kit.",
+        "Trigger hits from a MIDI keyboard or your PC."
+      ]
     }
   },
   {
@@ -233,26 +802,148 @@
     "title": "Precision Stepper Spinner",
     "pitch": "Drive a strong NEMA 17 stepper (the 3D-printer motor) with a speed knob and a direction button.",
     "emoji": "⚙️",
-    "difficulty": 3, "time": 60, "vibes": ["useful", "fun"],
-    "boards": ["arduino-uno", "arduino-nano", "arduino-mega", "arduino-leonardo", "uno-r4-minima", "uno-r4-wifi", "nano-every"],
-    "requires": ["nema17", "a4988", "adapter-12v", "barrel-jack-breakout", "cap-electrolytic-kit", "potentiometer-10k"],
-    "optional": ["button-6mm"],
-    "basics": ["breadboard", "jumper-wires", "usb-cable"],
+    "difficulty": 3,
+    "time": 60,
+    "vibes": [
+      "useful",
+      "fun"
+    ],
+    "boards": [
+      "arduino-uno",
+      "arduino-nano",
+      "arduino-mega",
+      "arduino-leonardo",
+      "uno-r4-minima",
+      "uno-r4-wifi",
+      "nano-every"
+    ],
+    "requires": [
+      "nema17",
+      "a4988",
+      "adapter-12v",
+      "barrel-jack-breakout",
+      "cap-electrolytic-kit",
+      "potentiometer-10k"
+    ],
+    "optional": [
+      "button-6mm"
+    ],
+    "basics": [
+      "breadboard",
+      "jumper-wires",
+      "usb-cable"
+    ],
     "libs": [],
     "guide": {
       "about": "The A4988 does the heavy lifting: each pulse on STEP moves the motor one step (200 per turn). You'll generate precise pulses with micros() and learn why the driver's current limit matters.",
-      "parts": [["nema17", 1, ""], ["a4988", 1, "with heatsink"], ["adapter-12v", 1, ""], ["barrel-jack-breakout", 1, ""], ["cap-electrolytic-kit", 1, "one 100µF (25V or more)"], ["potentiometer-10k", 1, "speed knob"], ["button-6mm", 1, "optional direction button"], ["multimeter", 1, "to set the current limit"], ["breadboard", 1, ""], ["jumper-wires", 14, ""], ["usb-cable", 1, ""]],
+      "parts": [
+        [
+          "nema17",
+          1,
+          ""
+        ],
+        [
+          "a4988",
+          1,
+          "with heatsink"
+        ],
+        [
+          "adapter-12v",
+          1,
+          ""
+        ],
+        [
+          "barrel-jack-breakout",
+          1,
+          ""
+        ],
+        [
+          "cap-electrolytic-kit",
+          1,
+          "one 100µF (25V or more)"
+        ],
+        [
+          "potentiometer-10k",
+          1,
+          "speed knob"
+        ],
+        [
+          "button-6mm",
+          1,
+          "optional direction button"
+        ],
+        [
+          "multimeter",
+          1,
+          "to set the current limit"
+        ],
+        [
+          "breadboard",
+          1,
+          ""
+        ],
+        [
+          "jumper-wires",
+          14,
+          ""
+        ],
+        [
+          "usb-cable",
+          1,
+          ""
+        ]
+      ],
       "wiring": [
-        ["A4988 VMOT", "+12V (breakout)", "100µF capacitor across VMOT and GND, close to the driver"],
-        ["A4988 GND (next to VMOT)", "Breakout GND and board GND", ""],
-        ["A4988 VDD", "5V", "logic power"],
-        ["A4988 GND (next to VDD)", "GND", ""],
-        ["A4988 1A/1B/2A/2B", "Motor coil wires", "one coil on 1A/1B, the other on 2A/2B (check the motor's datasheet)"],
-        ["A4988 STEP", "Pin 3", ""],
-        ["A4988 DIR", "Pin 4", ""],
-        ["A4988 RESET and SLEEP", "connected to each other", "a short jumper between the two pins"],
-        ["Potentiometer middle", "A0", "outer legs to 5V and GND"],
-        ["Direction button (optional)", "Pin 2", "other leg to GND"]
+        [
+          "A4988 VMOT",
+          "+12V (breakout)",
+          "100µF capacitor across VMOT and GND, close to the driver"
+        ],
+        [
+          "A4988 GND (next to VMOT)",
+          "Breakout GND and board GND",
+          ""
+        ],
+        [
+          "A4988 VDD",
+          "5V",
+          "logic power"
+        ],
+        [
+          "A4988 GND (next to VDD)",
+          "GND",
+          ""
+        ],
+        [
+          "A4988 1A/1B/2A/2B",
+          "Motor coil wires",
+          "one coil on 1A/1B, the other on 2A/2B (check the motor's datasheet)"
+        ],
+        [
+          "A4988 STEP",
+          "Pin 3",
+          ""
+        ],
+        [
+          "A4988 DIR",
+          "Pin 4",
+          ""
+        ],
+        [
+          "A4988 RESET and SLEEP",
+          "connected to each other",
+          "a short jumper between the two pins"
+        ],
+        [
+          "Potentiometer middle",
+          "A0",
+          "outer legs to 5V and GND"
+        ],
+        [
+          "Direction button (optional)",
+          "Pin 2",
+          "other leg to GND"
+        ]
       ],
       "steps": [
         "Put the A4988 on the breadboard and connect RESET to SLEEP.",
@@ -262,8 +953,15 @@
         "Upload, then plug in the 12V adapter and turn the knob."
       ],
       "test": "The motor spins smoothly from 0 to about 120 RPM following the knob; the button reverses direction.",
-      "safety": ["Never connect or disconnect the motor while the driver is powered: it can destroy the A4988.", "The driver and motor get hot: keep the heatsink on and don't touch them while running.", "If you're not sure about the current-limit formula for your A4988 clone, start low: the motor just gets weaker, nothing breaks."],
-      "next": ["Add microstepping (MS1–MS3) for smoother motion.", "Build a camera slider or a precise turntable."]
+      "safety": [
+        "Never connect or disconnect the motor while the driver is powered: it can destroy the A4988.",
+        "The driver and motor get hot: keep the heatsink on and don't touch them while running.",
+        "If you're not sure about the current-limit formula for your A4988 clone, start low: the motor just gets weaker, nothing breaks."
+      ],
+      "next": [
+        "Add microstepping (MS1–MS3) for smoother motion.",
+        "Build a camera slider or a precise turntable."
+      ]
     }
   },
   {
@@ -271,19 +969,83 @@
     "title": "Door Open Chime",
     "pitch": "A shop-style ding when the door opens, plus a reminder beep if it's left open. It also counts visitors.",
     "emoji": "🚪",
-    "difficulty": 1, "time": 20, "vibes": ["useful", "fun"],
-    "boards": ["arduino-uno", "arduino-nano", "arduino-mega", "arduino-leonardo", "uno-r4-minima", "uno-r4-wifi", "nano-every"],
-    "requires": ["door-sensor-mc38", "buzzer-passive"],
+    "difficulty": 1,
+    "time": 20,
+    "vibes": [
+      "useful",
+      "fun"
+    ],
+    "boards": [
+      "arduino-uno",
+      "arduino-nano",
+      "arduino-mega",
+      "arduino-leonardo",
+      "uno-r4-minima",
+      "uno-r4-wifi",
+      "nano-every"
+    ],
+    "requires": [
+      "door-sensor-mc38",
+      "buzzer-passive"
+    ],
     "optional": [],
-    "basics": ["breadboard", "jumper-wires", "resistor-kit", "usb-cable"],
+    "basics": [
+      "breadboard",
+      "jumper-wires",
+      "resistor-kit",
+      "usb-cable"
+    ],
     "libs": [],
     "guide": {
       "about": "The MC-38 is a magnet and a reed switch. While the door is closed, the magnet holds the switch closed (the pin reads LOW). Opening the door breaks the circuit.",
-      "parts": [["door-sensor-mc38", 1, "screw or tape: magnet on the door, switch on the frame"], ["buzzer-passive", 1, ""], ["resistor-kit", 1, "one 220Ω"], ["breadboard", 1, ""], ["jumper-wires", 4, "long wires to the door"], ["usb-cable", 1, "power from a USB charger"]],
+      "parts": [
+        [
+          "door-sensor-mc38",
+          1,
+          "screw or tape: magnet on the door, switch on the frame"
+        ],
+        [
+          "buzzer-passive",
+          1,
+          ""
+        ],
+        [
+          "resistor-kit",
+          1,
+          "one 220Ω"
+        ],
+        [
+          "breadboard",
+          1,
+          ""
+        ],
+        [
+          "jumper-wires",
+          4,
+          "long wires to the door"
+        ],
+        [
+          "usb-cable",
+          1,
+          "power from a USB charger"
+        ]
+      ],
       "wiring": [
-        ["MC-38 wire 1", "Pin 2", ""],
-        ["MC-38 wire 2", "GND", "uses INPUT_PULLUP, no resistor needed"],
-        ["Passive buzzer +", "Pin 8", "through 220Ω; − to GND"]
+        [
+          "MC-38 wire 1",
+          "Pin 2",
+          ""
+        ],
+        [
+          "MC-38 wire 2",
+          "GND",
+          "uses INPUT_PULLUP, no resistor needed"
+        ],
+        [
+          "Passive buzzer +",
+          "Pin 8",
+          "through 220Ω; − to GND"
+        ]
       ],
       "steps": [
         "Mount the switch part on the door frame and the magnet part on the door, less than 1 cm apart when closed.",
@@ -293,7 +1055,10 @@
       ],
       "test": "Opening the door plays a ding-dong and prints the visitor count. Leave it open for 60 s and it beeps a reminder every 10 s.",
       "safety": [],
-      "next": ["Send a phone alert with an ESP32 instead.", "Count visitors per day and show it on an LCD."]
+      "next": [
+        "Send a phone alert with an ESP32 instead.",
+        "Count visitors per day and show it on an LCD."
+      ]
     }
   },
   {
@@ -301,21 +1066,113 @@
     "title": "Bike Tamper Alarm",
     "pitch": "Arm it, walk away, and if someone shakes your bike (or your secret box), a loud siren goes off.",
     "emoji": "🚲",
-    "difficulty": 1, "time": 25, "vibes": ["useful", "fun"],
-    "boards": ["arduino-uno", "arduino-nano", "arduino-mega", "arduino-leonardo", "nano-every"],
-    "requires": ["vibration-sw420", "buzzer-passive", ["button-6mm", "toggle-switch"]],
-    "optional": ["led-red", "power-bank"],
-    "basics": ["breadboard", "jumper-wires", "resistor-kit", "usb-cable"],
+    "difficulty": 1,
+    "time": 25,
+    "vibes": [
+      "useful",
+      "fun"
+    ],
+    "boards": [
+      "arduino-uno",
+      "arduino-nano",
+      "arduino-mega",
+      "arduino-leonardo",
+      "nano-every"
+    ],
+    "requires": [
+      "vibration-sw420",
+      "buzzer-passive",
+      [
+        "button-6mm",
+        "toggle-switch"
+      ]
+    ],
+    "optional": [
+      "led-red",
+      "power-bank"
+    ],
+    "basics": [
+      "breadboard",
+      "jumper-wires",
+      "resistor-kit",
+      "usb-cable"
+    ],
     "libs": [],
     "guide": {
       "about": "The SW-420 notices vibration. To avoid false alarms, the code needs several shakes within 2 seconds before it sounds the siren, plus a 10-second exit delay after arming.",
-      "parts": [["vibration-sw420", 1, ""], ["buzzer-passive", 1, "louder: use a piezo buzzer"], ["button-6mm", 1, "arm/disarm (hide it!)"], ["led-red", 1, "optional armed light"], ["resistor-kit", 1, "220Ω for buzzer and LED"], ["power-bank", 1, "small USB power bank"], ["breadboard", 1, "a mini one"], ["jumper-wires", 8, ""], ["usb-cable", 1, ""]],
+      "parts": [
+        [
+          "vibration-sw420",
+          1,
+          ""
+        ],
+        [
+          "buzzer-passive",
+          1,
+          "louder: use a piezo buzzer"
+        ],
+        [
+          "button-6mm",
+          1,
+          "arm/disarm (hide it!)"
+        ],
+        [
+          "led-red",
+          1,
+          "optional armed light"
+        ],
+        [
+          "resistor-kit",
+          1,
+          "220Ω for buzzer and LED"
+        ],
+        [
+          "power-bank",
+          1,
+          "small USB power bank"
+        ],
+        [
+          "breadboard",
+          1,
+          "a mini one"
+        ],
+        [
+          "jumper-wires",
+          8,
+          ""
+        ],
+        [
+          "usb-cable",
+          1,
+          ""
+        ]
+      ],
       "wiring": [
-        ["SW-420 VCC / GND", "5V / GND", ""],
-        ["SW-420 DO", "Pin 2", ""],
-        ["Arm button", "Pin 4", "other leg to GND"],
-        ["Passive buzzer +", "Pin 8", "through 220Ω; − to GND"],
-        ["Red LED + (optional)", "Pin 13", "through 220Ω; − to GND"]
+        [
+          "SW-420 VCC / GND",
+          "5V / GND",
+          ""
+        ],
+        [
+          "SW-420 DO",
+          "Pin 2",
+          ""
+        ],
+        [
+          "Arm button",
+          "Pin 4",
+          "other leg to GND"
+        ],
+        [
+          "Passive buzzer +",
+          "Pin 8",
+          "through 220Ω; − to GND"
+        ],
+        [
+          "Red LED + (optional)",
+          "Pin 13",
+          "through 220Ω; − to GND"
+        ]
       ],
       "steps": [
         "Wire the sensor (DO → Pin 2), button (Pin 4) and buzzer (Pin 8).",
@@ -325,7 +1182,10 @@
       ],
       "test": "Armed + several shakes = 15 s siren. Press the button any time to disarm.",
       "safety": [],
-      "next": ["Add a keypad code to disarm.", "Add a GPS module to track the bike."]
+      "next": [
+        "Add a keypad code to disarm.",
+        "Add a GPS module to track the bike."
+      ]
     }
   },
   {
@@ -333,24 +1193,114 @@
     "title": "4-Servo Robot Arm",
     "pitch": "Control a little robot arm (base, shoulder, elbow, claw) with two joysticks. Pick things up!",
     "emoji": "🦿",
-    "difficulty": 3, "time": 90, "vibes": ["fun", "gaming"],
-    "boards": ["arduino-uno", "arduino-nano"],
-    "requires": ["pca9685", ["servo-sg90", "servo-mg90s"], "joystick", "battery-aa-4"],
+    "difficulty": 3,
+    "time": 90,
+    "vibes": [
+      "fun",
+      "gaming"
+    ],
+    "boards": [
+      "arduino-uno",
+      "arduino-nano"
+    ],
+    "requires": [
+      "pca9685",
+      [
+        "servo-sg90",
+        "servo-mg90s"
+      ],
+      "joystick",
+      "battery-aa-4"
+    ],
     "optional": [],
-    "basics": ["breadboard", "jumper-wires", "usb-cable"],
-    "libs": ["Adafruit PWM Servo Driver Library"],
+    "basics": [
+      "breadboard",
+      "jumper-wires",
+      "usb-cable"
+    ],
+    "libs": [
+      "Adafruit PWM Servo Driver Library"
+    ],
     "guide": {
       "about": "The PCA9685 board generates servo signals for up to 16 servos over just 2 wires (I2C), and takes servo power from its own terminal, so the board never has to supply the current.",
-      "parts": [["pca9685", 1, ""], ["servo-sg90", 4, "or MG90S: base, shoulder, elbow, claw"], ["joystick", 2, ""], ["battery-aa-4", 1, "servo power (~6V)"], ["breadboard", 1, ""], ["jumper-wires", 14, ""], ["usb-cable", 1, ""]],
+      "parts": [
+        [
+          "pca9685",
+          1,
+          ""
+        ],
+        [
+          "servo-sg90",
+          4,
+          "or MG90S: base, shoulder, elbow, claw"
+        ],
+        [
+          "joystick",
+          2,
+          ""
+        ],
+        [
+          "battery-aa-4",
+          1,
+          "servo power (~6V)"
+        ],
+        [
+          "breadboard",
+          1,
+          ""
+        ],
+        [
+          "jumper-wires",
+          14,
+          ""
+        ],
+        [
+          "usb-cable",
+          1,
+          ""
+        ]
+      ],
       "wiring": [
-        ["PCA9685 VCC", "5V", "logic power only"],
-        ["PCA9685 GND", "GND", ""],
-        ["PCA9685 SDA / SCL", "A4 / A5", ""],
-        ["PCA9685 screw terminal V+", "Battery pack +", "servo power"],
-        ["PCA9685 screw terminal GND", "Battery pack −", ""],
-        ["Servos", "Channels 0, 1, 2, 3", "base, shoulder, elbow, claw (brown wire = GND side)"],
-        ["Joystick 1 VRx / VRy", "A0 / A1", "base / shoulder; +5V → 5V, GND → GND"],
-        ["Joystick 2 VRx / VRy", "A2 / A3", "elbow / claw; +5V → 5V, GND → GND"]
+        [
+          "PCA9685 VCC",
+          "5V",
+          "logic power only"
+        ],
+        [
+          "PCA9685 GND",
+          "GND",
+          ""
+        ],
+        [
+          "PCA9685 SDA / SCL",
+          "A4 / A5",
+          ""
+        ],
+        [
+          "PCA9685 screw terminal V+",
+          "Battery pack +",
+          "servo power"
+        ],
+        [
+          "PCA9685 screw terminal GND",
+          "Battery pack −",
+          ""
+        ],
+        [
+          "Servos",
+          "Channels 0, 1, 2, 3",
+          "base, shoulder, elbow, claw (brown wire = GND side)"
+        ],
+        [
+          "Joystick 1 VRx / VRy",
+          "A0 / A1",
+          "base / shoulder; +5V → 5V, GND → GND"
+        ],
+        [
+          "Joystick 2 VRx / VRy",
+          "A2 / A3",
+          "elbow / claw; +5V → 5V, GND → GND"
+        ]
       ],
       "steps": [
         "Install the Adafruit PWM Servo Driver Library.",
@@ -361,8 +1311,14 @@
         "Upload. The arm moves to a middle pose. Tilt the sticks to move each joint."
       ],
       "test": "Holding a stick tilted keeps moving that joint; releasing stops it where it is. The claw opens and closes with joystick 2's Y axis.",
-      "safety": ["Servos get their power only from the battery pack on the PCA9685 terminal, never from the board.", "If a servo buzzes at the end of its travel, reduce MIN/MAX in the code so it doesn't strain."],
-      "next": ["Add record & playback of movements.", "Control it from your phone with an ESP32."]
+      "safety": [
+        "Servos get their power only from the battery pack on the PCA9685 terminal, never from the board.",
+        "If a servo buzzes at the end of its travel, reduce MIN/MAX in the code so it doesn't strain."
+      ],
+      "next": [
+        "Add record & playback of movements.",
+        "Control it from your phone with an ESP32."
+      ]
     }
   },
   {
@@ -370,15 +1326,30 @@
     "title": "Uno R4 Matrix Mood Faces",
     "pitch": "The Uno R4 WiFi has a built-in red LED matrix. Make it show animated mood faces, with no extra parts.",
     "emoji": "🙂",
-    "difficulty": 1, "time": 10, "vibes": ["fun", "gaming"],
-    "boards": ["uno-r4-wifi"],
+    "difficulty": 1,
+    "time": 10,
+    "vibes": [
+      "fun",
+      "gaming"
+    ],
+    "boards": [
+      "uno-r4-wifi"
+    ],
     "requires": [],
     "optional": [],
-    "basics": ["usb-cable"],
+    "basics": [
+      "usb-cable"
+    ],
     "libs": [],
     "guide": {
       "about": "The R4 WiFi's 12x8 matrix is driven by the built-in Arduino_LED_Matrix library. Each face is a 12x8 grid of 1s and 0s.",
-      "parts": [["usb-cable", 1, "USB-C"]],
+      "parts": [
+        [
+          "usb-cable",
+          1,
+          "USB-C"
+        ]
+      ],
       "wiring": [],
       "steps": [
         "Install the \"Arduino UNO R4 Boards\" package in Boards Manager if you haven't.",
@@ -388,7 +1359,10 @@
       ],
       "test": "The matrix shows a face that blinks every few seconds, and changes when you type a mood.",
       "safety": [],
-      "next": ["Show Wi-Fi status with icons.", "React to a sensor: sad when it's too hot."]
+      "next": [
+        "Show Wi-Fi status with icons.",
+        "React to a sensor: sad when it's too hot."
+      ]
     }
   }
 ]

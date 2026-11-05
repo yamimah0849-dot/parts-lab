@@ -76,6 +76,13 @@ function renderIdeaResults(talk) {
   const R = ready.filter(r => passesFilters(r.idea, f));
   const A = almost.filter(r => passesFilters(r.idea, f));
   const total = ready.length + almost.length;
+  if (!s.tray.length) {   // nothing picked yet: send them to the part picker
+    $('#idea-results').innerHTML = `<div class="empty"><p class="muted mono">Pick a few parts first, then I'll find ideas for them.</p>
+      <button class="btn btn-primary" id="go-pick">${icon('flask')}Pick parts</button></div>`;
+    $('#go-pick').addEventListener('click', () => { sfx.nav(); go('#/create'); });
+    if (talk) quip('No parts in your tray yet! Pick some, and I\u2019ll find ideas for them.', 'wink');
+    return;
+  }
   const filtered = (f.diff || f.vibe || f.time) && (R.length + A.length) < total;
   let i = 0;
   const section = (cls, title, jp, list, empty) => `

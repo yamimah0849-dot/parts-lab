@@ -1499,7 +1499,10 @@
       "arduino-uno",
       "arduino-nano",
       "arduino-mega",
-      "arduino-leonardo"
+      "arduino-leonardo",
+      "uno-r4-minima",
+      "uno-r4-wifi",
+      "nano-every"
     ],
     "requires": [
       "led-red",
@@ -1656,7 +1659,10 @@
       "arduino-uno",
       "arduino-nano",
       "arduino-mega",
-      "arduino-leonardo"
+      "arduino-leonardo",
+      "uno-r4-minima",
+      "uno-r4-wifi",
+      "nano-every"
     ],
     "requires": [
       [

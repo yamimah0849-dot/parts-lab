@@ -13,7 +13,10 @@
       "arduino-uno",
       "arduino-nano",
       "arduino-mega",
-      "arduino-leonardo"
+      "arduino-leonardo",
+      "uno-r4-minima",
+      "uno-r4-wifi",
+      "nano-every"
     ],
     "requires": [
       [
@@ -103,7 +106,10 @@
       "arduino-uno",
       "arduino-nano",
       "arduino-mega",
-      "arduino-leonardo"
+      "arduino-leonardo",
+      "uno-r4-minima",
+      "uno-r4-wifi",
+      "nano-every"
     ],
     "requires": [
       "led-red",
@@ -226,7 +232,10 @@
       "arduino-uno",
       "arduino-nano",
       "arduino-mega",
-      "arduino-leonardo"
+      "arduino-leonardo",
+      "uno-r4-minima",
+      "uno-r4-wifi",
+      "nano-every"
     ],
     "requires": [
       "button-6mm",
@@ -332,7 +341,10 @@
       "arduino-uno",
       "arduino-nano",
       "arduino-mega",
-      "arduino-leonardo"
+      "arduino-leonardo",
+      "uno-r4-minima",
+      "uno-r4-wifi",
+      "nano-every"
     ],
     "requires": [
       [
@@ -469,7 +481,10 @@
       "arduino-uno",
       "arduino-nano",
       "arduino-mega",
-      "arduino-leonardo"
+      "arduino-leonardo",
+      "uno-r4-minima",
+      "uno-r4-wifi",
+      "nano-every"
     ],
     "requires": [
       "ldr",
@@ -579,7 +594,10 @@
       "arduino-uno",
       "arduino-nano",
       "arduino-mega",
-      "arduino-leonardo"
+      "arduino-leonardo",
+      "uno-r4-minima",
+      "uno-r4-wifi",
+      "nano-every"
     ],
     "requires": [
       "ldr-module",
@@ -687,7 +705,10 @@
       "arduino-uno",
       "arduino-nano",
       "arduino-mega",
-      "arduino-leonardo"
+      "arduino-leonardo",
+      "uno-r4-minima",
+      "uno-r4-wifi",
+      "nano-every"
     ],
     "requires": [
       "buzzer-passive",
@@ -791,7 +812,10 @@
       "arduino-uno",
       "arduino-nano",
       "arduino-mega",
-      "arduino-leonardo"
+      "arduino-leonardo",
+      "uno-r4-minima",
+      "uno-r4-wifi",
+      "nano-every"
     ],
     "requires": [
       "seg7-single-cc",
@@ -931,7 +955,10 @@
       "arduino-uno",
       "arduino-nano",
       "arduino-mega",
-      "arduino-leonardo"
+      "arduino-leonardo",
+      "uno-r4-minima",
+      "uno-r4-wifi",
+      "nano-every"
     ],
     "requires": [
       "potentiometer-10k",
@@ -1041,7 +1068,9 @@
       "arduino-uno",
       "arduino-nano",
       "arduino-mega",
-      "arduino-leonardo"
+      "arduino-leonardo",
+      "uno-r4-minima",
+      "uno-r4-wifi"
     ],
     "requires": [
       "rgb-led-cc",
@@ -1150,7 +1179,9 @@
       "arduino-uno",
       "arduino-nano",
       "arduino-mega",
-      "arduino-leonardo"
+      "arduino-leonardo",
+      "uno-r4-minima",
+      "uno-r4-wifi"
     ],
     "requires": [
       "rgb-led-ca",
@@ -1257,7 +1288,10 @@
       "arduino-uno",
       "arduino-nano",
       "arduino-mega",
-      "arduino-leonardo"
+      "arduino-leonardo",
+      "uno-r4-minima",
+      "uno-r4-wifi",
+      "nano-every"
     ],
     "requires": [],
     "optional": [

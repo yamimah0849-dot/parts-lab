@@ -888,7 +888,9 @@
     ],
     "boards": [
       "pico",
-      "pico-w"
+      "pico-w",
+      "pico-2",
+      "pico-2-w"
     ],
     "requires": [],
     "optional": [],
@@ -934,7 +936,9 @@
     ],
     "boards": [
       "pico",
-      "pico-w"
+      "pico-w",
+      "pico-2",
+      "pico-2-w"
     ],
     "requires": [
       "oled-128x64",
@@ -1055,7 +1059,8 @@
       "fun"
     ],
     "boards": [
-      "pico-w"
+      "pico-w",
+      "pico-2-w"
     ],
     "requires": [],
     "optional": [],
