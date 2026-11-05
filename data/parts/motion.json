@@ -6,10 +6,23 @@
     "icon": "servo",
     "desc": "A small motor that turns to an exact angle (0–180°) and holds it. Use it for flags, pointers, locks and robot arms.",
     "voltage": "4.8–6V (signal works with 3.3V)",
-    "vcc": [4.8, 6],
-    "interfaces": ["PWM"],
-    "tags": ["servo", "angle", "robot", "motion"],
-    "price": [5, 15],
+    "vcc": [
+      4.8,
+      6
+    ],
+    "interfaces": [
+      "PWM"
+    ],
+    "tags": [
+      "servo",
+      "angle",
+      "robot",
+      "motion"
+    ],
+    "price": [
+      5,
+      15
+    ],
     "power": "One SG90 can run from the board's 5V pin for testing. For two or more, use a separate 5V supply and connect its GND to the board's GND."
   },
   {
@@ -19,10 +32,23 @@
     "icon": "servo-big",
     "desc": "A big, strong servo with metal gears for heavy jobs like robot legs, steering and doors.",
     "voltage": "4.8–7.2V (signal works with 3.3V)",
-    "vcc": [4.8, 7.2],
-    "interfaces": ["PWM"],
-    "tags": ["servo", "strong", "robot", "motion"],
-    "price": [15, 40],
+    "vcc": [
+      4.8,
+      7.2
+    ],
+    "interfaces": [
+      "PWM"
+    ],
+    "tags": [
+      "servo",
+      "strong",
+      "robot",
+      "motion"
+    ],
+    "price": [
+      15,
+      40
+    ],
     "power": "MG996R can pull over 2A when it strains. Always give it its own 5–6V supply (2A or more) and connect GND to the board. Never power it from the board."
   },
   {
@@ -32,10 +58,23 @@
     "icon": "stepper",
     "desc": "A geared motor that moves in tiny exact steps (about 2048 per turn). Slow but precise: perfect for clocks, turntables and dials.",
     "voltage": "5V",
-    "vcc": [5, 5],
-    "interfaces": ["Driver"],
-    "tags": ["stepper", "precise", "rotation", "clock"],
-    "price": [8, 20],
+    "vcc": [
+      5,
+      5
+    ],
+    "interfaces": [
+      "Driver"
+    ],
+    "tags": [
+      "stepper",
+      "precise",
+      "rotation",
+      "clock"
+    ],
+    "price": [
+      8,
+      20
+    ],
     "power": "28BYJ-48 must be driven through a ULN2003 driver board, never straight from pins. It draws ~240mA, so a separate 5V supply is best."
   },
   {
@@ -45,10 +84,22 @@
     "icon": "driver",
     "desc": "The little driver board that comes with the 28BYJ-48. It lets 4 weak board pins switch the motor's coils, with protection diodes built in.",
     "voltage": "5–12V motor supply · 3.3–5V inputs",
-    "vcc": [5, 12],
-    "interfaces": ["Digital"],
-    "tags": ["driver", "stepper", "uln2003"],
-    "price": [4, 10]
+    "vcc": [
+      5,
+      12
+    ],
+    "interfaces": [
+      "Digital"
+    ],
+    "tags": [
+      "driver",
+      "stepper",
+      "uln2003"
+    ],
+    "price": [
+      4,
+      10
+    ]
   },
   {
     "id": "tt-motor",
@@ -57,10 +108,23 @@
     "icon": "dc-motor",
     "desc": "The yellow geared motor used in most robot car kits. Slow and strong enough to drive wheels.",
     "voltage": "3–6V DC",
-    "vcc": [3, 6],
-    "interfaces": ["Driver"],
-    "tags": ["motor", "wheels", "robot", "car"],
-    "price": [5, 15],
+    "vcc": [
+      3,
+      6
+    ],
+    "interfaces": [
+      "Driver"
+    ],
+    "tags": [
+      "motor",
+      "wheels",
+      "robot",
+      "car"
+    ],
+    "price": [
+      5,
+      15
+    ],
     "power": "Never connect a TT motor to a board pin. Drive it with a motor driver (L298N, TB6612FNG) or a transistor plus a flyback diode, from a separate battery."
   },
   {
@@ -70,10 +134,22 @@
     "icon": "dc-motor",
     "desc": "A small, fast spinning motor for fans, spinners and propellers. It spins fast but has little force.",
     "voltage": "3–6V DC",
-    "vcc": [3, 6],
-    "interfaces": ["Driver"],
-    "tags": ["motor", "fan", "spin"],
-    "price": [2, 8],
+    "vcc": [
+      3,
+      6
+    ],
+    "interfaces": [
+      "Driver"
+    ],
+    "tags": [
+      "motor",
+      "fan",
+      "spin"
+    ],
+    "price": [
+      2,
+      8
+    ],
     "power": "Never connect a DC motor to a board pin. Use a transistor/MOSFET plus a flyback diode (1N4007), or a motor driver, with a separate supply."
   },
   {
@@ -83,10 +159,25 @@
     "icon": "driver-big",
     "desc": "Controls the speed and direction of two DC motors (or one stepper). The classic, sturdy robot-car driver.",
     "voltage": "Motors 5–35V · logic 5V (onboard regulator)",
-    "vcc": [5, 35],
-    "interfaces": ["Digital", "PWM"],
-    "tags": ["driver", "motor", "robot", "car", "h-bridge"],
-    "price": [10, 25],
+    "vcc": [
+      5,
+      35
+    ],
+    "interfaces": [
+      "Digital",
+      "PWM"
+    ],
+    "tags": [
+      "driver",
+      "motor",
+      "robot",
+      "car",
+      "h-bridge"
+    ],
+    "price": [
+      10,
+      25
+    ],
     "power": "L298N needs a separate battery for the motors (6–12V; it loses about 2V inside). Connect its GND to the board's GND. Protection diodes are on the board.",
     "note": "Keep the 5V-EN jumper on only when the motor supply is 12V or less."
   },
@@ -97,10 +188,24 @@
     "icon": "driver",
     "desc": "A small, efficient driver for two DC motors. It wastes far less power than the L298N and works with 3.3V boards.",
     "voltage": "Motors 2.5–13.5V · logic 2.7–5.5V",
-    "vcc": [2.7, 5.5],
-    "interfaces": ["Digital", "PWM"],
-    "tags": ["driver", "motor", "robot", "h-bridge"],
-    "price": [8, 22],
+    "vcc": [
+      2.7,
+      5.5
+    ],
+    "interfaces": [
+      "Digital",
+      "PWM"
+    ],
+    "tags": [
+      "driver",
+      "motor",
+      "robot",
+      "h-bridge"
+    ],
+    "price": [
+      8,
+      22
+    ],
     "power": "Motors get their own supply on VM. Connect all GNDs together. The STBY pin must be HIGH or nothing moves.",
     "note": "Usually ships with loose header pins that need soldering."
   },
@@ -111,10 +216,23 @@
     "icon": "vibe",
     "desc": "The flat buzzing motor from phones. Adds a rumble to controllers, alarms and wearables.",
     "voltage": "2.5–3.5V",
-    "vcc": [2.5, 3.5],
-    "interfaces": ["Driver"],
-    "tags": ["vibration", "haptic", "rumble", "gaming"],
-    "price": [2, 8],
+    "vcc": [
+      2.5,
+      3.5
+    ],
+    "interfaces": [
+      "Driver"
+    ],
+    "tags": [
+      "vibration",
+      "haptic",
+      "rumble",
+      "gaming"
+    ],
+    "price": [
+      2,
+      8
+    ],
     "power": "Even this small motor draws ~80mA. Switch it with a transistor (2N2222 + 1kΩ) and put a 1N4007 flyback diode across it."
   },
   {
@@ -124,10 +242,422 @@
     "icon": "pump",
     "desc": "A tiny pump that sits in water and pushes it through a tube. Use it for auto-watering plants or a drink dispenser.",
     "voltage": "3–5V DC",
-    "vcc": [3, 5],
-    "interfaces": ["Driver"],
-    "tags": ["water", "pump", "plant", "garden"],
-    "price": [6, 18],
+    "vcc": [
+      3,
+      5
+    ],
+    "interfaces": [
+      "Driver"
+    ],
+    "tags": [
+      "water",
+      "pump",
+      "plant",
+      "garden"
+    ],
+    "price": [
+      6,
+      18
+    ],
     "power": "Never connect the pump to a board pin. Switch it with a logic-level MOSFET or transistor plus a flyback diode, ideally from a separate 5V supply. Keep water away from the electronics."
+  },
+  {
+    "id": "servo-mg90s",
+    "name": "MG90S Metal-Gear Micro Servo",
+    "category": "motion",
+    "icon": "servo",
+    "desc": "Same size as the SG90 but with tougher metal gears. Better for small robot arms.",
+    "voltage": "4.8–6V (signal works with 3.3V)",
+    "interfaces": [
+      "PWM"
+    ],
+    "tags": [
+      "servo",
+      "angle",
+      "robot",
+      "metal"
+    ],
+    "price": [
+      10,
+      25
+    ],
+    "vcc": [
+      4.8,
+      6
+    ],
+    "power": "One MG90S on the board's 5V pin is OK for testing; for several, use a separate 5V supply and connect GNDs."
+  },
+  {
+    "id": "servo-360-fs90r",
+    "name": "Continuous Rotation Servo (FS90R)",
+    "category": "motion",
+    "icon": "servo",
+    "desc": "A servo that spins all the way around instead of going to an angle. write(90) stops it; lower/higher = direction and speed.",
+    "voltage": "4.8–6V",
+    "interfaces": [
+      "PWM"
+    ],
+    "tags": [
+      "servo",
+      "continuous",
+      "wheel",
+      "robot"
+    ],
+    "price": [
+      12,
+      28
+    ],
+    "vcc": [
+      4.8,
+      6
+    ],
+    "power": "For more than one, use a separate 5V supply and connect GNDs."
+  },
+  {
+    "id": "servo-ds3218",
+    "name": "DS3218 20kg Digital Servo",
+    "category": "motion",
+    "icon": "servo-big",
+    "desc": "A very strong servo for big robot joints and steering.",
+    "voltage": "4.8–6.8V",
+    "interfaces": [
+      "PWM"
+    ],
+    "tags": [
+      "servo",
+      "strong",
+      "robot"
+    ],
+    "price": [
+      45,
+      90
+    ],
+    "vcc": [
+      4.8,
+      6.8
+    ],
+    "power": "Can draw 2–3A under load. Always give it its own 5–6V supply (3A+) and connect GND to the board."
+  },
+  {
+    "id": "nema17",
+    "name": "NEMA 17 Stepper Motor (bipolar)",
+    "category": "motion",
+    "icon": "stepper",
+    "desc": "The precise, strong stepper used in 3D printers: 200 steps per turn, lots of torque.",
+    "voltage": "Driven by a stepper driver (typically 12V)",
+    "interfaces": [
+      "Driver"
+    ],
+    "tags": [
+      "stepper",
+      "precise",
+      "3d printer",
+      "cnc"
+    ],
+    "price": [
+      45,
+      90
+    ],
+    "power": "Needs an A4988 or DRV8825 driver and a 12V supply. Set the driver's current limit before first use."
+  },
+  {
+    "id": "a4988",
+    "name": "A4988 Stepper Driver",
+    "category": "motion",
+    "icon": "driver",
+    "desc": "A small board that runs a NEMA 17 stepper with just two pins: STEP and DIR.",
+    "voltage": "Motor 8–35V · logic 3–5.5V",
+    "interfaces": [
+      "Digital"
+    ],
+    "tags": [
+      "stepper",
+      "driver",
+      "nema17"
+    ],
+    "price": [
+      8,
+      20
+    ],
+    "vcc": [
+      3,
+      5.5
+    ],
+    "power": "Put a 100µF capacitor across VMOT/GND, set the current limit with its tiny screw, and never unplug the motor while powered."
+  },
+  {
+    "id": "drv8825",
+    "name": "DRV8825 Stepper Driver",
+    "category": "motion",
+    "icon": "driver",
+    "desc": "Like the A4988 but handles more current and higher voltage, with finer microstepping.",
+    "voltage": "Motor 8.2–45V · 3.3/5V logic",
+    "interfaces": [
+      "Digital"
+    ],
+    "tags": [
+      "stepper",
+      "driver",
+      "nema17"
+    ],
+    "price": [
+      12,
+      25
+    ],
+    "power": "Put a 100µF capacitor across VMOT/GND, set the current limit first, and never unplug the motor while powered."
+  },
+  {
+    "id": "n20-motor",
+    "name": "N20 Micro Gear Motor (6V)",
+    "category": "motion",
+    "icon": "dc-motor",
+    "desc": "A tiny metal-geared motor: strong for its size, ideal for small robots.",
+    "voltage": "3–6V DC",
+    "interfaces": [
+      "Driver"
+    ],
+    "tags": [
+      "motor",
+      "gear",
+      "small",
+      "robot"
+    ],
+    "price": [
+      12,
+      28
+    ],
+    "vcc": [
+      3,
+      6
+    ],
+    "power": "Never connect it to a board pin. Use a motor driver (DRV8833, TB6612FNG) with its own battery."
+  },
+  {
+    "id": "drv8833",
+    "name": "DRV8833 Dual Motor Driver",
+    "category": "motion",
+    "icon": "driver",
+    "desc": "A small, efficient driver for two small DC motors (or one stepper). Works great with 3.3V boards.",
+    "voltage": "Motors 2.7–10.8V · 3.3/5V logic",
+    "interfaces": [
+      "PWM"
+    ],
+    "tags": [
+      "driver",
+      "motor",
+      "robot",
+      "small"
+    ],
+    "price": [
+      6,
+      15
+    ],
+    "vcc": [
+      2.7,
+      10.8
+    ],
+    "power": "Motors get their own supply on VM; connect all GNDs together."
+  },
+  {
+    "id": "l9110s",
+    "name": "L9110S Dual Motor Driver",
+    "category": "motion",
+    "icon": "driver",
+    "desc": "A very cheap driver for two small DC motors (up to ~0.8A each). Speed via PWM on the inputs.",
+    "voltage": "2.5–12V",
+    "interfaces": [
+      "PWM"
+    ],
+    "tags": [
+      "driver",
+      "motor",
+      "robot",
+      "cheap"
+    ],
+    "price": [
+      4,
+      10
+    ],
+    "vcc": [
+      2.5,
+      12
+    ],
+    "power": "Motors are powered through the driver from a battery, never from board pins. Connect GNDs."
+  },
+  {
+    "id": "bts7960",
+    "name": "BTS7960 43A Motor Driver",
+    "category": "motion",
+    "icon": "driver-big",
+    "desc": "A heavy-duty driver for big 12V motors: go-karts, ride-on cars, big robots.",
+    "voltage": "Motors 6–27V · logic 5V",
+    "interfaces": [
+      "PWM"
+    ],
+    "tags": [
+      "driver",
+      "motor",
+      "high current",
+      "big"
+    ],
+    "price": [
+      40,
+      80
+    ],
+    "vcc": [
+      6,
+      27
+    ],
+    "power": "Big motors can draw tens of amps: use thick wires, an inline fuse and a suitable battery. Connect GNDs."
+  },
+  {
+    "id": "pca9685",
+    "name": "PCA9685 16-Channel Servo Driver (I2C)",
+    "category": "motion",
+    "icon": "driver",
+    "desc": "Controls up to 16 servos with just 2 wires. The secret behind most robot arms and spiders.",
+    "voltage": "Logic 3.3–5V · servo power 5–6V on V+",
+    "interfaces": [
+      "I2C"
+    ],
+    "tags": [
+      "servo",
+      "driver",
+      "robot arm",
+      "i2c"
+    ],
+    "price": [
+      20,
+      40
+    ],
+    "vcc": [
+      3.3,
+      5
+    ],
+    "power": "Servos get their power from the screw terminal (5–6V, enough amps for all of them), never from the board."
+  },
+  {
+    "id": "fan-5v-40mm",
+    "name": "5V Brushless Fan (40mm)",
+    "category": "motion",
+    "icon": "fan",
+    "desc": "A small cooling fan for enclosures and soldering-fume extractors.",
+    "voltage": "5V DC (~100–150mA)",
+    "interfaces": [
+      "Driver"
+    ],
+    "tags": [
+      "fan",
+      "cooling",
+      "air"
+    ],
+    "price": [
+      8,
+      20
+    ],
+    "vcc": [
+      5,
+      5
+    ],
+    "power": "Switch it with a transistor/MOSFET (a flyback diode is still good practice), not straight from a pin."
+  },
+  {
+    "id": "fan-12v-80mm",
+    "name": "12V PC Fan (80mm)",
+    "category": "motion",
+    "icon": "fan",
+    "desc": "A quiet, strong 12V computer fan for cooling boxes and air purifiers.",
+    "voltage": "12V DC (~150–250mA)",
+    "interfaces": [
+      "Driver"
+    ],
+    "tags": [
+      "fan",
+      "cooling",
+      "12v",
+      "air"
+    ],
+    "price": [
+      15,
+      35
+    ],
+    "vcc": [
+      12,
+      12
+    ],
+    "power": "Needs a 12V supply switched with a logic-level MOSFET. Connect the 12V supply's GND to the board's GND."
+  },
+  {
+    "id": "solenoid-12v",
+    "name": "12V Push-Pull Solenoid",
+    "category": "motion",
+    "icon": "solenoid",
+    "desc": "An electromagnet that shoots a metal pin out (or pulls it in). Door latches, button pushers, drum hits!",
+    "voltage": "12V DC (~0.5–1A)",
+    "interfaces": [
+      "Driver"
+    ],
+    "tags": [
+      "solenoid",
+      "latch",
+      "push",
+      "12v"
+    ],
+    "price": [
+      15,
+      35
+    ],
+    "vcc": [
+      12,
+      12
+    ],
+    "power": "Needs a 12V supply, a logic-level MOSFET and a flyback diode (1N4007). Only short pulses: it gets hot if held on."
+  },
+  {
+    "id": "vibration-module",
+    "name": "Vibration Motor Module (with driver)",
+    "category": "motion",
+    "icon": "vibe",
+    "desc": "A coin vibration motor on a little board that already has the transistor and diode. The safe, easy way to add rumble.",
+    "voltage": "3.3–5V",
+    "interfaces": [
+      "Digital",
+      "PWM"
+    ],
+    "tags": [
+      "vibration",
+      "haptic",
+      "rumble"
+    ],
+    "price": [
+      5,
+      12
+    ],
+    "vcc": [
+      3.3,
+      5
+    ]
+  },
+  {
+    "id": "robot-chassis-2wd",
+    "name": "2WD Robot Car Chassis Kit",
+    "category": "motion",
+    "icon": "dc-motor",
+    "desc": "An acrylic chassis with 2 TT gear motors, wheels, a caster wheel and a 4×AA holder: the body of your first robot.",
+    "voltage": "Motors 3–6V (through a driver)",
+    "interfaces": [
+      "Driver"
+    ],
+    "tags": [
+      "robot",
+      "car",
+      "chassis",
+      "kit"
+    ],
+    "price": [
+      35,
+      70
+    ],
+    "power": "Drive the motors through an L298N or TB6612FNG, never from board pins."
   }
 ]

@@ -1,0 +1,363 @@
+[
+  {
+    "id": "wireless-doorbell",
+    "title": "Wireless Doorbell",
+    "pitch": "Press a button at the door and a second board inside plays a chime, over a cheap 433MHz radio link.",
+    "emoji": "🛎️",
+    "difficulty": 2, "time": 45, "vibes": ["useful", "fun"],
+    "boards": ["arduino-uno", "arduino-nano"],
+    "requires": ["rf-433", "buzzer-passive", ["button-6mm", "arcade-button", "metal-button-16mm"]],
+    "optional": ["rxb6-433"],
+    "basics": ["breadboard", "jumper-wires", "resistor-kit", "usb-cable"],
+    "libs": ["rc-switch"],
+    "guide": {
+      "about": "One board sends a secret number when the button is pressed; the other listens and plays a ding-dong when it hears that exact number. One sketch does both jobs: set IS_SENDER.",
+      "parts": [["arduino-uno", 2, "two boards (Uno or Nano)"], ["rf-433", 1, "transmitter + receiver pair"], ["button-6mm", 1, "or a nice metal doorbell button"], ["buzzer-passive", 1, ""], ["resistor-kit", 1, "one 220Ω for the buzzer"], ["breadboard", 2, ""], ["jumper-wires", 10, ""], ["usb-cable", 2, "or USB chargers"]],
+      "wiring": [
+        ["Sender: transmitter VCC / GND", "5V / GND", ""],
+        ["Sender: transmitter DATA", "Pin 10", ""],
+        ["Sender: button", "Pin 4", "other leg to GND"],
+        ["Receiver: receiver VCC / GND", "5V / GND", ""],
+        ["Receiver: receiver DATA (either middle pin)", "Pin 2", "must be Pin 2: it uses an interrupt"],
+        ["Receiver: passive buzzer +", "Pin 8", "through 220Ω; − to GND"],
+        ["Both modules: ANT pad", "17 cm wire", "solder a straight 17 cm wire for much better range"]
+      ],
+      "steps": [
+        "Install the rc-switch library.",
+        "Solder a 17 cm straight wire to the ANT hole of each module (optional but recommended).",
+        "Sender board: wire the transmitter (DATA → Pin 10) and the button (Pin 4). Set IS_SENDER = true and upload.",
+        "Receiver board: wire the receiver (DATA → Pin 2) and buzzer (Pin 8). Set IS_SENDER = false and upload.",
+        "Open the receiver's Serial Monitor (9600) and press the button."
+      ],
+      "test": "Each press makes the receiver print \"Doorbell code received\" and play a two-tone chime. Other 433MHz remotes nearby are ignored because they send different numbers.",
+      "safety": ["Soldering the antenna wires: hot iron, use the stand and ventilate."],
+      "next": ["Use the RXB6 receiver for longer range.", "Add a second button with a different code for the back door."]
+    }
+  },
+  {
+    "id": "leak-alarm",
+    "title": "Water Leak Alarm",
+    "pitch": "Place the sensor under the sink or washing machine: a drop of water triggers a loud alarm.",
+    "emoji": "🚰",
+    "difficulty": 1, "time": 20, "vibes": ["useful"],
+    "boards": ["arduino-uno", "arduino-nano", "arduino-mega", "arduino-leonardo", "uno-r4-minima", "uno-r4-wifi", "nano-every"],
+    "requires": [["water-level", "rain-fc37"], "buzzer-passive"],
+    "optional": ["led-red"],
+    "basics": ["breadboard", "jumper-wires", "resistor-kit", "usb-cable"],
+    "libs": [],
+    "guide": {
+      "about": "The sensor's metal traces conduct when wet. To stop them corroding, the board powers the sensor from a pin for just a moment every 2 seconds.",
+      "parts": [["water-level", 1, "or the FC-37 rain plate (use its AO pin)"], ["buzzer-passive", 1, ""], ["led-red", 1, "optional"], ["resistor-kit", 1, "220Ω for buzzer and LED"], ["breadboard", 1, ""], ["jumper-wires", 6, "long wires to reach the floor"], ["usb-cable", 1, "power from a USB charger"]],
+      "wiring": [
+        ["Sensor + (power)", "Pin 7", "powered only while measuring"],
+        ["Sensor −", "GND", ""],
+        ["Sensor S (signal / AO)", "A0", ""],
+        ["Passive buzzer +", "Pin 8", "through 220Ω; − to GND"],
+        ["Red LED + (optional)", "Pin 13", "through 220Ω; − to GND"]
+      ],
+      "steps": [
+        "Wire the sensor's + to Pin 7 (not 5V!), − to GND and S to A0.",
+        "Wire the buzzer through 220Ω to Pin 8.",
+        "Upload and open the Serial Monitor at 9600: dry readings should be near 0.",
+        "Touch the sensor with a wet finger: the reading jumps and the alarm sounds.",
+        "Lay the sensor flat on the floor where a leak would start, with the board up high and dry."
+      ],
+      "test": "Dry: quiet. Wet (reading above WET_LEVEL): siren beeps and the LED flashes until it's dry again.",
+      "safety": ["Keep the board and USB charger high and dry: only the sensor goes on the floor."],
+      "next": ["Use an ESP32 to send a phone alert (see Motion Alert to your iPhone).", "Add a second sensor near the water heater."]
+    }
+  },
+  {
+    "id": "flame-spotter",
+    "title": "Flame Spotter (demo)",
+    "pitch": "Detects the flicker of a candle flame and sounds an alarm: a fun science demo about infrared light.",
+    "emoji": "🕯️",
+    "difficulty": 1, "time": 20, "vibes": ["fun"],
+    "boards": ["arduino-uno", "arduino-nano", "arduino-mega", "arduino-leonardo", "uno-r4-minima", "uno-r4-wifi", "nano-every"],
+    "requires": ["flame-sensor", "buzzer-passive"],
+    "optional": ["led-red"],
+    "basics": ["breadboard", "jumper-wires", "resistor-kit", "usb-cable"],
+    "libs": [],
+    "guide": {
+      "about": "Flames give off infrared light that this sensor is tuned to. Its DO pin says \"flame / no flame\" and AO shows how strong it is.",
+      "parts": [["flame-sensor", 1, ""], ["buzzer-passive", 1, ""], ["led-red", 1, "optional"], ["resistor-kit", 1, "220Ω for buzzer and LED"], ["breadboard", 1, ""], ["jumper-wires", 7, ""], ["usb-cable", 1, ""]],
+      "wiring": [
+        ["Flame sensor VCC / GND", "5V / GND", ""],
+        ["Flame sensor DO", "Pin 2", ""],
+        ["Flame sensor AO", "A0", "optional, for strength readings"],
+        ["Passive buzzer +", "Pin 8", "through 220Ω; − to GND"],
+        ["Red LED + (optional)", "Pin 13", "through 220Ω; − to GND"]
+      ],
+      "steps": [
+        "Wire the sensor: VCC 5V, GND, DO Pin 2, AO A0.",
+        "Wire the buzzer (Pin 8 via 220Ω) and the optional LED (Pin 13).",
+        "Upload and open the Serial Monitor at 9600.",
+        "Have an adult light a candle about 50 cm away. Turn the sensor's screw until its DO light turns ON with the flame and OFF without it."
+      ],
+      "test": "With the flame in view: beeping and the LED blinks. Blow out the candle and it goes quiet.",
+      "safety": ["Only with an adult present. Keep the candle on a non-flammable surface, away from wires and the breadboard.", "This is NOT a fire alarm. Never rely on it for safety."],
+      "next": ["Mount it on a servo to scan the room.", "Show the flame strength as a bar on an LCD."]
+    }
+  },
+  {
+    "id": "event-countdown",
+    "title": "Event Countdown (Eid, birthday…)",
+    "pitch": "Shows how many days are left until a special day. Set your date, and it counts down by itself.",
+    "emoji": "🎉",
+    "difficulty": 1, "time": 25, "vibes": ["gift", "fun"],
+    "boards": ["arduino-uno", "arduino-nano"],
+    "requires": ["ds3231", "tm1637"],
+    "optional": ["button-6mm"],
+    "basics": ["breadboard", "jumper-wires", "usb-cable"],
+    "libs": ["RTClib", "TM1637"],
+    "guide": {
+      "about": "The DS3231 knows today's date; the code subtracts it from your target date. A button shows hours instead of days. On the big day the display flashes.",
+      "parts": [["ds3231", 1, "with coin cell"], ["tm1637", 1, ""], ["button-6mm", 1, "optional"], ["breadboard", 1, ""], ["jumper-wires", 9, ""], ["usb-cable", 1, ""]],
+      "wiring": [
+        ["DS3231 VCC / GND", "5V / GND", ""],
+        ["DS3231 SDA / SCL", "A4 / A5", ""],
+        ["TM1637 VCC / GND", "5V / GND", ""],
+        ["TM1637 CLK / DIO", "Pins 3 / 4", ""],
+        ["Button (optional)", "Pin 2", "other leg to GND"]
+      ],
+      "steps": [
+        "Install RTClib and TM1637.",
+        "Put your event's date into TARGET_YEAR, TARGET_MONTH and TARGET_DAY.",
+        "Wire the DS3231 (A4/A5) and the TM1637 (pins 3/4).",
+        "Upload. The clock takes your PC's time the first time.",
+        "Hold the button to see the hours left."
+      ],
+      "test": "The display shows the days left (e.g. 42). On the day itself it flashes 0000. After the day it shows dashes.",
+      "safety": [],
+      "next": ["Decorate it as a gift for a friend's birthday.", "Add a buzzer that plays a tune at midnight on the day."]
+    }
+  },
+  {
+    "id": "party-sound-meter",
+    "title": "Party Sound Meter",
+    "pitch": "A rainbow LED bar that jumps with the music: green when calm, red when the party gets loud.",
+    "emoji": "🎚️",
+    "difficulty": 1, "time": 25, "vibes": ["fun", "gaming"],
+    "boards": ["arduino-uno", "arduino-nano", "arduino-mega", "arduino-leonardo"],
+    "requires": [["sound-ky038", "max4466", "max9814"], "ws2812b-stick"],
+    "optional": [],
+    "basics": ["breadboard", "jumper-wires", "resistor-kit", "usb-cable"],
+    "libs": ["Adafruit NeoPixel"],
+    "guide": {
+      "about": "The code samples the microphone hundreds of times per frame and measures the swing (peak-to-peak) to get loudness, then lights that many LEDs with a falling peak dot.",
+      "parts": [["sound-ky038", 1, "or MAX4466 / MAX9814 (use its OUT pin)"], ["ws2812b-stick", 1, "8 LEDs"], ["resistor-kit", 1, "one 330Ω for the data line"], ["breadboard", 1, ""], ["jumper-wires", 7, ""], ["usb-cable", 1, ""]],
+      "wiring": [
+        ["Mic module + / G", "5V / GND", ""],
+        ["Mic module A0 (or OUT)", "A0", ""],
+        ["LED stick 5V / GND", "5V / GND", ""],
+        ["LED stick DIN", "Pin 6", "through 330Ω"]
+      ],
+      "steps": [
+        "Install Adafruit NeoPixel.",
+        "Wire the microphone's analog output to A0 (5V and GND too).",
+        "Wire the LED stick: 5V, GND, DIN through 330Ω to Pin 6.",
+        "Upload, play some music and clap!",
+        "If it's too jumpy or too calm, change SENSITIVITY in the code."
+      ],
+      "test": "Silence shows nothing or one green LED. Talking lights a few, music fills the bar toward red, and a white dot marks the recent peak.",
+      "safety": [],
+      "next": ["Use a 16-LED ring for a circular VU meter.", "Mirror the bar from the center outward."]
+    }
+  },
+  {
+    "id": "score-keeper",
+    "title": "Board Game Score Keeper",
+    "pitch": "Turn a knob to add or remove points, click to switch player. Never argue about the score again!",
+    "emoji": "🏆",
+    "difficulty": 1, "time": 25, "vibes": ["gaming", "useful"],
+    "boards": ["arduino-uno", "arduino-nano", "arduino-mega", "arduino-leonardo", "nano-every"],
+    "requires": ["rotary-encoder", "tm1637"],
+    "optional": [],
+    "basics": ["breadboard", "jumper-wires", "usb-cable"],
+    "libs": ["TM1637"],
+    "guide": {
+      "about": "A rotary encoder sends two signals slightly out of step; their order tells the direction. The display shows the player number and their score.",
+      "parts": [["rotary-encoder", 1, "KY-040"], ["tm1637", 1, ""], ["breadboard", 1, ""], ["jumper-wires", 9, ""], ["usb-cable", 1, "or a power bank on the game table"]],
+      "wiring": [
+        ["Encoder CLK", "Pin 2", ""],
+        ["Encoder DT", "Pin 3", ""],
+        ["Encoder SW", "Pin 4", ""],
+        ["Encoder + / GND", "5V / GND", ""],
+        ["TM1637 CLK / DIO", "Pins 5 / 6", ""],
+        ["TM1637 VCC / GND", "5V / GND", ""]
+      ],
+      "steps": [
+        "Install the TM1637 library.",
+        "Wire the encoder (CLK 2, DT 3, SW 4) and the display (CLK 5, DIO 6).",
+        "Upload.",
+        "Turn the knob to change the score; click to switch between players 1–4; hold 3 s to reset all scores."
+      ],
+      "test": "The display shows e.g. \"2 15\": player 2 has 15 points. Each click of the knob is exactly one point.",
+      "safety": [],
+      "next": ["Show all players' scores in turn on a 20x4 LCD.", "Add a buzzer when someone reaches the winning score."]
+    }
+  },
+  {
+    "id": "light-harp",
+    "title": "Light Harp",
+    "pitch": "Wave your hand over a light sensor to play spooky sliding notes, like a magic instrument.",
+    "emoji": "🎵",
+    "difficulty": 1, "time": 15, "vibes": ["fun"],
+    "boards": ["arduino-uno", "arduino-nano", "arduino-mega", "arduino-leonardo", "uno-r4-minima", "uno-r4-wifi", "nano-every"],
+    "requires": ["ldr", "buzzer-passive"],
+    "optional": [],
+    "basics": ["breadboard", "jumper-wires", "resistor-kit", "usb-cable"],
+    "libs": [],
+    "guide": {
+      "about": "The code measures the room light for 3 seconds at startup. When your hand casts a shadow, the darker it gets, the higher the note.",
+      "parts": [["ldr", 1, ""], ["buzzer-passive", 1, ""], ["resistor-kit", 1, "one 10kΩ (divider) + one 220Ω (buzzer)"], ["breadboard", 1, ""], ["jumper-wires", 5, ""], ["usb-cable", 1, ""]],
+      "wiring": [
+        ["LDR leg 1", "5V", ""],
+        ["LDR leg 2", "A0", ""],
+        ["10kΩ resistor", "between A0 and GND", ""],
+        ["Passive buzzer +", "Pin 8", "through 220Ω; − to GND"]
+      ],
+      "steps": [
+        "Build the light divider: LDR from 5V to A0, 10kΩ from A0 to GND.",
+        "Wire the buzzer through 220Ω to Pin 8.",
+        "Upload and keep your hand away for 3 seconds (calibration).",
+        "Move your hand above the sensor to play."
+      ],
+      "test": "No shadow = silence. A light shadow plays low notes; covering it fully plays high notes.",
+      "safety": [],
+      "next": ["Snap notes to a musical scale (see the theremin idea).", "Use two LDRs for two \"strings\"."]
+    }
+  },
+  {
+    "id": "ultrasonic-theremin",
+    "title": "Ultrasonic Theremin",
+    "pitch": "Play music in the air: move your hand closer or farther from the sensor to change the note.",
+    "emoji": "🎼",
+    "difficulty": 1, "time": 20, "vibes": ["fun", "gaming"],
+    "boards": ["arduino-uno", "arduino-nano", "arduino-mega", "arduino-leonardo", "uno-r4-minima", "uno-r4-wifi", "nano-every"],
+    "requires": [["hc-sr04", "rcwl-1601"], "buzzer-passive"],
+    "optional": [],
+    "basics": ["breadboard", "jumper-wires", "resistor-kit", "usb-cable"],
+    "libs": [],
+    "guide": {
+      "about": "Distance becomes pitch. The notes snap to a pentatonic scale (5 notes that always sound nice together), so anything you play sounds musical.",
+      "parts": [["hc-sr04", 1, "or RCWL-1601"], ["buzzer-passive", 1, ""], ["resistor-kit", 1, "one 220Ω"], ["breadboard", 1, ""], ["jumper-wires", 6, ""], ["usb-cable", 1, ""]],
+      "wiring": [
+        ["Ultrasonic VCC / GND", "5V / GND", ""],
+        ["Ultrasonic TRIG", "Pin 7", ""],
+        ["Ultrasonic ECHO", "Pin 6", ""],
+        ["Passive buzzer +", "Pin 8", "through 220Ω; − to GND"]
+      ],
+      "steps": [
+        "Wire the sensor (TRIG 7, ECHO 6) and the buzzer (Pin 8 through 220Ω).",
+        "Upload.",
+        "Hold your hand 5–50 cm above the sensor and move it slowly up and down."
+      ],
+      "test": "Close = high notes, far = low notes. Beyond 50 cm it's silent. Set SMOOTH = true for sliding sci-fi sounds instead of notes.",
+      "safety": [],
+      "next": ["Add a button to switch scales.", "Add a light sensor for volume (sort of) by changing note length."]
+    }
+  },
+  {
+    "id": "binary-counter",
+    "title": "Binary Counter Trainer",
+    "pitch": "Four LEDs count from 0 to 15 in binary as you press a button: learn how computers count.",
+    "emoji": "🔢",
+    "difficulty": 1, "time": 20, "vibes": ["fun", "useful"],
+    "boards": ["arduino-uno", "arduino-nano", "arduino-mega", "arduino-leonardo", "uno-r4-minima", "uno-r4-wifi", "nano-every"],
+    "requires": [["led-red", "led-yellow", "led-green", "led-blue", "led-white"], ["button-6mm", "arcade-button"]],
+    "optional": [],
+    "basics": ["breadboard", "jumper-wires", "resistor-kit", "usb-cable"],
+    "libs": [],
+    "guide": {
+      "about": "Each LED is a \"bit\": worth 1, 2, 4 and 8. Add up the lit ones and you get the number. The Serial Monitor shows the decimal and binary side by side.",
+      "parts": [["led-red", 4, "any colors"], ["button-6mm", 1, ""], ["resistor-kit", 1, "four 220Ω"], ["breadboard", 1, ""], ["jumper-wires", 7, ""], ["usb-cable", 1, ""]],
+      "wiring": [
+        ["LED for 1 (+)", "Pin 2", "through 220Ω"],
+        ["LED for 2 (+)", "Pin 3", "through 220Ω"],
+        ["LED for 4 (+)", "Pin 4", "through 220Ω"],
+        ["LED for 8 (+)", "Pin 5", "through 220Ω"],
+        ["All LED −", "GND", ""],
+        ["Button", "Pin 7", "other leg to GND"]
+      ],
+      "steps": [
+        "Place 4 LEDs in a row, rightmost = 1, then 2, 4, 8 going left.",
+        "Wire each with a 220Ω resistor to pins 2, 3, 4, 5 (right to left).",
+        "Wire the button between Pin 7 and GND.",
+        "Upload, open the Serial Monitor (9600) and press the button."
+      ],
+      "test": "Each press adds 1: 0001, 0010, 0011… up to 1111 (15), then back to 0. Hold the button 1 second to reset.",
+      "safety": [],
+      "next": ["Add a 5th LED (16) to count to 31.", "Quiz mode: show a number in binary and guess it."]
+    }
+  },
+  {
+    "id": "kitchen-scale",
+    "title": "Kitchen Scale",
+    "pitch": "Build a digital scale that weighs up to 5 kg in grams, with tare (zero) and an LCD readout.",
+    "emoji": "⚖️",
+    "difficulty": 2, "time": 60, "vibes": ["useful"],
+    "boards": ["arduino-uno", "arduino-nano"],
+    "requires": ["load-cell-5kg", "hx711", "lcd1602-i2c"],
+    "optional": ["button-6mm"],
+    "basics": ["breadboard", "jumper-wires", "usb-cable"],
+    "libs": ["LiquidCrystal I2C"],
+    "guide": {
+      "about": "A load cell bends a tiny bit under weight; the HX711 measures that tiny change. The code reads the HX711 directly (no extra library), subtracts the empty weight (tare) and converts to grams with a calibration factor you find once.",
+      "parts": [["load-cell-5kg", 1, "plus two small boards/plates and screws for mounting"], ["hx711", 1, ""], ["lcd1602-i2c", 1, ""], ["button-6mm", 1, "optional TARE button"], ["breadboard", 1, ""], ["jumper-wires", 10, ""], ["usb-cable", 1, ""]],
+      "wiring": [
+        ["Load cell red", "HX711 E+", ""],
+        ["Load cell black", "HX711 E−", ""],
+        ["Load cell white", "HX711 A−", ""],
+        ["Load cell green", "HX711 A+", "check your cell's color chart"],
+        ["HX711 VCC / GND", "5V / GND", ""],
+        ["HX711 DT (DOUT)", "Pin 3", ""],
+        ["HX711 SCK", "Pin 2", ""],
+        ["LCD SDA / SCL", "A4 / A5", "VCC 5V, GND GND"],
+        ["TARE button (optional)", "Pin 4", "other leg to GND"]
+      ],
+      "steps": [
+        "Mount the load cell like a Z: one end screwed to a base plate, the other end to the top plate (the arrow on the cell points down).",
+        "Wire the load cell to the HX711, then the HX711 to the board (DT 3, SCK 2).",
+        "Install LiquidCrystal I2C, wire the LCD, and upload.",
+        "With nothing on the scale, it zeroes itself at startup.",
+        "Calibrate: put something of known weight (e.g. a 500 g pack) on it. The Serial Monitor (9600) shows the raw value; set CALIBRATION = raw value ÷ grams, upload again."
+      ],
+      "test": "Empty shows 0 g. Your known weight shows its correct weight within a few grams. Press TARE with a bowl on it to zero the bowl.",
+      "safety": ["Don't overload the cell beyond 5 kg: it can bend permanently."],
+      "next": ["Add a buzzer that beeps at a target weight (great for coffee!).", "Show ounces with a second button."]
+    }
+  },
+  {
+    "id": "ir-remote-copier",
+    "title": "IR Remote Copier",
+    "pitch": "Teach it any button from your TV remote, then press its own button to send that code. A DIY universal remote!",
+    "emoji": "📡",
+    "difficulty": 2, "time": 40, "vibes": ["useful", "fun"],
+    "boards": ["arduino-uno", "arduino-nano"],
+    "requires": ["ir-kit", "led-ir-940", ["button-6mm", "arcade-button"]],
+    "optional": [],
+    "basics": ["breadboard", "jumper-wires", "resistor-kit", "usb-cable"],
+    "libs": ["IRremote"],
+    "guide": {
+      "about": "The IR receiver captures a remote's code; the infrared LED sends it back out. Hold the button to learn, tap it to send. Works with most TV remotes; some air-conditioner remotes use codes too long to copy.",
+      "parts": [["ir-kit", 1, "receiver (the remote is optional)"], ["led-ir-940", 1, ""], ["button-6mm", 1, ""], ["resistor-kit", 1, "one 220Ω for the IR LED"], ["breadboard", 1, ""], ["jumper-wires", 7, ""], ["usb-cable", 1, ""]],
+      "wiring": [
+        ["IR receiver OUT", "Pin 2", "+ → 5V, − → GND"],
+        ["IR LED long leg (+)", "Pin 3", "through 220Ω (Pin 3 is fixed by the IR library)"],
+        ["IR LED short leg (−)", "GND", ""],
+        ["Button", "Pin 4", "other leg to GND"]
+      ],
+      "steps": [
+        "Install the IRremote library.",
+        "Wire the receiver (OUT → Pin 2), the IR LED with 220Ω on Pin 3, and the button on Pin 4.",
+        "Upload and open the Serial Monitor at 9600.",
+        "Hold the button for 2 seconds until it says LEARNING, then press a button on your TV remote.",
+        "Point the IR LED at the TV and tap the button: the TV reacts!"
+      ],
+      "test": "Learned codes print as e.g. \"Learned NEC address 0x4 command 0x8\". Tapping sends it. Tip: look at the IR LED through your phone camera to see it flash.",
+      "safety": [],
+      "next": ["Learn 4 buttons with 4 push buttons.", "Add a transistor for more range (several metres)."]
+    }
+  }
+]

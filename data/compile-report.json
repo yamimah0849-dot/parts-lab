@@ -325,13 +325,90 @@
   "neon-ring-clock": {
    "arduino-uno": "ok",
    "arduino-nano": "ok"
+  },
+  "leak-alarm": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok",
+   "arduino-mega": "ok",
+   "arduino-leonardo": "ok",
+   "nano-every": "ok",
+   "uno-r4-minima": "ok",
+   "uno-r4-wifi": "ok"
+  },
+  "wireless-doorbell": {
+   "arduino-nano": "ok",
+   "arduino-uno": "ok"
+  },
+  "flame-spotter": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok",
+   "arduino-mega": "ok",
+   "arduino-leonardo": "ok",
+   "nano-every": "ok",
+   "uno-r4-minima": "ok",
+   "uno-r4-wifi": "ok"
+  },
+  "event-countdown": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok"
+  },
+  "party-sound-meter": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok",
+   "arduino-mega": "ok",
+   "arduino-leonardo": "ok"
+  },
+  "score-keeper": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok",
+   "arduino-mega": "ok",
+   "arduino-leonardo": "ok",
+   "nano-every": "ok"
+  },
+  "light-harp": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok",
+   "arduino-mega": "ok",
+   "arduino-leonardo": "ok",
+   "nano-every": "ok",
+   "uno-r4-wifi": "ok",
+   "uno-r4-minima": "ok"
+  },
+  "ultrasonic-theremin": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok",
+   "arduino-mega": "ok",
+   "arduino-leonardo": "ok",
+   "nano-every": "ok",
+   "uno-r4-minima": "ok",
+   "uno-r4-wifi": "ok"
+  },
+  "binary-counter": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok",
+   "arduino-mega": "ok",
+   "arduino-leonardo": "ok",
+   "nano-every": "ok",
+   "uno-r4-minima": "ok",
+   "uno-r4-wifi": "ok"
+  },
+  "kitchen-scale": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok"
+  },
+  "ir-remote-copier": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok"
   }
  },
- "generated": "2026-11-05T04:22:48.781Z",
+ "generated": "2026-11-05T04:39:36.664Z",
  "arduinoCli": "1.5.2-rc.1",
  "cores": {
   "arduino:avr": "1.8.8",
+  "arduino:megaavr": "1.8.8",
+  "arduino:renesas_uno": "1.6.0",
   "esp32:esp32": "3.3.12",
+  "esp8266:esp8266": "3.1.2",
   "rp2040:rp2040": "6.3.2"
  }
 }

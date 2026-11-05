@@ -6,12 +6,25 @@
     "icon": "buzzer",
     "desc": "Beeps at one fixed pitch as soon as it gets power. Super simple alarms and alerts: just turn a pin on or off.",
     "voltage": "3.3–5V",
-    "vcc": [3.3, 5],
-    "interfaces": ["Digital"],
-    "tags": ["beep", "alarm", "buzzer", "sound"],
+    "vcc": [
+      3.3,
+      5
+    ],
+    "interfaces": [
+      "Digital"
+    ],
+    "tags": [
+      "beep",
+      "alarm",
+      "buzzer",
+      "sound"
+    ],
     "variantGroup": "buzzer",
     "variantNote": "Active: has its own oscillator, so it only beeps one tone. Usually has a sticker on top and is sealed underneath.",
-    "price": [1, 6],
+    "price": [
+      1,
+      6
+    ],
     "note": "Polarity matters: the longer leg (+) goes to the signal side."
   },
   {
@@ -21,12 +34,26 @@
     "icon": "buzzer",
     "desc": "A buzzer that can play any note you choose with tone(), so it can play melodies and game sounds.",
     "voltage": "3.3–5V",
-    "vcc": [3.3, 5],
-    "interfaces": ["PWM"],
-    "tags": ["melody", "music", "buzzer", "sound", "gaming"],
+    "vcc": [
+      3.3,
+      5
+    ],
+    "interfaces": [
+      "PWM"
+    ],
+    "tags": [
+      "melody",
+      "music",
+      "buzzer",
+      "sound",
+      "gaming"
+    ],
     "variantGroup": "buzzer",
     "variantNote": "Passive: needs a tone signal. You can see the green circuit board underneath.",
-    "price": [1, 6]
+    "price": [
+      1,
+      6
+    ]
   },
   {
     "id": "speaker-8ohm",
@@ -35,9 +62,18 @@
     "icon": "speaker",
     "desc": "A real speaker for music and voices. Much better sound than a buzzer, but it always needs an amplifier.",
     "voltage": "Driven by an amplifier",
-    "interfaces": ["Analog audio"],
-    "tags": ["speaker", "sound", "music"],
-    "price": [4, 15],
+    "interfaces": [
+      "Analog audio"
+    ],
+    "tags": [
+      "speaker",
+      "sound",
+      "music"
+    ],
+    "price": [
+      4,
+      15
+    ],
     "note": "Never connect a speaker straight to a board pin. Use an amplifier (PAM8403, MAX98357A) or a DFPlayer Mini."
   },
   {
@@ -47,10 +83,23 @@
     "icon": "amp",
     "desc": "A small amplifier that makes audio loud enough for two speakers. Often comes with a volume knob.",
     "voltage": "5V (2.5–5.5V)",
-    "vcc": [2.5, 5.5],
-    "interfaces": ["Analog audio"],
-    "tags": ["amplifier", "speaker", "sound", "music"],
-    "price": [3, 12],
+    "vcc": [
+      2.5,
+      5.5
+    ],
+    "interfaces": [
+      "Analog audio"
+    ],
+    "tags": [
+      "amplifier",
+      "speaker",
+      "sound",
+      "music"
+    ],
+    "price": [
+      3,
+      12
+    ],
     "note": "Each speaker connects only to its own + and − outputs. Never connect a speaker − to GND: that can destroy the amp."
   },
   {
@@ -60,10 +109,23 @@
     "icon": "mp3",
     "desc": "Plays MP3 files from a microSD card and drives a small speaker by itself. Perfect for sound effects, voice lines and music boxes.",
     "voltage": "3.2–5V",
-    "vcc": [3.2, 5],
-    "interfaces": ["UART"],
-    "tags": ["mp3", "music", "sound effects", "microsd"],
-    "price": [6, 20],
+    "vcc": [
+      3.2,
+      5
+    ],
+    "interfaces": [
+      "UART"
+    ],
+    "tags": [
+      "mp3",
+      "music",
+      "sound effects",
+      "microsd"
+    ],
+    "price": [
+      6,
+      20
+    ],
     "note": "Use a microSD card of 32GB or less, formatted FAT32, with files named 0001.mp3, 0002.mp3 and so on.",
     "warn": {
       "5": "Put a 1kΩ resistor between the board's TX and the DFPlayer RX. Its pins are 3.3V, and this also removes buzzing noise."
@@ -76,12 +138,239 @@
     "icon": "amp",
     "desc": "A digital amplifier that turns an I2S audio stream straight into speaker sound. Clean audio for ESP32 and Pico projects.",
     "voltage": "2.5–5.5V",
-    "vcc": [2.5, 5.5],
-    "interfaces": ["I2S"],
-    "tags": ["amplifier", "i2s", "speaker", "music"],
-    "price": [10, 30],
+    "vcc": [
+      2.5,
+      5.5
+    ],
+    "interfaces": [
+      "I2S"
+    ],
+    "tags": [
+      "amplifier",
+      "i2s",
+      "speaker",
+      "music"
+    ],
+    "price": [
+      10,
+      30
+    ],
     "warn": {
       "5": "MAX98357A needs I2S audio, which the Uno, Nano, Mega and Leonardo don't have. Use an ESP32, ESP32-S3 or Pico."
     }
+  },
+  {
+    "id": "pcm5102",
+    "name": "PCM5102A I2S DAC (line out)",
+    "category": "audio",
+    "icon": "amp",
+    "desc": "Turns digital I2S audio from an ESP32 or Pico into high-quality line-level sound for headphones or an amp.",
+    "voltage": "3.3–5V module",
+    "interfaces": [
+      "I2S"
+    ],
+    "tags": [
+      "dac",
+      "i2s",
+      "audio",
+      "hifi"
+    ],
+    "price": [
+      25,
+      50
+    ],
+    "warn": {
+      "5": "The PCM5102A needs I2S audio, which the Uno/Nano/Mega/Leonardo don't have. Use an ESP32 or Pico."
+    }
+  },
+  {
+    "id": "lm386-amp",
+    "name": "LM386 Mini Amplifier Module",
+    "category": "audio",
+    "icon": "amp",
+    "desc": "A simple mono amplifier for a small speaker, with a volume knob.",
+    "voltage": "4–12V",
+    "interfaces": [
+      "Analog audio"
+    ],
+    "tags": [
+      "amplifier",
+      "speaker",
+      "mono"
+    ],
+    "price": [
+      5,
+      12
+    ],
+    "vcc": [
+      4,
+      12
+    ]
+  },
+  {
+    "id": "tpa3116",
+    "name": "TPA3116 2x50W Stereo Amplifier",
+    "category": "audio",
+    "icon": "amp",
+    "desc": "A powerful amplifier for real bookshelf speakers. Needs a 12–24V supply.",
+    "voltage": "12–24V DC",
+    "interfaces": [
+      "Analog audio"
+    ],
+    "tags": [
+      "amplifier",
+      "loud",
+      "stereo",
+      "speaker"
+    ],
+    "price": [
+      40,
+      90
+    ],
+    "vcc": [
+      12,
+      24
+    ],
+    "power": "Needs its own 12–24V supply with enough current (2A+). Speakers can get loud: start with the volume low."
+  },
+  {
+    "id": "speaker-4ohm-3w",
+    "name": "Speaker 4Ω 3W (40mm)",
+    "category": "audio",
+    "icon": "speaker",
+    "desc": "A louder small speaker for amps like the PAM8403 or MAX98357A.",
+    "voltage": "Driven by an amplifier",
+    "interfaces": [
+      "Analog audio"
+    ],
+    "tags": [
+      "speaker",
+      "sound",
+      "music"
+    ],
+    "price": [
+      6,
+      18
+    ],
+    "note": "Never connect a speaker straight to a board pin."
+  },
+  {
+    "id": "piezo-disc",
+    "name": "Piezo Disc (knock sensor / sounder)",
+    "category": "audio",
+    "icon": "buzzer",
+    "desc": "A thin brass disc that makes clicks and beeps, or senses knocks when you tap it.",
+    "voltage": "Passive",
+    "interfaces": [
+      "Analog",
+      "PWM"
+    ],
+    "tags": [
+      "piezo",
+      "knock",
+      "sound",
+      "sensor"
+    ],
+    "price": [
+      1,
+      5
+    ],
+    "note": "As a knock sensor, put a 1MΩ resistor across its two wires."
+  },
+  {
+    "id": "isd1820",
+    "name": "ISD1820 Voice Recorder Module",
+    "category": "audio",
+    "icon": "mic",
+    "desc": "Press a button to record 10 seconds of sound, press another to play it back. Talking gadgets!",
+    "voltage": "3–5V",
+    "interfaces": [
+      "Digital"
+    ],
+    "tags": [
+      "voice",
+      "record",
+      "playback",
+      "sound"
+    ],
+    "price": [
+      8,
+      20
+    ],
+    "vcc": [
+      3,
+      5
+    ]
+  },
+  {
+    "id": "yx5300",
+    "name": "YX5300 Serial MP3 Player (3.5mm jack)",
+    "category": "audio",
+    "icon": "mp3",
+    "desc": "Plays MP3s from a microSD card through a headphone jack. Connect powered speakers or an amplifier.",
+    "voltage": "3.2–5.2V",
+    "interfaces": [
+      "UART"
+    ],
+    "tags": [
+      "mp3",
+      "music",
+      "microsd",
+      "jack"
+    ],
+    "price": [
+      12,
+      25
+    ],
+    "vcc": [
+      3.2,
+      5.2
+    ]
+  },
+  {
+    "id": "audio-jack-35",
+    "name": "3.5mm Audio Jack Breakout",
+    "category": "audio",
+    "icon": "jack",
+    "desc": "A headphone socket on a tiny board, for plugging audio in or out of your project.",
+    "voltage": "Passive",
+    "interfaces": [
+      "Analog audio"
+    ],
+    "tags": [
+      "audio",
+      "jack",
+      "headphones"
+    ],
+    "price": [
+      2,
+      6
+    ]
+  },
+  {
+    "id": "bt-audio-receiver",
+    "name": "Bluetooth Audio Receiver Module (BT 5.0)",
+    "category": "audio",
+    "icon": "bluetooth",
+    "desc": "Stream music from your iPhone over Bluetooth to an amplifier and speakers. No code needed.",
+    "voltage": "5V",
+    "interfaces": [
+      "Analog audio"
+    ],
+    "tags": [
+      "bluetooth",
+      "music",
+      "iphone",
+      "speaker"
+    ],
+    "price": [
+      12,
+      30
+    ],
+    "vcc": [
+      5,
+      5
+    ],
+    "note": "It works with iPhones (it's Bluetooth audio, not the serial kind)."
   }
 ]
