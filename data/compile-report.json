@@ -256,9 +256,78 @@
   },
   "esp32cam-stream": {
    "esp32-cam": "ok"
+  },
+  "kaomoji-badge": {
+   "arduino-nano": "ok",
+   "arduino-mega": "ok",
+   "arduino-uno": "ok",
+   "arduino-leonardo": "ok"
+  },
+  "matrix-snake": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok",
+   "arduino-leonardo": "ok",
+   "arduino-mega": "ok"
+  },
+  "pocket-lab-pet": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok"
+  },
+  "space-dodge": {
+   "arduino-nano": "ok",
+   "arduino-uno": "ok"
+  },
+  "desert-runner-lcd": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok"
+  },
+  "fortune-oracle": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok"
+  },
+  "pomodoro-timer": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok"
+  },
+  "pocket-calculator": {
+   "arduino-nano": "ok",
+   "arduino-uno": "ok"
+  },
+  "android-bt-lamp": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok",
+   "arduino-mega": "ok",
+   "arduino-leonardo": "ok"
+  },
+  "tv-remote-lamp": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok"
+  },
+  "wireless-joystick-link": {
+   "arduino-uno": "ok"
+  },
+  "sd-weather-logger": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok"
+  },
+  "tea-thermometer": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok",
+   "arduino-mega": "ok",
+   "arduino-leonardo": "ok"
+  },
+  "anime-sound-board": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok",
+   "arduino-mega": "ok",
+   "arduino-leonardo": "ok"
+  },
+  "neon-ring-clock": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok"
   }
  },
- "generated": "2026-11-05T04:16:18.583Z",
+ "generated": "2026-11-05T04:22:48.781Z",
  "arduinoCli": "1.5.2-rc.1",
  "cores": {
   "arduino:avr": "1.8.8",

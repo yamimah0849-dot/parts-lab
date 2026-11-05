@@ -1,0 +1,508 @@
+[
+  {
+    "id": "kaomoji-badge",
+    "title": "Kaomoji Face Badge",
+    "pitch": "An 8x8 LED face that switches expressions with a button: happy, wink, love, angry, sleepy and shocked.",
+    "emoji": "😺",
+    "difficulty": 1, "time": 25, "vibes": ["gaming", "gift", "fun"],
+    "boards": ["arduino-uno", "arduino-nano", "arduino-mega", "arduino-leonardo"],
+    "requires": ["max7219-matrix", ["button-6mm", "touch-ttp223"]],
+    "optional": [],
+    "basics": ["breadboard", "jumper-wires", "usb-cable"],
+    "libs": ["LedControl"],
+    "guide": {
+      "about": "Each face is 8 rows of 8 bits (1 = LED on). You'll design pixel art as binary numbers, and the MAX7219 chip does all the LED work for you.",
+      "parts": [["max7219-matrix", 1, "8x8 module"], ["button-6mm", 1, "or a TTP223 touch pad"], ["breadboard", 1, ""], ["jumper-wires", 7, "female-to-male"], ["usb-cable", 1, "or a power bank to wear it"]],
+      "wiring": [
+        ["Matrix VCC", "5V", ""],
+        ["Matrix GND", "GND", ""],
+        ["Matrix DIN", "Pin 12", ""],
+        ["Matrix CS", "Pin 10", ""],
+        ["Matrix CLK", "Pin 11", ""],
+        ["Button", "Pin 2", "other leg to GND (touch pad: SIG → Pin 2, set USE_TOUCH true)"]
+      ],
+      "steps": [
+        "Install the LedControl library.",
+        "Wire the matrix (the input side, marked DIN): VCC 5V, GND, DIN 12, CS 10, CLK 11.",
+        "Wire the button between Pin 2 and GND.",
+        "Upload. The face blinks now and then by itself!",
+        "Press the button to change expression."
+      ],
+      "test": "Each press shows the next face. Every few seconds the current face blinks. If faces look upside down, set FLIP to true.",
+      "safety": [],
+      "next": ["Design your own faces: draw them on graph paper, then convert each row to binary.", "Chain 4 matrices for scrolling text."]
+    }
+  },
+  {
+    "id": "matrix-snake",
+    "title": "Snake on 8x8",
+    "pitch": "The classic snake game on a glowing LED matrix, steered with a thumb joystick.",
+    "emoji": "🐍",
+    "difficulty": 2, "time": 40, "vibes": ["gaming"],
+    "boards": ["arduino-uno", "arduino-nano", "arduino-mega", "arduino-leonardo"],
+    "requires": ["max7219-matrix", "joystick"],
+    "optional": ["buzzer-passive"],
+    "basics": ["breadboard", "jumper-wires", "resistor-kit", "usb-cable"],
+    "libs": ["LedControl"],
+    "guide": {
+      "about": "The snake is a list of coordinates. Each step adds a new head and drops the tail, unless you just ate. A classic lesson in arrays and game loops.",
+      "parts": [["max7219-matrix", 1, ""], ["joystick", 1, ""], ["buzzer-passive", 1, "optional"], ["resistor-kit", 1, "one 220Ω for the buzzer"], ["breadboard", 1, ""], ["jumper-wires", 11, ""], ["usb-cable", 1, ""]],
+      "wiring": [
+        ["Matrix VCC / GND", "5V / GND", ""],
+        ["Matrix DIN / CS / CLK", "Pins 12 / 10 / 11", ""],
+        ["Joystick +5V / GND", "5V / GND", ""],
+        ["Joystick VRx", "A0", ""],
+        ["Joystick VRy", "A1", ""],
+        ["Joystick SW", "Pin 2", "restart button"],
+        ["Passive buzzer + (optional)", "Pin 8", "through 220Ω; − to GND"]
+      ],
+      "steps": [
+        "Install LedControl.",
+        "Wire the matrix (DIN 12, CS 10, CLK 11) and joystick (VRx A0, VRy A1, SW 2).",
+        "(Optional) Buzzer through 220Ω on Pin 8.",
+        "Upload and push the stick to start moving."
+      ],
+      "test": "The snake moves every 300 ms and speeds up as it grows. Eat the blinking dot to grow. Hit yourself and the score scrolls in the Serial Monitor (9600). Click the stick to restart.",
+      "safety": [],
+      "next": ["Let the snake wrap around the edges.", "Show the score on a TM1637."]
+    }
+  },
+  {
+    "id": "pocket-lab-pet",
+    "title": "Pocket Lab Pet",
+    "pitch": "A tiny virtual pet lives on your OLED. Feed it, play with it, let it sleep, or it gets grumpy (>_<)!",
+    "emoji": "🐣",
+    "difficulty": 2, "time": 40, "vibes": ["gaming", "gift"],
+    "boards": ["arduino-uno", "arduino-nano"],
+    "requires": ["oled-128x64", ["button-6mm", "arcade-button"]],
+    "optional": ["buzzer-passive"],
+    "basics": ["breadboard", "jumper-wires", "resistor-kit", "usb-cable"],
+    "libs": ["Adafruit SSD1306", "Adafruit GFX Library"],
+    "guide": {
+      "about": "Meet Bitty, your pocket lab pet. Hunger, fun and energy slowly drop over time; two buttons pick and perform actions. You'll learn timers, simple stats and drawing faces.",
+      "parts": [["oled-128x64", 1, ""], ["button-6mm", 2, "SELECT and DO"], ["buzzer-passive", 1, "optional"], ["resistor-kit", 1, "one 220Ω for the buzzer"], ["breadboard", 1, ""], ["jumper-wires", 8, ""], ["usb-cable", 1, "or a power bank"]],
+      "wiring": [
+        ["OLED VCC / GND", "5V / GND", "check your OLED's pin labels"],
+        ["OLED SDA / SCL", "A4 / A5", ""],
+        ["SELECT button", "Pin 2", "other leg to GND"],
+        ["DO button", "Pin 3", "other leg to GND"],
+        ["Passive buzzer + (optional)", "Pin 8", "through 220Ω; − to GND"]
+      ],
+      "steps": [
+        "Install Adafruit SSD1306 and Adafruit GFX Library.",
+        "Wire the OLED (5V, GND, SDA A4, SCL A5) and the two buttons (pins 2 and 3 to GND).",
+        "Upload. Bitty hatches!",
+        "SELECT cycles Feed → Play → Sleep. DO performs the action.",
+        "Keep all three bars above zero to keep Bitty happy."
+      ],
+      "test": "Bars shrink over time; Bitty's face changes from (^_^) to (-_-) to (>_<). Feeding fills hunger, Play fills fun (but costs energy), Sleep restores energy.",
+      "safety": [],
+      "next": ["Add an age counter and evolution stages.", "Save the stats in EEPROM so Bitty survives power-off."]
+    }
+  },
+  {
+    "id": "space-dodge",
+    "title": "Space Dodge",
+    "pitch": "Pilot a tiny ship with a joystick and dodge falling asteroids. The longer you survive, the faster they come!",
+    "emoji": "🚀",
+    "difficulty": 2, "time": 40, "vibes": ["gaming"],
+    "boards": ["arduino-uno", "arduino-nano"],
+    "requires": ["oled-128x64", "joystick"],
+    "optional": ["buzzer-passive"],
+    "basics": ["breadboard", "jumper-wires", "resistor-kit", "usb-cable"],
+    "libs": ["Adafruit SSD1306", "Adafruit GFX Library"],
+    "guide": {
+      "about": "An arcade game: joystick input, falling objects in an array, collision checks and difficulty that ramps up.",
+      "parts": [["oled-128x64", 1, ""], ["joystick", 1, ""], ["buzzer-passive", 1, "optional"], ["resistor-kit", 1, "one 220Ω for the buzzer"], ["breadboard", 1, ""], ["jumper-wires", 10, ""], ["usb-cable", 1, ""]],
+      "wiring": [
+        ["OLED VCC / GND", "5V / GND", ""],
+        ["OLED SDA / SCL", "A4 / A5", ""],
+        ["Joystick +5V / GND", "5V / GND", ""],
+        ["Joystick VRx", "A0", ""],
+        ["Joystick VRy", "A1", ""],
+        ["Joystick SW", "Pin 2", "start button"],
+        ["Passive buzzer + (optional)", "Pin 8", "through 220Ω; − to GND"]
+      ],
+      "steps": [
+        "Install Adafruit SSD1306 and Adafruit GFX Library.",
+        "Wire the OLED to 5V, GND, A4, A5.",
+        "Wire the joystick: VRx A0, VRy A1, SW Pin 2.",
+        "Upload and click the stick to launch."
+      ],
+      "test": "Your ship moves in all directions; asteroids fall from the top. Survive as long as possible: the score is your time. Crash = big explosion and GAME OVER.",
+      "safety": [],
+      "next": ["Add a shield power-up.", "Add stars in the background for a parallax effect."]
+    }
+  },
+  {
+    "id": "desert-runner-lcd",
+    "title": "Desert Runner (LCD game)",
+    "pitch": "A running game on a 16x2 text LCD using custom pixel characters. Jump the cacti!",
+    "emoji": "🌵",
+    "difficulty": 2, "time": 30, "vibes": ["gaming"],
+    "boards": ["arduino-uno", "arduino-nano"],
+    "requires": ["lcd1602-i2c", ["button-6mm", "arcade-button", "touch-ttp223"]],
+    "optional": ["buzzer-passive"],
+    "basics": ["breadboard", "jumper-wires", "resistor-kit", "usb-cable"],
+    "libs": ["LiquidCrystal I2C"],
+    "guide": {
+      "about": "Text LCDs let you design up to 8 custom 5x8-pixel characters. Here they become a running character (2 animation frames) and a cactus.",
+      "parts": [["lcd1602-i2c", 1, ""], ["button-6mm", 1, ""], ["buzzer-passive", 1, "optional"], ["resistor-kit", 1, "one 220Ω for the buzzer"], ["breadboard", 1, ""], ["jumper-wires", 7, ""], ["usb-cable", 1, ""]],
+      "wiring": [
+        ["LCD GND / VCC", "GND / 5V", ""],
+        ["LCD SDA / SCL", "A4 / A5", ""],
+        ["Jump button", "Pin 2", "other leg to GND"],
+        ["Passive buzzer + (optional)", "Pin 8", "through 220Ω; − to GND"]
+      ],
+      "steps": [
+        "Install the LiquidCrystal I2C library.",
+        "Wire the LCD (GND, 5V, SDA A4, SCL A5) and the button on Pin 2.",
+        "Upload. If the screen is blank, adjust the blue contrast screw or change the address to 0x3F.",
+        "Press the button to start and to jump."
+      ],
+      "test": "The runner animates on the bottom row while cacti scroll in from the right. Jumping lifts it to the top row for a moment. The score shows top-right.",
+      "safety": [],
+      "next": ["Add birds on the top row that you must NOT jump into.", "Store the high score in EEPROM."]
+    }
+  },
+  {
+    "id": "fortune-oracle",
+    "title": "Fortune Oracle",
+    "pitch": "Ask a question, shake the box, and the oracle reveals your fate on the LCD. Very mysterious. Much wow.",
+    "emoji": "🔮",
+    "difficulty": 2, "time": 30, "vibes": ["fun", "gaming", "gift"],
+    "boards": ["arduino-uno", "arduino-nano"],
+    "requires": ["mpu6050", "lcd1602-i2c"],
+    "optional": [],
+    "basics": ["breadboard", "jumper-wires", "usb-cable"],
+    "libs": ["LiquidCrystal I2C"],
+    "guide": {
+      "about": "The accelerometer notices a shake (a big change in acceleration). Then a random fortune appears with a dramatic reveal. The fortunes are stored in flash memory (PROGMEM) to save RAM.",
+      "parts": [["mpu6050", 1, ""], ["lcd1602-i2c", 1, ""], ["breadboard", 1, "a small one, inside a box"], ["jumper-wires", 8, ""], ["usb-cable", 1, "or a power bank inside the box"]],
+      "wiring": [
+        ["MPU-6050 VCC / GND", "5V / GND", ""],
+        ["MPU-6050 SDA / SCL", "A4 / A5", ""],
+        ["LCD VCC / GND", "5V / GND", ""],
+        ["LCD SDA / SCL", "A4 / A5", "shared with the MPU-6050"]
+      ],
+      "steps": [
+        "Install LiquidCrystal I2C.",
+        "Wire both modules to 5V and GND, both SDAs to A4 and both SCLs to A5.",
+        "Upload. The screen says \"Ask, then shake…\".",
+        "Ask a yes/no question out loud, then shake the breadboard (gently!).",
+        "Build it into a box with the LCD showing through a window."
+      ],
+      "test": "A shake shows \"The spirits speak...\" then a random answer like \"Yes, definitely!\" or \"The stars say: maybe\".",
+      "safety": [],
+      "next": ["Add your own fortunes and inside jokes.", "Add a buzzer for a spooky reveal sound."]
+    }
+  },
+  {
+    "id": "pomodoro-timer",
+    "title": "Pomodoro Study Timer",
+    "pitch": "25 minutes of focus, 5 minutes of break, with a progress bar and a gentle chime. Homework, conquered.",
+    "emoji": "🍅",
+    "difficulty": 1, "time": 25, "vibes": ["useful", "gift"],
+    "boards": ["arduino-uno", "arduino-nano"],
+    "requires": ["lcd1602-i2c", ["button-6mm", "arcade-button", "touch-ttp223"], "buzzer-passive"],
+    "optional": [],
+    "basics": ["breadboard", "jumper-wires", "resistor-kit", "usb-cable"],
+    "libs": ["LiquidCrystal I2C"],
+    "guide": {
+      "about": "The Pomodoro technique: focus for 25 minutes, then rest 5. The LCD shows a countdown and a bar made of custom characters; one button starts, pauses and resets.",
+      "parts": [["lcd1602-i2c", 1, ""], ["button-6mm", 1, ""], ["buzzer-passive", 1, ""], ["resistor-kit", 1, "one 220Ω for the buzzer"], ["breadboard", 1, ""], ["jumper-wires", 7, ""], ["usb-cable", 1, ""]],
+      "wiring": [
+        ["LCD GND / VCC", "GND / 5V", ""],
+        ["LCD SDA / SCL", "A4 / A5", ""],
+        ["Button", "Pin 2", "other leg to GND"],
+        ["Passive buzzer +", "Pin 8", "through 220Ω; − to GND"]
+      ],
+      "steps": [
+        "Install LiquidCrystal I2C.",
+        "Wire the LCD, the button (Pin 2) and the buzzer (Pin 8 via 220Ω).",
+        "Upload.",
+        "Tap to start/pause. Hold for 2 seconds to reset."
+      ],
+      "test": "FOCUS counts down from 25:00 with a filling bar. At zero a chime plays and BREAK 05:00 starts. Rounds are counted on the screen.",
+      "safety": [],
+      "next": ["Change FOCUS_MIN and BREAK_MIN to suit you.", "Add a long break after 4 rounds."]
+    }
+  },
+  {
+    "id": "pocket-calculator",
+    "title": "Pocket Calculator",
+    "pitch": "A working calculator: keypad in, LCD out. A=+, B=−, C=×, D=÷, #==, *=clear.",
+    "emoji": "🧮",
+    "difficulty": 2, "time": 35, "vibes": ["useful"],
+    "boards": ["arduino-uno", "arduino-nano"],
+    "requires": ["keypad-4x4", "lcd1602-i2c"],
+    "optional": [],
+    "basics": ["breadboard", "jumper-wires", "usb-cable"],
+    "libs": ["Keypad", "LiquidCrystal I2C"],
+    "guide": {
+      "about": "Read numbers digit by digit, remember the operator, and calculate when # is pressed. It even handles chained sums like 2+3×4 (left to right, like a basic calculator).",
+      "parts": [["keypad-4x4", 1, ""], ["lcd1602-i2c", 1, ""], ["breadboard", 1, ""], ["jumper-wires", 12, ""], ["usb-cable", 1, ""]],
+      "wiring": [
+        ["Keypad pins 1–4 (rows)", "Pins 9, 8, 7, 6", ""],
+        ["Keypad pins 5–8 (columns)", "Pins 5, 4, 3, 2", ""],
+        ["LCD GND / VCC", "GND / 5V", ""],
+        ["LCD SDA / SCL", "A4 / A5", ""]
+      ],
+      "steps": [
+        "Install Keypad and LiquidCrystal I2C.",
+        "Connect the keypad's 8 pins: 1–4 to pins 9, 8, 7, 6 and 5–8 to pins 5, 4, 3, 2.",
+        "Wire the LCD to 5V, GND, A4 and A5.",
+        "Upload and calculate: 12 A 30 # shows 42."
+      ],
+      "test": "Top line shows what you type, bottom line shows the result. Dividing by zero shows \"Error\".",
+      "safety": [],
+      "next": ["Add a decimal point key (re-label one of A–D).", "Add memory keys."]
+    }
+  },
+  {
+    "id": "tv-remote-lamp",
+    "title": "TV Remote Color Lamp",
+    "pitch": "Use any infrared remote, even your old TV one, to change an RGB lamp's color from the couch.",
+    "emoji": "📺",
+    "difficulty": 2, "time": 30, "vibes": ["fun", "useful"],
+    "boards": ["arduino-uno", "arduino-nano"],
+    "requires": ["ir-kit", "rgb-led-cc"],
+    "optional": [],
+    "basics": ["breadboard", "jumper-wires", "resistor-kit", "usb-cable"],
+    "libs": ["IRremote"],
+    "guide": {
+      "about": "Every remote button sends a code of infrared flashes. This sketch works with any NEC-style remote: each new button press switches to the next color, and the Serial Monitor shows each button's code so you can assign your own.",
+      "parts": [["ir-kit", 1, "receiver + remote"], ["rgb-led-cc", 1, "common cathode"], ["resistor-kit", 1, "three 220Ω"], ["breadboard", 1, ""], ["jumper-wires", 8, ""], ["usb-cable", 1, ""]],
+      "wiring": [
+        ["IR receiver OUT (S)", "Pin 2", "module pins are labeled; bare receivers: check the datasheet order"],
+        ["IR receiver VCC (+)", "5V", ""],
+        ["IR receiver GND (−)", "GND", ""],
+        ["RGB red leg", "Pin 9", "through 220Ω"],
+        ["RGB green leg", "Pin 10", "through 220Ω"],
+        ["RGB blue leg", "Pin 6", "through 220Ω (not 3 or 11: the IR library uses that timer)"],
+        ["RGB common (longest) leg", "GND", ""]
+      ],
+      "steps": [
+        "Install the IRremote library (by shirriff, z3t0, ArminJo).",
+        "Wire the IR receiver: OUT to Pin 2, + to 5V, − to GND.",
+        "Wire the RGB LED (long leg to GND) with 220Ω resistors: red 9, green 10, blue 6.",
+        "Upload and open the Serial Monitor at 9600.",
+        "Point the remote at the receiver and press any button."
+      ],
+      "test": "Each button press (holding doesn't repeat) changes the color: red, orange, yellow, green, cyan, blue, purple, pink, white, off. The code of each button prints, e.g. \"Button code: 0x45\".",
+      "safety": [],
+      "next": ["Map specific buttons to specific colors using the printed codes.", "Control a servo or a relay with the remote instead."]
+    }
+  },
+  {
+    "id": "android-bt-lamp",
+    "title": "Bluetooth Lamp (Android)",
+    "pitch": "Send 0–9 from a phone app over Bluetooth to set a lamp's brightness. Android phones and PCs only.",
+    "emoji": "🟦",
+    "difficulty": 2, "time": 30, "vibes": ["useful"],
+    "boards": ["arduino-uno", "arduino-nano", "arduino-mega", "arduino-leonardo"],
+    "requires": ["hc-05", ["led-white", "led-yellow", "led-blue", "led-red", "led-green"]],
+    "optional": [],
+    "basics": ["breadboard", "jumper-wires", "resistor-kit", "usb-cable"],
+    "libs": [],
+    "guide": {
+      "about": "The HC-05 is a wireless serial cable. Whatever the phone app sends arrives at the board like typed text. Note: iPhones can't use classic Bluetooth serial. On iPhone use the Wi-Fi lamp idea with an ESP32 instead.",
+      "parts": [["hc-05", 1, ""], ["led-white", 1, "any color"], ["resistor-kit", 1, "220Ω (LED), 1kΩ + 2kΩ (voltage divider)"], ["breadboard", 1, ""], ["jumper-wires", 8, ""], ["usb-cable", 1, ""]],
+      "wiring": [
+        ["HC-05 VCC", "5V", ""],
+        ["HC-05 GND", "GND", ""],
+        ["HC-05 TXD", "Pin 10", "3.3V signal: fine for the Arduino"],
+        ["Pin 11", "1kΩ → HC-05 RXD", "voltage divider top"],
+        ["HC-05 RXD", "2kΩ → GND", "divider bottom: turns 5V into ~3.3V"],
+        ["LED +", "Pin 9", "through 220Ω"],
+        ["LED −", "GND", ""]
+      ],
+      "steps": [
+        "Wire the HC-05: VCC 5V, GND, TXD to Pin 10.",
+        "Build the voltage divider: Pin 11 → 1kΩ → HC-05 RXD, and 2kΩ from HC-05 RXD to GND.",
+        "Add the LED with 220Ω on Pin 9.",
+        "Upload. The HC-05's LED blinks fast (waiting to pair).",
+        "On an Android phone, pair with \"HC-05\" (PIN 1234 or 0000), install a free app like \"Serial Bluetooth Terminal\", connect, and send 0–9."
+      ],
+      "test": "Sending 9 = full brightness, 5 = half, 0 = off. The board replies \"Brightness: 50%\" back to the app.",
+      "safety": [],
+      "next": ["Send r/g/b letters to control an RGB LED.", "Build a Bluetooth robot car with the L298N."]
+    }
+  },
+  {
+    "id": "wireless-joystick-link",
+    "title": "Wireless Joystick Link",
+    "pitch": "Two boards, two radios: tilt a joystick on one and a servo moves on the other, up to ~50 m away.",
+    "emoji": "📻",
+    "difficulty": 3, "time": 60, "vibes": ["fun", "gaming"],
+    "boards": ["arduino-uno"],
+    "requires": ["nrf24l01", "joystick", "servo-sg90", "cap-electrolytic-kit"],
+    "optional": [],
+    "basics": ["breadboard", "jumper-wires", "usb-cable"],
+    "libs": ["RF24", "Servo"],
+    "guide": {
+      "about": "nRF24L01+ radios send small packets of data between boards. One sketch does both jobs: set ROLE to TRANSMITTER for the joystick board and RECEIVER for the servo board. If the signal is lost, the servo returns to center (a \"failsafe\").",
+      "parts": [["arduino-uno", 2, "you need TWO boards"], ["nrf24l01", 2, "one per board"], ["cap-electrolytic-kit", 2, "one 10µF per radio"], ["joystick", 1, "on the transmitter"], ["servo-sg90", 1, "on the receiver"], ["breadboard", 2, ""], ["jumper-wires", 20, ""], ["usb-cable", 2, "or a power bank for one of them"]],
+      "wiring": [
+        ["nRF24 VCC (both boards)", "3.3V pin", "3.3V ONLY: 5V destroys it"],
+        ["nRF24 GND", "GND", ""],
+        ["10µF capacitor", "across nRF24 VCC and GND", "long leg (+) to VCC, right at the module"],
+        ["nRF24 CE", "Pin 9", ""],
+        ["nRF24 CSN", "Pin 10", ""],
+        ["nRF24 SCK", "Pin 13", ""],
+        ["nRF24 MOSI", "Pin 11", ""],
+        ["nRF24 MISO", "Pin 12", ""],
+        ["Joystick VRx / VRy (transmitter)", "A0 / A1", "+5V → 5V, GND → GND"],
+        ["Servo (receiver)", "Pin 6", "red → 5V, brown → GND"]
+      ],
+      "steps": [
+        "Install RF24 (by TMRh20) and Servo.",
+        "On BOTH boards wire the nRF24 exactly as in the table, with a 10µF capacitor across its power pins.",
+        "Transmitter board: add the joystick. Set ROLE to TRANSMITTER and upload.",
+        "Receiver board: add the servo on Pin 6. Set ROLE to RECEIVER and upload.",
+        "Power both boards and move the joystick."
+      ],
+      "test": "The servo follows the joystick's X axis with almost no delay. Unplug the transmitter: after 1 second the servo centers itself. The receiver's Serial Monitor (9600) shows the packets.",
+      "safety": ["nRF24 modules must be powered from 3.3V. On Nano clones the 3.3V pin is often too weak; that's why this guide uses Uno boards."],
+      "next": ["Send both axes to a pan-tilt mount.", "Turn it into a remote control for the robot car."]
+    }
+  },
+  {
+    "id": "sd-weather-logger",
+    "title": "SD Weather Logger",
+    "pitch": "Records temperature and humidity with a timestamp every minute onto a microSD card. Open it in Excel later!",
+    "emoji": "📈",
+    "difficulty": 2, "time": 45, "vibes": ["useful"],
+    "boards": ["arduino-uno", "arduino-nano"],
+    "requires": ["dht22-module", "sd-module", "ds3231"],
+    "optional": [],
+    "basics": ["breadboard", "jumper-wires", "usb-cable"],
+    "libs": ["DHT sensor library", "Adafruit Unified Sensor", "RTClib", "SD"],
+    "guide": {
+      "about": "Data logging is real science: the board writes one line of CSV (comma-separated values) per minute, which spreadsheets open directly. The RTC gives each line a real date and time.",
+      "parts": [["dht22-module", 1, ""], ["sd-module", 1, "with a FAT32 microSD card"], ["ds3231", 1, "with coin cell"], ["breadboard", 1, ""], ["jumper-wires", 14, ""], ["usb-cable", 1, "or a USB charger for long logging"]],
+      "wiring": [
+        ["DHT22 + / − / DATA", "5V / GND / Pin 2", ""],
+        ["SD module VCC / GND", "5V / GND", ""],
+        ["SD module CS", "Pin 10", ""],
+        ["SD module MOSI", "Pin 11", ""],
+        ["SD module MISO", "Pin 12", ""],
+        ["SD module SCK", "Pin 13", ""],
+        ["DS3231 VCC / GND", "5V / GND", ""],
+        ["DS3231 SDA / SCL", "A4 / A5", ""]
+      ],
+      "steps": [
+        "Format the microSD card as FAT32 on your PC.",
+        "Install DHT sensor library, Adafruit Unified Sensor, RTClib and SD.",
+        "Wire everything as in the table (SPI for the SD card, I2C for the clock).",
+        "Upload. The clock takes your PC's time if it hasn't been set yet.",
+        "Let it run. Later, unplug, take out the card and open LOG.CSV on your PC."
+      ],
+      "test": "The Serial Monitor (9600) prints each saved line, like \"2026-11-05 14:32,24.1,48.0\". The file grows by one line per minute.",
+      "safety": ["Always unplug power before removing the SD card, or the file may get damaged."],
+      "next": ["Add a BMP280 (with a 3.3V supply) for pressure.", "Make a chart in Excel or Google Sheets."]
+    }
+  },
+  {
+    "id": "tea-thermometer",
+    "title": "Tea & Coffee Thermometer",
+    "pitch": "Dip the waterproof probe in your drink: it shows the temperature and beeps when it's cooled to the perfect sip.",
+    "emoji": "🍵",
+    "difficulty": 1, "time": 25, "vibes": ["useful", "gift"],
+    "boards": ["arduino-uno", "arduino-nano", "arduino-mega", "arduino-leonardo"],
+    "requires": ["ds18b20-probe", "tm1637"],
+    "optional": ["buzzer-passive"],
+    "basics": ["breadboard", "jumper-wires", "resistor-kit", "usb-cable"],
+    "libs": ["OneWire", "DallasTemperature", "TM1637"],
+    "guide": {
+      "about": "The DS18B20 talks over a single data wire (1-Wire). The code watches the temperature fall and beeps once when it reaches about 60°C, a comfortable drinking temperature for most people.",
+      "parts": [["ds18b20-probe", 1, ""], ["tm1637", 1, ""], ["buzzer-passive", 1, "optional"], ["resistor-kit", 1, "one 4.7kΩ (pull-up) + one 220Ω (buzzer)"], ["breadboard", 1, ""], ["jumper-wires", 8, ""], ["usb-cable", 1, ""]],
+      "wiring": [
+        ["Probe red wire", "5V", ""],
+        ["Probe black wire", "GND", ""],
+        ["Probe yellow wire (data)", "Pin 2", ""],
+        ["4.7kΩ resistor", "between Pin 2 and 5V", "the 1-Wire pull-up"],
+        ["TM1637 VCC / GND", "5V / GND", ""],
+        ["TM1637 CLK / DIO", "Pins 3 / 4", ""],
+        ["Passive buzzer + (optional)", "Pin 8", "through 220Ω; − to GND"]
+      ],
+      "steps": [
+        "Install OneWire, DallasTemperature and TM1637.",
+        "Wire the probe (red 5V, black GND, yellow Pin 2) and the 4.7kΩ resistor from Pin 2 to 5V.",
+        "Wire the TM1637 to 5V, GND, CLK 3, DIO 4.",
+        "Upload. Wash the probe, then dip it in your hot drink."
+      ],
+      "test": "The display shows the temperature like \"72°C\". When the drink cools below 60°C after being hotter than 65°C, it beeps three times.",
+      "safety": ["Only the metal probe goes into the drink. Keep the wires' plastic end and the electronics dry.", "Wash the probe before and after use."],
+      "next": ["Change DRINK_C to your favorite temperature.", "Use two probes to compare two cups."]
+    }
+  },
+  {
+    "id": "anime-sound-board",
+    "title": "Anime Sound Board",
+    "pitch": "Three buttons, three of your favorite sound clips or voice lines, played loud through a real speaker.",
+    "emoji": "🔊",
+    "difficulty": 2, "time": 35, "vibes": ["gaming", "fun"],
+    "boards": ["arduino-uno", "arduino-nano", "arduino-mega", "arduino-leonardo"],
+    "requires": ["dfplayer-mini", "speaker-8ohm", ["button-6mm", "arcade-button"]],
+    "optional": ["potentiometer-10k"],
+    "basics": ["breadboard", "jumper-wires", "resistor-kit", "usb-cable"],
+    "libs": ["DFRobotDFPlayerMini"],
+    "guide": {
+      "about": "The DFPlayer Mini plays MP3 files from a microSD card and drives a speaker by itself. The board just sends commands like \"play track 2\" over serial.",
+      "parts": [["dfplayer-mini", 1, "plus a microSD card (≤32GB, FAT32)"], ["speaker-8ohm", 1, ""], ["button-6mm", 3, "or arcade buttons"], ["potentiometer-10k", 1, "optional volume knob"], ["resistor-kit", 1, "one 1kΩ for the DFPlayer RX line"], ["breadboard", 1, ""], ["jumper-wires", 12, ""], ["usb-cable", 1, ""]],
+      "wiring": [
+        ["DFPlayer VCC", "5V", ""],
+        ["DFPlayer GND", "GND", ""],
+        ["DFPlayer TX", "Pin 10", ""],
+        ["Pin 11", "1kΩ → DFPlayer RX", "protects the 3.3V RX pin and removes hiss"],
+        ["DFPlayer SPK_1 / SPK_2", "Speaker wires", "never connect the speaker to GND"],
+        ["Buttons 1, 2, 3", "Pins 2, 3, 4", "other legs to GND"],
+        ["Volume pot (optional)", "A0", "outer legs to 5V and GND"]
+      ],
+      "steps": [
+        "Put your sound files on the microSD card in a folder named mp3, named 0001.mp3, 0002.mp3, 0003.mp3.",
+        "Install the DFRobotDFPlayerMini library.",
+        "Wire the DFPlayer exactly as in the table (don't forget the 1kΩ on RX).",
+        "Connect the speaker to SPK_1 and SPK_2.",
+        "Wire the three buttons to pins 2, 3, 4 and the optional pot to A0.",
+        "Upload and press a button!"
+      ],
+      "test": "Each button plays its own clip; pressing again restarts it. The Serial Monitor (9600) says \"DFPlayer ready\". If it says it failed, check the card and the TX/RX wires.",
+      "safety": ["Only use sound clips you made yourself or are allowed to use.", "Start with a low volume: small speakers distort when too loud."],
+      "next": ["Add more buttons (the DFPlayer supports thousands of files).", "Combine with the PIR alarm to play a voice line when someone enters."]
+    }
+  },
+  {
+    "id": "neon-ring-clock",
+    "title": "Neon Ring Clock",
+    "pitch": "A glowing analog clock made of 16 LEDs: pink hour hand, cyan minutes, a twinkling yellow seconds dot.",
+    "emoji": "🕛",
+    "difficulty": 2, "time": 40, "vibes": ["gift", "useful"],
+    "boards": ["arduino-uno", "arduino-nano"],
+    "requires": ["ws2812b-ring", "ds3231"],
+    "optional": [],
+    "basics": ["breadboard", "jumper-wires", "resistor-kit", "usb-cable"],
+    "libs": ["Adafruit NeoPixel", "RTClib"],
+    "guide": {
+      "about": "Map hours, minutes and seconds onto 16 LED positions around a ring, and blend colors where hands overlap. The DS3231 keeps time even when unplugged.",
+      "parts": [["ws2812b-ring", 1, "16 LEDs"], ["ds3231", 1, "with coin cell"], ["resistor-kit", 1, "one 330Ω for the data line"], ["breadboard", 1, ""], ["jumper-wires", 8, ""], ["usb-cable", 1, "power from a USB charger"]],
+      "wiring": [
+        ["Ring 5V / GND", "5V / GND", ""],
+        ["Ring DIN", "Pin 6", "through 330Ω"],
+        ["DS3231 VCC / GND", "5V / GND", ""],
+        ["DS3231 SDA / SCL", "A4 / A5", ""]
+      ],
+      "steps": [
+        "Solder wires to the ring's 5V, GND and DIN pads.",
+        "Install Adafruit NeoPixel and RTClib.",
+        "Wire the ring (DIN through 330Ω to Pin 6) and the DS3231 (A4/A5).",
+        "Upload: the clock takes your PC's time the first time.",
+        "Place LED 0 at the top (12 o'clock). If the hands run backwards, set REVERSED to true."
+      ],
+      "test": "Pink marks the hour, cyan the minutes, and a yellow dot steps around for seconds. Brightness is kept low for a calm night glow.",
+      "safety": ["Soldering: hot iron, use the stand and ventilate."],
+      "next": ["Add hourly rainbow animations.", "Add a light sensor to dim it at night."]
+    }
+  }
+]
