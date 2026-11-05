@@ -32,3 +32,5 @@ Mouse
 TinyGPSPlus
 SparkFun MAX3010x Pulse and Proximity Sensor Library
 Adafruit GC9A01A
+Adafruit PWM Servo Driver Library
+Adafruit AHTX0
