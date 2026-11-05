@@ -90,6 +90,19 @@ tools/validate.mjs      data checker: run `node tools/validate.mjs`
 - Pull request `dev → main` = a stable save point after each confirmed phase.
 - Live URL: https://yamimah0849-dot.github.io/parts-lab/
 
+## Lessons learned (keep for Phase 3 guides)
+- Generic `esp32:esp32:esp32` and `esp32cam` define **no LED_BUILTIN**: use the real pin
+  (DevKit V1 blue LED = GPIO 2; ESP32-CAM flash LED = GPIO 4, red LED = GPIO 33 active-LOW).
+- All 10 board FQBNs compile a test sketch (checked session 1).
+- HC-05 doesn't work with iPhone (classic Bluetooth). User has an iPhone, so prefer ESP32 BLE/Wi-Fi ideas for phone control.
+- iPhone: Web Audio is muted when the silent switch is on.
+
 ## Progress log
-- **Session 1 (2026-11-05)**: Plan approved. Environment set up (arduino-cli + 3 cores). Phase 1 in progress:
-  catalog of 102 parts across 11 categories written.
+- **Session 1 (2026-11-05)**: Plan approved. Environment set up (arduino-cli + 3 cores, `downloads.arduino.cc` allowed).
+  **Phase 1 built**: 102-part catalog (11 categories, validated), home screen with reactor CREATE button,
+  mascot Ohmi (moods + typed speech), part picker (search, category chips, basics toggle, selection tray),
+  Lab Check (3.3V/5V + power warnings from part data), part detail sheets with variants,
+  custom parts, settings, boot sequence, synthesized sounds, PWA manifest + service worker + app icons.
+  Waiting for the user to test Phase 1 (GitHub Pages must be switched on by the user: Settings → Pages → branch `dev`).
+- **Next (Phase 2)**: idea library (first 20 ideas) as JSON, matching engine ("Build it now" / "Add 1–2 parts"),
+  results screen with sort + filters (difficulty, vibe, build time) + Surprise me.
