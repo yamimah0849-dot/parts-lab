@@ -187,9 +187,78 @@
   },
   "pico-w-web-remote": {
    "pico-w": "ok"
+  },
+  "dancing-robot-car": {
+   "arduino-uno": "ok",
+   "arduino-mega": "ok",
+   "arduino-nano": "ok",
+   "arduino-leonardo": "ok"
+  },
+  "obstacle-robot": {
+   "arduino-nano": "ok",
+   "arduino-uno": "ok",
+   "arduino-mega": "ok",
+   "arduino-leonardo": "ok"
+  },
+  "line-follower": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok",
+   "arduino-mega": "ok",
+   "arduino-leonardo": "ok"
+  },
+  "knob-desk-fan": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok",
+   "arduino-mega": "ok",
+   "arduino-leonardo": "ok"
+  },
+  "auto-plant-waterer": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok",
+   "arduino-mega": "ok",
+   "arduino-leonardo": "ok"
+  },
+  "haptic-metronome": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok",
+   "arduino-mega": "ok",
+   "arduino-leonardo": "ok"
+  },
+  "leonardo-macro-pad": {
+   "arduino-leonardo": "ok"
+  },
+  "joystick-mouse": {
+   "arduino-leonardo": "ok"
+  },
+  "c3-touch-glow": {
+   "esp32-c3-supermini": "ok"
+  },
+  "s3-rainbow-status": {
+   "esp32-s3-devkit": "ok"
+  },
+  "c3-wifi-signal-meter": {
+   "esp32-c3-supermini": "ok"
+  },
+  "color-memory-challenge": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok",
+   "arduino-mega": "ok",
+   "arduino-leonardo": "ok"
+  },
+  "s3-macro-keyboard": {
+   "esp32-s3-devkit": "ok"
+  },
+  "whack-a-led": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok",
+   "arduino-mega": "ok",
+   "arduino-leonardo": "ok"
+  },
+  "esp32cam-stream": {
+   "esp32-cam": "ok"
   }
  },
- "generated": "2026-11-05T04:08:06.526Z",
+ "generated": "2026-11-05T04:16:18.583Z",
  "arduinoCli": "1.5.2-rc.1",
  "cores": {
   "arduino:avr": "1.8.8",

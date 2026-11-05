@@ -1,0 +1,1780 @@
+[
+  {
+    "id": "dancing-robot-car",
+    "title": "Dancing Robot Car",
+    "pitch": "A two-wheel robot that performs a programmed dance: spins, wiggles and a victory zoom.",
+    "emoji": "🤖",
+    "difficulty": 2,
+    "time": 60,
+    "vibes": [
+      "fun",
+      "gaming"
+    ],
+    "boards": [
+      "arduino-uno",
+      "arduino-nano",
+      "arduino-mega",
+      "arduino-leonardo"
+    ],
+    "requires": [
+      "tt-motor",
+      "l298n",
+      "battery-aa-4"
+    ],
+    "optional": [
+      "power-bank"
+    ],
+    "basics": [
+      "jumper-wires",
+      "usb-cable"
+    ],
+    "libs": [],
+    "guide": {
+      "about": "Learn how an H-bridge driver (the L298N) lets a weak board pin control strong motors: direction with IN1–IN4, speed with PWM on ENA/ENB. The motors get their own battery; the board only sends signals.",
+      "parts": [
+        [
+          "tt-motor",
+          2,
+          "plus 2 wheels and a chassis or a piece of cardboard"
+        ],
+        [
+          "l298n",
+          1,
+          ""
+        ],
+        [
+          "battery-aa-4",
+          1,
+          "4×AA for the motors"
+        ],
+        [
+          "power-bank",
+          1,
+          "or any USB power for the board"
+        ],
+        [
+          "jumper-wires",
+          10,
+          ""
+        ],
+        [
+          "usb-cable",
+          1,
+          ""
+        ]
+      ],
+      "wiring": [
+        [
+          "Left motor wires",
+          "L298N OUT1 and OUT2",
+          "swap them if it spins backwards"
+        ],
+        [
+          "Right motor wires",
+          "L298N OUT3 and OUT4",
+          ""
+        ],
+        [
+          "Battery pack + (red)",
+          "L298N 12V terminal",
+          "motor power"
+        ],
+        [
+          "Battery pack − (black)",
+          "L298N GND terminal",
+          ""
+        ],
+        [
+          "L298N GND terminal",
+          "Board GND",
+          "common ground: essential!"
+        ],
+        [
+          "L298N 5V terminal",
+          "Board 5V",
+          "remove the 5V-EN jumper first: with 6V batteries the board powers the driver's logic"
+        ],
+        [
+          "L298N ENA",
+          "Pin 5",
+          "remove the ENA jumper"
+        ],
+        [
+          "L298N IN1",
+          "Pin 7",
+          ""
+        ],
+        [
+          "L298N IN2",
+          "Pin 8",
+          ""
+        ],
+        [
+          "L298N IN3",
+          "Pin 9",
+          ""
+        ],
+        [
+          "L298N IN4",
+          "Pin 10",
+          ""
+        ],
+        [
+          "L298N ENB",
+          "Pin 6",
+          "remove the ENB jumper"
+        ]
+      ],
+      "steps": [
+        "Mount the two TT motors and wheels on a chassis (cardboard works!), plus a caster or a smooth bump at the front.",
+        "Screw the motor wires into OUT1/OUT2 (left) and OUT3/OUT4 (right).",
+        "Pull off the three jumpers: 5V-EN, ENA and ENB.",
+        "Wire the battery pack to 12V and GND on the L298N. Keep its switch OFF for now.",
+        "Connect L298N GND to board GND and L298N 5V to board 5V.",
+        "Wire ENA, IN1–IN4 and ENB to pins 5, 7, 8, 9, 10 and 6.",
+        "Upload the code with the robot lifted off the table, power the board, then switch the battery ON."
+      ],
+      "test": "After a 3-second countdown (the built-in LED blinks) the robot drives forward, spins left, spins right, wiggles, reverses and zooms. If a wheel turns the wrong way, swap that motor's two wires.",
+      "safety": [
+        "Never power motors from board pins: the L298N and its own battery do that job.",
+        "The L298N heatsink can get warm. Don't touch it during long runs.",
+        "4×AA gives the motors only about 4V after the L298N's loss, so the robot is a bit slow. That's normal."
+      ],
+      "next": [
+        "Add an ultrasonic sensor to dodge walls (see Obstacle-Dodging Robot).",
+        "Choreograph your own dance by editing the moves list."
+      ]
+    }
+  },
+  {
+    "id": "obstacle-robot",
+    "title": "Obstacle-Dodging Robot",
+    "pitch": "A robot that drives around the room by itself and turns away when it sees a wall.",
+    "emoji": "🦾",
+    "difficulty": 3,
+    "time": 75,
+    "vibes": [
+      "fun",
+      "gaming"
+    ],
+    "boards": [
+      "arduino-uno",
+      "arduino-nano",
+      "arduino-mega",
+      "arduino-leonardo"
+    ],
+    "requires": [
+      "tt-motor",
+      "l298n",
+      "battery-aa-4",
+      [
+        "hc-sr04",
+        "rcwl-1601"
+      ]
+    ],
+    "optional": [
+      "power-bank"
+    ],
+    "basics": [
+      "jumper-wires",
+      "usb-cable"
+    ],
+    "libs": [],
+    "guide": {
+      "about": "Your first autonomous robot: it measures distance ahead, decides, and acts, about 20 times a second. That sense → think → act loop is how every robot works.",
+      "parts": [
+        [
+          "tt-motor",
+          2,
+          "with wheels and a chassis"
+        ],
+        [
+          "l298n",
+          1,
+          ""
+        ],
+        [
+          "battery-aa-4",
+          1,
+          "for the motors"
+        ],
+        [
+          "hc-sr04",
+          1,
+          "or RCWL-1601, mounted facing forward"
+        ],
+        [
+          "power-bank",
+          1,
+          "USB power for the board"
+        ],
+        [
+          "jumper-wires",
+          14,
+          ""
+        ],
+        [
+          "usb-cable",
+          1,
+          ""
+        ]
+      ],
+      "wiring": [
+        [
+          "Left motor",
+          "L298N OUT1 / OUT2",
+          ""
+        ],
+        [
+          "Right motor",
+          "L298N OUT3 / OUT4",
+          ""
+        ],
+        [
+          "Battery + / −",
+          "L298N 12V / GND",
+          ""
+        ],
+        [
+          "L298N GND",
+          "Board GND",
+          "common ground"
+        ],
+        [
+          "L298N 5V",
+          "Board 5V",
+          "with the 5V-EN jumper removed"
+        ],
+        [
+          "L298N ENA / IN1 / IN2",
+          "Pins 5 / 7 / 8",
+          "ENA jumper removed"
+        ],
+        [
+          "L298N IN3 / IN4 / ENB",
+          "Pins 9 / 10 / 6",
+          "ENB jumper removed"
+        ],
+        [
+          "Ultrasonic VCC",
+          "5V",
+          ""
+        ],
+        [
+          "Ultrasonic GND",
+          "GND",
+          ""
+        ],
+        [
+          "Ultrasonic TRIG",
+          "Pin 11",
+          ""
+        ],
+        [
+          "Ultrasonic ECHO",
+          "Pin 12",
+          ""
+        ]
+      ],
+      "steps": [
+        "Build the Dancing Robot Car first, or follow its motor wiring exactly.",
+        "Mount the ultrasonic sensor on the front, about 5 cm above the floor, facing forward.",
+        "Wire the sensor: VCC 5V, GND, TRIG Pin 11, ECHO Pin 12.",
+        "Upload the code with the wheels off the ground and check that both wheels spin forward.",
+        "Put it on the floor, switch on the battery, and step back!"
+      ],
+      "test": "The robot drives forward. When something is closer than 25 cm it stops, backs up a little, turns in a random direction and continues. Adjust TURN_CM and the speeds in the code.",
+      "safety": [
+        "Motors run only from the L298N and its battery, never from the board.",
+        "Keep fingers and hair away from the wheels when it's switched on."
+      ],
+      "next": [
+        "Mount the sensor on a servo to look left and right before choosing a direction.",
+        "Add a bumper switch for objects the sensor misses."
+      ]
+    }
+  },
+  {
+    "id": "line-follower",
+    "title": "Line-Following Racer",
+    "pitch": "Draw a black track with electrical tape, and this robot races along it on its own.",
+    "emoji": "🏁",
+    "difficulty": 3,
+    "time": 80,
+    "vibes": [
+      "gaming",
+      "fun"
+    ],
+    "boards": [
+      "arduino-uno",
+      "arduino-nano",
+      "arduino-mega",
+      "arduino-leonardo"
+    ],
+    "requires": [
+      "tt-motor",
+      "tb6612fng",
+      "tcrt5000",
+      "battery-aa-4"
+    ],
+    "optional": [
+      "power-bank"
+    ],
+    "basics": [
+      "breadboard",
+      "jumper-wires",
+      "usb-cable"
+    ],
+    "libs": [],
+    "guide": {
+      "about": "Two infrared sensors look down at the floor. If the left one sees the black line, the robot steers left; if the right one does, it steers right. The efficient TB6612FNG driver gives the motors more of the battery's power than an L298N.",
+      "parts": [
+        [
+          "tt-motor",
+          2,
+          "with wheels and a chassis"
+        ],
+        [
+          "tb6612fng",
+          1,
+          "solder its header pins first"
+        ],
+        [
+          "tcrt5000",
+          2,
+          "line sensor modules"
+        ],
+        [
+          "battery-aa-4",
+          1,
+          "for the motors"
+        ],
+        [
+          "power-bank",
+          1,
+          "USB power for the board"
+        ],
+        [
+          "breadboard",
+          1,
+          "a mini breadboard on the chassis"
+        ],
+        [
+          "jumper-wires",
+          18,
+          ""
+        ],
+        [
+          "usb-cable",
+          1,
+          ""
+        ]
+      ],
+      "wiring": [
+        [
+          "TB6612 VM",
+          "Battery +",
+          "motor power (4×AA, under 13.5V)"
+        ],
+        [
+          "TB6612 VCC",
+          "5V",
+          "logic power"
+        ],
+        [
+          "TB6612 GND (all)",
+          "GND and Battery −",
+          "common ground"
+        ],
+        [
+          "TB6612 AO1 / AO2",
+          "Left motor",
+          ""
+        ],
+        [
+          "TB6612 BO1 / BO2",
+          "Right motor",
+          ""
+        ],
+        [
+          "TB6612 PWMA",
+          "Pin 5",
+          ""
+        ],
+        [
+          "TB6612 AIN1 / AIN2",
+          "Pins 7 / 8",
+          ""
+        ],
+        [
+          "TB6612 PWMB",
+          "Pin 6",
+          ""
+        ],
+        [
+          "TB6612 BIN1 / BIN2",
+          "Pins 9 / 10",
+          ""
+        ],
+        [
+          "TB6612 STBY",
+          "Pin 4",
+          "must be HIGH to drive"
+        ],
+        [
+          "Left TCRT5000 VCC / GND",
+          "5V / GND",
+          ""
+        ],
+        [
+          "Left TCRT5000 DO",
+          "Pin 2",
+          ""
+        ],
+        [
+          "Right TCRT5000 VCC / GND",
+          "5V / GND",
+          ""
+        ],
+        [
+          "Right TCRT5000 DO",
+          "Pin 3",
+          ""
+        ]
+      ],
+      "steps": [
+        "Solder header pins onto the TB6612FNG board and plug it into a mini breadboard on the chassis.",
+        "Mount the two line sensors at the front, facing down, about 1 cm above the floor and 2–3 cm apart.",
+        "Wire the driver, motors and battery exactly as in the table. All grounds must connect.",
+        "Wire the sensors' DO pins to Pin 2 (left) and Pin 3 (right).",
+        "Make a track: black electrical tape (about 2 cm wide) on a white floor or poster board.",
+        "Calibrate: hold each sensor over white, then black, and turn its screw until its LED is ON over white and OFF over black.",
+        "Upload, place the robot on the line, switch on the battery!"
+      ],
+      "test": "The robot follows the line, correcting left and right. If it steers away from the line, swap LEFT/RIGHT sensor pins in the code or flip LINE_READS_HIGH.",
+      "safety": [
+        "Motors are powered only through the TB6612FNG from the batteries, never from board pins.",
+        "Soldering: hot iron, use the stand, ventilate."
+      ],
+      "next": [
+        "Add a third sensor in the middle for smoother steering.",
+        "Time your laps with a TM1637 stopwatch."
+      ]
+    }
+  },
+  {
+    "id": "knob-desk-fan",
+    "title": "Knob-Speed Desk Fan",
+    "pitch": "A little desk fan whose speed you set with a knob, switched safely with a MOSFET.",
+    "emoji": "🌀",
+    "difficulty": 2,
+    "time": 35,
+    "vibes": [
+      "useful"
+    ],
+    "boards": [
+      "arduino-uno",
+      "arduino-nano",
+      "arduino-mega",
+      "arduino-leonardo"
+    ],
+    "requires": [
+      "dc-motor-130",
+      "mosfet-irlz44n",
+      "diode-1n4007",
+      "potentiometer-10k",
+      "battery-aa-4"
+    ],
+    "optional": [],
+    "basics": [
+      "breadboard",
+      "jumper-wires",
+      "resistor-kit",
+      "usb-cable"
+    ],
+    "libs": [],
+    "guide": {
+      "about": "A logic-level MOSFET is a strong electronic switch: the board's pin only touches its gate, while the motor current flows from the battery. A flyback diode protects everything from the voltage spike a motor makes when switched off.",
+      "parts": [
+        [
+          "dc-motor-130",
+          1,
+          "plus a small propeller (often sold with it)"
+        ],
+        [
+          "mosfet-irlz44n",
+          1,
+          ""
+        ],
+        [
+          "diode-1n4007",
+          1,
+          "flyback diode"
+        ],
+        [
+          "potentiometer-10k",
+          1,
+          "speed knob"
+        ],
+        [
+          "battery-aa-4",
+          1,
+          "motor power"
+        ],
+        [
+          "resistor-kit",
+          1,
+          "one 220Ω (gate) and one 10kΩ (gate pull-down)"
+        ],
+        [
+          "breadboard",
+          1,
+          ""
+        ],
+        [
+          "jumper-wires",
+          9,
+          ""
+        ],
+        [
+          "usb-cable",
+          1,
+          ""
+        ]
+      ],
+      "wiring": [
+        [
+          "MOSFET Gate (left pin, label facing you)",
+          "Pin 9",
+          "through 220Ω"
+        ],
+        [
+          "10kΩ resistor",
+          "between Gate and GND",
+          "keeps the fan off while the board boots"
+        ],
+        [
+          "MOSFET Source (right pin)",
+          "GND",
+          "also connect Battery −"
+        ],
+        [
+          "MOSFET Drain (middle pin)",
+          "Motor wire 2",
+          ""
+        ],
+        [
+          "Motor wire 1",
+          "Battery +",
+          ""
+        ],
+        [
+          "1N4007 diode",
+          "across the motor",
+          "silver stripe toward Battery +, other end on the Drain side"
+        ],
+        [
+          "Battery −",
+          "GND",
+          "common ground"
+        ],
+        [
+          "Potentiometer outer legs",
+          "5V and GND",
+          ""
+        ],
+        [
+          "Potentiometer middle leg",
+          "A0",
+          ""
+        ]
+      ],
+      "steps": [
+        "Place the MOSFET in the breadboard with its printed label facing you: pins are Gate, Drain, Source from left to right.",
+        "Gate: 220Ω to Pin 9, plus 10kΩ from Gate to GND.",
+        "Source to GND. Connect the battery pack's − to the same GND.",
+        "Motor: one wire to Battery +, the other to the Drain.",
+        "Put the 1N4007 diode across the two motor wires with the silver stripe on the Battery + side. Backwards = short circuit!",
+        "Wire the potentiometer to 5V, GND and A0.",
+        "Upload, switch the battery on and turn the knob."
+      ],
+      "test": "The fan is off at one end of the knob and speeds up smoothly as you turn. The Serial Monitor (9600) shows the speed in %.",
+      "safety": [
+        "Double-check the diode direction before switching on: the stripe goes to Battery +.",
+        "Keep fingers away from the spinning propeller.",
+        "The MOSFET stays cool with this small motor; if it gets hot, check your wiring."
+      ],
+      "next": [
+        "Add a DHT11 so the fan switches on automatically when it's hot.",
+        "Use a bigger 5V fan with a separate 5V supply."
+      ]
+    }
+  },
+  {
+    "id": "auto-plant-waterer",
+    "title": "Auto Plant Waterer",
+    "pitch": "When the soil gets dry, a tiny pump gives your plant a drink by itself. Perfect for holidays.",
+    "emoji": "💧",
+    "difficulty": 3,
+    "time": 60,
+    "vibes": [
+      "useful",
+      "gift"
+    ],
+    "boards": [
+      "arduino-uno",
+      "arduino-nano",
+      "arduino-mega",
+      "arduino-leonardo"
+    ],
+    "requires": [
+      "soil-capacitive",
+      "mini-pump",
+      "mosfet-irlz44n",
+      "diode-1n4007"
+    ],
+    "optional": [
+      "cap-electrolytic-kit",
+      "usb-adapter-5v"
+    ],
+    "basics": [
+      "breadboard",
+      "jumper-wires",
+      "resistor-kit",
+      "usb-cable"
+    ],
+    "libs": [],
+    "guide": {
+      "about": "Combine a soil sensor with a MOSFET-switched pump. The code waters in short bursts, then waits for the water to soak in before measuring again, so it can't flood the pot.",
+      "parts": [
+        [
+          "soil-capacitive",
+          1,
+          ""
+        ],
+        [
+          "mini-pump",
+          1,
+          "with ~1 m of silicone tube"
+        ],
+        [
+          "mosfet-irlz44n",
+          1,
+          ""
+        ],
+        [
+          "diode-1n4007",
+          1,
+          "flyback diode"
+        ],
+        [
+          "cap-electrolytic-kit",
+          1,
+          "one 100µF, optional but recommended"
+        ],
+        [
+          "resistor-kit",
+          1,
+          "one 220Ω and one 10kΩ"
+        ],
+        [
+          "usb-adapter-5v",
+          1,
+          "a 2A charger powers board + pump"
+        ],
+        [
+          "breadboard",
+          1,
+          ""
+        ],
+        [
+          "jumper-wires",
+          10,
+          ""
+        ],
+        [
+          "usb-cable",
+          1,
+          ""
+        ]
+      ],
+      "wiring": [
+        [
+          "Soil sensor VCC / GND / AOUT",
+          "5V / GND / A0",
+          ""
+        ],
+        [
+          "MOSFET Gate (left)",
+          "Pin 7",
+          "through 220Ω, plus 10kΩ from Gate to GND"
+        ],
+        [
+          "MOSFET Source (right)",
+          "GND",
+          ""
+        ],
+        [
+          "MOSFET Drain (middle)",
+          "Pump − (black wire)",
+          ""
+        ],
+        [
+          "Pump + (red wire)",
+          "5V",
+          ""
+        ],
+        [
+          "1N4007 diode",
+          "across the pump",
+          "silver stripe toward 5V"
+        ],
+        [
+          "100µF capacitor (optional)",
+          "between 5V and GND",
+          "stripe (−) to GND: smooths the pump's start-up"
+        ]
+      ],
+      "steps": [
+        "Calibrate the soil sensor first (see the Thirsty Plant Alert guide) and write your DRY_VALUE and WET_VALUE into the code.",
+        "Build the MOSFET switch: Gate via 220Ω to Pin 7, 10kΩ Gate→GND, Source to GND.",
+        "Pump red wire to 5V, black wire to the Drain. Diode across the pump with the stripe to 5V.",
+        "Add the 100µF capacitor across 5V and GND (stripe/− side to GND).",
+        "Put the pump in a water container that sits LOWER than the plant, and run the tube to the pot.",
+        "Power the board from a 2A USB charger, upload, and watch the Serial Monitor (9600)."
+      ],
+      "test": "When moisture drops below 35%, the pump runs for 3 seconds, then waits 60 seconds before checking again. It never runs more than 5 times in a row (a safety limit in case the sensor falls out).",
+      "safety": [
+        "Keep the board, breadboard and charger far away from water; only the pump goes in the container.",
+        "Never connect the pump straight to a board pin: the MOSFET + diode protect the board.",
+        "Test with a cup of water in a sink first."
+      ],
+      "next": [
+        "Add a water-level sensor to warn when the tank is empty.",
+        "Use an ESP32 and get a phone notification after each watering."
+      ]
+    }
+  },
+  {
+    "id": "haptic-metronome",
+    "title": "Silent Haptic Metronome",
+    "pitch": "A metronome you feel instead of hear: a buzz on every beat, with a knob for 40–200 BPM.",
+    "emoji": "🥁",
+    "difficulty": 2,
+    "time": 30,
+    "vibes": [
+      "useful",
+      "gift"
+    ],
+    "boards": [
+      "arduino-uno",
+      "arduino-nano",
+      "arduino-mega",
+      "arduino-leonardo"
+    ],
+    "requires": [
+      "vibration-motor",
+      "npn-2n2222",
+      "diode-1n4007",
+      "potentiometer-10k"
+    ],
+    "optional": [
+      "led-red"
+    ],
+    "basics": [
+      "breadboard",
+      "jumper-wires",
+      "resistor-kit",
+      "usb-cable"
+    ],
+    "libs": [],
+    "guide": {
+      "about": "Musicians use haptic metronomes to practice silently. A transistor switches the little vibration motor from the 5V pin, and PWM at about 60% keeps the motor's average voltage near its rated 3V. The first beat of each bar buzzes longer.",
+      "parts": [
+        [
+          "vibration-motor",
+          1,
+          ""
+        ],
+        [
+          "npn-2n2222",
+          1,
+          "check its pin order (E-B-C or C-B-E) in the datasheet"
+        ],
+        [
+          "diode-1n4007",
+          1,
+          "flyback diode"
+        ],
+        [
+          "potentiometer-10k",
+          1,
+          "tempo knob"
+        ],
+        [
+          "led-red",
+          1,
+          "optional beat light"
+        ],
+        [
+          "resistor-kit",
+          1,
+          "one 1kΩ (base) + one 220Ω (LED)"
+        ],
+        [
+          "breadboard",
+          1,
+          ""
+        ],
+        [
+          "jumper-wires",
+          8,
+          ""
+        ],
+        [
+          "usb-cable",
+          1,
+          ""
+        ]
+      ],
+      "wiring": [
+        [
+          "Transistor Base",
+          "Pin 9",
+          "through 1kΩ"
+        ],
+        [
+          "Transistor Emitter",
+          "GND",
+          ""
+        ],
+        [
+          "Transistor Collector",
+          "Vibration motor − (blue/black)",
+          ""
+        ],
+        [
+          "Vibration motor + (red)",
+          "5V",
+          "the code limits it to ~3V average with PWM"
+        ],
+        [
+          "1N4007 diode",
+          "across the motor",
+          "silver stripe toward 5V"
+        ],
+        [
+          "Potentiometer outer legs",
+          "5V and GND",
+          ""
+        ],
+        [
+          "Potentiometer middle leg",
+          "A0",
+          ""
+        ],
+        [
+          "Red LED + (optional)",
+          "Pin 13",
+          "through 220Ω; − to GND"
+        ]
+      ],
+      "steps": [
+        "Find your transistor's pins from its datasheet (search the number printed on it): Emitter, Base, Collector.",
+        "Base through 1kΩ to Pin 9, Emitter to GND.",
+        "Motor red wire to the board's 5V pin, motor's other wire to the Collector.",
+        "Diode across the motor, stripe toward 5V.",
+        "Potentiometer to 5V, GND and A0. Optional LED on Pin 13.",
+        "Upload and turn the knob to set the tempo."
+      ],
+      "test": "The motor buzzes on every beat: long on beat 1, short on beats 2–4. The Serial Monitor (9600) shows the BPM.",
+      "safety": [
+        "Never power the vibration motor from a board pin: the transistor handles its ~80mA.",
+        "If the transistor gets hot, its pins are probably swapped. Unplug and re-check the datasheet."
+      ],
+      "next": [
+        "Add a TM1637 to show the BPM.",
+        "Add a button for 3/4 and 6/8 time."
+      ]
+    }
+  },
+  {
+    "id": "leonardo-macro-pad",
+    "title": "Gamer Macro Pad",
+    "pitch": "Four big buttons that type keyboard shortcuts on your PC: copy, paste, undo and screenshot, or your game's hotkeys.",
+    "emoji": "⌨️",
+    "difficulty": 1,
+    "time": 25,
+    "vibes": [
+      "gaming",
+      "useful"
+    ],
+    "boards": [
+      "arduino-leonardo"
+    ],
+    "requires": [
+      [
+        "arcade-button",
+        "button-6mm"
+      ]
+    ],
+    "optional": [],
+    "basics": [
+      "breadboard",
+      "jumper-wires",
+      "usb-cable"
+    ],
+    "libs": [
+      "Keyboard"
+    ],
+    "guide": {
+      "about": "The Leonardo can pretend to be a USB keyboard. Each button sends a key combination, and you can change them to anything your games or apps use.",
+      "parts": [
+        [
+          "arcade-button",
+          4,
+          "or 4 small tactile buttons"
+        ],
+        [
+          "breadboard",
+          1,
+          ""
+        ],
+        [
+          "jumper-wires",
+          8,
+          ""
+        ],
+        [
+          "usb-cable",
+          1,
+          ""
+        ]
+      ],
+      "wiring": [
+        [
+          "Button 1 (Copy)",
+          "Pin 2",
+          "other leg / COM to GND"
+        ],
+        [
+          "Button 2 (Paste)",
+          "Pin 3",
+          "other leg / COM to GND"
+        ],
+        [
+          "Button 3 (Undo)",
+          "Pin 4",
+          "other leg / COM to GND"
+        ],
+        [
+          "Button 4 (Screenshot)",
+          "Pin 5",
+          "other leg / COM to GND"
+        ]
+      ],
+      "steps": [
+        "Wire each button between its pin and GND (arcade buttons: use the COM and NO tabs).",
+        "Install the Keyboard library if the IDE asks for it.",
+        "Upload the code with Board set to Arduino Leonardo.",
+        "Open Notepad, select some text and try the buttons.",
+        "Change the shortcuts in the sendShortcut() function, e.g. to your game's skill keys."
+      ],
+      "test": "Button 1 copies (Ctrl+C), 2 pastes (Ctrl+V), 3 undoes (Ctrl+Z), 4 opens the Windows snipping tool (Win+Shift+S).",
+      "safety": [
+        "A board that types by itself can do surprising things: the code only sends keys when you press a button, and waits 3 seconds after plugging in."
+      ],
+      "next": [
+        "Add a rotary encoder for volume up/down.",
+        "Put it in a 3D-printed or cardboard case."
+      ]
+    }
+  },
+  {
+    "id": "joystick-mouse",
+    "title": "Joystick Mouse",
+    "pitch": "Control your PC's mouse pointer with a thumb stick. Click by pressing the stick down.",
+    "emoji": "🕹️",
+    "difficulty": 1,
+    "time": 20,
+    "vibes": [
+      "gaming",
+      "fun"
+    ],
+    "boards": [
+      "arduino-leonardo"
+    ],
+    "requires": [
+      "joystick"
+    ],
+    "optional": [],
+    "basics": [
+      "jumper-wires",
+      "usb-cable"
+    ],
+    "libs": [
+      "Mouse"
+    ],
+    "guide": {
+      "about": "The Leonardo acts as a USB mouse. Joystick tilt becomes pointer speed (with a \"dead zone\" in the middle so it doesn't drift).",
+      "parts": [
+        [
+          "joystick",
+          1,
+          "KY-023"
+        ],
+        [
+          "jumper-wires",
+          5,
+          "female-to-male"
+        ],
+        [
+          "usb-cable",
+          1,
+          ""
+        ]
+      ],
+      "wiring": [
+        [
+          "Joystick GND",
+          "GND",
+          ""
+        ],
+        [
+          "Joystick +5V",
+          "5V",
+          ""
+        ],
+        [
+          "Joystick VRx",
+          "A0",
+          ""
+        ],
+        [
+          "Joystick VRy",
+          "A1",
+          ""
+        ],
+        [
+          "Joystick SW",
+          "Pin 2",
+          ""
+        ]
+      ],
+      "steps": [
+        "Wire the joystick: GND, +5V to 5V, VRx A0, VRy A1, SW Pin 2.",
+        "Upload with Board set to Arduino Leonardo.",
+        "The mouse control starts switched OFF. Click the stick once to turn it on.",
+        "Tilt to move, click to left-click. Hold the stick down for 2 seconds to switch mouse control off again."
+      ],
+      "test": "After enabling, tilting moves the pointer: a little tilt = slow, full tilt = fast. Letting go stops it.",
+      "safety": [
+        "Mouse control starts disabled, so a wiring mistake can't send your pointer flying."
+      ],
+      "next": [
+        "Add a second button for right-click.",
+        "Use an MPU-6050 instead for a tilt-mouse."
+      ]
+    }
+  },
+  {
+    "id": "c3-touch-glow",
+    "title": "Touch Glow Light",
+    "pitch": "A tiny night light: tap a touch pad to change colors, hold it to dim. Thumb-sized and gift-ready.",
+    "emoji": "✨",
+    "difficulty": 1,
+    "time": 25,
+    "vibes": [
+      "gift",
+      "useful"
+    ],
+    "boards": [
+      "esp32-c3-supermini"
+    ],
+    "requires": [
+      "touch-ttp223",
+      "ws2812b-stick"
+    ],
+    "optional": [],
+    "basics": [
+      "breadboard",
+      "jumper-wires",
+      "resistor-kit",
+      "usb-cable"
+    ],
+    "libs": [
+      "Adafruit NeoPixel"
+    ],
+    "guide": {
+      "about": "A TTP223 touch pad tells the ESP32-C3 when you tap or hold it, and an 8-LED stick shows soft colors. Brightness is capped so it runs happily from any USB charger.",
+      "parts": [
+        [
+          "touch-ttp223",
+          1,
+          ""
+        ],
+        [
+          "ws2812b-stick",
+          1,
+          "8 LEDs"
+        ],
+        [
+          "resistor-kit",
+          1,
+          "one 330Ω for the data line"
+        ],
+        [
+          "breadboard",
+          1,
+          ""
+        ],
+        [
+          "jumper-wires",
+          6,
+          ""
+        ],
+        [
+          "usb-cable",
+          1,
+          "USB-C"
+        ]
+      ],
+      "wiring": [
+        [
+          "Touch pad VCC",
+          "3V3",
+          ""
+        ],
+        [
+          "Touch pad GND",
+          "GND",
+          ""
+        ],
+        [
+          "Touch pad I/O (SIG)",
+          "GPIO 3",
+          ""
+        ],
+        [
+          "LED stick 5V (VCC)",
+          "5V",
+          "from USB"
+        ],
+        [
+          "LED stick GND",
+          "GND",
+          ""
+        ],
+        [
+          "LED stick DIN",
+          "GPIO 4",
+          "through 330Ω. 3.3V data works on this short wire; a level shifter (74AHCT125) makes it bulletproof"
+        ]
+      ],
+      "steps": [
+        "Solder header pins to the LED stick if needed.",
+        "Install the Adafruit NeoPixel library.",
+        "Wire the touch pad to 3V3, GND and GPIO 3.",
+        "Wire the stick: 5V, GND, and DIN through a 330Ω resistor to GPIO 4.",
+        "In Tools set Board: ESP32C3 Dev Module and USB CDC On Boot: Enabled, then upload.",
+        "Tap to change color, hold to dim."
+      ],
+      "test": "Each tap switches between warm white, pink, mint, purple, amber and off. Holding the pad slowly dims the light; release to keep that level.",
+      "safety": [
+        "Soldering: hot iron, use the stand and ventilate."
+      ],
+      "next": [
+        "Put it inside a frosted jar or a 3D-printed anime-figure base.",
+        "Add Wi-Fi control from your phone."
+      ]
+    }
+  },
+  {
+    "id": "c3-wifi-signal-meter",
+    "title": "Wi-Fi Signal Meter",
+    "pitch": "A pocket meter that shows your Wi-Fi strength as a bar. Find the best spot for your router or gaming setup.",
+    "emoji": "📡",
+    "difficulty": 1,
+    "time": 20,
+    "vibes": [
+      "useful",
+      "gaming"
+    ],
+    "boards": [
+      "esp32-c3-supermini"
+    ],
+    "requires": [
+      "oled-128x32"
+    ],
+    "optional": [
+      "power-bank"
+    ],
+    "basics": [
+      "breadboard",
+      "jumper-wires",
+      "usb-cable"
+    ],
+    "libs": [
+      "Adafruit SSD1306",
+      "Adafruit GFX Library"
+    ],
+    "guide": {
+      "about": "The ESP32-C3 scans for your network every second and draws its signal strength on a slim OLED. Walk around with a power bank to map dead zones.",
+      "parts": [
+        [
+          "oled-128x32",
+          1,
+          "0.91 inch"
+        ],
+        [
+          "power-bank",
+          1,
+          "optional, to carry it around"
+        ],
+        [
+          "breadboard",
+          1,
+          ""
+        ],
+        [
+          "jumper-wires",
+          4,
+          ""
+        ],
+        [
+          "usb-cable",
+          1,
+          "USB-C"
+        ]
+      ],
+      "wiring": [
+        [
+          "OLED VCC",
+          "3V3",
+          ""
+        ],
+        [
+          "OLED GND",
+          "GND",
+          ""
+        ],
+        [
+          "OLED SDA",
+          "GPIO 5",
+          ""
+        ],
+        [
+          "OLED SCL",
+          "GPIO 6",
+          ""
+        ]
+      ],
+      "steps": [
+        "Install Adafruit SSD1306 and Adafruit GFX Library.",
+        "Wire the OLED: VCC 3V3, GND, SDA GPIO 5, SCL GPIO 6.",
+        "Put your Wi-Fi name in TARGET_SSID (no password needed, it only listens). Leave it empty to show the strongest network.",
+        "Set Board: ESP32C3 Dev Module, USB CDC On Boot: Enabled, then upload.",
+        "Walk around: the bar shows the signal."
+      ],
+      "test": "The OLED shows the network name, a bar and the dBm value. -50 is excellent, -70 is OK, -80 is weak.",
+      "safety": [],
+      "next": [
+        "Beep faster where the signal is stronger: a Wi-Fi metal detector!",
+        "Log the best spot's value."
+      ]
+    }
+  },
+  {
+    "id": "s3-rainbow-status",
+    "title": "Rainbow Status Light",
+    "pitch": "The ESP32-S3 has a tiny RGB LED built in. Make it breathe rainbow colors, or type a color name to set it.",
+    "emoji": "🌈",
+    "difficulty": 1,
+    "time": 10,
+    "vibes": [
+      "fun"
+    ],
+    "boards": [
+      "esp32-s3-devkit"
+    ],
+    "requires": [],
+    "optional": [],
+    "basics": [
+      "usb-cable"
+    ],
+    "libs": [],
+    "guide": {
+      "about": "No parts needed. The DevKitC-1 has an addressable RGB LED on board. You'll drive it with rgbLedWrite() and read commands from the Serial Monitor.",
+      "parts": [
+        [
+          "usb-cable",
+          1,
+          "USB-C, plugged into the UART port"
+        ]
+      ],
+      "wiring": [],
+      "steps": [
+        "Choose Tools → Board → ESP32S3 Dev Module.",
+        "Plug into the port labeled UART (or COM).",
+        "Upload the code and open the Serial Monitor at 115200 (Newline).",
+        "Watch the rainbow, then type red, green, blue, pink, white, off or rainbow and press Enter.",
+        "If the LED stays dark, your board version uses GPIO 38: change RGB_PIN to 38."
+      ],
+      "test": "The small LED near the USB ports cycles smoothly through the rainbow, and your typed colors switch it instantly.",
+      "safety": [],
+      "next": [
+        "Show Wi-Fi status: blue while connecting, green when connected.",
+        "Flash red when a sensor value is too high."
+      ]
+    }
+  },
+  {
+    "id": "s3-macro-keyboard",
+    "title": "ESP32-S3 Macro Keyboard",
+    "pitch": "The S3's native USB turns 4 buttons into a real USB keyboard. Shortcuts for gaming, streaming or homework.",
+    "emoji": "🎛️",
+    "difficulty": 2,
+    "time": 30,
+    "vibes": [
+      "gaming",
+      "useful"
+    ],
+    "boards": [
+      "esp32-s3-devkit"
+    ],
+    "fqbn": {
+      "esp32-s3-devkit": "esp32:esp32:esp32s3:USBMode=default"
+    },
+    "requires": [
+      [
+        "arcade-button",
+        "button-6mm"
+      ]
+    ],
+    "optional": [],
+    "basics": [
+      "breadboard",
+      "jumper-wires",
+      "usb-cable"
+    ],
+    "libs": [],
+    "guide": {
+      "about": "Unlike classic ESP32s, the S3 has real USB built in, so it can act as a keyboard just like an Arduino Leonardo. This uses the S3's \"USB-OTG (TinyUSB)\" mode.",
+      "parts": [
+        [
+          "arcade-button",
+          4,
+          "or 4 tactile buttons"
+        ],
+        [
+          "breadboard",
+          1,
+          ""
+        ],
+        [
+          "jumper-wires",
+          8,
+          ""
+        ],
+        [
+          "usb-cable",
+          2,
+          "two USB-C cables are handy"
+        ]
+      ],
+      "wiring": [
+        [
+          "Button 1 (Copy)",
+          "GPIO 4",
+          "other leg to GND"
+        ],
+        [
+          "Button 2 (Paste)",
+          "GPIO 5",
+          "other leg to GND"
+        ],
+        [
+          "Button 3 (Mute mic, Ctrl+Shift+M)",
+          "GPIO 6",
+          "other leg to GND"
+        ],
+        [
+          "Button 4 (Screenshot)",
+          "GPIO 7",
+          "other leg to GND"
+        ]
+      ],
+      "steps": [
+        "Wire each button between its GPIO and GND.",
+        "In Tools set Board: ESP32S3 Dev Module and USB Mode: USB-OTG (TinyUSB).",
+        "Upload through the port labeled UART.",
+        "Now also connect the port labeled USB to your PC. This is the keyboard.",
+        "Press the buttons in any app."
+      ],
+      "test": "Windows shows a new keyboard. Buttons send Ctrl+C, Ctrl+V, Ctrl+Shift+M (mute in Teams/Discord-style apps) and Win+Shift+S.",
+      "safety": [
+        "Keys are only sent when you press a button, so the board can't type by itself."
+      ],
+      "next": [
+        "Add an OLED that shows the current layer of shortcuts.",
+        "Add a rotary encoder for volume."
+      ]
+    }
+  },
+  {
+    "id": "esp32cam-stream",
+    "title": "Wi-Fi Camera Stream",
+    "pitch": "Watch a live video from the ESP32-CAM on your phone's browser. Pet cam, plant time-lapse or robot eye!",
+    "emoji": "📷",
+    "difficulty": 2,
+    "time": 30,
+    "vibes": [
+      "fun",
+      "useful"
+    ],
+    "boards": [
+      "esp32-cam"
+    ],
+    "requires": [],
+    "optional": [
+      "usb-adapter-5v"
+    ],
+    "basics": [
+      "usb-cable"
+    ],
+    "libs": [],
+    "guide": {
+      "about": "The ESP32-CAM grabs JPEG frames from its camera and streams them over Wi-Fi as an \"MJPEG\" video that any browser can show. Programming needs the ESP32-CAM-MB USB board (usually sold together).",
+      "parts": [
+        [
+          "usb-cable",
+          1,
+          "micro-USB for the ESP32-CAM-MB programmer board"
+        ],
+        [
+          "usb-adapter-5v",
+          1,
+          "a solid 2A charger avoids brownout resets"
+        ]
+      ],
+      "wiring": [
+        [
+          "ESP32-CAM",
+          "ESP32-CAM-MB programmer board",
+          "press it on: the pins only fit one way"
+        ]
+      ],
+      "steps": [
+        "Make sure the camera ribbon is clicked in, then press the ESP32-CAM onto the MB programmer board.",
+        "In Tools choose Board: AI Thinker ESP32-CAM.",
+        "Type your Wi-Fi name and password into the code.",
+        "Upload. If it says \"Failed to connect\", hold the IO0 button on the MB board, press RST, release IO0 and upload again.",
+        "Press RST to run, then open the Serial Monitor at 115200 to see the IP address.",
+        "Open that address on your phone (same Wi-Fi) to watch the stream."
+      ],
+      "test": "The page shows live video at about 5–15 frames per second. Only one viewer at a time.",
+      "safety": [
+        "Anyone on your Wi-Fi can open the stream. Don't point it at private spaces.",
+        "Brownout resets mean weak power: use a good 5V 2A supply.",
+        "Your Wi-Fi password is stored in the code."
+      ],
+      "next": [
+        "Add a button that saves a photo to the microSD card.",
+        "Mount it on the robot car for first-person driving."
+      ]
+    }
+  },
+  {
+    "id": "color-memory-challenge",
+    "title": "Color Memory Challenge",
+    "pitch": "Watch the lights flash a pattern, then repeat it. Each round adds one more step. How long can you go?",
+    "emoji": "🧠",
+    "difficulty": 2,
+    "time": 40,
+    "vibes": [
+      "gaming",
+      "fun"
+    ],
+    "boards": [
+      "arduino-uno",
+      "arduino-nano",
+      "arduino-mega",
+      "arduino-leonardo"
+    ],
+    "requires": [
+      "led-red",
+      "led-yellow",
+      "led-green",
+      "led-blue",
+      [
+        "button-6mm",
+        "arcade-button"
+      ],
+      "buzzer-passive"
+    ],
+    "optional": [],
+    "basics": [
+      "breadboard",
+      "jumper-wires",
+      "resistor-kit",
+      "usb-cable"
+    ],
+    "libs": [],
+    "guide": {
+      "about": "A classic memory game. Each color has its own tone, the sequence is stored in an array, and the game checks every press. Great practice for arrays and game states.",
+      "parts": [
+        [
+          "led-red",
+          1,
+          ""
+        ],
+        [
+          "led-yellow",
+          1,
+          ""
+        ],
+        [
+          "led-green",
+          1,
+          ""
+        ],
+        [
+          "led-blue",
+          1,
+          ""
+        ],
+        [
+          "button-6mm",
+          4,
+          "one under each LED"
+        ],
+        [
+          "buzzer-passive",
+          1,
+          ""
+        ],
+        [
+          "resistor-kit",
+          1,
+          "four 220Ω for LEDs + one 220Ω for the buzzer"
+        ],
+        [
+          "breadboard",
+          1,
+          ""
+        ],
+        [
+          "jumper-wires",
+          14,
+          ""
+        ],
+        [
+          "usb-cable",
+          1,
+          ""
+        ]
+      ],
+      "wiring": [
+        [
+          "Red LED +",
+          "Pin 8",
+          "through 220Ω"
+        ],
+        [
+          "Yellow LED +",
+          "Pin 9",
+          "through 220Ω"
+        ],
+        [
+          "Green LED +",
+          "Pin 10",
+          "through 220Ω"
+        ],
+        [
+          "Blue LED +",
+          "Pin 11",
+          "through 220Ω"
+        ],
+        [
+          "All LED −",
+          "GND",
+          ""
+        ],
+        [
+          "Red button",
+          "Pin 2",
+          "other leg to GND"
+        ],
+        [
+          "Yellow button",
+          "Pin 3",
+          "other leg to GND"
+        ],
+        [
+          "Green button",
+          "Pin 4",
+          "other leg to GND"
+        ],
+        [
+          "Blue button",
+          "Pin 5",
+          "other leg to GND"
+        ],
+        [
+          "Passive buzzer +",
+          "Pin 12",
+          "through 220Ω; − to GND"
+        ]
+      ],
+      "steps": [
+        "Place the 4 LEDs in a row with a button below each one.",
+        "Wire each LED with its 220Ω resistor to pins 8–11, and each button to pins 2–5 (other legs to GND).",
+        "Wire the buzzer through 220Ω to Pin 12.",
+        "Upload. All lights blink: press any button to start.",
+        "Watch, listen, repeat!"
+      ],
+      "test": "Round 1 flashes one color, round 2 adds another, and so on. A wrong press plays a sad sound and shows your score in the Serial Monitor (9600).",
+      "safety": [],
+      "next": [
+        "Speed up the flashes every 5 rounds.",
+        "Show the score on a TM1637 display."
+      ]
+    }
+  },
+  {
+    "id": "whack-a-led",
+    "title": "Whack-a-LED",
+    "pitch": "LEDs pop up at random. Smack the matching button before they vanish! 30 seconds, how many can you hit?",
+    "emoji": "🔨",
+    "difficulty": 1,
+    "time": 30,
+    "vibes": [
+      "gaming",
+      "fun"
+    ],
+    "boards": [
+      "arduino-uno",
+      "arduino-nano",
+      "arduino-mega",
+      "arduino-leonardo"
+    ],
+    "requires": [
+      [
+        "led-red",
+        "led-yellow",
+        "led-green",
+        "led-blue",
+        "led-white"
+      ],
+      [
+        "button-6mm",
+        "arcade-button"
+      ]
+    ],
+    "optional": [
+      "buzzer-passive"
+    ],
+    "basics": [
+      "breadboard",
+      "jumper-wires",
+      "resistor-kit",
+      "usb-cable"
+    ],
+    "libs": [],
+    "guide": {
+      "about": "A speed game with 3 \"moles\". The time each LED stays lit shrinks as your score grows. Uses millis() to run a 30-second round without blocking.",
+      "parts": [
+        [
+          "led-red",
+          3,
+          "any colors"
+        ],
+        [
+          "button-6mm",
+          3,
+          "or arcade buttons"
+        ],
+        [
+          "buzzer-passive",
+          1,
+          "optional"
+        ],
+        [
+          "resistor-kit",
+          1,
+          "three 220Ω + one 220Ω for the buzzer"
+        ],
+        [
+          "breadboard",
+          1,
+          ""
+        ],
+        [
+          "jumper-wires",
+          10,
+          ""
+        ],
+        [
+          "usb-cable",
+          1,
+          ""
+        ]
+      ],
+      "wiring": [
+        [
+          "LED 1 +",
+          "Pin 9",
+          "through 220Ω"
+        ],
+        [
+          "LED 2 +",
+          "Pin 10",
+          "through 220Ω"
+        ],
+        [
+          "LED 3 +",
+          "Pin 11",
+          "through 220Ω"
+        ],
+        [
+          "All LED −",
+          "GND",
+          ""
+        ],
+        [
+          "Button 1",
+          "Pin 2",
+          "other leg to GND"
+        ],
+        [
+          "Button 2",
+          "Pin 3",
+          "other leg to GND"
+        ],
+        [
+          "Button 3",
+          "Pin 4",
+          "other leg to GND"
+        ],
+        [
+          "Passive buzzer + (optional)",
+          "Pin 8",
+          "through 220Ω; − to GND"
+        ]
+      ],
+      "steps": [
+        "Place the 3 LEDs in a row with a button in front of each.",
+        "Wire LEDs (with 220Ω) to pins 9, 10, 11 and buttons to pins 2, 3, 4.",
+        "(Optional) Buzzer through 220Ω on Pin 8.",
+        "Upload and open the Serial Monitor at 9600.",
+        "Press any button to start a 30-second round."
+      ],
+      "test": "A random LED lights; hitting its button scores a point (high beep), the wrong button costs a point. After 30 s all LEDs flash and your score prints.",
+      "safety": [],
+      "next": [
+        "Use arcade buttons in a cardboard box for a real arcade cabinet.",
+        "Add a high-score that survives power-off (EEPROM)."
+      ]
+    }
+  }
+]
