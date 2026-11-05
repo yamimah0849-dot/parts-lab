@@ -298,6 +298,10 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 700; letter-spacing:
 .tile:active { transform: scale(.97); }
 .tile.locked { opacity: .6; }
 .tile .lock { position: absolute; top: 8px; right: 10px; font-family: var(--font-mono); font-size: 10px; letter-spacing: .15em; color: var(--amber); border: 1px solid rgba(255, 181, 71, .4); padding: 1px 6px; border-radius: 6px; }
+.install-hint { display: flex; align-items: center; gap: 12px; width: 100%; padding: 12px 16px; border-radius: 16px; text-align: left; font-size: 14px;
+  border: 1px dashed rgba(255, 79, 163, .55); background: rgba(255, 79, 163, .08); color: #ffd1e6; }
+.install-hint .ico { width: 28px; height: 28px; flex: none; color: var(--pink); }
+.install-hint b { display: block; font-family: var(--font-display); font-size: 12px; letter-spacing: .1em; color: #fff; }
 .member-badge { justify-self: center; font-family: var(--font-mono); color: var(--muted); font-size: 13px; letter-spacing: .15em; padding: 6px 14px; border: 1px dashed var(--line2); border-radius: 999px; }
 .member-badge b { color: var(--amber); font-weight: 400; }
 
@@ -709,3 +713,6 @@ tr.w-pwr, tr.w-gnd, tr.w-sig { background: none; }
 @media (prefers-reduced-motion: reduce) {
   #bg .grid, #bg .spark { animation: none; }
 }
+
+/* big catalog: let the browser skip drawing off-screen category grids */
+#results .grid { content-visibility: auto; contain-intrinsic-size: auto 600px; }

@@ -104,6 +104,7 @@ export function validateClaudeIdeas(text, existingIds = new Set()) {
     const label = `Idea ${n + 1}${r?.title ? ` ("${String(r.title).slice(0, 40)}")` : ''}`;
     if (!r || typeof r !== 'object') { errors.push(`${label}: not an object.`); return; }
     const problems = [];
+    const notes = [];   // only reported if the idea is accepted
     const title = str(r.title, 80);
     if (!title) problems.push('missing title');
     const boards = strArr(r.boards, 40, 6).filter(isBoard);
@@ -117,7 +118,7 @@ export function validateClaudeIdeas(text, existingIds = new Set()) {
     }
     const optional = strArr(r.optional, 40, 8);
     const badOpt = optional.filter(o => !isPart(o));
-    if (badOpt.length) warnings.push(`${label}: ignored unknown optional part(s): ${badOpt.join(', ')}`);
+    if (badOpt.length) notes.push(`${label}: ignored unknown optional part(s): ${badOpt.join(', ')}`);
     const g = r.guide && typeof r.guide === 'object' ? r.guide : {};
     const steps = strArr(g.steps, 600, 30);
     if (!steps.length) problems.push('the guide has no steps');
@@ -127,9 +128,9 @@ export function validateClaudeIdeas(text, existingIds = new Set()) {
     const gparts = (Array.isArray(g.parts) ? g.parts : []).slice(0, 30).map(p => (Array.isArray(p) ? [str(p[0], 40), Number(p[1]) || 1, str(p[2], 120)] : null))
       .filter(p => p && p[0]);
     const badGP = gparts.filter(p => !isPart(p[0])).map(p => p[0]);
-    if (badGP.length) warnings.push(`${label}: guide lists parts not in the catalog (${badGP.join(', ')}); shown as plain text.`);
+    if (badGP.length) notes.push(`${label}: guide lists parts not in the catalog (${badGP.join(', ')}); shown as plain text.`);
     const code = typeof r.code === 'string' ? r.code.slice(0, 40000) : '';
-    if (!code) warnings.push(`${label}: no code included.`);
+    if (!code) notes.push(`${label}: no code included.`);
     if (problems.length) { errors.push(`${label}: ${problems.join('; ')}.`); return; }
 
     let id = `claude-${(str(r.id, 40) || title).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'idea'}`;
@@ -155,6 +156,7 @@ export function validateClaudeIdeas(text, existingIds = new Set()) {
     };
     if (!requirementsOf(idea).length) { errors.push(`${label}: no requirements.`); return; }
     ideas.push(idea);
+    warnings.push(...notes);
   });
   if (!ideas.length && !errors.length) errors.push('No ideas found in the pasted text.');
   return { ideas, errors, warnings };

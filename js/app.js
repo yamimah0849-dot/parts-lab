@@ -82,6 +82,13 @@ function goBack() {
   go(parent || '#/');
 }
 
+// iPhone/iPad in Safari but not installed yet -> show a gentle "install" hint
+function showInstallHint() {
+  const ios = /iphone|ipad|ipod/i.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  const standalone = navigator.standalone || matchMedia('(display-mode: standalone)').matches;
+  return ios && !standalone;
+}
+
 // ---------------------------------------------------------------- HOME
 function renderHome() {
   const s = store.get();
@@ -113,6 +120,7 @@ function renderHome() {
       <button class="tile" data-go="#/help">${icon('upload')}<div><b>HOW TO UPLOAD</b><span>Arduino IDE in 5 steps</span></div></button>
       <button class="tile" data-go="#/settings">${icon('gear')}<div><b>LAB SETTINGS</b><span>Sound, name, backup</span></div></button>
     </div>
+    ${showInstallHint() ? `<button class="install-hint" data-go="#/help">${icon('download')}<span><b>Install Parts Lab</b> Tap Share → "Add to Home Screen" for the full-screen app</span></button>` : ''}
     <div class="member-badge">LAB MEMBER <b>No.001</b>${name ? ` · ${esc(name)}` : ''}</div>
   </section>`;
 

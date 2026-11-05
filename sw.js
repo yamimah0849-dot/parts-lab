@@ -1,6 +1,6 @@
 // Parts Lab service worker: makes the app installable and usable offline.
 // Strategy: network first (always fresh when online), cached copy when offline.
-const CACHE = 'partslab-v2';
+const CACHE = 'partslab-v3';
 // App shell. Data files, sketches and everything else are cached the first time they load.
 const SHELL = [
   './',

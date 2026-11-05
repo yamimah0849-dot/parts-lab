@@ -445,6 +445,9 @@ export function renderHelp() {
       <div class="kicker">Lab manual <span class="jp">マニュアル</span></div>
       <h1>How to upload code</h1></div></div>
     <div class="help">
+      <section class="gsec" id="install-app"><h2>📱 Put Parts Lab on your iPhone</h2>
+        <ol class="nlist"><li>Open this site in <b>Safari</b> (not inside another app).</li><li>Tap the <b>Share</b> button (square with an arrow ↑).</li><li>Scroll down and tap <b>Add to Home Screen</b>, then <b>Add</b>.</li><li>Open Parts Lab from its new icon: it runs full-screen and works offline.</li></ol>
+        <p class="muted">On a PC (Chrome or Edge): click the install icon at the right end of the address bar.</p></section>
       <section class="gsec"><h2>1 · Install the Arduino IDE (free)</h2>
         <p>On your PC, download <b>Arduino IDE 2</b> from <a href="https://www.arduino.cc/en/software" target="_blank" rel="noopener">arduino.cc/en/software</a> and install it. (Code can't be uploaded from an iPhone. Use the iPhone to read guides and the PC to upload.)</p></section>
       <section class="gsec"><h2>2 · Add your board type</h2>
