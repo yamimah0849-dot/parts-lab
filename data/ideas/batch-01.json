@@ -1,0 +1,1311 @@
+[
+  {
+    "id": "sos-beacon",
+    "title": "SOS Signal Beacon",
+    "pitch": "An LED that flashes the famous ··· ––– ··· distress signal in Morse code.",
+    "emoji": "🆘",
+    "difficulty": 1,
+    "time": 15,
+    "vibes": [
+      "fun"
+    ],
+    "boards": [
+      "arduino-uno",
+      "arduino-nano",
+      "arduino-mega",
+      "arduino-leonardo"
+    ],
+    "requires": [
+      [
+        "led-red",
+        "led-yellow",
+        "led-green",
+        "led-blue",
+        "led-white"
+      ]
+    ],
+    "optional": [],
+    "basics": [
+      "breadboard",
+      "jumper-wires",
+      "resistor-kit",
+      "usb-cable"
+    ],
+    "libs": [],
+    "guide": {
+      "about": "Your first real circuit: one LED, one resistor, and code that turns timing into a message. You'll learn how digitalWrite() and delay() make lights blink.",
+      "parts": [
+        [
+          "led-red",
+          1,
+          "any color works"
+        ],
+        [
+          "resistor-kit",
+          1,
+          "one 220Ω (red-red-brown)"
+        ],
+        [
+          "breadboard",
+          1,
+          ""
+        ],
+        [
+          "jumper-wires",
+          2,
+          "male-to-male"
+        ],
+        [
+          "usb-cable",
+          1,
+          ""
+        ]
+      ],
+      "wiring": [
+        [
+          "LED long leg (+)",
+          "Pin 9",
+          "through the 220Ω resistor"
+        ],
+        [
+          "LED short leg (−)",
+          "GND",
+          ""
+        ]
+      ],
+      "steps": [
+        "Push the LED into the breadboard. The long leg is +, the short leg (flat side of the rim) is −.",
+        "Put the 220Ω resistor so one end is in the same row as the LED's long leg.",
+        "Run a jumper wire from the resistor's other end to Pin 9 on the board.",
+        "Run a jumper wire from the LED's short leg row to a GND pin.",
+        "Plug in USB, paste the code into the Arduino IDE, choose your board and port, and press Upload.",
+        "Watch the LED: three short, three long, three short flashes, then a pause."
+      ],
+      "test": "The LED (and the board's own little LED) blinks ··· ––– ··· again and again. Open the Serial Monitor at 9600 to see the letters print.",
+      "safety": [],
+      "next": [
+        "Change the message array to blink your name in Morse.",
+        "Add a second LED that lights during the pauses."
+      ]
+    }
+  },
+  {
+    "id": "traffic-light",
+    "title": "Mini Traffic Light",
+    "pitch": "Red, yellow and green LEDs that cycle like a real crossroads, with an optional walk button.",
+    "emoji": "🚦",
+    "difficulty": 1,
+    "time": 20,
+    "vibes": [
+      "fun"
+    ],
+    "boards": [
+      "arduino-uno",
+      "arduino-nano",
+      "arduino-mega",
+      "arduino-leonardo"
+    ],
+    "requires": [
+      "led-red",
+      "led-yellow",
+      "led-green"
+    ],
+    "optional": [
+      "button-6mm"
+    ],
+    "basics": [
+      "breadboard",
+      "jumper-wires",
+      "resistor-kit",
+      "usb-cable"
+    ],
+    "libs": [],
+    "guide": {
+      "about": "Build a working traffic light. If you add a button, pressing it makes the light switch to red sooner so a pedestrian can cross, just like real crossings.",
+      "parts": [
+        [
+          "led-red",
+          1,
+          ""
+        ],
+        [
+          "led-yellow",
+          1,
+          ""
+        ],
+        [
+          "led-green",
+          1,
+          ""
+        ],
+        [
+          "resistor-kit",
+          1,
+          "three 220Ω"
+        ],
+        [
+          "button-6mm",
+          1,
+          "optional walk button"
+        ],
+        [
+          "breadboard",
+          1,
+          ""
+        ],
+        [
+          "jumper-wires",
+          6,
+          ""
+        ],
+        [
+          "usb-cable",
+          1,
+          ""
+        ]
+      ],
+      "wiring": [
+        [
+          "Red LED long leg (+)",
+          "Pin 4",
+          "through a 220Ω resistor"
+        ],
+        [
+          "Yellow LED long leg (+)",
+          "Pin 3",
+          "through a 220Ω resistor"
+        ],
+        [
+          "Green LED long leg (+)",
+          "Pin 2",
+          "through a 220Ω resistor"
+        ],
+        [
+          "All three LED short legs (−)",
+          "GND",
+          "use the breadboard's blue − rail"
+        ],
+        [
+          "Button leg A (optional)",
+          "Pin 7",
+          ""
+        ],
+        [
+          "Button leg B (diagonal corner)",
+          "GND",
+          "no resistor needed: the code uses INPUT_PULLUP"
+        ]
+      ],
+      "steps": [
+        "Place the three LEDs in a column: red on top, yellow, then green.",
+        "Give each LED its own 220Ω resistor from its long leg to a separate row.",
+        "Wire the resistors to pins 4 (red), 3 (yellow) and 2 (green).",
+        "Connect a GND pin to the breadboard's − rail and plug every LED short leg into that rail.",
+        "(Optional) Put the button across the middle gap of the breadboard. Wire one leg to Pin 7 and the diagonally opposite leg to GND.",
+        "Upload the code and watch the cycle: green → yellow → red → green."
+      ],
+      "test": "Green stays on 6 s, yellow 2 s, red 6 s. With the button: press it during green and the light goes yellow within a second.",
+      "safety": [],
+      "next": [
+        "Add a second set of LEDs for the crossing road.",
+        "Add a passive buzzer that ticks while pedestrians may walk."
+      ]
+    }
+  },
+  {
+    "id": "click-lamp",
+    "title": "Click-Click Lamp",
+    "pitch": "Tap a button to switch a light on and off. Hold it to make the light breathe softly.",
+    "emoji": "💡",
+    "difficulty": 1,
+    "time": 15,
+    "vibes": [
+      "useful"
+    ],
+    "boards": [
+      "arduino-uno",
+      "arduino-nano",
+      "arduino-mega",
+      "arduino-leonardo"
+    ],
+    "requires": [
+      "button-6mm",
+      [
+        "led-white",
+        "led-yellow",
+        "led-red",
+        "led-green",
+        "led-blue"
+      ]
+    ],
+    "optional": [],
+    "basics": [
+      "breadboard",
+      "jumper-wires",
+      "resistor-kit",
+      "usb-cable"
+    ],
+    "libs": [],
+    "guide": {
+      "about": "Learn how to read a button properly, including \"debouncing\" (ignoring the tiny electrical bounces a button makes when pressed).",
+      "parts": [
+        [
+          "button-6mm",
+          1,
+          ""
+        ],
+        [
+          "led-white",
+          1,
+          "any color"
+        ],
+        [
+          "resistor-kit",
+          1,
+          "one 220Ω"
+        ],
+        [
+          "breadboard",
+          1,
+          ""
+        ],
+        [
+          "jumper-wires",
+          4,
+          ""
+        ],
+        [
+          "usb-cable",
+          1,
+          ""
+        ]
+      ],
+      "wiring": [
+        [
+          "LED long leg (+)",
+          "Pin 9",
+          "through a 220Ω resistor"
+        ],
+        [
+          "LED short leg (−)",
+          "GND",
+          ""
+        ],
+        [
+          "Button leg A",
+          "Pin 2",
+          ""
+        ],
+        [
+          "Button leg B (diagonal corner)",
+          "GND",
+          "INPUT_PULLUP: no resistor needed"
+        ]
+      ],
+      "steps": [
+        "Put the button across the breadboard's middle gap.",
+        "Wire one button leg to Pin 2 and the diagonally opposite leg to GND.",
+        "Add the LED with its 220Ω resistor between Pin 9 and the LED's long leg; short leg to GND.",
+        "Upload the code.",
+        "Tap the button to toggle the lamp. Hold it for 1 second to start breathing mode."
+      ],
+      "test": "A short tap toggles on/off. Holding for more than a second makes the LED fade in and out until you tap again.",
+      "safety": [],
+      "next": [
+        "Swap the LED for a WS2812B stick for a color lamp.",
+        "Add a potentiometer to set the brightness."
+      ]
+    }
+  },
+  {
+    "id": "reaction-duel",
+    "title": "Reaction Speed Duel",
+    "pitch": "Two players, two buttons. Wait for the light… whoever slaps their button first wins!",
+    "emoji": "⚔️",
+    "difficulty": 1,
+    "time": 25,
+    "vibes": [
+      "gaming",
+      "fun"
+    ],
+    "boards": [
+      "arduino-uno",
+      "arduino-nano",
+      "arduino-mega",
+      "arduino-leonardo"
+    ],
+    "requires": [
+      [
+        "button-6mm",
+        "arcade-button"
+      ],
+      [
+        "led-red",
+        "led-yellow",
+        "led-green",
+        "led-blue",
+        "led-white"
+      ]
+    ],
+    "optional": [
+      "buzzer-passive"
+    ],
+    "basics": [
+      "breadboard",
+      "jumper-wires",
+      "resistor-kit",
+      "usb-cable"
+    ],
+    "libs": [],
+    "guide": {
+      "about": "A two-player reflex game. A light turns on after a random wait. Press too early and you lose the round! Results and reaction times show in the Serial Monitor.",
+      "parts": [
+        [
+          "button-6mm",
+          2,
+          "or two arcade buttons"
+        ],
+        [
+          "led-red",
+          3,
+          "any colors: 1 GO light + 1 per player"
+        ],
+        [
+          "resistor-kit",
+          1,
+          "three 220Ω for LEDs, one 220Ω for the buzzer"
+        ],
+        [
+          "buzzer-passive",
+          1,
+          "optional, for sound"
+        ],
+        [
+          "breadboard",
+          1,
+          ""
+        ],
+        [
+          "jumper-wires",
+          10,
+          ""
+        ],
+        [
+          "usb-cable",
+          1,
+          ""
+        ]
+      ],
+      "wiring": [
+        [
+          "GO LED long leg (+)",
+          "Pin 9",
+          "through a 220Ω resistor"
+        ],
+        [
+          "Player 1 LED long leg (+)",
+          "Pin 10",
+          "through a 220Ω resistor"
+        ],
+        [
+          "Player 2 LED long leg (+)",
+          "Pin 11",
+          "through a 220Ω resistor"
+        ],
+        [
+          "All LED short legs (−)",
+          "GND",
+          ""
+        ],
+        [
+          "Player 1 button leg",
+          "Pin 2",
+          "other leg to GND"
+        ],
+        [
+          "Player 2 button leg",
+          "Pin 3",
+          "other leg to GND"
+        ],
+        [
+          "Passive buzzer + (optional)",
+          "Pin 8",
+          "through a 220Ω resistor"
+        ],
+        [
+          "Passive buzzer −",
+          "GND",
+          ""
+        ]
+      ],
+      "steps": [
+        "Place the GO LED in the middle and one LED near each player's button.",
+        "Give every LED a 220Ω resistor and wire them to pins 9 (GO), 10 (P1) and 11 (P2). Short legs to GND.",
+        "Put the two buttons at opposite ends of the breadboard: P1 to Pin 2, P2 to Pin 3, other legs to GND.",
+        "(Optional) Connect the passive buzzer: + through a 220Ω resistor to Pin 8, − to GND.",
+        "Upload the code and open the Serial Monitor at 9600.",
+        "Both players hold a finger near their button. When GO lights up, press!"
+      ],
+      "test": "The winner's LED blinks and the Serial Monitor prints the reaction time in milliseconds. Press before GO and the other player wins the round.",
+      "safety": [],
+      "next": [
+        "Keep score to 5 and play a victory tune.",
+        "Show the times on an I2C LCD."
+      ]
+    }
+  },
+  {
+    "id": "auto-night-light",
+    "title": "Auto Night Light",
+    "pitch": "A light that wakes up by itself when the room gets dark and glows brighter the darker it gets.",
+    "emoji": "🌙",
+    "difficulty": 1,
+    "time": 20,
+    "vibes": [
+      "useful",
+      "gift"
+    ],
+    "boards": [
+      "arduino-uno",
+      "arduino-nano",
+      "arduino-mega",
+      "arduino-leonardo"
+    ],
+    "requires": [
+      "ldr",
+      [
+        "led-white",
+        "led-yellow",
+        "led-blue"
+      ]
+    ],
+    "optional": [],
+    "basics": [
+      "breadboard",
+      "jumper-wires",
+      "resistor-kit",
+      "usb-cable"
+    ],
+    "libs": [],
+    "guide": {
+      "about": "Use a photoresistor and a 10kΩ resistor as a \"voltage divider\" so the board can measure light. Then fade an LED using PWM (fast on/off switching that looks like dimming).",
+      "parts": [
+        [
+          "ldr",
+          1,
+          "bare photoresistor"
+        ],
+        [
+          "led-white",
+          1,
+          "white or yellow looks cozy"
+        ],
+        [
+          "resistor-kit",
+          1,
+          "one 10kΩ (brown-black-orange) + one 220Ω"
+        ],
+        [
+          "breadboard",
+          1,
+          ""
+        ],
+        [
+          "jumper-wires",
+          5,
+          ""
+        ],
+        [
+          "usb-cable",
+          1,
+          ""
+        ]
+      ],
+      "wiring": [
+        [
+          "LDR leg 1",
+          "5V",
+          ""
+        ],
+        [
+          "LDR leg 2",
+          "A0",
+          ""
+        ],
+        [
+          "10kΩ resistor",
+          "between A0 and GND",
+          "this makes the voltage divider"
+        ],
+        [
+          "LED long leg (+)",
+          "Pin 9",
+          "through a 220Ω resistor"
+        ],
+        [
+          "LED short leg (−)",
+          "GND",
+          ""
+        ]
+      ],
+      "steps": [
+        "Put the LDR in the breadboard. Its legs have no + or −.",
+        "Wire one LDR leg to 5V and the other leg's row to A0.",
+        "Add the 10kΩ resistor from that same A0 row to GND.",
+        "Add the LED with its 220Ω resistor on Pin 9, short leg to GND.",
+        "Upload the code and open the Serial Monitor at 9600 to see light readings.",
+        "Cover the LDR with your hand: the LED should fade on."
+      ],
+      "test": "In a bright room the LED is off. Cover the LDR and it glows; the darker it gets, the brighter it shines. If it never turns on, change DARK_LEVEL in the code to a value between your bright and dark readings.",
+      "safety": [],
+      "next": [
+        "Replace the LED with a WS2812B ring for a color night light.",
+        "Add a PIR sensor so it only lights when someone walks by."
+      ]
+    }
+  },
+  {
+    "id": "fridge-door-alarm",
+    "title": "Fridge Door Alarm",
+    "pitch": "Left the fridge open? This little gadget notices the light inside and beeps after 20 seconds.",
+    "emoji": "🧊",
+    "difficulty": 1,
+    "time": 20,
+    "vibes": [
+      "useful",
+      "fun"
+    ],
+    "boards": [
+      "arduino-uno",
+      "arduino-nano",
+      "arduino-mega",
+      "arduino-leonardo"
+    ],
+    "requires": [
+      "ldr-module",
+      "buzzer-passive"
+    ],
+    "optional": [],
+    "basics": [
+      "breadboard",
+      "jumper-wires",
+      "resistor-kit",
+      "usb-cable"
+    ],
+    "libs": [],
+    "guide": {
+      "about": "The fridge light switches on when the door opens. The light sensor module's DO pin tells the board \"bright\" or \"dark\", and the board starts a timer. Too long open means beeping.",
+      "parts": [
+        [
+          "ldr-module",
+          1,
+          "the module with a blue adjustment knob"
+        ],
+        [
+          "buzzer-passive",
+          1,
+          ""
+        ],
+        [
+          "resistor-kit",
+          1,
+          "one 220Ω for the buzzer"
+        ],
+        [
+          "breadboard",
+          1,
+          "or solder it small"
+        ],
+        [
+          "jumper-wires",
+          6,
+          ""
+        ],
+        [
+          "usb-cable",
+          1,
+          "power from a power bank inside the fridge"
+        ]
+      ],
+      "wiring": [
+        [
+          "Light module VCC",
+          "5V",
+          ""
+        ],
+        [
+          "Light module GND",
+          "GND",
+          ""
+        ],
+        [
+          "Light module DO",
+          "Pin 2",
+          ""
+        ],
+        [
+          "Passive buzzer +",
+          "Pin 8",
+          "through a 220Ω resistor"
+        ],
+        [
+          "Passive buzzer −",
+          "GND",
+          ""
+        ]
+      ],
+      "steps": [
+        "Wire the light module: VCC to 5V, GND to GND, DO to Pin 2.",
+        "Wire the buzzer: + through a 220Ω resistor to Pin 8, − to GND.",
+        "Upload the code, then power the board.",
+        "Calibrate: shine a light on the module and turn its blue knob until its small DO light turns ON in light and OFF when you cover it.",
+        "Open the Serial Monitor at 9600: it prints BRIGHT or DARK.",
+        "Test it with your phone flashlight, then place it in the fridge running from a power bank."
+      ],
+      "test": "Keep the module in light: after 20 seconds the buzzer beeps until it gets dark again. Cover it and the beeping stops at once.",
+      "safety": [
+        "Keep the electronics in a small sealed bag or box: fridges are damp."
+      ],
+      "next": [
+        "Change OPEN_LIMIT_MS for a shorter or longer limit.",
+        "Count how many times the door was opened today."
+      ]
+    }
+  },
+  {
+    "id": "pocket-jukebox",
+    "title": "Pocket Jukebox",
+    "pitch": "A buzzer that plays tunes. Press the button to switch songs, including an original \"Lab Theme\".",
+    "emoji": "🎶",
+    "difficulty": 1,
+    "time": 20,
+    "vibes": [
+      "gift",
+      "fun"
+    ],
+    "boards": [
+      "arduino-uno",
+      "arduino-nano",
+      "arduino-mega",
+      "arduino-leonardo"
+    ],
+    "requires": [
+      "buzzer-passive",
+      [
+        "button-6mm",
+        "arcade-button",
+        "touch-ttp223"
+      ]
+    ],
+    "optional": [],
+    "basics": [
+      "breadboard",
+      "jumper-wires",
+      "resistor-kit",
+      "usb-cable"
+    ],
+    "libs": [],
+    "guide": {
+      "about": "Learn how tone() turns numbers into musical notes. The songs are stored as lists of notes and lengths, so you can write your own.",
+      "parts": [
+        [
+          "buzzer-passive",
+          1,
+          ""
+        ],
+        [
+          "button-6mm",
+          1,
+          "a TTP223 touch pad also works"
+        ],
+        [
+          "resistor-kit",
+          1,
+          "one 220Ω"
+        ],
+        [
+          "breadboard",
+          1,
+          ""
+        ],
+        [
+          "jumper-wires",
+          4,
+          ""
+        ],
+        [
+          "usb-cable",
+          1,
+          ""
+        ]
+      ],
+      "wiring": [
+        [
+          "Passive buzzer +",
+          "Pin 8",
+          "through a 220Ω resistor"
+        ],
+        [
+          "Passive buzzer −",
+          "GND",
+          ""
+        ],
+        [
+          "Button leg A",
+          "Pin 2",
+          "(touch module: SIG → Pin 2, VCC → 5V, GND → GND)"
+        ],
+        [
+          "Button leg B (diagonal)",
+          "GND",
+          ""
+        ]
+      ],
+      "steps": [
+        "Wire the buzzer + through the 220Ω resistor to Pin 8 and − to GND.",
+        "Wire the button between Pin 2 and GND.",
+        "If you use the TTP223 touch pad instead, set USE_TOUCH to true in the code.",
+        "Upload the code.",
+        "Press the button: the next song plays. Press during a song to skip."
+      ],
+      "test": "Each press plays the next tune: Lab Theme, Twinkle Twinkle, Ode to Joy, Happy Birthday.",
+      "safety": [],
+      "next": [
+        "Write your own melody in the songs table.",
+        "Put it in a small box powered by a USB power bank as a music-box gift."
+      ]
+    }
+  },
+  {
+    "id": "electronic-dice",
+    "title": "Electronic Dice",
+    "pitch": "Press a button: the 7-segment digit spins like a slot machine and lands on 1 to 6.",
+    "emoji": "🎲",
+    "difficulty": 2,
+    "time": 35,
+    "vibes": [
+      "gaming",
+      "fun"
+    ],
+    "boards": [
+      "arduino-uno",
+      "arduino-nano",
+      "arduino-mega",
+      "arduino-leonardo"
+    ],
+    "requires": [
+      "seg7-single-cc",
+      [
+        "button-6mm",
+        "arcade-button"
+      ]
+    ],
+    "optional": [
+      "buzzer-passive"
+    ],
+    "basics": [
+      "breadboard",
+      "jumper-wires",
+      "resistor-kit",
+      "usb-cable"
+    ],
+    "libs": [],
+    "guide": {
+      "about": "Control all 7 segments of a digit yourself to draw numbers, and use random() for fair dice rolls. The spin animation slows down like a real die.",
+      "parts": [
+        [
+          "seg7-single-cc",
+          1,
+          "common cathode, like the 5161AS"
+        ],
+        [
+          "button-6mm",
+          1,
+          ""
+        ],
+        [
+          "resistor-kit",
+          1,
+          "seven 220Ω (one per segment) + one 220Ω for the buzzer"
+        ],
+        [
+          "buzzer-passive",
+          1,
+          "optional, for clicky sounds"
+        ],
+        [
+          "breadboard",
+          1,
+          ""
+        ],
+        [
+          "jumper-wires",
+          12,
+          ""
+        ],
+        [
+          "usb-cable",
+          1,
+          ""
+        ]
+      ],
+      "wiring": [
+        [
+          "Segment a (display pin 7)",
+          "Pin 2",
+          "through 220Ω"
+        ],
+        [
+          "Segment b (display pin 6)",
+          "Pin 3",
+          "through 220Ω"
+        ],
+        [
+          "Segment c (display pin 4)",
+          "Pin 4",
+          "through 220Ω"
+        ],
+        [
+          "Segment d (display pin 2)",
+          "Pin 5",
+          "through 220Ω"
+        ],
+        [
+          "Segment e (display pin 1)",
+          "Pin 6",
+          "through 220Ω"
+        ],
+        [
+          "Segment f (display pin 9)",
+          "Pin 7",
+          "through 220Ω"
+        ],
+        [
+          "Segment g (display pin 10)",
+          "Pin 8",
+          "through 220Ω"
+        ],
+        [
+          "Common pin (display pin 3 or 8)",
+          "GND",
+          "common cathode"
+        ],
+        [
+          "Button leg A",
+          "Pin 12",
+          "other leg to GND"
+        ],
+        [
+          "Passive buzzer + (optional)",
+          "Pin 11",
+          "through 220Ω; − to GND"
+        ]
+      ],
+      "steps": [
+        "Find pin 1 of the display: with the decimal point at the bottom right, pin 1 is bottom-left, pins go 1–5 along the bottom and 6–10 along the top (right to left).",
+        "Place the display across the breadboard gap.",
+        "Connect a 220Ω resistor from each segment pin, then a wire to the board pin from the table.",
+        "Connect display pin 3 (or 8: they're joined inside) to GND.",
+        "Wire the button between Pin 12 and GND. (Optional) Buzzer on Pin 11 with a 220Ω resistor.",
+        "Upload the code, then press the button to roll!"
+      ],
+      "test": "At power-up all segments light for a moment, then the display shows a dash. Each press spins and lands on 1–6. If the digits look scrambled, two segment wires are swapped: check the pinout of your display's datasheet.",
+      "safety": [],
+      "next": [
+        "Add a second display for two dice.",
+        "Use a TM1637 display to show the total of several rolls."
+      ]
+    }
+  },
+  {
+    "id": "knob-dimmer",
+    "title": "Knob Dimmer",
+    "pitch": "Turn a knob, and the light smoothly dims and brightens: your first analog-to-PWM project.",
+    "emoji": "🎛️",
+    "difficulty": 1,
+    "time": 10,
+    "vibes": [
+      "useful"
+    ],
+    "boards": [
+      "arduino-uno",
+      "arduino-nano",
+      "arduino-mega",
+      "arduino-leonardo"
+    ],
+    "requires": [
+      "potentiometer-10k",
+      [
+        "led-white",
+        "led-yellow",
+        "led-red",
+        "led-green",
+        "led-blue"
+      ]
+    ],
+    "optional": [],
+    "basics": [
+      "breadboard",
+      "jumper-wires",
+      "resistor-kit",
+      "usb-cable"
+    ],
+    "libs": [],
+    "guide": {
+      "about": "Read a knob with analogRead() (0–1023) and set LED brightness with analogWrite() (0–255). This in → map → out pattern is used in tons of projects.",
+      "parts": [
+        [
+          "potentiometer-10k",
+          1,
+          ""
+        ],
+        [
+          "led-white",
+          1,
+          "any color"
+        ],
+        [
+          "resistor-kit",
+          1,
+          "one 220Ω"
+        ],
+        [
+          "breadboard",
+          1,
+          ""
+        ],
+        [
+          "jumper-wires",
+          5,
+          ""
+        ],
+        [
+          "usb-cable",
+          1,
+          ""
+        ]
+      ],
+      "wiring": [
+        [
+          "Potentiometer left leg",
+          "GND",
+          ""
+        ],
+        [
+          "Potentiometer middle leg",
+          "A0",
+          ""
+        ],
+        [
+          "Potentiometer right leg",
+          "5V",
+          ""
+        ],
+        [
+          "LED long leg (+)",
+          "Pin 9",
+          "through a 220Ω resistor"
+        ],
+        [
+          "LED short leg (−)",
+          "GND",
+          ""
+        ]
+      ],
+      "steps": [
+        "Plug the potentiometer into the breadboard with its three legs in three different rows.",
+        "Wire outer legs to GND and 5V, and the middle leg to A0.",
+        "Add the LED and its 220Ω resistor to Pin 9, short leg to GND.",
+        "Upload the code and turn the knob."
+      ],
+      "test": "Turning the knob fully one way switches the LED off, the other way makes it full brightness. The Serial Monitor (9600) shows the numbers.",
+      "safety": [],
+      "next": [
+        "Control a servo's angle with the same knob.",
+        "Use the knob to set the speed of a blinking light."
+      ]
+    }
+  },
+  {
+    "id": "mood-lamp",
+    "title": "Mood Lamp Color Wheel",
+    "pitch": "Turn one knob to sweep an RGB LED through every color of the rainbow.",
+    "emoji": "🌈",
+    "difficulty": 1,
+    "time": 20,
+    "vibes": [
+      "gift",
+      "useful"
+    ],
+    "boards": [
+      "arduino-uno",
+      "arduino-nano",
+      "arduino-mega",
+      "arduino-leonardo"
+    ],
+    "requires": [
+      "rgb-led-cc",
+      "potentiometer-10k"
+    ],
+    "optional": [],
+    "basics": [
+      "breadboard",
+      "jumper-wires",
+      "resistor-kit",
+      "usb-cable"
+    ],
+    "libs": [],
+    "guide": {
+      "about": "Mix red, green and blue light with PWM to make any color. The code turns one knob position into a \"hue\" (position on the color wheel).",
+      "parts": [
+        [
+          "rgb-led-cc",
+          1,
+          "common cathode: long leg goes to GND"
+        ],
+        [
+          "potentiometer-10k",
+          1,
+          ""
+        ],
+        [
+          "resistor-kit",
+          1,
+          "three 220Ω"
+        ],
+        [
+          "breadboard",
+          1,
+          ""
+        ],
+        [
+          "jumper-wires",
+          7,
+          ""
+        ],
+        [
+          "usb-cable",
+          1,
+          ""
+        ]
+      ],
+      "wiring": [
+        [
+          "RGB LED red leg",
+          "Pin 9",
+          "through 220Ω"
+        ],
+        [
+          "RGB LED common (longest) leg",
+          "GND",
+          "common cathode"
+        ],
+        [
+          "RGB LED green leg",
+          "Pin 10",
+          "through 220Ω"
+        ],
+        [
+          "RGB LED blue leg",
+          "Pin 11",
+          "through 220Ω"
+        ],
+        [
+          "Potentiometer outer legs",
+          "5V and GND",
+          ""
+        ],
+        [
+          "Potentiometer middle leg",
+          "A0",
+          ""
+        ]
+      ],
+      "steps": [
+        "Find the RGB LED's longest leg: that's the common cathode. The order is usually red, common, green, blue.",
+        "Put the LED in the breadboard and connect the longest leg to GND.",
+        "Give each color leg its own 220Ω resistor, then wire red → 9, green → 10, blue → 11.",
+        "Wire the potentiometer: outer legs to 5V and GND, middle to A0.",
+        "Upload the code and turn the knob."
+      ],
+      "test": "The color sweeps red → yellow → green → cyan → blue → magenta as you turn. If red and green seem swapped, swap those two wires.",
+      "safety": [],
+      "next": [
+        "Put the LED under a frosted cup or a paper lantern.",
+        "Add a button that switches to an automatic rainbow mode."
+      ]
+    }
+  },
+  {
+    "id": "rainbow-fade-lamp",
+    "title": "Rainbow Fade Lamp",
+    "pitch": "A common-anode RGB LED that drifts through soft rainbow colors. A button changes the speed.",
+    "emoji": "🏮",
+    "difficulty": 1,
+    "time": 20,
+    "vibes": [
+      "gift"
+    ],
+    "boards": [
+      "arduino-uno",
+      "arduino-nano",
+      "arduino-mega",
+      "arduino-leonardo"
+    ],
+    "requires": [
+      "rgb-led-ca",
+      [
+        "button-6mm",
+        "touch-ttp223"
+      ]
+    ],
+    "optional": [],
+    "basics": [
+      "breadboard",
+      "jumper-wires",
+      "resistor-kit",
+      "usb-cable"
+    ],
+    "libs": [],
+    "guide": {
+      "about": "With a common-anode LED the shared leg goes to + and a color lights when its pin goes LOW, so the code \"flips\" every brightness value. A neat lesson in reading the variant!",
+      "parts": [
+        [
+          "rgb-led-ca",
+          1,
+          "common anode: long leg goes to 5V"
+        ],
+        [
+          "button-6mm",
+          1,
+          ""
+        ],
+        [
+          "resistor-kit",
+          1,
+          "three 220Ω"
+        ],
+        [
+          "breadboard",
+          1,
+          ""
+        ],
+        [
+          "jumper-wires",
+          6,
+          ""
+        ],
+        [
+          "usb-cable",
+          1,
+          ""
+        ]
+      ],
+      "wiring": [
+        [
+          "RGB LED common (longest) leg",
+          "5V",
+          "common ANODE goes to +"
+        ],
+        [
+          "RGB LED red leg",
+          "Pin 9",
+          "through 220Ω"
+        ],
+        [
+          "RGB LED green leg",
+          "Pin 10",
+          "through 220Ω"
+        ],
+        [
+          "RGB LED blue leg",
+          "Pin 11",
+          "through 220Ω"
+        ],
+        [
+          "Button leg A",
+          "Pin 2",
+          "other leg to GND"
+        ]
+      ],
+      "steps": [
+        "Find the longest leg of the RGB LED and connect it to 5V (not GND!).",
+        "Put a 220Ω resistor on each color leg, then wire red → 9, green → 10, blue → 11.",
+        "Wire the button between Pin 2 and GND.",
+        "Upload the code.",
+        "Press the button to cycle through slow, medium and fast fading."
+      ],
+      "test": "The LED glides smoothly through the rainbow. If it's stuck on white or looks inverted, check that the long leg is on 5V.",
+      "safety": [],
+      "next": [
+        "Diffuse it with a ping-pong ball for a glowing orb.",
+        "Add a light sensor so it only runs at night."
+      ]
+    }
+  },
+  {
+    "id": "morse-messenger",
+    "title": "Morse Code Messenger",
+    "pitch": "Type a message on your PC and watch the board blink it out in Morse code. Just the board, nothing else!",
+    "emoji": "📡",
+    "difficulty": 1,
+    "time": 10,
+    "vibes": [
+      "fun"
+    ],
+    "boards": [
+      "arduino-uno",
+      "arduino-nano",
+      "arduino-mega",
+      "arduino-leonardo"
+    ],
+    "requires": [],
+    "optional": [
+      "buzzer-passive"
+    ],
+    "basics": [
+      "usb-cable"
+    ],
+    "libs": [],
+    "guide": {
+      "about": "Uses only the board's built-in LED and the Serial Monitor. You'll learn how to read text sent from your computer and convert letters into Morse timing.",
+      "parts": [
+        [
+          "usb-cable",
+          1,
+          ""
+        ],
+        [
+          "buzzer-passive",
+          1,
+          "optional: beeps along"
+        ],
+        [
+          "resistor-kit",
+          1,
+          "one 220Ω, only if you add the buzzer"
+        ]
+      ],
+      "wiring": [
+        [
+          "Passive buzzer + (optional)",
+          "Pin 8",
+          "through a 220Ω resistor; − to GND"
+        ]
+      ],
+      "steps": [
+        "Plug the board into your PC with the USB cable.",
+        "Paste the code into the Arduino IDE and upload it.",
+        "Open the Serial Monitor (top right) and set it to 9600 baud and \"Newline\".",
+        "Type a message like HELLO LAB and press Enter.",
+        "Watch the little LED marked L blink your message."
+      ],
+      "test": "The Serial Monitor echoes each letter as dots and dashes while the L LED blinks them.",
+      "safety": [],
+      "next": [
+        "Add an LED on Pin 9 for a bigger light.",
+        "Make the speed adjustable with a potentiometer."
+      ]
+    }
+  }
+]

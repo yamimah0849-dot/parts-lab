@@ -126,6 +126,13 @@ const I = {
   'check': `<path d="M9 25l10 10 20-22" stroke-width="3.4"/>`,
   'custom': `<path d="M24 4l18 10v20L24 44 6 34V14z" class="f"/><path d="M6 14l18 10 18-10M24 24v20" opacity=".5"/><path d="M20 15a4 4 0 1 1 6 3c-1.5 1-2 2-2 3" class="ac" stroke-width="2.6"/>`,
   'flip': `<path d="M8 18h28l-6-6M40 30H12l6 6"/>`,
+  'clock': `<circle cx="24" cy="24" r="18"/><path d="M24 13v11l8 5"/>`,
+  'chat': `<path d="M8 10h32a3 3 0 0 1 3 3v18a3 3 0 0 1-3 3H22l-10 8v-8H8a3 3 0 0 1-3-3V13a3 3 0 0 1 3-3z" class="f"/><circle cx="16" cy="22" r="2" class="s"/><circle cx="24" cy="22" r="2" class="s"/><circle cx="32" cy="22" r="2" class="s"/>`,
+  'copy': `<rect x="15" y="15" width="25" height="27" rx="3" class="f"/><path d="M33 15V9a3 3 0 0 0-3-3H11a3 3 0 0 0-3 3v24a3 3 0 0 0 3 3h4"/>`,
+  'code': `<path d="M16 14L5 24l11 10M32 14l11 10-11 10M27 9l-6 30"/>`,
+  'download': `<path d="M24 6v24M14 21l10 10 10-10M8 38h32"/>`,
+  'upload': `<path d="M24 32V8M14 17l10-10 10 10M8 38h32"/>`,
+  'play': `<path d="M15 9l24 15-24 15z" class="f"/>`,
 };
 
 export function icon(key, cls = '', style = '') {

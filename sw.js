@@ -1,14 +1,16 @@
 // Parts Lab service worker: makes the app installable and usable offline.
 // Strategy: network first (always fresh when online), cached copy when offline.
-const CACHE = 'partslab-v1';
+const CACHE = 'partslab-v2';
+// App shell. Data files, sketches and everything else are cached the first time they load.
 const SHELL = [
   './',
   'index.html',
   'manifest.webmanifest',
   'css/style.css',
-  'js/app.js', 'js/data.js', 'js/store.js', 'js/icons.js', 'js/mascot.js', 'js/sfx.js', 'js/checks.js',
+  'js/app.js', 'js/ui.js', 'js/data.js', 'js/store.js', 'js/icons.js', 'js/mascot.js', 'js/sfx.js', 'js/checks.js',
+  'js/ideas.js', 'js/ideas-ui.js', 'js/claude.js',
   'data/categories.json',
-  ...['boards', 'sensors', 'displays', 'motion', 'audio', 'lighting', 'input', 'comms', 'power', 'components', 'tools'].map(c => `data/parts/${c}.json`),
+  'data/ideas/index.json',
   'assets/fonts/orbitron-latin-700-normal.woff2',
   'assets/fonts/orbitron-latin-900-normal.woff2',
   'assets/fonts/share-tech-mono-latin-400-normal.woff2',

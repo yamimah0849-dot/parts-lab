@@ -1,0 +1,83 @@
+{
+ "results": {
+  "sos-beacon": {
+   "arduino-mega": "ok",
+   "arduino-nano": "ok",
+   "arduino-uno": "ok",
+   "arduino-leonardo": "ok"
+  },
+  "traffic-light": {
+   "arduino-uno": "ok",
+   "arduino-mega": "ok",
+   "arduino-nano": "ok",
+   "arduino-leonardo": "ok"
+  },
+  "click-lamp": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok",
+   "arduino-mega": "ok",
+   "arduino-leonardo": "ok"
+  },
+  "reaction-duel": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok",
+   "arduino-mega": "ok",
+   "arduino-leonardo": "ok"
+  },
+  "auto-night-light": {
+   "arduino-nano": "ok",
+   "arduino-uno": "ok",
+   "arduino-mega": "ok",
+   "arduino-leonardo": "ok"
+  },
+  "fridge-door-alarm": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok",
+   "arduino-mega": "ok",
+   "arduino-leonardo": "ok"
+  },
+  "pocket-jukebox": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok",
+   "arduino-mega": "ok",
+   "arduino-leonardo": "ok"
+  },
+  "electronic-dice": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok",
+   "arduino-mega": "ok",
+   "arduino-leonardo": "ok"
+  },
+  "knob-dimmer": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok",
+   "arduino-mega": "ok",
+   "arduino-leonardo": "ok"
+  },
+  "mood-lamp": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok",
+   "arduino-mega": "ok",
+   "arduino-leonardo": "ok"
+  },
+  "rainbow-fade-lamp": {
+   "arduino-nano": "ok",
+   "arduino-uno": "ok",
+   "arduino-mega": "ok",
+   "arduino-leonardo": "ok"
+  },
+  "morse-messenger": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok",
+   "arduino-mega": "ok",
+   "arduino-leonardo": "ok"
+  }
+ },
+ "generated": "2026-11-05T03:46:36.787Z",
+ "arduinoCli": "1.5.2-rc.1",
+ "cores": {
+  "arduino:avr": "1.8.8",
+  "esp32:esp32": "3.3.12",
+  "rp2040:rp2040": "6.3.2"
+ }
+}
