@@ -147,9 +147,49 @@
    "arduino-mega": "ok",
    "arduino-nano": "ok",
    "arduino-leonardo": "ok"
+  },
+  "wifi-radar": {
+   "esp32-c3-supermini": "ok",
+   "esp32-devkit": "ok",
+   "esp32-s3-devkit": "ok"
+  },
+  "motion-phone-alert": {
+   "esp32-devkit": "ok"
+  },
+  "phone-lamp-wifi": {
+   "esp32-devkit": "ok"
+  },
+  "wifi-climate-page": {
+   "esp32-devkit": "ok"
+  },
+  "rfid-magic-door": {
+   "esp32-devkit": "ok"
+  },
+  "internet-clock": {
+   "esp32-devkit": "ok"
+  },
+  "touch-piano": {
+   "esp32-devkit": "ok"
+  },
+  "pocket-altimeter": {
+   "esp32-devkit": "ok"
+  },
+  "pico-chip-thermometer": {
+   "pico": "ok",
+   "pico-w": "ok"
+  },
+  "wifi-mood-ring": {
+   "esp32-devkit": "ok"
+  },
+  "pico-tap-jumper": {
+   "pico": "ok",
+   "pico-w": "ok"
+  },
+  "pico-w-web-remote": {
+   "pico-w": "ok"
   }
  },
- "generated": "2026-11-05T03:58:40.015Z",
+ "generated": "2026-11-05T04:08:06.526Z",
  "arduinoCli": "1.5.2-rc.1",
  "cores": {
   "arduino:avr": "1.8.8",

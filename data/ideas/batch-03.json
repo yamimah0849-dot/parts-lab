@@ -1,0 +1,1093 @@
+[
+  {
+    "id": "wifi-radar",
+    "title": "Wi-Fi Radar",
+    "pitch": "Scan the air for every Wi-Fi network around you and rank them by signal strength. Just the board!",
+    "emoji": "📶",
+    "difficulty": 1,
+    "time": 10,
+    "vibes": [
+      "fun",
+      "useful"
+    ],
+    "boards": [
+      "esp32-devkit",
+      "esp32-c3-supermini",
+      "esp32-s3-devkit"
+    ],
+    "requires": [],
+    "optional": [],
+    "basics": [
+      "usb-cable"
+    ],
+    "libs": [],
+    "guide": {
+      "about": "Your ESP32 has a Wi-Fi radio built in. This sketch scans every 10 seconds and prints a ranked list with signal bars, channel and whether each network is locked.",
+      "parts": [
+        [
+          "usb-cable",
+          1,
+          "a data cable"
+        ]
+      ],
+      "wiring": [],
+      "steps": [
+        "Install the ESP32 boards in the Arduino IDE (see How to upload).",
+        "Plug the board into your PC. ESP32-S3 DevKitC: use the port labeled UART/COM.",
+        "Choose your exact board in Tools → Board (ESP32 Dev Module, ESP32C3 Dev Module or ESP32S3 Dev Module). For the C3 SuperMini set \"USB CDC On Boot: Enabled\".",
+        "Upload the code and open the Serial Monitor at 115200.",
+        "Walk around the house with a laptop and watch the signal bars change."
+      ],
+      "test": "Every 10 seconds you see a ranked list like \"1. MyHome   ####  -48 dBm  ch 6  locked\". Hidden networks show as (hidden).",
+      "safety": [],
+      "next": [
+        "Show the strongest network on an OLED (see the Wi-Fi Signal Meter idea).",
+        "Beep a buzzer when a specific network appears."
+      ]
+    }
+  },
+  {
+    "id": "phone-lamp-wifi",
+    "title": "Phone-Controlled Lamp (Wi-Fi)",
+    "pitch": "Open a web page on your iPhone to switch a light on, off, or dim it. No app needed!",
+    "emoji": "📱",
+    "difficulty": 2,
+    "time": 30,
+    "vibes": [
+      "useful",
+      "fun"
+    ],
+    "boards": [
+      "esp32-devkit"
+    ],
+    "requires": [
+      [
+        "led-white",
+        "led-yellow",
+        "led-red",
+        "led-green",
+        "led-blue"
+      ]
+    ],
+    "optional": [],
+    "basics": [
+      "breadboard",
+      "jumper-wires",
+      "resistor-kit",
+      "usb-cable"
+    ],
+    "libs": [],
+    "guide": {
+      "about": "The ESP32 joins your Wi-Fi and runs a tiny web server. Your phone opens its page (http://partslab-lamp.local) and buttons send commands back. That's the basic idea behind every smart-home gadget.",
+      "parts": [
+        [
+          "led-white",
+          1,
+          "any color"
+        ],
+        [
+          "resistor-kit",
+          1,
+          "one 100Ω (3.3V boards need a smaller resistor)"
+        ],
+        [
+          "breadboard",
+          1,
+          ""
+        ],
+        [
+          "jumper-wires",
+          2,
+          ""
+        ],
+        [
+          "usb-cable",
+          1,
+          ""
+        ]
+      ],
+      "wiring": [
+        [
+          "LED long leg (+)",
+          "GPIO 16 (D16 / RX2)",
+          "through 100Ω"
+        ],
+        [
+          "LED short leg (−)",
+          "GND",
+          ""
+        ]
+      ],
+      "steps": [
+        "Wire the LED with a 100Ω resistor to GPIO 16 (labeled D16 or RX2 on most DevKit boards) and GND.",
+        "In the code, type your Wi-Fi name and password into WIFI_SSID and WIFI_PASSWORD (2.4 GHz networks only).",
+        "Upload and open the Serial Monitor at 115200. It prints the board's IP address.",
+        "On your iPhone (same Wi-Fi), open Safari and go to http://partslab-lamp.local or the IP address.",
+        "Tap ON/OFF or drag the brightness slider. Tip: Share → Add to Home Screen for a one-tap remote."
+      ],
+      "test": "The page loads in a second and the LED reacts instantly. If .local doesn't open, use the IP number from the Serial Monitor.",
+      "safety": [
+        "Your Wi-Fi password is stored in the code. Don't share the sketch publicly with it filled in."
+      ],
+      "next": [
+        "Add a relay to switch a 12V lamp (low voltage only!).",
+        "Replace the LED with a WS2812B ring (see Wi-Fi Mood Ring)."
+      ]
+    }
+  },
+  {
+    "id": "wifi-climate-page",
+    "title": "Wi-Fi Thermometer Page",
+    "pitch": "Check your room's temperature and humidity from your phone, anywhere in the house.",
+    "emoji": "🌡️",
+    "difficulty": 2,
+    "time": 30,
+    "vibes": [
+      "useful"
+    ],
+    "boards": [
+      "esp32-devkit"
+    ],
+    "requires": [
+      "dht22-module"
+    ],
+    "optional": [],
+    "basics": [
+      "breadboard",
+      "jumper-wires",
+      "usb-cable"
+    ],
+    "libs": [
+      "DHT sensor library",
+      "Adafruit Unified Sensor"
+    ],
+    "guide": {
+      "about": "The ESP32 reads a DHT22 and serves a live-updating web page. The page asks for fresh data every 3 seconds without reloading (that's called fetch/JSON).",
+      "parts": [
+        [
+          "dht22-module",
+          1,
+          ""
+        ],
+        [
+          "breadboard",
+          1,
+          ""
+        ],
+        [
+          "jumper-wires",
+          3,
+          ""
+        ],
+        [
+          "usb-cable",
+          1,
+          ""
+        ]
+      ],
+      "wiring": [
+        [
+          "DHT22 VCC (+)",
+          "3V3",
+          "the DHT22 works on 3.3V"
+        ],
+        [
+          "DHT22 GND (−)",
+          "GND",
+          ""
+        ],
+        [
+          "DHT22 DATA",
+          "GPIO 4 (D4)",
+          ""
+        ]
+      ],
+      "steps": [
+        "Install the DHT sensor library and Adafruit Unified Sensor.",
+        "Wire the DHT22: + to 3V3, − to GND, DATA to GPIO 4.",
+        "Enter your Wi-Fi name and password in the code (2.4 GHz only).",
+        "Upload, open the Serial Monitor at 115200 and note the IP address.",
+        "On your phone, open http://partslab-climate.local (or the IP address)."
+      ],
+      "test": "The page shows big temperature and humidity numbers that update every few seconds. Breathe on the sensor to see humidity rise live.",
+      "safety": [
+        "Your Wi-Fi password is stored in the code. Don't share it publicly."
+      ],
+      "next": [
+        "Add a chart of the last hour.",
+        "Add the PIR motion alert to the same board."
+      ]
+    }
+  },
+  {
+    "id": "motion-phone-alert",
+    "title": "Motion Alert to your iPhone",
+    "pitch": "Someone walks into your room? Your phone gets a push notification within seconds, free.",
+    "emoji": "🔔",
+    "difficulty": 2,
+    "time": 30,
+    "vibes": [
+      "useful",
+      "fun"
+    ],
+    "boards": [
+      "esp32-devkit"
+    ],
+    "requires": [
+      "pir-hc-sr501"
+    ],
+    "optional": [],
+    "basics": [
+      "breadboard",
+      "jumper-wires",
+      "usb-cable"
+    ],
+    "libs": [],
+    "guide": {
+      "about": "When the PIR sees motion, the ESP32 sends a message to ntfy.sh, a free notification service. The free ntfy app on your iPhone pops up the alert. No account needed.",
+      "parts": [
+        [
+          "pir-hc-sr501",
+          1,
+          ""
+        ],
+        [
+          "breadboard",
+          1,
+          ""
+        ],
+        [
+          "jumper-wires",
+          3,
+          "female-to-male"
+        ],
+        [
+          "usb-cable",
+          1,
+          ""
+        ]
+      ],
+      "wiring": [
+        [
+          "PIR VCC",
+          "VIN (5V from USB)",
+          "the PIR needs 5V power"
+        ],
+        [
+          "PIR OUT",
+          "GPIO 27 (D27)",
+          "outputs 3.3V: safe for the ESP32"
+        ],
+        [
+          "PIR GND",
+          "GND",
+          ""
+        ]
+      ],
+      "steps": [
+        "On your iPhone, install the free \"ntfy\" app from the App Store and allow notifications.",
+        "In the app tap + and subscribe to a long, secret topic name, e.g. partslab-room-7k3q9x.",
+        "Put the same topic in NTFY_TOPIC in the code, plus your Wi-Fi name and password.",
+        "Wire the PIR: VCC to VIN, OUT to GPIO 27, GND to GND.",
+        "Upload and open the Serial Monitor at 115200. Wait 1 minute for the PIR to settle.",
+        "Walk past the sensor: your phone buzzes!"
+      ],
+      "test": "Motion prints \"Motion! Sending alert…\" and your phone shows \"🚨 Motion detected in the lab\". It waits 30 seconds before sending another.",
+      "safety": [
+        "ntfy topics are public: anyone who guesses the name can read the messages. Use a long random name and never send private info.",
+        "Your Wi-Fi password is stored in the code."
+      ],
+      "next": [
+        "Send the room temperature with the alert.",
+        "Add a button that pauses alerts while you're home."
+      ]
+    }
+  },
+  {
+    "id": "internet-clock",
+    "title": "Internet Time Clock",
+    "pitch": "A clock that sets itself from the internet, always exact to the second, in Saudi time.",
+    "emoji": "⏰",
+    "difficulty": 1,
+    "time": 20,
+    "vibes": [
+      "useful",
+      "gift"
+    ],
+    "boards": [
+      "esp32-devkit"
+    ],
+    "requires": [
+      "tm1637"
+    ],
+    "optional": [],
+    "basics": [
+      "breadboard",
+      "jumper-wires",
+      "usb-cable"
+    ],
+    "libs": [
+      "TM1637"
+    ],
+    "guide": {
+      "about": "The ESP32 asks a time server (NTP) for the exact time, then keeps counting by itself. You'll learn how time zones work in code (Saudi Arabia is UTC+3).",
+      "parts": [
+        [
+          "tm1637",
+          1,
+          ""
+        ],
+        [
+          "breadboard",
+          1,
+          ""
+        ],
+        [
+          "jumper-wires",
+          4,
+          ""
+        ],
+        [
+          "usb-cable",
+          1,
+          "power from any USB charger"
+        ]
+      ],
+      "wiring": [
+        [
+          "TM1637 VCC",
+          "3V3",
+          "the module works from 3.3V"
+        ],
+        [
+          "TM1637 GND",
+          "GND",
+          ""
+        ],
+        [
+          "TM1637 CLK",
+          "GPIO 18 (D18)",
+          ""
+        ],
+        [
+          "TM1637 DIO",
+          "GPIO 19 (D19)",
+          ""
+        ]
+      ],
+      "steps": [
+        "Install the TM1637 library by Avishay Orpaz.",
+        "Wire the display: VCC 3V3, GND, CLK GPIO 18, DIO GPIO 19.",
+        "Enter your Wi-Fi name and password in the code. Change TIMEZONE if you're not in UTC+3.",
+        "Upload. The display shows dashes until the time arrives (a few seconds)."
+      ],
+      "test": "The display shows HH:MM with a blinking colon, matching your phone's clock exactly.",
+      "safety": [
+        "Your Wi-Fi password is stored in the code."
+      ],
+      "next": [
+        "Show the date for 3 seconds every minute.",
+        "Add a buzzer alarm for Fajr or wake-up time."
+      ]
+    }
+  },
+  {
+    "id": "rfid-magic-door",
+    "title": "Magic Card Door Lock",
+    "pitch": "Tap your card and a servo latch springs open. Any other card gets a red light. Like a real hotel door!",
+    "emoji": "🪪",
+    "difficulty": 2,
+    "time": 45,
+    "vibes": [
+      "fun",
+      "gaming"
+    ],
+    "boards": [
+      "esp32-devkit"
+    ],
+    "requires": [
+      "rfid-rc522",
+      "servo-sg90"
+    ],
+    "optional": [
+      "led-green",
+      "led-red"
+    ],
+    "basics": [
+      "breadboard",
+      "jumper-wires",
+      "resistor-kit",
+      "usb-cable"
+    ],
+    "libs": [
+      "MFRC522",
+      "ESP32Servo"
+    ],
+    "guide": {
+      "about": "The RC522 reads the unique ID of an RFID card over SPI. The first card you tap becomes the key and is saved in the ESP32's flash memory, so it survives power-off. The ESP32 runs at 3.3V like the RC522, so no level shifting is needed.",
+      "parts": [
+        [
+          "rfid-rc522",
+          1,
+          "comes with a card and a key tag"
+        ],
+        [
+          "servo-sg90",
+          1,
+          "the latch"
+        ],
+        [
+          "led-green",
+          1,
+          "optional"
+        ],
+        [
+          "led-red",
+          1,
+          "optional"
+        ],
+        [
+          "resistor-kit",
+          1,
+          "100Ω for each LED"
+        ],
+        [
+          "breadboard",
+          1,
+          ""
+        ],
+        [
+          "jumper-wires",
+          12,
+          ""
+        ],
+        [
+          "usb-cable",
+          1,
+          ""
+        ]
+      ],
+      "wiring": [
+        [
+          "RC522 3.3V",
+          "3V3",
+          "never 5V!"
+        ],
+        [
+          "RC522 GND",
+          "GND",
+          ""
+        ],
+        [
+          "RC522 SDA (SS)",
+          "GPIO 5 (D5)",
+          ""
+        ],
+        [
+          "RC522 SCK",
+          "GPIO 18 (D18)",
+          ""
+        ],
+        [
+          "RC522 MOSI",
+          "GPIO 23 (D23)",
+          ""
+        ],
+        [
+          "RC522 MISO",
+          "GPIO 19 (D19)",
+          ""
+        ],
+        [
+          "RC522 RST",
+          "GPIO 22 (D22)",
+          ""
+        ],
+        [
+          "RC522 IRQ",
+          "not connected",
+          ""
+        ],
+        [
+          "Servo red wire",
+          "VIN (5V from USB)",
+          ""
+        ],
+        [
+          "Servo brown wire",
+          "GND",
+          ""
+        ],
+        [
+          "Servo orange wire",
+          "GPIO 13 (D13)",
+          ""
+        ],
+        [
+          "Green LED + (optional)",
+          "GPIO 25 (D25)",
+          "through 100Ω; − to GND"
+        ],
+        [
+          "Red LED + (optional)",
+          "GPIO 26 (D26)",
+          "through 100Ω; − to GND"
+        ]
+      ],
+      "steps": [
+        "Install the MFRC522 and ESP32Servo libraries.",
+        "Solder the header pins onto the RC522 if needed, then wire it exactly as in the table (3.3V only!).",
+        "Wire the servo to VIN, GND and GPIO 13.",
+        "(Optional) Add the green and red LEDs with 100Ω resistors on GPIO 25 and 26.",
+        "Upload and open the Serial Monitor at 115200.",
+        "Tap the card you want as the key: it's saved. From now on only that card opens the latch.",
+        "To forget the saved card: press the board's EN (reset) button, then within 3 seconds press and hold BOOT for 2 seconds. The red LED blinks and the next card you tap becomes the new key. (Don't hold BOOT while pressing EN: that starts upload mode instead.)"
+      ],
+      "test": "The key card shows ACCESS GRANTED, a green light, and the servo opens for 3 seconds. Other cards show their ID and a red light.",
+      "safety": [
+        "Soldering: the iron tip is about 350°C. Use the stand and ventilate."
+      ],
+      "next": [
+        "Allow several cards and log who entered.",
+        "Combine with the Wi-Fi notifier to text you when the door opens."
+      ]
+    }
+  },
+  {
+    "id": "wifi-mood-ring",
+    "title": "Wi-Fi Mood Ring",
+    "pitch": "Pick any color on your phone and a ring of 16 LEDs glows to match, or runs a rainbow show.",
+    "emoji": "💍",
+    "difficulty": 2,
+    "time": 35,
+    "vibes": [
+      "gift",
+      "fun"
+    ],
+    "boards": [
+      "esp32-devkit"
+    ],
+    "requires": [
+      "ws2812b-ring"
+    ],
+    "optional": [],
+    "basics": [
+      "breadboard",
+      "jumper-wires",
+      "resistor-kit",
+      "usb-cable"
+    ],
+    "libs": [
+      "Adafruit NeoPixel"
+    ],
+    "guide": {
+      "about": "Addressable LEDs each have a tiny chip, so one data wire controls all 16 colors. The ESP32 serves a color-picker page. Brightness is capped in code so it's safe on USB power.",
+      "parts": [
+        [
+          "ws2812b-ring",
+          1,
+          "16 LEDs"
+        ],
+        [
+          "resistor-kit",
+          1,
+          "one 330Ω for the data line"
+        ],
+        [
+          "breadboard",
+          1,
+          ""
+        ],
+        [
+          "jumper-wires",
+          3,
+          ""
+        ],
+        [
+          "usb-cable",
+          1,
+          ""
+        ]
+      ],
+      "wiring": [
+        [
+          "Ring 5V (PWR / VCC)",
+          "VIN (5V from USB)",
+          ""
+        ],
+        [
+          "Ring GND",
+          "GND",
+          ""
+        ],
+        [
+          "Ring DIN (data in)",
+          "GPIO 16 (D16)",
+          "through 330Ω. 3.3V data usually works on a short wire; a level shifter (74AHCT125) makes it rock-solid"
+        ]
+      ],
+      "steps": [
+        "Solder 3 wires to the ring's 5V, GND and DIN pads (DIN, not DOUT!).",
+        "Install the Adafruit NeoPixel library.",
+        "Wire 5V to VIN, GND to GND, and DIN through a 330Ω resistor to GPIO 16.",
+        "Enter your Wi-Fi name and password in the code, then upload.",
+        "Open http://partslab-ring.local on your phone (or the IP from the Serial Monitor at 115200).",
+        "Pick a color or tap Rainbow."
+      ],
+      "test": "The ring shows a short color wipe at start, then follows your phone. Rainbow mode spins the colors around the ring.",
+      "safety": [
+        "Brightness is limited to about 25% (MAX_BRIGHTNESS) so 16 LEDs stay under USB's power limit. Use a separate 5V supply if you raise it.",
+        "Soldering the ring: hot iron, use the stand and ventilate."
+      ],
+      "next": [
+        "Add a clock mode that shows the time with 3 colored LEDs.",
+        "Make it react to music with a sound sensor."
+      ]
+    }
+  },
+  {
+    "id": "pocket-altimeter",
+    "title": "Pocket Altimeter & Barometer",
+    "pitch": "Measure air pressure, temperature and your altitude. Watch the number change as you climb the stairs!",
+    "emoji": "🏔️",
+    "difficulty": 2,
+    "time": 30,
+    "vibes": [
+      "useful",
+      "fun"
+    ],
+    "boards": [
+      "esp32-devkit"
+    ],
+    "requires": [
+      "bmp280",
+      "oled-128x64"
+    ],
+    "optional": [],
+    "basics": [
+      "breadboard",
+      "jumper-wires",
+      "usb-cable"
+    ],
+    "libs": [
+      "Adafruit BMP280 Library",
+      "Adafruit Unified Sensor",
+      "Adafruit SSD1306",
+      "Adafruit GFX Library"
+    ],
+    "guide": {
+      "about": "Air pressure drops as you go up, about 12 Pa per metre. The BMP280 is so sensitive it notices one floor of a building. Both modules are 3.3V I2C, a perfect match for the ESP32.",
+      "parts": [
+        [
+          "bmp280",
+          1,
+          "purple 3.3V board"
+        ],
+        [
+          "oled-128x64",
+          1,
+          ""
+        ],
+        [
+          "breadboard",
+          1,
+          ""
+        ],
+        [
+          "jumper-wires",
+          8,
+          ""
+        ],
+        [
+          "usb-cable",
+          1,
+          "or a power bank to carry it around"
+        ]
+      ],
+      "wiring": [
+        [
+          "BMP280 VCC",
+          "3V3",
+          "3.3V only!"
+        ],
+        [
+          "BMP280 GND",
+          "GND",
+          ""
+        ],
+        [
+          "BMP280 SCL",
+          "GPIO 22 (D22)",
+          ""
+        ],
+        [
+          "BMP280 SDA",
+          "GPIO 21 (D21)",
+          ""
+        ],
+        [
+          "OLED VCC",
+          "3V3",
+          "check your OLED's pin labels"
+        ],
+        [
+          "OLED GND",
+          "GND",
+          ""
+        ],
+        [
+          "OLED SCL",
+          "GPIO 22 (D22)",
+          "shared"
+        ],
+        [
+          "OLED SDA",
+          "GPIO 21 (D21)",
+          "shared"
+        ]
+      ],
+      "steps": [
+        "Install the four libraries from the Code section.",
+        "Wire both modules to 3V3 and GND, both SDA pins to GPIO 21 and both SCL pins to GPIO 22.",
+        "Upload and open the Serial Monitor at 115200.",
+        "Find today's sea-level pressure for your city in a weather app and put it in SEA_LEVEL_HPA for an accurate altitude."
+      ],
+      "test": "The OLED shows altitude (m), pressure (hPa) and temperature. Lift it from the floor to above your head: the altitude rises by about 2 m.",
+      "safety": [],
+      "next": [
+        "Add a button to zero the altitude (relative height).",
+        "Draw a pressure graph to predict rain."
+      ]
+    }
+  },
+  {
+    "id": "touch-piano",
+    "title": "Banana Touch Piano",
+    "pitch": "Turn wires, foil or even bananas into piano keys. The ESP32 can sense your touch with no buttons at all!",
+    "emoji": "🍌",
+    "difficulty": 1,
+    "time": 25,
+    "vibes": [
+      "fun",
+      "gift"
+    ],
+    "boards": [
+      "esp32-devkit"
+    ],
+    "requires": [
+      "buzzer-passive"
+    ],
+    "optional": [],
+    "basics": [
+      "breadboard",
+      "jumper-wires",
+      "resistor-kit",
+      "usb-cable"
+    ],
+    "libs": [],
+    "guide": {
+      "about": "Some ESP32 pins are capacitive touch sensors: they notice your finger (or anything conductive you're touching). Seven touch pins become the notes C D E F G A B.",
+      "parts": [
+        [
+          "buzzer-passive",
+          1,
+          ""
+        ],
+        [
+          "resistor-kit",
+          1,
+          "one 220Ω"
+        ],
+        [
+          "jumper-wires",
+          9,
+          "male-to-male; their free ends are the keys"
+        ],
+        [
+          "breadboard",
+          1,
+          ""
+        ],
+        [
+          "usb-cable",
+          1,
+          ""
+        ]
+      ],
+      "wiring": [
+        [
+          "Key C wire",
+          "GPIO 4 (D4)",
+          "leave the other end free (or clip it to a banana)"
+        ],
+        [
+          "Key D wire",
+          "GPIO 15 (D15)",
+          ""
+        ],
+        [
+          "Key E wire",
+          "GPIO 13 (D13)",
+          ""
+        ],
+        [
+          "Key F wire",
+          "GPIO 14 (D14)",
+          ""
+        ],
+        [
+          "Key G wire",
+          "GPIO 27 (D27)",
+          ""
+        ],
+        [
+          "Key A wire",
+          "GPIO 33 (D33)",
+          ""
+        ],
+        [
+          "Key B wire",
+          "GPIO 32 (D32)",
+          ""
+        ],
+        [
+          "Passive buzzer +",
+          "GPIO 25 (D25)",
+          "through 220Ω"
+        ],
+        [
+          "Passive buzzer −",
+          "GND",
+          ""
+        ]
+      ],
+      "steps": [
+        "Wire the buzzer through a 220Ω resistor to GPIO 25 and − to GND.",
+        "Plug one jumper wire into each of the 7 touch pins and lay the free ends out like keys.",
+        "Upload the code. Don't touch any key for the first 2 seconds: it measures \"not touched\".",
+        "Touch the metal end of a wire: a note plays!",
+        "Fun mode: push each wire into a banana or a piece of foil. Touch the fruit to play."
+      ],
+      "test": "Each key plays its own note while touched. The Serial Monitor (115200) shows the touch values; they drop when touched.",
+      "safety": [],
+      "next": [
+        "Add a second octave with a mode button.",
+        "Record and play back a melody."
+      ]
+    }
+  },
+  {
+    "id": "pico-chip-thermometer",
+    "title": "Chip Temperature Spy",
+    "pitch": "The Pico has a secret thermometer inside its chip. Read it, plot it, and make the LED blink faster when it's warm.",
+    "emoji": "🕵️",
+    "difficulty": 1,
+    "time": 10,
+    "vibes": [
+      "fun"
+    ],
+    "boards": [
+      "pico",
+      "pico-w"
+    ],
+    "requires": [],
+    "optional": [],
+    "basics": [
+      "usb-cable"
+    ],
+    "libs": [],
+    "guide": {
+      "about": "No parts needed: the RP2040 chip has a built-in temperature sensor. You'll see the readings live in the Arduino IDE's Serial Plotter.",
+      "parts": [
+        [
+          "usb-cable",
+          1,
+          "micro-USB data cable"
+        ]
+      ],
+      "wiring": [],
+      "steps": [
+        "Install the Raspberry Pi Pico boards (see How to upload).",
+        "Choose Tools → Board → Raspberry Pi Pico (or Pico W).",
+        "Upload the code. First time: hold BOOTSEL while plugging in, and pick the UF2 port.",
+        "Open Tools → Serial Plotter at 115200.",
+        "Hold the chip between your fingers (gently): the line goes up and the LED blinks faster."
+      ],
+      "test": "The plotter shows a temperature line around room temperature + a few degrees. Warming the chip makes it rise within seconds.",
+      "safety": [],
+      "next": [
+        "Add an OLED to show the temperature.",
+        "Log the maximum and minimum since power-up."
+      ]
+    }
+  },
+  {
+    "id": "pico-tap-jumper",
+    "title": "Tap Jumper (OLED game)",
+    "pitch": "An endless runner on a tiny screen: tap the button to jump over spikes. How far can you get?",
+    "emoji": "🏃",
+    "difficulty": 2,
+    "time": 35,
+    "vibes": [
+      "gaming",
+      "fun"
+    ],
+    "boards": [
+      "pico",
+      "pico-w"
+    ],
+    "requires": [
+      "oled-128x64",
+      [
+        "button-6mm",
+        "arcade-button",
+        "touch-ttp223"
+      ]
+    ],
+    "optional": [
+      "buzzer-passive"
+    ],
+    "basics": [
+      "breadboard",
+      "jumper-wires",
+      "resistor-kit",
+      "usb-cable"
+    ],
+    "libs": [
+      "Adafruit SSD1306",
+      "Adafruit GFX Library"
+    ],
+    "guide": {
+      "about": "A complete little game: gravity, jumping, scrolling obstacles, collisions, speed-up and a high score, all at 30 frames per second on the Pico.",
+      "parts": [
+        [
+          "oled-128x64",
+          1,
+          ""
+        ],
+        [
+          "button-6mm",
+          1,
+          "or an arcade button"
+        ],
+        [
+          "buzzer-passive",
+          1,
+          "optional jump sounds"
+        ],
+        [
+          "resistor-kit",
+          1,
+          "one 220Ω for the buzzer"
+        ],
+        [
+          "breadboard",
+          1,
+          ""
+        ],
+        [
+          "jumper-wires",
+          8,
+          ""
+        ],
+        [
+          "usb-cable",
+          1,
+          ""
+        ]
+      ],
+      "wiring": [
+        [
+          "OLED VCC",
+          "3V3(OUT) (pin 36)",
+          "check your OLED's pin labels"
+        ],
+        [
+          "OLED GND",
+          "GND (pin 38)",
+          ""
+        ],
+        [
+          "OLED SDA",
+          "GP4 (pin 6)",
+          ""
+        ],
+        [
+          "OLED SCL",
+          "GP5 (pin 7)",
+          ""
+        ],
+        [
+          "Button leg",
+          "GP15 (pin 20)",
+          "other leg to GND"
+        ],
+        [
+          "Passive buzzer + (optional)",
+          "GP14 (pin 19)",
+          "through 220Ω; − to GND"
+        ]
+      ],
+      "steps": [
+        "Install Adafruit SSD1306 and Adafruit GFX Library.",
+        "Put the Pico across the breadboard's middle gap. Pin 1 (GP0) is next to the USB plug.",
+        "Wire the OLED: VCC 3V3(OUT), GND, SDA GP4, SCL GP5.",
+        "Wire the button between GP15 and GND, plus the optional buzzer on GP14.",
+        "Upload, press the button to start, and jump!"
+      ],
+      "test": "A little runner moves along the ground while spikes scroll in. Tap to jump. Hitting a spike shows GAME OVER and your score; the best score is kept until power-off.",
+      "safety": [],
+      "next": [
+        "Add flying obstacles you must duck under.",
+        "Save the high score in flash memory."
+      ]
+    }
+  },
+  {
+    "id": "pico-w-web-remote",
+    "title": "Pico W Web Remote",
+    "pitch": "Control the Pico W's LED from your phone's browser and peek at its chip temperature: your first IoT gadget.",
+    "emoji": "🌐",
+    "difficulty": 1,
+    "time": 15,
+    "vibes": [
+      "useful",
+      "fun"
+    ],
+    "boards": [
+      "pico-w"
+    ],
+    "requires": [],
+    "optional": [],
+    "basics": [
+      "usb-cable"
+    ],
+    "libs": [],
+    "guide": {
+      "about": "The Pico W joins your Wi-Fi and serves a web page. Tapping buttons on your phone sends commands to the board: the same idea every smart plug uses.",
+      "parts": [
+        [
+          "usb-cable",
+          1,
+          ""
+        ]
+      ],
+      "wiring": [],
+      "steps": [
+        "Choose Tools → Board → Raspberry Pi Pico W.",
+        "Type your Wi-Fi name and password into the code (2.4 GHz networks only).",
+        "Upload and open the Serial Monitor at 115200 to see the IP address.",
+        "On your phone (same Wi-Fi), open that IP address in Safari.",
+        "Tap LED ON / OFF and watch the little LED next to the USB plug."
+      ],
+      "test": "The page shows the LED state and the chip temperature. Buttons switch the LED instantly.",
+      "safety": [
+        "Your Wi-Fi password is stored in the code."
+      ],
+      "next": [
+        "Add a relay or a servo and control it from the page.",
+        "Add a DHT22 to show the room temperature."
+      ]
+    }
+  }
+]
