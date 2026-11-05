@@ -1,0 +1,39 @@
+# Free automatic check (GitHub Actions is free for public repositories):
+# validates all parts/ideas data and compiles every project's code for every board it lists.
+name: Compile check
+
+on:
+  push:
+    branches: [dev, main]
+    paths: ['sketches/**', 'data/**', 'tools/**', '.github/workflows/compile.yml']
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: arduino/setup-arduino-cli@v2
+      - name: Cache Arduino cores and libraries
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.arduino15
+            ~/Arduino/libraries
+          key: arduino-${{ runner.os }}-${{ hashFiles('tools/libraries.txt') }}-v1
+      - name: Install board packages
+        run: |
+          arduino-cli config init --overwrite
+          arduino-cli config set board_manager.additional_urls https://espressif.github.io/arduino-esp32/package_esp32_index.json https://github.com/earlephilhower/arduino-pico/releases/download/global/package_rp2040_index.json
+          arduino-cli core update-index
+          arduino-cli core install arduino:avr esp32:esp32 rp2040:rp2040
+          arduino-cli lib update-index
+      - name: Check parts and ideas data (incl. safety rules)
+        run: node tools/validate.mjs --boards
+      - name: Compile every project
+        run: node tools/compile-all.mjs --install --jobs 4 --no-report
