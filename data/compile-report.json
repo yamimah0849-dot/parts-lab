@@ -71,9 +71,85 @@
    "arduino-nano": "ok",
    "arduino-mega": "ok",
    "arduino-leonardo": "ok"
+  },
+  "lcd-climate-display": {
+   "arduino-nano": "ok",
+   "arduino-uno": "ok"
+  },
+  "oled-weather-station": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok"
+  },
+  "parking-assistant": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok",
+   "arduino-mega": "ok",
+   "arduino-leonardo": "ok"
+  },
+  "ultrasonic-tape-measure": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok",
+   "arduino-mega": "ok",
+   "arduino-leonardo": "ok"
+  },
+  "intruder-alarm": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok",
+   "arduino-mega": "ok",
+   "arduino-leonardo": "ok"
+  },
+  "thirsty-plant": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok",
+   "arduino-mega": "ok",
+   "arduino-leonardo": "ok"
+  },
+  "clap-lamp": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok",
+   "arduino-mega": "ok",
+   "arduino-leonardo": "ok"
+  },
+  "smoke-sniffer": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok",
+   "arduino-mega": "ok",
+   "arduino-leonardo": "ok"
+  },
+  "tilt-ball-collector": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok"
+  },
+  "speedrun-stopwatch": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok",
+   "arduino-mega": "ok",
+   "arduino-leonardo": "ok"
+  },
+  "rtc-desk-clock": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok"
+  },
+  "secret-code-safe": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok",
+   "arduino-mega": "ok",
+   "arduino-leonardo": "ok"
+  },
+  "servo-gauge": {
+   "arduino-uno": "ok",
+   "arduino-nano": "ok",
+   "arduino-mega": "ok",
+   "arduino-leonardo": "ok"
+  },
+  "photo-turntable": {
+   "arduino-uno": "ok",
+   "arduino-mega": "ok",
+   "arduino-nano": "ok",
+   "arduino-leonardo": "ok"
   }
  },
- "generated": "2026-11-05T03:46:36.787Z",
+ "generated": "2026-11-05T03:58:40.015Z",
  "arduinoCli": "1.5.2-rc.1",
  "cores": {
   "arduino:avr": "1.8.8",

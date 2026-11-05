@@ -1,0 +1,510 @@
+[
+  {
+    "id": "lcd-climate-display",
+    "title": "Room Climate Display",
+    "pitch": "A desk screen that shows the room's temperature and humidity, with a little comfort message.",
+    "emoji": "🌡️",
+    "difficulty": 1, "time": 25, "vibes": ["useful"],
+    "boards": ["arduino-uno", "arduino-nano"],
+    "requires": ["dht11-module", "lcd1602-i2c"],
+    "optional": [],
+    "basics": ["breadboard", "jumper-wires", "usb-cable"],
+    "libs": ["DHT sensor library", "Adafruit Unified Sensor", "LiquidCrystal I2C"],
+    "guide": {
+      "about": "Read a DHT11 sensor and print the values on a 16x2 LCD that only needs 4 wires thanks to its I2C backpack. You'll install and use your first libraries.",
+      "parts": [["dht11-module", 1, "3-pin module"], ["lcd1602-i2c", 1, "with the I2C backpack soldered on"], ["breadboard", 1, ""], ["jumper-wires", 7, "female-to-male for the LCD"], ["usb-cable", 1, ""]],
+      "wiring": [
+        ["DHT11 VCC (+)", "5V", ""],
+        ["DHT11 GND (−)", "GND", ""],
+        ["DHT11 DATA (S / OUT)", "Pin 2", ""],
+        ["LCD GND", "GND", ""],
+        ["LCD VCC", "5V", ""],
+        ["LCD SDA", "A4", "the Uno also has SDA/SCL pins near AREF: same signals"],
+        ["LCD SCL", "A5", ""]
+      ],
+      "steps": [
+        "Install the libraries listed in the Code section (Tools → Manage Libraries).",
+        "Wire the DHT11 module: + to 5V, − to GND, DATA to Pin 2.",
+        "Wire the LCD backpack: GND, VCC to 5V, SDA to A4, SCL to A5.",
+        "Upload the code.",
+        "If the screen lights but shows nothing, slowly turn the blue screw on the back (contrast) with a small screwdriver.",
+        "Still blank? Change LCD_ADDRESS in the code from 0x27 to 0x3F and upload again."
+      ],
+      "test": "Line 1 shows temperature and humidity, line 2 shows a message like \"Comfy :)\" or \"Too humid!\". Breathe on the sensor and the humidity jumps up.",
+      "safety": [],
+      "next": ["Swap in a DHT22 for more accuracy (change DHTTYPE to DHT22).", "Add a buzzer that warns when the room gets too hot."]
+    }
+  },
+  {
+    "id": "oled-weather-station",
+    "title": "Mini Weather Station",
+    "pitch": "Big crisp numbers on an OLED screen plus a kaomoji face that reacts to the weather. (^_^)",
+    "emoji": "⛅",
+    "difficulty": 2, "time": 30, "vibes": ["useful", "gift"],
+    "boards": ["arduino-uno", "arduino-nano"],
+    "requires": ["dht22-module", "oled-128x64"],
+    "optional": [],
+    "basics": ["breadboard", "jumper-wires", "usb-cable"],
+    "libs": ["DHT sensor library", "Adafruit Unified Sensor", "Adafruit SSD1306", "Adafruit GFX Library"],
+    "guide": {
+      "about": "Combine an accurate DHT22 sensor with a 128x64 OLED. You'll learn how to draw text in different sizes and update the screen without flicker.",
+      "parts": [["dht22-module", 1, ""], ["oled-128x64", 1, "SSD1306, I2C, address 0x3C"], ["breadboard", 1, ""], ["jumper-wires", 7, ""], ["usb-cable", 1, ""]],
+      "wiring": [
+        ["DHT22 VCC (+)", "5V", ""],
+        ["DHT22 GND (−)", "GND", ""],
+        ["DHT22 DATA", "Pin 2", ""],
+        ["OLED VCC", "5V", "check the pin labels: VCC and GND order differs between sellers!"],
+        ["OLED GND", "GND", ""],
+        ["OLED SCL", "A5", ""],
+        ["OLED SDA", "A4", ""]
+      ],
+      "steps": [
+        "Install the four libraries from the Code section.",
+        "Read the labels printed on your OLED's pins before wiring. Some are GND-VCC-SCL-SDA, others VCC-GND-SCL-SDA.",
+        "Wire the OLED: VCC to 5V, GND to GND, SCL to A5, SDA to A4.",
+        "Wire the DHT22: + to 5V, − to GND, DATA to Pin 2.",
+        "Upload the code. The screen shows \"Warming up…\" for 2 seconds, then the readings."
+      ],
+      "test": "You see the temperature in big digits, humidity below it, and a face: (^_^) comfy, (>_<) hot, (o_o) cold, (~_~) humid.",
+      "safety": [],
+      "next": ["Log min/max temperature of the day.", "Add a BMP280 for air pressure (needs a 3.3V supply or a 3.3V board)."]
+    }
+  },
+  {
+    "id": "parking-assistant",
+    "title": "Garage Parking Assistant",
+    "pitch": "Beeps faster and faster as you get closer, and lights red when it's time to stop. Like a real car sensor.",
+    "emoji": "🚗",
+    "difficulty": 1, "time": 25, "vibes": ["useful", "fun"],
+    "boards": ["arduino-uno", "arduino-nano", "arduino-mega", "arduino-leonardo"],
+    "requires": [["hc-sr04", "rcwl-1601"], "buzzer-passive"],
+    "optional": ["led-green", "led-yellow", "led-red"],
+    "basics": ["breadboard", "jumper-wires", "resistor-kit", "usb-cable"],
+    "libs": [],
+    "guide": {
+      "about": "The ultrasonic sensor sends a sound pulse and times the echo. The code turns that time into centimetres, then maps the distance to beep speed and LED color.",
+      "parts": [["hc-sr04", 1, "or RCWL-1601: same pins, both fine at 5V"], ["buzzer-passive", 1, ""], ["led-green", 1, "optional"], ["led-yellow", 1, "optional"], ["led-red", 1, "optional"], ["resistor-kit", 1, "220Ω for each LED and one for the buzzer"], ["breadboard", 1, ""], ["jumper-wires", 10, ""], ["usb-cable", 1, ""]],
+      "wiring": [
+        ["Ultrasonic VCC", "5V", ""],
+        ["Ultrasonic TRIG", "Pin 7", ""],
+        ["Ultrasonic ECHO", "Pin 6", "5V boards only: on an ESP32 this would need a divider"],
+        ["Ultrasonic GND", "GND", ""],
+        ["Passive buzzer +", "Pin 8", "through 220Ω"],
+        ["Passive buzzer −", "GND", ""],
+        ["Green LED + (optional)", "Pin 2", "through 220Ω"],
+        ["Yellow LED + (optional)", "Pin 3", "through 220Ω"],
+        ["Red LED + (optional)", "Pin 4", "through 220Ω"],
+        ["LED − legs", "GND", ""]
+      ],
+      "steps": [
+        "Place the ultrasonic sensor at the edge of the breadboard with its \"eyes\" facing out.",
+        "Wire VCC to 5V, GND to GND, TRIG to Pin 7 and ECHO to Pin 6.",
+        "Wire the buzzer through a 220Ω resistor to Pin 8 and − to GND.",
+        "(Optional) Add the three LEDs, each with a 220Ω resistor, to pins 2, 3 and 4.",
+        "Upload the code and open the Serial Monitor at 9600 to see the distance.",
+        "Move your hand toward the sensor and listen."
+      ],
+      "test": "Over 100 cm: quiet and green. 100–30 cm: beeps speed up, yellow. Under 30 cm: red and a solid tone. Change STOP_CM in the code to match your garage.",
+      "safety": [],
+      "next": ["Mount it on the garage wall at bumper height, powered by a USB charger.", "Show the distance on a TM1637 display."]
+    }
+  },
+  {
+    "id": "ultrasonic-tape-measure",
+    "title": "Ultrasonic Tape Measure",
+    "pitch": "Point it at a wall to measure distance on a 16x2 LCD, with no tape needed. Great for room planning.",
+    "emoji": "📏",
+    "difficulty": 2, "time": 40, "vibes": ["useful"],
+    "boards": ["arduino-uno", "arduino-nano", "arduino-mega", "arduino-leonardo"],
+    "requires": [["hc-sr04", "rcwl-1601"], "lcd1602-parallel", "potentiometer-10k"],
+    "optional": ["button-6mm"],
+    "basics": ["breadboard", "jumper-wires", "resistor-kit", "usb-cable"],
+    "libs": ["LiquidCrystal"],
+    "guide": {
+      "about": "Wire a plain (non-I2C) 16x2 LCD in 4-bit mode: more wires, but you'll understand exactly how the screen is driven. A button freezes the reading.",
+      "parts": [["lcd1602-parallel", 1, "16-pin, no backpack"], ["potentiometer-10k", 1, "LCD contrast knob"], ["hc-sr04", 1, "or RCWL-1601"], ["button-6mm", 1, "optional HOLD button"], ["resistor-kit", 1, "one 220Ω for the backlight"], ["breadboard", 1, ""], ["jumper-wires", 18, ""], ["usb-cable", 1, ""]],
+      "wiring": [
+        ["LCD pin 1 (VSS)", "GND", ""],
+        ["LCD pin 2 (VDD)", "5V", ""],
+        ["LCD pin 3 (V0)", "Potentiometer middle leg", "pot outer legs go to 5V and GND"],
+        ["LCD pin 4 (RS)", "Pin 12", ""],
+        ["LCD pin 5 (RW)", "GND", "we only write to the screen"],
+        ["LCD pin 6 (E)", "Pin 11", ""],
+        ["LCD pin 11 (D4)", "Pin 5", ""],
+        ["LCD pin 12 (D5)", "Pin 4", ""],
+        ["LCD pin 13 (D6)", "Pin 3", ""],
+        ["LCD pin 14 (D7)", "Pin 2", ""],
+        ["LCD pin 15 (A, backlight +)", "5V", "through 220Ω"],
+        ["LCD pin 16 (K, backlight −)", "GND", ""],
+        ["Ultrasonic VCC / GND", "5V / GND", ""],
+        ["Ultrasonic TRIG", "Pin 9", ""],
+        ["Ultrasonic ECHO", "Pin 10", ""],
+        ["HOLD button (optional)", "Pin 7", "other leg to GND"]
+      ],
+      "steps": [
+        "Push the LCD's 16 pins into the breadboard (solder header pins on first if it came without).",
+        "Wire power: pin 1 to GND, pin 2 to 5V, pin 16 to GND and pin 15 to 5V through a 220Ω resistor.",
+        "Add the potentiometer: outer legs to 5V and GND, middle leg to LCD pin 3.",
+        "Wire RS, RW, E and D4–D7 exactly as in the table (D0–D3, pins 7–10, stay empty).",
+        "Upload the code, then turn the potentiometer until the text is sharp.",
+        "Wire the ultrasonic sensor (TRIG 9, ECHO 10) and the optional HOLD button on Pin 7.",
+        "Point the sensor at a wall and read the distance."
+      ],
+      "test": "The LCD shows the distance in cm and inches, updating 4 times a second. Holding the button freezes the value and shows HOLD.",
+      "safety": ["Soldering header pins: the iron tip is about 350°C. Use the stand and solder in a ventilated room."],
+      "next": ["Add a \"zero\" button that measures from the back of the device.", "Average 5 readings for steadier numbers."]
+    }
+  },
+  {
+    "id": "intruder-alarm",
+    "title": "Intruder Alarm",
+    "pitch": "A motion-sensing room alarm with a siren sound. Arm and disarm it with a button.",
+    "emoji": "🚨",
+    "difficulty": 1, "time": 25, "vibes": ["fun", "useful"],
+    "boards": ["arduino-uno", "arduino-nano", "arduino-mega", "arduino-leonardo"],
+    "requires": ["pir-hc-sr501", "buzzer-passive"],
+    "optional": ["button-6mm", "led-red"],
+    "basics": ["breadboard", "jumper-wires", "resistor-kit", "usb-cable"],
+    "libs": [],
+    "guide": {
+      "about": "The PIR sensor notices body heat moving. When the alarm is armed and something moves, a rising-and-falling siren plays. A button arms and disarms it, with a 10-second exit delay.",
+      "parts": [["pir-hc-sr501", 1, ""], ["buzzer-passive", 1, ""], ["button-6mm", 1, "optional arm/disarm button"], ["led-red", 1, "optional armed light"], ["resistor-kit", 1, "220Ω for the buzzer and the LED"], ["breadboard", 1, ""], ["jumper-wires", 8, ""], ["usb-cable", 1, ""]],
+      "wiring": [
+        ["PIR VCC", "5V", ""],
+        ["PIR OUT", "Pin 2", "outputs 3.3V: safe for every board"],
+        ["PIR GND", "GND", ""],
+        ["Passive buzzer +", "Pin 8", "through 220Ω"],
+        ["Passive buzzer −", "GND", ""],
+        ["Button (optional)", "Pin 4", "other leg to GND"],
+        ["Red LED + (optional)", "Pin 13", "through 220Ω; − to GND"]
+      ],
+      "steps": [
+        "Look at the PIR: set the jumper to \"H\" (repeat trigger) if it has one. Turn both orange knobs to the middle.",
+        "Wire the PIR: VCC to 5V, OUT to Pin 2, GND to GND.",
+        "Wire the buzzer through 220Ω to Pin 8.",
+        "(Optional) Button on Pin 4 to GND, red LED with 220Ω on Pin 13.",
+        "Upload, then wait about 1 minute: the PIR needs to settle after power-up.",
+        "Press the button to arm (the LED blinks for 10 s, then stays on). Walk past it!"
+      ],
+      "test": "Armed + motion = siren for 10 seconds. Press the button to disarm. Without a button, the alarm arms itself 10 s after power-up.",
+      "safety": [],
+      "next": ["Add a keypad to disarm with a secret code.", "Use an ESP32 instead and send a notification to your phone."]
+    }
+  },
+  {
+    "id": "thirsty-plant",
+    "title": "Thirsty Plant Alert",
+    "pitch": "Your plant tells you when it's thirsty: green means happy, red plus a little chirp means \"water me!\"",
+    "emoji": "🪴",
+    "difficulty": 1, "time": 20, "vibes": ["useful", "gift"],
+    "boards": ["arduino-uno", "arduino-nano", "arduino-mega", "arduino-leonardo"],
+    "requires": ["soil-capacitive", "led-green", "led-red"],
+    "optional": ["buzzer-passive"],
+    "basics": ["breadboard", "jumper-wires", "resistor-kit", "usb-cable"],
+    "libs": [],
+    "guide": {
+      "about": "A capacitive sensor measures soil moisture without rusting. You'll calibrate it (record a dry and a wet reading) so the plant's mood is accurate.",
+      "parts": [["soil-capacitive", 1, ""], ["led-green", 1, ""], ["led-red", 1, ""], ["buzzer-passive", 1, "optional chirp"], ["resistor-kit", 1, "220Ω for each LED and the buzzer"], ["breadboard", 1, ""], ["jumper-wires", 8, ""], ["usb-cable", 1, "power from a USB charger near the plant"]],
+      "wiring": [
+        ["Soil sensor VCC", "5V", ""],
+        ["Soil sensor GND", "GND", ""],
+        ["Soil sensor AOUT", "A0", ""],
+        ["Green LED +", "Pin 5", "through 220Ω"],
+        ["Red LED +", "Pin 6", "through 220Ω"],
+        ["LED − legs", "GND", ""],
+        ["Passive buzzer + (optional)", "Pin 8", "through 220Ω; − to GND"]
+      ],
+      "steps": [
+        "Wire the soil sensor: VCC 5V, GND, AOUT to A0.",
+        "Add the LEDs with 220Ω resistors on pins 5 (green) and 6 (red).",
+        "Upload the code and open the Serial Monitor at 9600.",
+        "Calibrate: hold the sensor in the air and note the number (dry). Put it in a glass of water up to the line, not deeper, and note the number (wet).",
+        "Type those numbers into DRY_VALUE and WET_VALUE in the code and upload again.",
+        "Push the sensor into the soil up to the white line, keeping the top electronics dry."
+      ],
+      "test": "The Serial Monitor shows moisture in %. Above 40%: green. Below 30%: red, plus a short chirp every 10 minutes if you added the buzzer.",
+      "safety": ["Keep the board and USB away from water; only the sensor's blade goes into the soil."],
+      "next": ["Add a pump to water it automatically (see the Auto Plant Waterer idea).", "Use a WS2812B ring as a mood light around the pot."]
+    }
+  },
+  {
+    "id": "clap-lamp",
+    "title": "Clap Clap Lamp",
+    "pitch": "Clap twice to turn the light on, clap twice again to turn it off. Pure magic for guests.",
+    "emoji": "👏",
+    "difficulty": 1, "time": 20, "vibes": ["fun"],
+    "boards": ["arduino-uno", "arduino-nano", "arduino-mega", "arduino-leonardo"],
+    "requires": ["sound-ky038", ["led-white", "led-yellow", "led-red", "led-green", "led-blue"]],
+    "optional": [],
+    "basics": ["breadboard", "jumper-wires", "resistor-kit", "usb-cable"],
+    "libs": [],
+    "guide": {
+      "about": "The sound module's DO pin flips when a sound is louder than the level set by its screw. The code looks for two loud sounds 150–700 ms apart: a double clap.",
+      "parts": [["sound-ky038", 1, ""], ["led-white", 1, "any color"], ["resistor-kit", 1, "one 220Ω"], ["breadboard", 1, ""], ["jumper-wires", 5, ""], ["usb-cable", 1, ""]],
+      "wiring": [
+        ["Sound module +", "5V", ""],
+        ["Sound module G", "GND", ""],
+        ["Sound module D0", "Pin 2", ""],
+        ["LED +", "Pin 9", "through 220Ω"],
+        ["LED −", "GND", ""]
+      ],
+      "steps": [
+        "Wire the sound module: + to 5V, G to GND, D0 to Pin 2.",
+        "Add the LED with its 220Ω resistor on Pin 9.",
+        "Upload and open the Serial Monitor at 9600.",
+        "Tune: in a quiet room turn the module's screw until its second LED is just OFF. A clap should flash it.",
+        "Clap twice quickly!"
+      ],
+      "test": "A double clap toggles the LED and prints \"Double clap!\". Single claps and talking are ignored. If nothing reacts, turn the screw a little more sensitive.",
+      "safety": [],
+      "next": ["Switch a relay to control a 12V lamp.", "Triple clap for a party blink mode."]
+    }
+  },
+  {
+    "id": "smoke-sniffer",
+    "title": "Smoke Sniffer (demo)",
+    "pitch": "An MQ-2 gas sensor that beeps when it smells smoke or lighter gas. A fun science demo.",
+    "emoji": "💨",
+    "difficulty": 2, "time": 25, "vibes": ["useful"],
+    "boards": ["arduino-uno", "arduino-nano", "arduino-mega", "arduino-leonardo"],
+    "requires": ["mq2", "buzzer-passive"],
+    "optional": ["led-red"],
+    "basics": ["breadboard", "jumper-wires", "resistor-kit", "usb-cable"],
+    "libs": [],
+    "guide": {
+      "about": "The MQ-2 has a tiny heater, and its resistance drops when it smells smoke or flammable gas. The code measures \"normal air\" at startup and alarms when the reading rises well above it.",
+      "parts": [["mq2", 1, ""], ["buzzer-passive", 1, ""], ["led-red", 1, "optional"], ["resistor-kit", 1, "220Ω for the buzzer and LED"], ["breadboard", 1, ""], ["jumper-wires", 6, ""], ["usb-cable", 1, ""]],
+      "wiring": [
+        ["MQ-2 VCC", "5V", "the heater needs 5V and ~150mA: fine from USB"],
+        ["MQ-2 GND", "GND", ""],
+        ["MQ-2 A0", "A0", "5V boards only: the output can reach 5V"],
+        ["Passive buzzer +", "Pin 8", "through 220Ω; − to GND"],
+        ["Red LED + (optional)", "Pin 13", "through 220Ω; − to GND"]
+      ],
+      "steps": [
+        "Wire the MQ-2: VCC 5V, GND, A0 to A0.",
+        "Wire the buzzer through 220Ω to Pin 8.",
+        "Upload the code. The sensor warms up for 60 seconds (it gets warm, that's normal), then measures clean air.",
+        "Open the Serial Monitor at 9600 to watch the values.",
+        "Test: hold an unlit lighter near it and press the gas button for 1 second (don't light it). The alarm should sound."
+      ],
+      "test": "Clean air shows a steady number. A puff of lighter gas pushes it up and triggers beeping plus the LED.",
+      "safety": ["This is NOT a safety device. Never rely on it instead of a real smoke or gas alarm.", "Never use open flames near the sensor indoors; test only with unlit lighter gas, briefly, in a ventilated room.", "The sensor's metal mesh gets hot. Don't touch it while it's running."],
+      "next": ["Show the reading as a bar graph on an LCD.", "Log readings to an SD card to see air changes over a day."]
+    }
+  },
+  {
+    "id": "tilt-ball-collector",
+    "title": "Tilt Ball Collector",
+    "pitch": "Tilt the breadboard to roll a ball across a tiny OLED screen and collect stars. A real motion-controlled game!",
+    "emoji": "🎱",
+    "difficulty": 2, "time": 40, "vibes": ["gaming", "fun"],
+    "boards": ["arduino-uno", "arduino-nano"],
+    "requires": ["mpu6050", "oled-128x64"],
+    "optional": [],
+    "basics": ["breadboard", "jumper-wires", "usb-cable"],
+    "libs": ["Adafruit SSD1306", "Adafruit GFX Library"],
+    "guide": {
+      "about": "Read the MPU-6050's accelerometer directly over I2C (saving memory), turn tilt into ball speed, and draw a mini game on the OLED. Both modules share the same two I2C wires.",
+      "parts": [["mpu6050", 1, "GY-521 board"], ["oled-128x64", 1, "SSD1306 I2C"], ["breadboard", 1, ""], ["jumper-wires", 8, ""], ["usb-cable", 1, ""]],
+      "wiring": [
+        ["MPU-6050 VCC", "5V", "the GY-521 has its own 3.3V regulator"],
+        ["MPU-6050 GND", "GND", ""],
+        ["MPU-6050 SDA", "A4", ""],
+        ["MPU-6050 SCL", "A5", ""],
+        ["OLED VCC", "5V", "check your OLED's pin labels"],
+        ["OLED GND", "GND", ""],
+        ["OLED SDA", "A4", "shared with the MPU-6050"],
+        ["OLED SCL", "A5", "shared with the MPU-6050"]
+      ],
+      "steps": [
+        "Install Adafruit SSD1306 and Adafruit GFX Library.",
+        "Place the MPU-6050 flat on the breadboard (it should move with the board).",
+        "Wire both modules to 5V and GND, and connect both SDA pins to A4 and both SCL pins to A5.",
+        "Upload the code and keep the breadboard flat for the first second (it calibrates).",
+        "Tilt the breadboard to roll the ball onto the stars!"
+      ],
+      "test": "The ball rolls toward the low side and bounces off walls. Touching a star adds a point and a new star appears. Collect 10 for a victory screen.",
+      "safety": [],
+      "next": ["Add holes that reset the score.", "Add a passive buzzer for collect sounds."]
+    }
+  },
+  {
+    "id": "speedrun-stopwatch",
+    "title": "Speedrun Stopwatch",
+    "pitch": "A big 4-digit stopwatch for timing game runs, Rubik's cubes or homework sprints. One button starts and stops it, another resets.",
+    "emoji": "⏱️",
+    "difficulty": 1, "time": 20, "vibes": ["gaming", "useful"],
+    "boards": ["arduino-uno", "arduino-nano", "arduino-mega", "arduino-leonardo"],
+    "requires": ["tm1637", ["button-6mm", "arcade-button"]],
+    "optional": [],
+    "basics": ["breadboard", "jumper-wires", "usb-cable"],
+    "libs": ["TM1637"],
+    "guide": {
+      "about": "Use millis() to time things precisely and show seconds plus hundredths, then minutes and seconds, on a TM1637 display with a blinking colon.",
+      "parts": [["tm1637", 1, ""], ["button-6mm", 2, "or arcade buttons: START/STOP and RESET"], ["breadboard", 1, ""], ["jumper-wires", 8, ""], ["usb-cable", 1, ""]],
+      "wiring": [
+        ["TM1637 VCC", "5V", ""],
+        ["TM1637 GND", "GND", ""],
+        ["TM1637 CLK", "Pin 3", ""],
+        ["TM1637 DIO", "Pin 4", ""],
+        ["START/STOP button", "Pin 2", "other leg to GND"],
+        ["RESET button", "Pin 5", "other leg to GND"]
+      ],
+      "steps": [
+        "Install the TM1637 library by Avishay Orpaz.",
+        "Wire the display: VCC 5V, GND, CLK to Pin 3, DIO to Pin 4.",
+        "Wire the two buttons to pins 2 and 5 (other legs to GND).",
+        "Upload the code.",
+        "Press START, then press again to stop. RESET clears it (only while stopped)."
+      ],
+      "test": "Under a minute it shows SS:hh (seconds and hundredths), after a minute MM:SS. The colon blinks while running.",
+      "safety": [],
+      "next": ["Add a split-time button.", "Use an arcade button for a satisfying slam-to-stop."]
+    }
+  },
+  {
+    "id": "rtc-desk-clock",
+    "title": "Always-Right Desk Clock",
+    "pitch": "A 4-digit clock that keeps perfect time even when unplugged, thanks to its coin-cell clock chip.",
+    "emoji": "🕰️",
+    "difficulty": 2, "time": 30, "vibes": ["useful", "gift"],
+    "boards": ["arduino-uno", "arduino-nano"],
+    "requires": ["ds3231", "tm1637"],
+    "optional": ["button-6mm"],
+    "basics": ["breadboard", "jumper-wires", "usb-cable"],
+    "libs": ["RTClib", "TM1637"],
+    "guide": {
+      "about": "The DS3231 real-time clock counts time on its own battery. On the first upload, the code copies your PC's time into it. After that it never forgets.",
+      "parts": [["ds3231", 1, "check the coin-cell note in its part info"], ["tm1637", 1, ""], ["button-6mm", 1, "optional 12/24-hour switch"], ["breadboard", 1, ""], ["jumper-wires", 9, ""], ["usb-cable", 1, ""]],
+      "wiring": [
+        ["DS3231 VCC", "5V", ""],
+        ["DS3231 GND", "GND", ""],
+        ["DS3231 SDA", "A4", ""],
+        ["DS3231 SCL", "A5", ""],
+        ["TM1637 VCC / GND", "5V / GND", ""],
+        ["TM1637 CLK", "Pin 3", ""],
+        ["TM1637 DIO", "Pin 4", ""],
+        ["12/24h button (optional)", "Pin 2", "other leg to GND"]
+      ],
+      "steps": [
+        "Install RTClib (by Adafruit) and TM1637 (by Avishay Orpaz).",
+        "Put a coin cell in the DS3231 (see its part info about rechargeable vs normal cells).",
+        "Wire the DS3231 to 5V, GND, SDA A4, SCL A5.",
+        "Wire the TM1637 to 5V, GND, CLK 3, DIO 4.",
+        "Upload the code. If the clock had no time yet, it takes the time from your PC.",
+        "To force a new time later, set FORCE_SET_TIME to true, upload, then set it back to false and upload again."
+      ],
+      "test": "The display shows HH:MM with a blinking colon. Unplug USB for a minute and plug back in: the time is still right.",
+      "safety": ["Coin cells are dangerous if swallowed. Keep them away from small children."],
+      "next": ["Add a buzzer alarm at a set time.", "Show the temperature (the DS3231 has a built-in thermometer!) every 10 seconds."]
+    }
+  },
+  {
+    "id": "secret-code-safe",
+    "title": "Secret Code Safe",
+    "pitch": "Type the right 4-digit code on a keypad and a servo unlocks the latch. Wrong code? Red light and a buzz.",
+    "emoji": "🔐",
+    "difficulty": 2, "time": 45, "vibes": ["fun", "gift"],
+    "boards": ["arduino-uno", "arduino-nano", "arduino-mega", "arduino-leonardo"],
+    "requires": ["keypad-4x4", "servo-sg90"],
+    "optional": ["led-green", "led-red", "buzzer-passive"],
+    "basics": ["breadboard", "jumper-wires", "resistor-kit", "usb-cable"],
+    "libs": ["Keypad", "Servo"],
+    "guide": {
+      "about": "Read a 4x4 keypad matrix, build up the typed code in memory, and drive a servo as a lock bolt. Press * to clear and # to submit.",
+      "parts": [["keypad-4x4", 1, ""], ["servo-sg90", 1, "the latch"], ["led-green", 1, "optional"], ["led-red", 1, "optional"], ["buzzer-passive", 1, "optional"], ["resistor-kit", 1, "220Ω for each LED and the buzzer"], ["breadboard", 1, ""], ["jumper-wires", 16, ""], ["usb-cable", 1, ""]],
+      "wiring": [
+        ["Keypad pins 1–4 (rows)", "Pins 9, 8, 7, 6", "left to right, looking at the keys"],
+        ["Keypad pins 5–8 (columns)", "Pins 5, 4, 3, 2", ""],
+        ["Servo brown wire", "GND", ""],
+        ["Servo red wire", "5V", "one SG90 is OK on the board's 5V pin"],
+        ["Servo orange wire (signal)", "Pin 10", ""],
+        ["Green LED + (optional)", "Pin 11", "through 220Ω; − to GND"],
+        ["Red LED + (optional)", "Pin 12", "through 220Ω; − to GND"],
+        ["Passive buzzer + (optional)", "Pin 13", "through 220Ω; − to GND"]
+      ],
+      "steps": [
+        "Install the Keypad library (by Mark Stanley) and Servo.",
+        "Plug the keypad's 8-wire ribbon into male jumpers. Pins 1–4 go to 9, 8, 7, 6 and pins 5–8 go to 5, 4, 3, 2.",
+        "Wire the servo: brown GND, red 5V, orange to Pin 10.",
+        "(Optional) Add the LEDs and buzzer with 220Ω resistors.",
+        "Change SECRET in the code to your own 4-digit code, then upload.",
+        "Type the code and press #."
+      ],
+      "test": "Correct code: green light, happy beep, servo turns to 90° (unlocked) for 5 seconds, then locks again. Wrong code: red light and a low buzz. Open the Serial Monitor (9600) to see keys as you press them.",
+      "safety": ["One SG90 can run from the board's 5V pin. If the board resets when the servo moves, give the servo a separate 5V supply (connect the grounds)."],
+      "next": ["Build it into a cardboard box with the servo arm as the latch.", "Lock everyone out for 30 s after 3 wrong tries."]
+    }
+  },
+  {
+    "id": "servo-gauge",
+    "title": "Knob-to-Servo Gauge",
+    "pitch": "Turn a knob and a servo pointer follows it. The start of every robot arm and dashboard gauge.",
+    "emoji": "🎯",
+    "difficulty": 1, "time": 15, "vibes": ["fun"],
+    "boards": ["arduino-uno", "arduino-nano", "arduino-mega", "arduino-leonardo"],
+    "requires": ["servo-sg90", "potentiometer-10k"],
+    "optional": [],
+    "basics": ["breadboard", "jumper-wires", "usb-cable"],
+    "libs": ["Servo"],
+    "guide": {
+      "about": "A servo moves to whatever angle you write. Map a knob's 0–1023 range to 0–180°, smooth it, and you have precise control.",
+      "parts": [["servo-sg90", 1, ""], ["potentiometer-10k", 1, ""], ["breadboard", 1, ""], ["jumper-wires", 7, ""], ["usb-cable", 1, ""]],
+      "wiring": [
+        ["Servo brown wire", "GND", ""],
+        ["Servo red wire", "5V", ""],
+        ["Servo orange wire", "Pin 9", ""],
+        ["Potentiometer outer legs", "5V and GND", ""],
+        ["Potentiometer middle leg", "A0", ""]
+      ],
+      "steps": [
+        "Install the Servo library if it isn't there yet.",
+        "Wire the servo: brown GND, red 5V, orange Pin 9.",
+        "Wire the potentiometer: outer legs to 5V and GND, middle to A0.",
+        "Upload and turn the knob.",
+        "Tape a paper arrow to the servo horn and draw a scale behind it."
+      ],
+      "test": "The servo follows the knob smoothly from 0° to 180°.",
+      "safety": ["If the board resets or the servo jitters, power the servo from a separate 5V supply (connect grounds)."],
+      "next": ["Replace the knob with a light sensor: a gauge that points at the brightness.", "Add a second servo + joystick for a pan-tilt mount."]
+    }
+  },
+  {
+    "id": "photo-turntable",
+    "title": "Photo Turntable",
+    "pitch": "A slow, precise turntable that rotates your figure or model in 12 steps so you can snap perfect 360° photos.",
+    "emoji": "📸",
+    "difficulty": 2, "time": 40, "vibes": ["useful", "gaming"],
+    "boards": ["arduino-uno", "arduino-nano", "arduino-mega", "arduino-leonardo"],
+    "requires": ["stepper-28byj48", "uln2003"],
+    "optional": ["button-6mm"],
+    "basics": ["breadboard", "jumper-wires", "usb-cable"],
+    "libs": ["Stepper"],
+    "guide": {
+      "about": "The 28BYJ-48 stepper moves in tiny, exact steps (about 2048 per turn). The code turns 30° at a time, waits 3 seconds for your photo, and repeats 12 times. Perfect for anime figure photography!",
+      "parts": [["stepper-28byj48", 1, ""], ["uln2003", 1, "driver board, usually sold with the motor"], ["button-6mm", 1, "optional start button"], ["breadboard", 1, ""], ["jumper-wires", 8, "female-to-male"], ["usb-cable", 1, ""]],
+      "wiring": [
+        ["Motor plug", "ULN2003 white socket", "it only fits one way"],
+        ["ULN2003 IN1", "Pin 8", ""],
+        ["ULN2003 IN2", "Pin 9", ""],
+        ["ULN2003 IN3", "Pin 10", ""],
+        ["ULN2003 IN4", "Pin 11", ""],
+        ["ULN2003 + (5–12V)", "5V", "fine for testing; use a separate 5V supply for long sessions"],
+        ["ULN2003 −", "GND", ""],
+        ["Start button (optional)", "Pin 2", "other leg to GND"]
+      ],
+      "steps": [
+        "Install the Stepper library.",
+        "Plug the motor's white connector into the ULN2003 board.",
+        "Wire IN1–IN4 to pins 8, 9, 10, 11 (the code handles the special order this motor needs).",
+        "Power the driver: + to 5V and − to GND.",
+        "Upload. Press the button (or wait 5 s if you have none) to start a 12-shot rotation.",
+        "Glue a jar lid or cardboard disc to the motor shaft as the turntable plate."
+      ],
+      "test": "The ULN2003's 4 LEDs flicker as it moves 30°, pauses 3 s (snap a photo!), and repeats until a full circle is done.",
+      "safety": ["Never wire the stepper directly to board pins: always through the ULN2003 driver.", "If the board resets during moves, power the driver from a separate 5V supply and connect its GND to the board GND."],
+      "next": ["Add a passive buzzer that beeps when it's time to shoot.", "Use an IR remote to trigger each step."]
+    }
+  }
+]
