@@ -1,0 +1,149 @@
+[
+  {
+    "id": "lcd1602-parallel",
+    "name": "16x2 LCD (no I2C, 16 pins)",
+    "category": "displays",
+    "icon": "lcd",
+    "desc": "Shows 2 lines of 16 characters with a backlight. This plain version needs 6 data wires plus a 10kΩ knob for contrast.",
+    "voltage": "5V",
+    "vcc": [4.7, 5.3],
+    "interfaces": ["Parallel"],
+    "tags": ["lcd", "text", "screen", "1602"],
+    "variantGroup": "lcd1602",
+    "variantNote": "Plain 16-pin version: more wires, needs a 10kΩ potentiometer for contrast.",
+    "price": [8, 20],
+    "warn": {
+      "3.3": "Standard 16x2 LCDs need 5V power. 3.3V signals usually work in write-only mode (RW tied to GND), but contrast can be weak."
+    }
+  },
+  {
+    "id": "lcd1602-i2c",
+    "name": "16x2 LCD with I2C backpack",
+    "category": "displays",
+    "icon": "lcd",
+    "desc": "The same 16x2 screen with a small adapter soldered on the back, so it needs only 4 wires. Turn the blue screw to adjust contrast.",
+    "voltage": "5V",
+    "vcc": [4.7, 5.3],
+    "interfaces": ["I2C"],
+    "tags": ["lcd", "text", "screen", "1602", "i2c"],
+    "variantGroup": "lcd1602",
+    "variantNote": "I2C version: only 4 wires (VCC, GND, SDA, SCL). Address is usually 0x27 or 0x3F.",
+    "price": [12, 30],
+    "warn": {
+      "3.3": "The I2C LCD needs 5V, and its backpack pulls SDA/SCL up to 5V. With a 3.3V board, use a level shifter on SDA and SCL."
+    }
+  },
+  {
+    "id": "lcd2004-i2c",
+    "name": "20x4 LCD with I2C backpack",
+    "category": "displays",
+    "icon": "lcd",
+    "desc": "A bigger text screen: 4 lines of 20 characters, still only 4 wires thanks to the I2C adapter.",
+    "voltage": "5V",
+    "vcc": [4.7, 5.3],
+    "interfaces": ["I2C"],
+    "tags": ["lcd", "text", "screen", "2004", "i2c"],
+    "price": [20, 45],
+    "warn": {
+      "3.3": "The I2C LCD needs 5V, and its backpack pulls SDA/SCL up to 5V. With a 3.3V board, use a level shifter on SDA and SCL."
+    }
+  },
+  {
+    "id": "oled-128x64",
+    "name": "0.96\" OLED 128x64 (SSD1306, I2C)",
+    "category": "displays",
+    "icon": "oled",
+    "desc": "A tiny, super-sharp screen that can draw text, shapes, animations and mini games. Only 4 wires.",
+    "voltage": "3.3–5V",
+    "vcc": [3.3, 5],
+    "interfaces": ["I2C"],
+    "tags": ["oled", "screen", "graphics", "ssd1306", "gaming"],
+    "variantGroup": "oled",
+    "variantNote": "SSD1306 chip, 128x64 pixels. Usual address 0x3C.",
+    "price": [10, 25],
+    "note": "Check the pin labels! Some boards are GND-VCC-SCL-SDA and others VCC-GND-SCL-SDA. Swapping power can kill it."
+  },
+  {
+    "id": "oled-128x32",
+    "name": "0.91\" OLED 128x32 (SSD1306, I2C)",
+    "category": "displays",
+    "icon": "oled-wide",
+    "desc": "A slim strip-shaped OLED, great for a single line of big text or a status bar.",
+    "voltage": "3.3–5V",
+    "vcc": [3.3, 5],
+    "interfaces": ["I2C"],
+    "tags": ["oled", "screen", "ssd1306", "small"],
+    "variantGroup": "oled",
+    "variantNote": "SSD1306 chip, but only 32 pixels tall: code must use height 32.",
+    "price": [8, 20]
+  },
+  {
+    "id": "oled-sh1106",
+    "name": "1.3\" OLED 128x64 (SH1106, I2C)",
+    "category": "displays",
+    "icon": "oled",
+    "desc": "A bigger OLED that is easier to read. It uses a different chip (SH1106) than the 0.96\" one, so it needs a different library.",
+    "voltage": "3.3–5V",
+    "vcc": [3.3, 5],
+    "interfaces": ["I2C"],
+    "tags": ["oled", "screen", "graphics", "sh1106"],
+    "variantGroup": "oled",
+    "variantNote": "SH1106 chip: SSD1306 code shows garbage on it. Use the U8g2 library.",
+    "price": [14, 30],
+    "note": "Check the pin labels: VCC and GND positions differ between sellers."
+  },
+  {
+    "id": "tm1637",
+    "name": "TM1637 4-Digit 7-Segment Display",
+    "category": "displays",
+    "icon": "seg7",
+    "desc": "A bright 4-digit number display with a colon in the middle, perfect for clocks, timers and scoreboards. Only 2 data wires.",
+    "voltage": "3.3–5V",
+    "vcc": [3.3, 5],
+    "interfaces": ["2-wire"],
+    "tags": ["clock", "numbers", "timer", "7-segment"],
+    "price": [6, 15]
+  },
+  {
+    "id": "max7219-matrix",
+    "name": "MAX7219 8x8 LED Matrix",
+    "category": "displays",
+    "icon": "matrix",
+    "desc": "An 8x8 grid of red LEDs for pixel art, scrolling text and tiny games. Several modules can be chained into a long sign.",
+    "voltage": "5V",
+    "vcc": [4.5, 5.5],
+    "interfaces": ["SPI"],
+    "tags": ["matrix", "pixel", "scrolling", "led", "gaming"],
+    "price": [8, 22],
+    "warn": {
+      "3.3": "The MAX7219 runs on 5V and officially wants 3.5V+ signals. 3.3V boards often work, but a level shifter makes it reliable."
+    }
+  },
+  {
+    "id": "tft-st7735",
+    "name": "1.8\" Color TFT 128x160 (ST7735, SPI)",
+    "category": "displays",
+    "icon": "tft",
+    "desc": "A small full-color screen for pictures, graphs and games. It talks over SPI, which is fast but uses 5–6 wires.",
+    "voltage": "3.3V logic (VCC 3.3–5V on most boards)",
+    "vcc": [3.3, 5],
+    "interfaces": ["SPI"],
+    "tags": ["tft", "color", "screen", "graphics", "gaming"],
+    "price": [15, 35],
+    "warn": {
+      "5": "The ST7735 signal pins are 3.3V. With a 5V Arduino, use a level shifter (many people add 1kΩ resistors in series instead, but that is a hack)."
+    }
+  },
+  {
+    "id": "seg7-single-cc",
+    "name": "Single 7-Segment Digit (common cathode)",
+    "category": "displays",
+    "icon": "seg7-one",
+    "desc": "One big digit made of 7 LED bars plus a dot. Great for dice and counters. Each segment needs its own resistor.",
+    "voltage": "~2V per segment (use resistors)",
+    "interfaces": ["Digital"],
+    "tags": ["7-segment", "digit", "numbers", "dice"],
+    "price": [1, 5],
+    "note": "Common cathode: the shared pin goes to GND and a HIGH pin lights a segment. Use a 220Ω resistor on each segment."
+  }
+]

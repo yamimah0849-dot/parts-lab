@@ -1,0 +1,49 @@
+[
+  {
+    "id": "soldering-iron",
+    "name": "Soldering Iron Kit (adjustable)",
+    "category": "tools",
+    "icon": "iron",
+    "desc": "Melts solder to join wires and pins permanently. Needed for modules that ship with loose header pins.",
+    "voltage": "220–240V mains (60W)",
+    "interfaces": [],
+    "tags": ["solder", "tool", "assembly"],
+    "price": [30, 90],
+    "note": "The tip is about 350°C. Always use the stand, work in a ventilated room, and wash your hands after handling solder."
+  },
+  {
+    "id": "multimeter",
+    "name": "Digital Multimeter",
+    "category": "tools",
+    "icon": "multimeter",
+    "desc": "Measures voltage, resistance and continuity (beeps when two points are connected). Your best friend for finding wiring mistakes.",
+    "voltage": "Battery inside (usually 9V or 2×AAA)",
+    "interfaces": [],
+    "tags": ["meter", "tool", "debug", "measure"],
+    "price": [25, 80],
+    "note": "Beginner rule: only measure low-voltage circuits (batteries, boards), never wall sockets."
+  },
+  {
+    "id": "wire-stripper",
+    "name": "Wire Stripper / Cutter",
+    "category": "tools",
+    "icon": "stripper",
+    "desc": "Cuts wire and removes its plastic coating cleanly without nicking the copper.",
+    "voltage": "No power",
+    "interfaces": [],
+    "tags": ["wire", "tool", "cut"],
+    "price": [10, 35]
+  },
+  {
+    "id": "hot-glue-gun",
+    "name": "Hot Glue Gun",
+    "category": "tools",
+    "icon": "glue",
+    "desc": "Sticks your project into its case and holds wires in place. The fastest way to make a build look finished.",
+    "voltage": "220–240V mains",
+    "interfaces": [],
+    "tags": ["glue", "tool", "enclosure", "craft"],
+    "price": [15, 45],
+    "note": "The nozzle and fresh glue are hot enough to burn skin."
+  }
+]

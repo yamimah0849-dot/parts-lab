@@ -1,0 +1,98 @@
+[
+  {
+    "id": "button-6mm",
+    "name": "Tactile Push Button (6×6mm)",
+    "category": "input",
+    "icon": "button",
+    "desc": "The tiny click button that fits on a breadboard. Read it with INPUT_PULLUP, so no resistor is needed.",
+    "voltage": "Works at your board's voltage",
+    "interfaces": ["Digital"],
+    "tags": ["button", "click", "switch", "gaming"],
+    "price": [1, 5],
+    "note": "It has 4 legs in 2 connected pairs. Put it across the breadboard's middle gap and use legs on opposite sides."
+  },
+  {
+    "id": "arcade-button",
+    "name": "Arcade Push Button (30mm)",
+    "category": "input",
+    "icon": "arcade",
+    "desc": "A big, satisfying arcade-style button with a microswitch. Makes any game controller or \"big red button\" feel real.",
+    "voltage": "Works at your board's voltage",
+    "interfaces": ["Digital"],
+    "tags": ["button", "arcade", "gaming", "big"],
+    "price": [4, 15],
+    "note": "Use the COM and NO terminals (crimp or solder wires). Some include an LED that needs its own power."
+  },
+  {
+    "id": "potentiometer-10k",
+    "name": "Potentiometer 10kΩ (knob)",
+    "category": "input",
+    "icon": "pot",
+    "desc": "A turnable knob that gives your board a value from 0 to max. Use it for volume, brightness, speed or game paddles.",
+    "voltage": "Connect to your board's voltage",
+    "interfaces": ["Analog"],
+    "tags": ["knob", "dial", "analog", "control"],
+    "price": [1, 5],
+    "note": "Outer legs go to GND and VCC (3.3V on 3.3V boards!), and the middle leg goes to an analog pin."
+  },
+  {
+    "id": "rotary-encoder",
+    "name": "Rotary Encoder with Button (KY-040)",
+    "category": "input",
+    "icon": "encoder",
+    "desc": "A knob that clicks around forever, with no start or end, and you can also push it. Perfect for menus and volume.",
+    "voltage": "3.3–5V",
+    "vcc": [3.3, 5],
+    "interfaces": ["Digital"],
+    "tags": ["knob", "menu", "encoder", "control"],
+    "price": [3, 10]
+  },
+  {
+    "id": "joystick",
+    "name": "Analog Joystick (KY-023)",
+    "category": "input",
+    "icon": "joystick",
+    "desc": "A thumb stick like a game controller's, with X/Y directions plus a click button. Controls games, robots and cameras.",
+    "voltage": "3.3–5V",
+    "vcc": [3.3, 5],
+    "interfaces": ["Analog", "Digital"],
+    "tags": ["joystick", "gaming", "controller", "thumbstick"],
+    "price": [4, 12],
+    "note": "Power +5V from 3.3V on 3.3V boards. The button (SW) needs INPUT_PULLUP."
+  },
+  {
+    "id": "keypad-4x4",
+    "name": "4x4 Membrane Keypad",
+    "category": "input",
+    "icon": "keypad",
+    "desc": "A flat sticker keypad with 0–9, A–D, * and #. Use it for passwords, calculators and safes. It uses 8 pins.",
+    "voltage": "No power needed (switch matrix)",
+    "interfaces": ["Digital"],
+    "tags": ["keypad", "password", "numbers", "lock"],
+    "price": [3, 10]
+  },
+  {
+    "id": "touch-ttp223",
+    "name": "TTP223 Capacitive Touch Button",
+    "category": "input",
+    "icon": "touch",
+    "desc": "A touch-sensitive pad: tap it like a phone screen. It even works through thin plastic or paper.",
+    "voltage": "2–5.5V",
+    "vcc": [2, 5.5],
+    "interfaces": ["Digital"],
+    "tags": ["touch", "button", "capacitive"],
+    "price": [1, 5],
+    "note": "By default the output goes HIGH while touched."
+  },
+  {
+    "id": "slide-switch",
+    "name": "Slide Switch (SPDT)",
+    "category": "input",
+    "icon": "switch",
+    "desc": "A small on/off slide switch. Use it as a mode selector or a battery power switch.",
+    "voltage": "Low-voltage DC only",
+    "interfaces": ["Digital"],
+    "tags": ["switch", "power", "toggle", "mode"],
+    "price": [1, 4]
+  }
+]

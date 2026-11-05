@@ -1,0 +1,114 @@
+[
+  {
+    "id": "battery-9v",
+    "name": "9V Battery + Snap Connector",
+    "category": "power",
+    "icon": "battery-9v",
+    "desc": "A quick way to run a small Arduino project without USB (connect to VIN or the barrel jack). It drains fast, so it's not for motors or LED strips.",
+    "voltage": "9V",
+    "interfaces": ["Power"],
+    "tags": ["battery", "portable", "9v"],
+    "price": [8, 20]
+  },
+  {
+    "id": "battery-aa-4",
+    "name": "4×AA Battery Holder (with switch)",
+    "category": "power",
+    "icon": "battery-aa",
+    "desc": "Holds four AA batteries for about 6V (or 4.8V with rechargeables). A good separate supply for servos and small motors.",
+    "voltage": "~6V (alkaline) · ~4.8V (NiMH)",
+    "interfaces": ["Power"],
+    "tags": ["battery", "portable", "aa", "motor power"],
+    "price": [4, 12],
+    "note": "Don't feed 6V into a board's 5V pin. Use VIN/barrel (7V+ recommended) or a regulator."
+  },
+  {
+    "id": "usb-adapter-5v",
+    "name": "5V 2A USB Wall Adapter",
+    "category": "power",
+    "icon": "plug",
+    "desc": "A phone charger that powers your project through its USB cable once it no longer needs a PC.",
+    "voltage": "5V 2A out · 220–240V wall",
+    "interfaces": ["Power"],
+    "tags": ["usb", "charger", "wall", "5v"],
+    "price": [15, 40]
+  },
+  {
+    "id": "adapter-12v",
+    "name": "12V 2A DC Adapter (barrel jack)",
+    "category": "power",
+    "icon": "plug",
+    "desc": "A wall adapter with a 5.5×2.1mm barrel plug. It powers Uno/Mega boards through their jack, plus 12V lights and motor drivers.",
+    "voltage": "12V 2A out · 220–240V wall",
+    "interfaces": ["Power"],
+    "tags": ["adapter", "12v", "barrel", "wall"],
+    "price": [15, 35],
+    "note": "The Uno's regulator gets hot at 12V when powering extras. Fine for the board alone, but use a buck converter for bigger loads."
+  },
+  {
+    "id": "buck-lm2596",
+    "name": "LM2596 Buck Converter (step-down)",
+    "category": "power",
+    "icon": "regulator",
+    "desc": "Turns a higher voltage (like 12V) into a lower one (like 5V) efficiently. Set the output with its screw before connecting anything.",
+    "voltage": "In 4.5–40V · out 1.25–37V adjustable · ~2A",
+    "vcc": [4.5, 40],
+    "interfaces": ["Power"],
+    "tags": ["regulator", "buck", "step-down", "5v"],
+    "price": [5, 15],
+    "note": "Measure and set the output with a multimeter BEFORE connecting your board. Out of the box it can be set to anything."
+  },
+  {
+    "id": "mb102",
+    "name": "MB102 Breadboard Power Supply",
+    "category": "power",
+    "icon": "regulator",
+    "desc": "Clips onto a breadboard and feeds its power rails 5V or 3.3V (a jumper picks which for each side) from a 6.5–12V adapter.",
+    "voltage": "In 6.5–12V · out 5V / 3.3V · ~700mA",
+    "vcc": [6.5, 12],
+    "interfaces": ["Power"],
+    "tags": ["breadboard", "power", "3.3v", "5v"],
+    "price": [5, 15],
+    "note": "Check the jumper on each side before powering 3.3V-only parts."
+  },
+  {
+    "id": "tp4056",
+    "name": "TP4056 Li-ion Charger (USB-C, protected)",
+    "category": "power",
+    "icon": "charger",
+    "desc": "Safely charges a single 3.7V lithium battery (18650 or LiPo) from USB. Pick the version with protection (6 pads, OUT+/OUT−).",
+    "voltage": "In 5V USB · battery 3.7V (4.2V full)",
+    "interfaces": ["Power"],
+    "tags": ["lithium", "charger", "18650", "lipo", "portable"],
+    "price": [3, 10],
+    "note": "Lithium cells can catch fire if shorted, punctured or wired backwards. Double-check polarity and never leave them charging unattended."
+  },
+  {
+    "id": "relay-5v",
+    "name": "5V Relay Module (1-channel)",
+    "category": "power",
+    "icon": "relay",
+    "desc": "An electric switch your board can flip to turn a separate circuit on or off, like a 12V lamp or pump. It clicks!",
+    "voltage": "5V coil · switches up to 10A",
+    "vcc": [5, 5],
+    "interfaces": ["Digital"],
+    "tags": ["relay", "switch", "12v", "click"],
+    "price": [5, 15],
+    "note": "Beginner rule: use it only for low-voltage DC loads (12V or less). Never wire it to 220V mains. Many modules are active-LOW (LOW = ON).",
+    "warn": {
+      "3.3": "Many 5V relay modules don't switch reliably from a 3.3V pin. Look for one marked \"3.3V/5V trigger\" or drive the input through a transistor."
+    }
+  },
+  {
+    "id": "power-bank",
+    "name": "USB Power Bank",
+    "category": "power",
+    "icon": "battery-pack",
+    "desc": "Your phone's power bank can run most projects for hours through the USB cable. The easiest portable power there is.",
+    "voltage": "5V USB",
+    "interfaces": ["Power"],
+    "tags": ["portable", "usb", "battery", "5v"],
+    "price": [30, 80],
+    "note": "Some power banks switch off when a project draws very little current."
+  }
+]

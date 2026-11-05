@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "categories": [
+    { "id": "boards",     "name": "Boards",          "jp": "ボード",     "icon": "cat-boards",     "color": "#36f1cd" },
+    { "id": "sensors",    "name": "Sensors",         "jp": "センサー",   "icon": "cat-sensors",    "color": "#7cf6ff" },
+    { "id": "displays",   "name": "Displays",        "jp": "ディスプレイ", "icon": "cat-displays",  "color": "#8b6cff" },
+    { "id": "motion",     "name": "Motors & Servos", "jp": "モーター",   "icon": "cat-motion",     "color": "#ff8a3d" },
+    { "id": "audio",      "name": "Audio",           "jp": "オーディオ", "icon": "cat-audio",      "color": "#ff4fa3" },
+    { "id": "lighting",   "name": "LEDs & Lighting", "jp": "ライト",     "icon": "cat-lighting",   "color": "#ffe14f" },
+    { "id": "input",      "name": "Input",           "jp": "インプット", "icon": "cat-input",      "color": "#4dff9a" },
+    { "id": "comms",      "name": "Comms & Data",    "jp": "通信",       "icon": "cat-comms",      "color": "#4fa8ff" },
+    { "id": "power",      "name": "Power",           "jp": "電源",       "icon": "cat-power",      "color": "#ff5566" },
+    { "id": "components", "name": "Components",      "jp": "部品",       "icon": "cat-components", "color": "#c8d3ea" },
+    { "id": "tools",      "name": "Tools",           "jp": "道具",       "icon": "cat-tools",      "color": "#ffb547" }
+  ]
+}

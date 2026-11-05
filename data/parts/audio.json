@@ -1,0 +1,87 @@
+[
+  {
+    "id": "buzzer-active",
+    "name": "Active Buzzer (5V)",
+    "category": "audio",
+    "icon": "buzzer",
+    "desc": "Beeps at one fixed pitch as soon as it gets power. Super simple alarms and alerts: just turn a pin on or off.",
+    "voltage": "3.3–5V",
+    "vcc": [3.3, 5],
+    "interfaces": ["Digital"],
+    "tags": ["beep", "alarm", "buzzer", "sound"],
+    "variantGroup": "buzzer",
+    "variantNote": "Active: has its own oscillator, so it only beeps one tone. Usually has a sticker on top and is sealed underneath.",
+    "price": [1, 6],
+    "note": "Polarity matters: the longer leg (+) goes to the signal side."
+  },
+  {
+    "id": "buzzer-passive",
+    "name": "Passive Buzzer",
+    "category": "audio",
+    "icon": "buzzer",
+    "desc": "A buzzer that can play any note you choose with tone(), so it can play melodies and game sounds.",
+    "voltage": "3.3–5V",
+    "vcc": [3.3, 5],
+    "interfaces": ["PWM"],
+    "tags": ["melody", "music", "buzzer", "sound", "gaming"],
+    "variantGroup": "buzzer",
+    "variantNote": "Passive: needs a tone signal. You can see the green circuit board underneath.",
+    "price": [1, 6]
+  },
+  {
+    "id": "speaker-8ohm",
+    "name": "Small Speaker (8Ω, 0.5–3W)",
+    "category": "audio",
+    "icon": "speaker",
+    "desc": "A real speaker for music and voices. Much better sound than a buzzer, but it always needs an amplifier.",
+    "voltage": "Driven by an amplifier",
+    "interfaces": ["Analog audio"],
+    "tags": ["speaker", "sound", "music"],
+    "price": [4, 15],
+    "note": "Never connect a speaker straight to a board pin. Use an amplifier (PAM8403, MAX98357A) or a DFPlayer Mini."
+  },
+  {
+    "id": "pam8403",
+    "name": "PAM8403 Stereo Amp (2×3W)",
+    "category": "audio",
+    "icon": "amp",
+    "desc": "A small amplifier that makes audio loud enough for two speakers. Often comes with a volume knob.",
+    "voltage": "5V (2.5–5.5V)",
+    "vcc": [2.5, 5.5],
+    "interfaces": ["Analog audio"],
+    "tags": ["amplifier", "speaker", "sound", "music"],
+    "price": [3, 12],
+    "note": "Each speaker connects only to its own + and − outputs. Never connect a speaker − to GND: that can destroy the amp."
+  },
+  {
+    "id": "dfplayer-mini",
+    "name": "DFPlayer Mini MP3 Player",
+    "category": "audio",
+    "icon": "mp3",
+    "desc": "Plays MP3 files from a microSD card and drives a small speaker by itself. Perfect for sound effects, voice lines and music boxes.",
+    "voltage": "3.2–5V",
+    "vcc": [3.2, 5],
+    "interfaces": ["UART"],
+    "tags": ["mp3", "music", "sound effects", "microsd"],
+    "price": [6, 20],
+    "note": "Use a microSD card of 32GB or less, formatted FAT32, with files named 0001.mp3, 0002.mp3 and so on.",
+    "warn": {
+      "5": "Put a 1kΩ resistor between the board's TX and the DFPlayer RX. Its pins are 3.3V, and this also removes buzzing noise."
+    }
+  },
+  {
+    "id": "max98357a",
+    "name": "MAX98357A I2S Amp (3W)",
+    "category": "audio",
+    "icon": "amp",
+    "desc": "A digital amplifier that turns an I2S audio stream straight into speaker sound. Clean audio for ESP32 and Pico projects.",
+    "voltage": "2.5–5.5V",
+    "vcc": [2.5, 5.5],
+    "interfaces": ["I2S"],
+    "tags": ["amplifier", "i2s", "speaker", "music"],
+    "price": [10, 30],
+    "warn": {
+      "5": "MAX98357A needs I2S audio, which the Uno, Nano, Mega and Leonardo don't have. Use an ESP32, ESP32-S3 or Pico."
+    }
+  }
+]

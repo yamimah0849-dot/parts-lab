@@ -1,0 +1,105 @@
+[
+  {
+    "id": "hc-05",
+    "name": "HC-05 Bluetooth Serial Module",
+    "category": "comms",
+    "icon": "bluetooth",
+    "desc": "Gives an Arduino a wireless serial link to an Android phone or a PC. Classic Bluetooth only.",
+    "voltage": "VCC 3.6–6V · 3.3V logic",
+    "vcc": [3.6, 6],
+    "interfaces": ["UART"],
+    "tags": ["bluetooth", "wireless", "phone", "android"],
+    "price": [15, 35],
+    "note": "Does NOT work with iPhones: iOS apps can't use classic Bluetooth serial. For iPhone, use an ESP32's Bluetooth LE or Wi-Fi.",
+    "warn": {
+      "5": "HC-05 RX is 3.3V. Put a voltage divider (1kΩ + 2kΩ) between the Arduino's TX and the HC-05's RX."
+    }
+  },
+  {
+    "id": "nrf24l01",
+    "name": "nRF24L01+ 2.4GHz Radio",
+    "category": "comms",
+    "icon": "radio",
+    "desc": "Cheap radio modules that let two boards talk wirelessly (up to ~100 m in the open). Great for remote controls.",
+    "voltage": "3.3V power only · 5V-tolerant pins",
+    "vcc": [1.9, 3.6],
+    "interfaces": ["SPI"],
+    "tags": ["radio", "wireless", "remote", "2.4ghz"],
+    "price": [5, 15],
+    "note": "Solder a 10µF capacitor across VCC and GND right on the module, or it drops out randomly.",
+    "warn": {
+      "5": "nRF24L01 must be powered from 3.3V. 5V destroys it. Its data pins are fine with 5V signals."
+    }
+  },
+  {
+    "id": "ir-kit",
+    "name": "IR Receiver (VS1838B) + Remote",
+    "category": "comms",
+    "icon": "ir-remote",
+    "desc": "A small infrared receiver plus a credit-card remote. Control your project from the couch, or read your TV remote's buttons.",
+    "voltage": "2.7–5.5V",
+    "vcc": [2.7, 5.5],
+    "interfaces": ["Digital"],
+    "tags": ["infrared", "remote", "control", "tv"],
+    "price": [5, 15],
+    "note": "Bare receivers differ in pin order. Check the datasheet or module labels (OUT, GND, VCC)."
+  },
+  {
+    "id": "rfid-rc522",
+    "name": "RC522 RFID Reader + Card & Tag",
+    "category": "comms",
+    "icon": "rfid",
+    "desc": "Reads the ID of tap cards and key tags (13.56MHz). Make a card-activated door, attendance logger or magic-wand game.",
+    "voltage": "3.3V power · 3.3V logic",
+    "vcc": [3.3, 3.3],
+    "interfaces": ["SPI"],
+    "tags": ["rfid", "nfc", "card", "access", "lock"],
+    "price": [10, 25],
+    "note": "Usually needs header pins soldered on.",
+    "warn": {
+      "5": "RC522 must be powered from 3.3V. Its pins are 3.3V. Many tutorials wire an Uno directly, but a level shifter is the safe choice."
+    }
+  },
+  {
+    "id": "rf-433",
+    "name": "433MHz RF Transmitter + Receiver Pair",
+    "category": "comms",
+    "icon": "radio",
+    "desc": "A very cheap one-way radio link for sending simple codes between boards, like a wireless doorbell.",
+    "voltage": "TX 3–12V · RX 5V",
+    "vcc": [3, 12],
+    "interfaces": ["Digital"],
+    "tags": ["radio", "433mhz", "wireless", "doorbell"],
+    "price": [4, 12],
+    "note": "Range improves a lot with a 17 cm wire antenna soldered to each module.",
+    "warn": {
+      "3.3": "The 433MHz receiver runs on 5V and outputs 5V. Use a voltage divider (1kΩ + 2kΩ) into a 3.3V board."
+    }
+  },
+  {
+    "id": "sd-module",
+    "name": "microSD Card Module (SPI)",
+    "category": "comms",
+    "icon": "sd",
+    "desc": "Lets your board save data to a microSD card, like sensor logs your PC can open in Excel.",
+    "voltage": "5V (onboard 3.3V regulator + level shifter)",
+    "vcc": [4.5, 5.5],
+    "interfaces": ["SPI"],
+    "tags": ["sd", "storage", "logging", "data"],
+    "price": [4, 12],
+    "note": "Power this common blue module from 5V, even with ESP32/Pico. Format the card as FAT32."
+  },
+  {
+    "id": "ds3231",
+    "name": "DS3231 Real-Time Clock (ZS-042)",
+    "category": "comms",
+    "icon": "rtc",
+    "desc": "A very accurate clock with a coin battery, so your project knows the date and time even after power-off.",
+    "voltage": "3.3–5V",
+    "vcc": [3.3, 5.5],
+    "interfaces": ["I2C"],
+    "tags": ["clock", "time", "rtc", "alarm"],
+    "price": [8, 22],
+    "note": "This board tries to charge its coin cell. With a regular CR2032 (not rechargeable), remove the charging diode or resistor, or use an LIR2032."
+  }
+]
